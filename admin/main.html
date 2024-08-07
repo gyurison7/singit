@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+	<!-- FONT -->
+	<link rel="preload" href="../asset/font/SUIT-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../admin/assets/css/toastui-chart.min.css">
+	<link rel="stylesheet" href="../admin/assets/css/adm_common.css">
+
+	<!-- JS -->
+    <script src="../admin/assets/js/jquery-3.6.0.min.js"></script>
+	<script src="../admin/assets/js/toastui-chart.js"></script>
+	
+    <title>Singit - 대시보드</title>
+</head>
+<body>
+    <main>
+        <div class="head-area"></div>
+        <script>
+            $(function(){
+                $('.head-area').load("../admin/include/header.html");
+            });
+        </script>
+
+        <!--========== CONTENTS ==========-->
+        <div id="main" class="admin page-main">
+          
+            <div class="table-contents-wrap">
+                <h2 class="hidden">메인 대시보드</h2>
+                <div class="main-container main-cont01">
+                    <div class="left-wrap">                        
+                        <div class="tit-box">
+							<h3 class="sec-title">일일 방문 횟수</h3>
+							<button class="common-btn small blue-line" aria-label="더보기" onclick="location.href='../admin/statistics.html'"><span>더보기</span></button>
+						</div>
+						<div class="chart-sec">
+							<div class="chart-container">
+								<div id="chart-visit-table"></div>
+							</div>
+						</div>
+                    </div>
+                    <div class="right-wrap">
+						<div class="data-info">
+							<div>
+								<div class="data-top">
+									<p class="daily">어제</p>
+									<p class="date">2024.07.22(월)</p>
+								</div>
+								<div class="data-bot">
+									<div class="visits">325</div>
+								</div>
+							</div>
+							<span class="mid-line"></span>
+							<div>
+								<div class="data-top">
+									<p class="daily">오늘</p>
+									<p class="date">2024.07.23(화)</p>
+								</div>
+								<div class="data-bot">
+									<span class="up change-num">25</span>
+									<div class="visits">350</div>
+								</div>
+							</div>
+							<span class="mid-line"></span>
+							<div>
+								<div class="data-top">
+									<p class="date">TOTAL</p>
+								</div>
+								<div class="data-bot">
+									<div class="visits">1,813,560</div>
+								</div>
+							</div>
+						</div>
+                    </div>
+                </div>
+
+				<div class="main-container main-cont02">
+					<div class="tab-container">
+						<div class="tab-top">
+							<ul class="tab-menu">
+								<li class="slider"></li>
+								<li class="tab-link current" data-tab="tab-1"><a href="javascript:;"><span>최신 콘텐츠</span></a></li>
+								<li class="tab-link" data-tab="tab-2"><a href="javascript:;"><span>영상/곡 콘텐츠</span></a></li>
+								<li class="tab-link" data-tab="tab-3"><a href="javascript:;"><span>프로모션 콘텐츠</span></a></li>
+							</ul>
+							<div class="tab-top-right">
+								<p>최근 3개월 이내의 게시물이 보여집니다.</p>
+								<button class="common-btn small blue-line" aria-label="더보기" onclick="location.href='../admin/admin_list.html'"><span>더보기</span></button>
+								<script>
+									function boardMoreShow(){
+										let currentTab = $(".main-cont02").find(".tab-menu .tab-link.current").attr("data-tab");
+										console.log(currentTab);
+									}
+								</script>
+							</div>
+						</div>
+						<div class="tab-content-wrap">
+							<div id="tab-1" class="tab-content current">
+								<div class="common-table-wrap over-table-wrap">
+									<table class="common-table current-post">
+										<caption class="hidden">최신 콘텐츠 테이블</caption>
+										<thead class="hidden">
+											<tr>
+												<th class="cell-th">
+													<div class="con-td">카테고리</div>
+												</th>
+												<th class="cell-th">
+													<div class="con-th">제목</div>
+												</th>
+												<th class="cell-th">
+													<div class="con-th">가수</div>
+												</th>
+												<th class="cell-th">
+													<div class="con-th">작성자</div>
+												</th>
+												<th class="cell-th">
+													<div class="con-th">기간</div>
+												</th>
+											</tr>
+										</thead>
+										<tbody>   
+											<!-- <tr class="empty">
+												<td colspan="5" class="empty"><p>게시물이 없습니다.</p></td>
+											</tr>                          -->
+											<tr onclick="location.href='../admin/admin_list.html'">
+												<td class="cell-td dt-left">
+													<div class="con-td">영상</div>
+												</td>
+												<td class="cell-td dt-left">
+													<div class="con-td ellipsis-txt">사랑을 했다</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">SF9 다원(솔로 ver.)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">홍*동(sup***)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">2024-07-23</div>
+												</td>
+											</tr>    
+											<tr onclick="location.href='../admin/admin_list.html'">
+												<td class="cell-td dt-left">
+													<div class="con-td">곡</div>
+												</td>
+												<td class="cell-td dt-left">
+													<div class="con-td ellipsis-txt">All For You</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">SF9 다원(솔로 ver.)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">홍*길(up****)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">2024-07-20</div>
+												</td>
+											</tr>    
+											<tr onclick="location.href='../admin/admin_list.html'">
+												<td class="cell-td dt-left">
+													<div class="con-td">프로모션 Battle</div>
+												</td>
+												<td class="cell-td dt-left">
+													<div class="con-td ellipsis-txt">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">AKMU(악동뮤지션)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">김*전(s***)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">2024-07-18</div>
+												</td>
+											</tr>    
+											<tr onclick="location.href='../admin/admin_list.html'">
+												<td class="cell-td dt-left">
+													<div class="con-td">프로모션 KPOP Contest</div>
+												</td>
+												<td class="cell-td dt-left">
+													<div class="con-td ellipsis-txt">아로하</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">조정석</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">박*성(s**)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">2024-07-17</div>
+												</td>
+											</tr>  
+											<tr onclick="location.href='../admin/admin_list.html'">
+												<td class="cell-td dt-left">
+													<div class="con-td">영상</div>
+												</td>
+												<td class="cell-td dt-left">
+													<div class="con-td ellipsis-txt">Psycho</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">Red Velvet</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">송*진(sp***)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">2024-07-23</div>
+												</td>
+											</tr>    
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div id="tab-2" class="tab-content">
+								<div class="common-table-wrap over-table-wrap">
+									<table class="common-table hot-post">
+										<caption class="hidden">영상/곡 테이블</caption>
+										<thead class="hidden">
+											<tr>
+												<th class="cell-th">
+													<div class="con-td">카테고리</div>
+												</th>
+												<th class="cell-th">
+													<div class="con-th">제목</div>
+												</th>
+												<th class="cell-th">
+													<div class="con-th">가수</div>
+												</th>
+												<th class="cell-th">
+													<div class="con-th">작성자</div>
+												</th>
+												<th class="cell-th">
+													<div class="con-th">기간</div>
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr onclick="location.href='../admin/admin_list.html'">
+												<td class="cell-td dt-left">
+													<div class="con-td">영상</div>
+												</td>
+												<td class="cell-td dt-left">
+													<div class="con-td ellipsis-txt">사랑을 했다</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">SF9 다원(솔로 ver.)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">홍*동(sup***)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">2024-07-23</div>
+												</td>
+											</tr> 
+											<tr onclick="location.href='../admin/admin_list.html'">
+												<td class="cell-td dt-left">
+													<div class="con-td">곡</div>
+												</td>
+												<td class="cell-td dt-left">
+													<div class="con-td ellipsis-txt">All For You</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">SF9 다원(솔로 ver.)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">홍*길(up****)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">2024-07-20</div>
+												</td>
+											</tr>    
+											<tr onclick="location.href='../admin/admin_list.html'">
+												<td class="cell-td dt-left">
+													<div class="con-td">곡</div>
+												</td>
+												<td class="cell-td dt-left">
+													<div class="con-td ellipsis-txt">사랑하게 될 줄 알았어</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">전미도</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">진*(p***)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">2024-07-10</div>
+												</td>
+											</tr>    
+											<tr onclick="location.href='../admin/admin_list.html'">
+												<td class="cell-td dt-left">
+													<div class="con-td">영상</div>
+												</td>
+												<td class="cell-td dt-left">
+													<div class="con-td ellipsis-txt">Psycho</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">Red Velvet</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">송*진(sp***)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">2024-07-05</div>
+												</td>
+											</tr>    
+											<tr onclick="location.href='../admin/admin_list.html'">
+												<td class="cell-td dt-left">
+													<div class="con-td">영상</div>
+												</td>
+												<td class="cell-td dt-left">
+													<div class="con-td ellipsis-txt">나만 몰랐던 이야기</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">아이유</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">이*은(ii***)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">2024-07-04</div>
+												</td>
+											</tr>    
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div id="tab-3" class="tab-content">
+								<div class="common-table-wrap over-table-wrap">
+									<table class="common-table my-post">
+										<caption class="hidden">프로모션 콘텐츠</caption>
+										<thead class="hidden">
+											<tr>
+												<th class="cell-th">
+													<div class="con-td">카테고리</div>
+												</th>
+												<th class="cell-th">
+													<div class="con-th">제목</div>
+												</th>
+												<th class="cell-th">
+													<div class="con-th">가수</div>
+												</th>
+												<th class="cell-th">
+													<div class="con-th">작성자</div>
+												</th>
+												<th class="cell-th">
+													<div class="con-th">기간</div>
+												</th>
+											</tr>
+										</thead>
+										<tbody>                   
+											<tr onclick="location.href='../admin/admin_list02.html'">
+												<td class="cell-td dt-left">
+													<div class="con-td">프로모션 Battle</div>
+												</td>
+												<td class="cell-td dt-left">
+													<div class="con-td ellipsis-txt">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">AKMU(악동뮤지션)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">김*전(s***)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">2024-07-18</div>
+												</td>
+											</tr>    
+											<tr onclick="location.href='../admin/admin_list02.html'">
+												<td class="cell-td dt-left">
+													<div class="con-td">프로모션 KPOP Contest</div>
+												</td>
+												<td class="cell-td dt-left">
+													<div class="con-td ellipsis-txt">아로하</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">조정석</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">박*성(s**)</div>
+												</td>
+												<td class="cell-td dt-center">
+													<div class="con-td">2024-07-17</div>
+												</td>
+											</tr>  
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+        <!--========== FOOTER ==========-->
+        <footer id="footer">
+
+        </footer>
+		<script>
+            $(function(){
+                $('#footer').load("../admin/include/footer.html");
+            });
+        </script>
+    </main>
+	
+	<!-- JS -->
+	<script src="../admin/assets/js/basic_admin.js"></script>
+	<script src="../admin/assets/js/chart.js"></script>
+</body>
+</html>

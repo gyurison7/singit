@@ -1,0 +1,146 @@
+<!--========== HEADER ==========-->
+<header id="header">
+    <div class="header-wrap">
+        <p class="header-desc"><a href="../admin/mypage.html"><span class="name">싱잇</span></a> 님 환영합니다.</p>
+        <div class="header-btn-wrap">
+            <button type="button" class="header-btn logout">로그아웃</button>
+            <button type="button" class="header-btn home">홈페이지</button>
+        </div>
+    </div>
+</header>
+<div class="nav">
+    <div class="top">
+        <div class="logo-wrap">
+            <h1 class="logo"><a href="../admin/main.html"><img src="../admin/assets/img/logo-h-white.svg" alt="admin-logo"></a></h1>
+        </div>
+        <div class="nav-btn-wrap">
+            <button type="button" class="nav-btn nav-close-btn" aria-label="닫기"><img src="../admin/assets/img/icon-nav-close-w.svg" alt="admin-logo"></button>
+            <button type="button" class="nav-btn nav-open-btn" aria-label="열기"><img src="../admin/assets/img/icon-nav-open-w.svg" alt="admin-logo"></button>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="main-menu-area">
+            <nav class="main-menu">
+                <ul class="menu-list">
+                    <li class="menu menu01 home"><a href="../admin/main.html"><span>홈</span></a></li>
+                    <li class="menu menu02"><a href="javascript:;"><span>콘텐츠 관리</span></a></li>
+                    <li class="menu menu03"><a href="javascript:;"><span>회원 관리</span></a></li>
+                    <li class="menu menu04"><a href="javascript:;"><span>서비스 운영 관리</span></a></li>
+					<!-- 
+					서브메뉴 없이 페이지 직속연결일시, li클래스에 home 추가 + a링크 추가
+
+					ex) <li class="menu menu07 home"><a href="../admin/account_list.html"><span>계정 관리</span></a></li>
+
+					-->
+                </ul>
+            </nav>
+        </div>
+        <div class="sub-menu-area">
+            <nav class="sub-menu sub-menu01">
+
+            </nav>
+            <nav class="sub-menu sub-menu02">
+                <div class="sub-menu-title">
+                    <a href="javascript:;"><img src="../admin/assets/img/icon-arrow-down.svg" alt="down-arrow"><span>콘텐츠 관리</span></a>
+                </div>
+                <ul class="menu-list">
+					<li class="menu menu01"><a href="../admin/admin_list.html"><span>영상관리</span><img src="../admin/assets/img/icon-arrow-down.svg" alt="down-arrow"></a></li>
+                    <li class="menu menu02"><a href="../admin/admin_list.html"><span>곡 관리</span><img src="../admin/assets/img/icon-arrow-down.svg" alt="down-arrow"></a></li>
+                    <li class="menu menu03"><a href="../admin/admin_list.html"><span>프로모션 관리</span><img src="../admin/assets/img/icon-arrow-down.svg" alt="down-arrow"></a></li>
+                    <li class="menu menu04"><a href="../admin/admin_list.html"><span>Singit Box</span><img src="../admin/assets/img/icon-arrow-down.svg" alt="down-arrow"></a></li>
+                </ul>
+            </nav>
+            <nav class="sub-menu sub-menu03">
+                <div class="sub-menu-title">
+                    <a href="javascript:;"><img src="../admin/assets/img/icon-arrow-down.svg" alt="down-arrow"><span>회원 관리</span></a>
+                </div>
+                <ul class="menu-list">
+                    <li class="menu menu01"><a href="../admin/admin_member_list.html"><span>사용자 관리</span><img src="../admin/assets/img/icon-arrow-down.svg" alt="down-arrow"></a></li>
+					<li class="menu menu02"><a href="../admin/admin_member_list.html"><span>회원정책</span><img src="../admin/assets/img/icon-arrow-down.svg" alt="down-arrow"></a></li>
+                </ul>
+            </nav>
+            <nav class="sub-menu sub-menu04">
+				<div class="sub-menu-title">
+                    <a href="javascript:;"><img src="../admin/assets/img/icon-arrow-down.svg" alt="down-arrow"><span>서비스 운영 관리</span></a>
+                </div>
+                <ul class="menu-list">
+                    <li class="menu menu01"><a href="../admin/event_list.html"><span>쿠폰 관리</span><img src="../admin/assets/img/icon-arrow-down.svg" alt="down-arrow"></a></li>
+                    <li class="menu menu02"><a href="../admin/event_list.html"><span>싱코인 관리</span><img src="../admin/assets/img/icon-arrow-down.svg" alt="down-arrow"></a></li>
+                    <li class="menu menu03"><a href="../admin/event_list.html"><span>배너 관리</span><img src="../admin/assets/img/icon-arrow-down.svg" alt="down-arrow"></a></li>
+                    <li class="menu menu04"><a href="../admin/event_list.html"><span>관리자 관리</span><img src="../admin/assets/img/icon-arrow-down.svg" alt="down-arrow"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<script>
+    $(window).resize(function(){ 
+        $('main').css({paddingLeft: "216px"});
+		$('.head-area').removeClass('navHidden');
+		// Nav slide
+		$(".nav .top .nav-btn-wrap .nav-close-btn").click(function () {
+			$('.head-area').addClass('navHidden');
+			$('.sub-menu-area').fadeOut(200);
+			$('main').css({paddingLeft: "56px"});
+		});
+		$(".nav .top .nav-btn-wrap .nav-open-btn").click(function () {
+			$('.head-area').removeClass('navHidden');
+			$('.sub-menu-area').fadeIn(300);
+			$('main').css({paddingLeft: "216px"});
+		});
+    }).resize();
+
+    // menu
+    $('.main-menu .menu:not(.home) a').click(function () {
+        $(this).addClass('active').parent().siblings().children().removeClass('active');
+        number = $(this).parent().index();
+        $('.sub-menu').eq(number).show().animate({marginLeft: "0"}, 300 ).addClass('on').siblings().hide().css({marginLeft: "0"}).removeClass('on');
+        if (window.innerWidth < 767 && !$('#container').hasClass('navHidden')) {
+            $('html').css('overflow-y', 'hidden');
+        } else {
+            $('html').css('overflow-y', 'auto');
+        }
+    });
+    $('.sub-menu-title > a').click(function () {
+        $(this).parent().parent().animate({marginLeft: "200px"}, 300 ).removeClass('on').siblings().css({marginLeft: "200px"});
+        $('.main-menu .menu a').removeClass('active');
+        if (window.innerWidth < 767 && !$('#container').hasClass('navHidden')) {
+            $('html').css('overflow-y', 'hidden');
+        } else {
+            $('html').css('overflow-y', 'auto');
+        }
+    });
+    $('.main-menu .menu.home a').click(function () {
+        $('.sub-menu').animate({marginLeft: "200px"}, 300 ).removeClass('on');
+        if (window.innerWidth < 767 && !$('#container').hasClass('navHidden')) {
+            $('html').css('overflow-y', 'hidden');
+        } else {
+            $('html').css('overflow-y', 'auto');
+        }
+    });
+    
+    // menu 3depth
+    var accordion_nav = $('.sub-menu .menu > a'), accordion_nav_con = $('.menu-3depth');
+    accordion_nav.on('click', function (e) {
+        accordion_nav.removeClass('active');
+        accordion_nav_con.slideUp('normal');
+        if ($(this).next().is(':hidden') == true) {
+            $(this).addClass('active');
+            $(this).next().slideDown('normal');
+        }
+        if (window.innerWidth < 767 && !$('#container').hasClass('navHidden')) {
+            $('html').css('overflow-y', 'hidden');
+        } else {
+            $('html').css('overflow-y', 'auto');
+        }
+    });
+
+    $(document).on('mouseup touchend', function(e) {
+        var container = $('#container');
+        var nav = $('.nav');
+
+        if (window.innerWidth < 767 && !container.hasClass('navHidden') && !nav.is(e.target) && nav.has(e.target).length === 0) {
+            container.addClass('navHidden');
+        }
+    });
+</script>

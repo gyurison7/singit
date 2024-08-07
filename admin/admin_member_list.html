@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- FONT -->
+	<link rel="preload" href="../asset/font/SUIT-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../admin/assets/css/adm_common.css">
+    <link rel="stylesheet" href="../admin/assets/css/adm_board.css">
+    <link rel="stylesheet" href="../admin/assets/css/adm_manage.css">
+    <link rel="stylesheet" href="../admin/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="../admin/assets/css/jquery.timepicker.min.css">
+
+    <!-- JS -->
+    <script src="../admin/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../admin/assets/js/jquery-ui.min.js"></script>
+    <script src="../admin/assets/js/jquery.timepicker.min.js"></script>
+
+    <title>Singit - 회원 관리</title>
+</head>
+<body>
+    <main>
+        <div class="head-area"></div>
+        <script>
+            $(function(){
+                $('.head-area').load("../admin/include/header.html");
+            });
+        </script>
+        <!--========== CONTENTS ==========-->
+        <div id="main" class="board-list-type adm-list">
+            <div class="admin-section-wrap">
+                <div class="page-title-wrap">
+                    <h2 class="page-title">회원 관리</h2>
+                </div>
+
+                <div class="admin-section-inner">
+                    <section class="section board-list-tab">
+                        <h3 class="sec-title hidden">회원 관리 목록</h3>
+                        <div class="sec-title-wrap">
+                            <ul class="tab-menu mileage-tab-menu">
+                                <li class="slider"></li>
+                                <li class="tab-link current" data-tab="available"><a href="javascript:;"><span>사용자 관리</span></a></li>
+                                <li class="tab-link" data-tab="unavailable01"><a href="javascript:;"><span>회원 정책</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-container">
+                            <div class="tab-content-wrap">
+                                <div id="available" class="tab-content current">
+                                    <div class="table-contents-wrap">
+                                        <div class="common-table-top">
+                                            <div class="left-wrap">
+                                                <div class="input-box-wrap">
+                                                    <div class="common-sch-box">
+                                                        <div class="input-box text">
+                                                            <input class="common-search" type="text" id="searchKeyword" placeholder="이름 또는 아이디로 검색하세요.">
+                                                            <span class="border-focus"><i></i></span>
+                                                        </div>
+                                                        <button type="button" class="common-btn small search-button" onkeypress="if( event.keyCode == 13 ){searchData();}" tabindex="1" aria-label="검색" onclick=""><span>검색</span></button>
+                                                        <a href="#none" class="btnRefresh" title="새로고침"></a>
+                                                    </div>
+                                                    <!-- 사용가능 아이디 일 경우 input-box-wrap 클래스 pass 추가 -->
+                                                    <div class="pass-wrap">
+                                                        <p class="pass">사용 가능한 아이디입니다.</p>  
+                                                    </div>
+                                                    <!-- 에러일 경우 input-box-wrap 클래스 error 추가 -->
+                                                    <div class="error-wrap">
+                                                        <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="right-wrap">
+                                                <div class="btn-wrap">
+                                                    <button type="button" class="common-btn small excel-download" aria-label="title"><span>사용자 정보 엑셀 다운로드</span></button>
+                                                    <button class="common-btn small save" aria-label="사용자 등록" onclick="location.href='#none'"><span>사용자 등록 관리</span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="common-table-wrap">
+                                            <table class="common-table">
+                                                <caption class="hidden">사용자 관리 목록</caption>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">No</div>
+                                                        </th>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">사용여부</div>
+                                                        </th>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">사용자 그룹</div>
+                                                        </th>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">회원구분</div>
+                                                        </th>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">이름</div>
+                                                        </th>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">아이디</div>
+                                                        </th>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">휴대폰 번호</div>
+                                                        </th>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">이메일</div>
+                                                        </th>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">최근 로그인</div>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- <tr class="empty">
+                                                        <td colspan="14" class="empty"><p>'검색어'에 따른 검색결과가 없습니다.</p></td>
+                                                    </tr> -->
+                                                    <tr>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">12</div>
+                                                        </td>
+                                                        <td class="cell-td cell-yn">
+                                                            <div class="con-td yes">y</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">일반 관리자</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">외부업체</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">김*경</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">010-****-5555</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******@mediascope.kr</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">2023-08-02 14:03:02</div>
+                                                        </td>
+                                                    </tr>  
+                                                    <tr>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">11</div>
+                                                        </td>
+                                                        <td class="cell-td cell-yn">
+                                                            <div class="con-td no">n</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">콘텐츠 관리자</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">직원</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">김*경</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">010-****-5555</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******@mediascope.kr</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">2023-08-02 14:03:02</div>
+                                                        </td>
+                                                    </tr>  
+                                                    <tr>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">10</div>
+                                                        </td>
+                                                        <td class="cell-td cell-yn">
+                                                            <div class="con-td no">n</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">유튜브 관리자</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">직원</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">이*현</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">010-****-5555</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******@mediascope.kr</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">2023-08-02 14:03:02</div>
+                                                        </td>
+                                                    </tr>  
+                                                    <tr>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">9</div>
+                                                        </td>
+                                                        <td class="cell-td cell-yn">
+                                                            <div class="con-td yes">y</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">일반 사용자</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">일반 고객</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">이*현</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">010-****-5555</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******@naver.com</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">2023-08-02 14:03:02</div>
+                                                        </td>
+                                                    </tr>  
+                                                    <tr>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">8</div>
+                                                        </td>
+                                                        <td class="cell-td cell-yn">
+                                                            <div class="con-td yes">y</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">일반 사용자</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">일반 고객</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">이*현</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">010-****-5555</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******@naver.com</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">2023-08-02 14:03:02</div>
+                                                        </td>
+                                                    </tr>  
+                                                    <tr>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">7</div>
+                                                        </td>
+                                                        <td class="cell-td cell-yn">
+                                                            <div class="con-td yes">y</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">운영 관리자</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">직원</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">이*현</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">010-****-5555</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******@mediascope.kr</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">2023-08-02 14:03:02</div>
+                                                        </td>
+                                                    </tr>  
+                                                    <tr>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">6</div>
+                                                        </td>
+                                                        <td class="cell-td cell-yn">
+                                                            <div class="con-td no">n</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">일반 사용자</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">일반 고객</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">이*현</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">010-****-5555</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******@naver.com</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">2023-08-02 14:03:02</div>
+                                                        </td>
+                                                    </tr>  
+                                                    <tr>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">5</div>
+                                                        </td>
+                                                        <td class="cell-td cell-yn">
+                                                            <div class="con-td no">n</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">일반 사용자</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">일반 고객</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">이*현</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">su*</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">010-****-5555</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******@naver.com</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">2023-08-02 14:03:02</div>
+                                                        </td>
+                                                    </tr>  
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="common-table-bottom">
+                                            <div class="left-wrap">
+                                                <div class="pager-area">
+                                                    <div class="basic-select-box">
+                                                        <select>
+                                                            <option value="10">10건</option>
+                                                            <option value="20">20건</option>
+                                                            <option value="30">30건</option>
+                                                            <option value="50">50건</option>
+                                                            <option value="100">100건</option>
+                                                        </select>
+                                                        <span class="border-focus"><i></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="pagination-wrap">
+                                                <button class="pagination-btn first" title="첫 페이지">첫 페이지</button>
+                                                <button class="pagination-btn prev" title="이전 페이지">이전 페이지</button>
+                                                <ul class="pagination-list">
+                                                    <li class="current"><button>1</button></li>
+                                                    <li><button>2</button></li>
+                                                    <li><button>3</button></li>
+                                                    <li><button>4</button></li>
+                                                    <li><button>5</button></li>
+                                                </ul>
+                                                <button class="pagination-btn next" title="다음 페이지">다음 페이지</button>
+                                                <button class="pagination-btn last" title="마지막 페이지">마지막 페이지</button>
+                                            </div>
+                                            <div class="right-wrap"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="unavailable01" class="tab-content">
+                                    <div class="table-contents-wrap">
+                                        <div class="common-table-top">
+                                            <div class="left-wrap">
+                                                <div class="input-box-wrap">
+                                                    <div class="common-sch-box">
+                                                        <div class="input-box text">
+                                                            <input class="common-search" type="text" id="searchKeyword" placeholder="이름 또는 아이디로 검색하세요.">
+                                                            <span class="border-focus"><i></i></span>
+                                                        </div>
+                                                        <button type="button" class="common-btn small search-button" onkeypress="if( event.keyCode == 13 ){searchData();}" tabindex="1" aria-label="검색" onclick=""><span>검색</span></button>
+                                                        <a href="#none" class="btnRefresh" title="새로고침"></a>
+                                                    </div>
+                                                    <!-- 사용가능 아이디 일 경우 input-box-wrap 클래스 pass 추가 -->
+                                                    <div class="pass-wrap">
+                                                        <p class="pass">사용 가능한 아이디입니다.</p>  
+                                                    </div>
+                                                    <!-- 에러일 경우 input-box-wrap 클래스 error 추가 -->
+                                                    <div class="error-wrap">
+                                                        <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="right-wrap">
+                                                <div class="btn-wrap">
+                                                    <button class="common-btn small save" aria-label="회원 정책 관리" onclick="location.href='#none'"><span>회원 정책 관리</span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="common-table-wrap">
+                                            <table class="common-table">
+                                                <caption class="hidden">회원 정책 관리 목록</caption>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">No</div>
+                                                        </th>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">사용여부</div>
+                                                        </th>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">회원 등급</div>
+                                                        </th>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">회원 혜택</div>
+                                                        </th>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">이름</div>
+                                                        </th>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">아이디</div>
+                                                        </th>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">휴대폰 번호</div>
+                                                        </th>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">이메일</div>
+                                                        </th>
+                                                        <th class="cell-th">
+                                                            <div class="con-th">최근 로그인</div>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- <tr class="empty">
+                                                        <td colspan="14" class="empty"><p>'검색어'에 따른 검색결과가 없습니다.</p></td>
+                                                    </tr> -->
+                                                    <tr>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">12</div>
+                                                        </td>
+                                                        <td class="cell-td cell-yn">
+                                                            <div class="con-td yes">y</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">LV.1</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">VIP</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">김*경</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">010-****-5555</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******@mediascope.kr</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">2023-08-02 14:03:02</div>
+                                                        </td>
+                                                    </tr>  
+                                                    <tr>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">11</div>
+                                                        </td>
+                                                        <td class="cell-td cell-yn">
+                                                            <div class="con-td no">n</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">LV.2</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">VIP</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">김*경</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">010-****-5555</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******@mediascope.kr</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">2023-08-02 14:03:02</div>
+                                                        </td>
+                                                    </tr>  
+                                                    <tr>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">10</div>
+                                                        </td>
+                                                        <td class="cell-td cell-yn">
+                                                            <div class="con-td no">n</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">LV.5</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">VIP</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">이*현</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">010-****-5555</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******@mediascope.kr</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">2023-08-02 14:03:02</div>
+                                                        </td>
+                                                    </tr>  
+                                                    <tr>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">9</div>
+                                                        </td>
+                                                        <td class="cell-td cell-yn">
+                                                            <div class="con-td yes">y</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">LV.4</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">VIP</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">이*현</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">010-****-5555</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******@naver.com</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">2023-08-02 14:03:02</div>
+                                                        </td>
+                                                    </tr>  
+                                                    <tr>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">8</div>
+                                                        </td>
+                                                        <td class="cell-td cell-yn">
+                                                            <div class="con-td yes">y</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">LV.3</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">VIP</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">이*현</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">010-****-5555</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******@naver.com</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">2023-08-02 14:03:02</div>
+                                                        </td>
+                                                    </tr>  
+                                                    <tr>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">7</div>
+                                                        </td>
+                                                        <td class="cell-td cell-yn">
+                                                            <div class="con-td yes">y</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">LV.10</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">VIP</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">이*현</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">010-****-5555</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******@mediascope.kr</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">2023-08-02 14:03:02</div>
+                                                        </td>
+                                                    </tr>  
+                                                    <tr>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">6</div>
+                                                        </td>
+                                                        <td class="cell-td cell-yn">
+                                                            <div class="con-td no">n</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">LV.6</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">VIP</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">이*현</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">010-****-5555</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******@naver.com</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">2023-08-02 14:03:02</div>
+                                                        </td>
+                                                    </tr>  
+                                                    <tr>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">5</div>
+                                                        </td>
+                                                        <td class="cell-td cell-yn">
+                                                            <div class="con-td no">n</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">LV.8</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">VIP</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">이*현</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">su*</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">010-****-5555</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">sup******@naver.com</div>
+                                                        </td>
+                                                        <td class="cell-td">
+                                                            <div class="con-td">2023-08-02 14:03:02</div>
+                                                        </td>
+                                                    </tr>  
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="common-table-bottom">
+                                            <div class="left-wrap">
+                                                <div class="pager-area">
+                                                    <div class="basic-select-box">
+                                                        <select>
+                                                            <option value="10">10건</option>
+                                                            <option value="20">20건</option>
+                                                            <option value="30">30건</option>
+                                                            <option value="50">50건</option>
+                                                            <option value="100">100건</option>
+                                                        </select>
+                                                        <span class="border-focus"><i></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="pagination-wrap">
+                                                <button class="pagination-btn first" title="첫 페이지">첫 페이지</button>
+                                                <button class="pagination-btn prev" title="이전 페이지">이전 페이지</button>
+                                                <ul class="pagination-list">
+                                                    <li class="current"><button>1</button></li>
+                                                    <li><button>2</button></li>
+                                                    <li><button>3</button></li>
+                                                    <li><button>4</button></li>
+                                                    <li><button>5</button></li>
+                                                </ul>
+                                                <button class="pagination-btn next" title="다음 페이지">다음 페이지</button>
+                                                <button class="pagination-btn last" title="마지막 페이지">마지막 페이지</button>
+                                            </div>
+                                            <div class="right-wrap"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--========== FOOTER ==========-->
+        <footer id="footer">
+
+        </footer>
+        <script>
+            $(function(){
+                $('#footer').load("../admin/include/footer.html");
+            });
+        </script>
+        <div id="top-btn">
+            <a href="javascript:;" tabindex="0"><span class="hidden">페이지 맨 위로</span></a>
+        </div>
+        <!--========== MODAL POPUP ==========-->
+        <div class="popup-group">
+
+            <!-- 게시여부 ON & OFF 버튼 : 게시여부 알림 팝업 -->
+            <div id="exPopMsg01" class="modal msg exPopMsg01">
+                <div class="modal-wrap">
+                    <section class="modal-content">
+                        <h3 class="hidden">게시 여부 알림</h3>
+                        <div class="modal-msg-wrap">
+                            <p class="msg-tit"></p>
+                        </div>
+                        <div class="modal-msg-btn-wrap">
+                            <a href="javascript:;" onclick="modalPopupClose('#exPopMsg01');" class="common-btn white">확인</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- 등록 클릭시 확인 팝업 -->
+            <div id="popSaveMsg" class="modal msg popSaveMsg">
+                <div class="modal-wrap">
+                    <section class="modal-content">
+                        <h3 class="hidden">등록이 완료되었습니다.</h3>
+                        <div class="modal-msg-wrap">
+                            <p class="msg-tit">등록이 완료되었습니다.</p>
+                        </div>
+                        <div class="modal-msg-btn-wrap">
+                            <a href="javascript:;" onclick="modalPopAllClose();" class="common-btn white">확인</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- 취소 버튼 클릭시 확인 팝업 -->
+            <div id="popCancelMsg" class="modal msg popCancelMsg">
+                <div class="modal-wrap">
+                    <section class="modal-content">
+                        <h3 class="hidden">해당 게시물을 삭제하시겠습니까?</h3>
+                        <div class="modal-msg-wrap">
+                            <p class="msg-tit">해당 게시물을 삭제하시겠습니까?</p>
+                        </div>
+                        <div class="modal-msg-btn-wrap select">
+                            <a href="javascript:;" onclick="modalPopupClose('#popCancelMsg');" class="common-btn white">아니오</a>
+                            <a href="../admin/board_reg.html" class="common-btn blue">네</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- JS -->
+	<script src="../admin/assets/js/basic_admin.js"></script>
+    <script src="../admin/assets/js/basic.js"></script>
+</body>
+</html>

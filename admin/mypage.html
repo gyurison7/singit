@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+  
+    <!-- FONT -->
+	<link rel="preload" href="../asset/font/SUIT-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../admin/assets/css/adm_common.css">
+    <link rel="stylesheet" href="../admin/assets/css/adm_board.css">
+	<link rel="stylesheet" href="../admin/assets/css/adm_mypage.css">
+    <link rel="stylesheet" href="../admin/assets/css/jquery-ui.css">
+
+    <!-- JS -->
+    <script src="../admin/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../admin/assets/js/jquery-ui.min.js"></script>
+    <title>Singit - 마이페이지</title>
+</head>
+<body>
+    <main>
+        <div class="head-area"></div>
+        <script>
+            $(function(){
+                $('.head-area').load("../admin/include/header.html");
+            });
+        </script>
+        <!--========== CONTENTS ==========-->
+        <div id="main" class="admin board-list-type page-mypage">
+            <div class="admin-section-wrap">
+                <div class="page-title-wrap">
+                    <h2 class="page-title">마이페이지</h2>
+					<div class="btn-wrap">
+                        <button class="common-btn small blue-line copy" aria-label="저장" onclick="modalPopup('#popSaveMsg')"><span>저장</span></button>
+                        <button class="common-btn small save" aria-label="메인으로" onclick="location.href='main.html'"><span>메인으로</span></button>
+                    </div>
+                </div>
+                <div class="admin-section-inner">
+                    <section class="section">
+                        <form>
+                            <fieldset class="hidden">마이페이지</fieldset>
+                            <ul class="search-filter-list">
+                                <li class="id">
+                                    <strong class="tit">아이디</strong>
+                                    <div class="filter-box-wrap">
+                                        superadmin
+                                    </div>
+                                </li>
+                                <li class="password">
+                                    <strong class="tit">비밀번호</strong>
+                                    <div class="filter-box-wrap">
+                                        <button type="button" class="common-btn" aria-label="비밀번호 변경" onclick="modalPopup('#popPwChange')"><span>비밀번호 변경</span></button>
+                                    </div>
+                                </li>
+                                <li class="department">
+                                    <strong class="tit">관리자 등급</strong>
+                                    <div class="filter-box-wrap">운영 관리자</div>
+                                </li>
+								<li class="name">
+                                    <strong class="tit">이름</strong>
+                                    <div class="filter-box-wrap">홍길동</div>
+                                </li>
+                                <li class="phone-number">
+                                    <div class="tit essential-mark">휴대폰 번호</div>
+                                    <div class="filter-box-wrap">
+										<div class="input-box-wrap"> <!-- 미입력시 .input-box-wrap에 error클래스 추가 및 #popCommonMsg 모달 팝업 -->
+											<div class="input-box tel">
+												<input type="text" oninput="this.value = this.value.replace(/[^0-9._-]/g, '');" placeholder="'-'를 포함하여 입력하세요. ex)010-000-0000">
+												<span class="border-focus"><i></i></span>
+											</div>
+											<div class="error-wrap on"><!-- on 클래스로 노출 -->
+												<p class="error">-를 포함하여 입력해주세요.</p>
+											</div>
+										</div>
+                                    </div>
+                                </li>
+                                <li class="email">
+                                    <div class="tit essential-mark">이메일</div>
+                                    <div class="filter-box-wrap employee">
+                                        <div class="input-box-wrap w100p">
+                                            <div class="email-input-wrap flex">
+                                                <div class="input-box"> 
+                                                    <input type="text" name="email" id="email-id" oninput="this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, '');" title="이메일아이디를 입력해주세요" tabindex="0" placeholder="">
+                                                    <span class="border-focus"><i></i></span>
+                                                </div>
+                                                <span>@</span>
+                                                <div class="input-box error"> 
+                                                    <input type="text" name="email" id="email-domain" oninput="this.value = this.value.replace(/[^a-zA-Z.]/g, '');" placeholder="" value="mediascope.kr">
+                                                    <span class="border-focus"><i></i></span>
+                                                </div>
+                                                <div class="basic-select-box">
+                                                    <select class="select-email">
+                                                        <option value="mediascope.kr" selected="">mediascope.kr</option>
+                                                        <option value="naver.com">naver.com</option>
+                                                        <option value="mail.daum.net">mail.daum.net</option>
+                                                        <option value="kakao.com">kakao.com</option>
+                                                        <option value="gmail.com">gmail.com</option>
+                                                        <option value="nate.com">nate.com</option>
+                                                        <option value="1">직접입력</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- 사용가능일 경우 input-box 클래스 pass 추가 -->
+                                            <div class="pass-wrap">
+                                                <p class="pass">사용 가능합니다.</p>  
+                                            </div>
+                                            <!-- 에러일 경우 input-box 클래스 error 추가 -->
+                                            <div class="error-wrap">
+                                                <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        $(function(){
+                                            $("li.email select.select-email").change(function(e) {
+                                                e.preventDefault();
+                                                var $email = $('#email-domain');
+                                                if($(this).val() == "1"){  // '1'인 경우 직접입력
+                                                    $email.attr('readonly', false); 
+                                                    $email.val(''); 
+                                                } else { 
+                                                    $email.attr('readonly', true); 
+                                                    $email.val($(this).val()); 
+                                                };
+                                            });
+                                        });
+                                    </script>
+                                </li>
+                                <li class="registration">
+                                    <strong class="tit">등록일시</strong>
+                                    <div class="filter-box-wrap">
+                                        <p class="date">2023-08-22</p>
+										<p class="time">09:03:22</p>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--========== FOOTER ==========-->
+        <footer id="footer">
+   
+        </footer>
+        <script>
+            $(function(){
+                $('#footer').load("../admin/include/footer.html");
+            });
+        </script>
+        <div id="top-btn">
+            <a href="javascript:;" tabindex="0"><span class="hidden">페이지 맨 위로</span></a>
+        </div>
+        <!--========== MODAL POPUP ==========-->
+        <div class="popup-group">
+			<!-- 
+				[저장] 버튼 클릭시 alert 팝업 (조건 불충족시)
+				상황에 따라 .msg-tit 텍스트를 아래 문구로 변경.
+
+				- 미입력시: ${항목명}을 입력해주세요.
+			-->
+			<div id="popCommonMsg" class="modal msg popCommonMsg">
+				<div class="modal-wrap">
+					<section class="modal-content">
+						<h3 class="hidden">항목명을 입력해주세요.</h3>
+						<div class="modal-msg-wrap">
+							<p class="msg-tit">항목명을 입력해주세요.</p>
+						</div>
+						<div class="modal-msg-btn-wrap">
+							<a href="javascript:;" onclick="modalPopAllClose();" class="common-btn white">확인</a>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<!-- [저장] 버튼 클릭시 확인 팝업 (조건 충족) -->
+            <div id="popSaveMsg" class="modal msg popSaveMsg">
+                <div class="modal-wrap">
+                    <section class="modal-content">
+                        <h3 class="hidden">저장이 완료되었습니다.</h3>
+                        <div class="modal-msg-wrap">
+                            <p class="msg-tit">저장이 완료되었습니다.</p>
+                        </div>
+                        <div class="modal-msg-btn-wrap">
+                            <a href="javascript:;" onclick="modalPopAllClose();" class="common-btn white">확인</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+
+            <!-- [비밀번호 변경 저장] 버튼 - 변경 팝업 -->
+            <div id="popPwChange" class="modal msg popPwChange">
+                <div class="modal-wrap">
+                    <section class="modal-content">
+                        <div class="modal-tit-wrap">
+                            <h3 class="modal-tit">비밀번호 변경</h3>
+                        </div>
+                        <div class="modal-close-btn">
+                            <a href="javascript:;" onclick="modalPopupClose('#popPwChange')" title="팝업창 닫기">팝업창 닫기</a>
+                        </div>
+                        <div class="modal-cont-wrap">
+                            <div class="scroll-wrap">
+                                <ul class="search-filter-list">
+									<li class="change-password">
+										<div class="tit essential-mark">변경할 비밀번호</div>
+										<div class="filter-box-wrap">
+											<div class="input-box-wrap">
+												<div class="input-box password">
+													<input type="password" placeholder="8자 이상으로 영소문,숫자,특수문자 입력이 가능합니다.">
+													<span class="border-focus"><i></i></span>
+													<button type="button" class="eye-btn" aria-label="비밀번호 보이기/숨기기"></button>
+												</div>
+												<div class="error-wrap on"> <!-- on 클래스로 노출 -->
+													<p class="error">비밀번호 조건에 맞게 입력하세요.</p>	
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="change-password-check">
+										<div class="tit essential-mark">비밀번호 확인</div>
+										<div class="filter-box-wrap">
+											<div class="input-box-wrap">
+												<div class="input-box password">
+													<input type="password">
+													<span class="border-focus"><i></i></span>
+													<button type="button" class="eye-btn" aria-label="비밀번호 보이기/숨기기"></button>
+												</div>
+												<div class="error-wrap on"><!-- on 클래스로 노출 -->
+													<p class="error">비밀번호가 일치하지 않습니다.</p>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+                            </div>
+                            <div class="modal-btn-wrap">
+                                <a href="javascript:;" onclick="modalPopup('#popPwChangeSaveMsg')" class="common-btn blue"><span>저장</span></a>
+								<a href="javascript:;" onclick="modalPopupClose('#popPwChange')" class="common-btn white"><span>취소</span></a>
+                            </div>
+                        </div>
+                        
+                    </section>
+                </div>
+            </div>
+
+			<!-- 
+				[비밀번호 변경 저장] 버튼 클릭시 alert 팝업 (조건 불충족시)
+				상황에 따라 .msg-tit 텍스트를 아래 문구로 변경.
+
+				- 미입력시: ${항목명}을 입력해주세요.
+				- 비밀번호 입력조건에 맞지 않을시: 비밀번호 조건에 맞게 입력하세요.
+				- 비밀번호 확인값이 미일치시: 비밀번호가 일치하지 않습니다.
+			-->
+			<div id="popPwChangeCommonMsg" class="modal msg popPwChangeCommonMsg">
+				<div class="modal-wrap">
+					<section class="modal-content">
+						<h3 class="hidden">항목명을 입력해주세요.</h3>
+						<div class="modal-msg-wrap">
+							<p class="msg-tit">항목명을 입력해주세요.</p>
+						</div>
+						<div class="modal-msg-btn-wrap">
+							<a href="javascript:;" onclick="modalPopupClose('#popPwChangeCommonMsg');" class="common-btn white">확인</a>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<!-- [비밀번호 변경 저장] 버튼 클릭시 확인 팝업 (조건 충족) -->
+            <div id="popPwChangeSaveMsg" class="modal msg popPwChangeSaveMsg">
+                <div class="modal-wrap">
+                    <section class="modal-content">
+                        <h3 class="hidden">비밀번호 변경이 완료되었습니다.</h3>
+                        <div class="modal-msg-wrap">
+                            <p class="msg-tit">비밀번호 변경이 완료되었습니다.</p>
+                        </div>
+                        <div class="modal-msg-btn-wrap">
+                            <a href="javascript:;" onclick="modalPopAllClose();" class="common-btn white">확인</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- JS -->
+	<script src="../admin/assets/js/basic_admin.js"></script>
+    <script src="../admin/assets/js/basic.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!--========== HEADER ==========-->
+
+<!--==================
+    * 페이지별 Header 구성이 다름에 따라 최상단 태그 id="container" 에'sub' 클래스 여부에 따라 Header 선택적 노출
+    - id="container" 에 sub 클래스 없을 경우 : header-main 클래스 영역만 노출
+    - id="container" 에 sub 클래스 있을 경우 : header-sub 클래스 영역만 노출
+======================-->
+<div class="header-main inner">
+    <h1 class="header-logo">
+        <a href="/" title="홈 바로가기" aria-label="홈 바로가기">play</a>
+    </h1>
+    <nav class="header-right-area">
+        <ul>
+            <li class="header-coin">
+                <a href="#none" title="싱코인 보기"><span class="hidden">싱코인 보기</span></a><span class="singcoin content-txt3 num">105506</span>
+            </li>
+            <!-- ! 새소식 알림이 있을 경우 'on' 클래스 추가 필요 -->
+            <li class="header-alarm on">
+                <a href="#none" title="새소식 알림 열기"><span class="hidden">새소식 알림</span></a>
+            </li>
+            <li class="header-search">
+                <a href="#none" title="전체 검색 열기"><span class="hidden">전체 검색</span></a>
+            </li>
+            <li class="header-setting">
+                <a href="#none" title="설정 열기"><span class="hidden">설정</span></a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="header-sub">
+    <ul>
+        <!-- ! 뒤로 이동 & 닫기 버튼 비노출 되어야 할 경우 : li 태그에 'off' 클래스 추가 필요 -->
+        <li class="header-side header-back"><button type="button" aria-label="뒤로 이동" onclick="" ><span class="hidden">뒤로 이동</span></button></li>
+        <li class="header-sub-tit"><h2 id="header-section-tit" class="content-txt2"></h2></li>
+        <li class="header-side header-close"><button type="button" aria-label="페이지 닫기" onclick="" ><span class="hidden">페이지 닫기</span></button></li>
+    </ul>
+</div>

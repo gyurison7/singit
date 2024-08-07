@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+/* Info
+   ========================================================================== */
+/**
+ * 1. Writer: Ajin Lee. (Weaverloft Corp.)
+ * 2. Production Date: 2024-07-23
+ * 3. Client: Mediascope Singit
+ */
+
+/*========== Common ==========*/
+main { min-width: 820px; padding: 0; background-color: #f2f2f2; }
+
+/*========== Login ==========*/
+.admin-login { display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh;}
+.login-sec { width: 480px; margin: 0 auto; padding: 60px; background-color: #fff;}
+.login-logo-box { display: flex; flex-flow: column wrap; align-items: center; justify-content: center;}
+.login-logo-box .logo { width: auto;}
+.login-txt { margin: 38px auto 20px;}
+.login-txt p{ font-size: 18px; color: #444; line-height: 28px; font-weight: 500; font-variation-settings: 'wght' 500; text-align: center;}
+
+.login-form-wrap .input-box-wrap input{ height: 52px; padding: 8px 20px; font-size: 18px;}
+.login-form-wrap .input-box-wrap input::placeholder{ font-size: 18px; }
+.login-form-wrap .input-box-wrap .password { margin-top: 10px;}
+.login-form-wrap .input-box-wrap .input-box.password .eye-btn { top: 6px; width: 40px; height: 40px; }
+
+.id-save-wrap { margin-top: 16px;}
+.id-save-wrap .basic-check-box { font-weight: 500; font-variation-settings: 'wght' 500;}
+.id-save-wrap .basic-check-box input[type="checkbox"] + label::before { width: 24px; height: 24px; margin: 2px 12px 0 0;}
+
+.info-wrap { margin-top: 18px;}
+.info-wrap li { position: relative; display: block; padding-left: 8px; margin-bottom: 12px; color: #555; letter-spacing: -0.025em; line-height: 1.5; font-size: 15px;}
+.info-wrap li::before { position: absolute; top: 10px; left: 0px; display: block; content: ''; background: #555; width: 2px; height: 2px; border-radius: 50%;}
+
+.input-box.submit.login input{ margin: 15px auto 10px; padding: 16px 0; background-color: #ea2125; font-size: 18px; font-weight: 600; font-variation-settings: 'wght' 600;}
+.btn-home { display: block; width: 100%; padding: 16px 0; background-color: #fff; font-size: 18px; font-weight: 600; font-variation-settings: 'wght' 600; }
+
+.error-wrap { display: none;}
+.error-wrap.on { display: block;}

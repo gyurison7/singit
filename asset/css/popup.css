@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Ajin Lee. Sunhyeong Kim. (Weaverloft Corp.)
+ * 2. Production Date: 2024-07-30
+ * 3. Client: MEDIASCOPE Inc.
+ */
+
+/*========== modalPopup ==========*/
+.modal { visibility: hidden; opacity: 0; display: flex; justify-content: center; align-items: center; position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 150; width: 100%; height: 100vh; height: 100dvh; background-color: rgba(0, 0, 0, 0.5); transition: 300ms 200ms; } 
+.modal.open { visibility: visible; opacity: 1; transition: 300ms; } 
+.modal-wrap { opacity: 0; width: 20.44em; max-height: 94vh; transition: opacity 300ms;  } 
+.modal.open .modal-wrap { opacity: 1; margin-top: 0; } 
+.modal-content { position: relative; overflow: hidden; width: auto;  background-color: #fff; border-radius: 10px; } 
+.modal-cont-wrap { position: relative; min-height: 152px; padding: 1.250em; } 
+.modal-tit-wrap {position: relative;}
+.modal-tit { font-size: 1.125rem; font-weight: 500; font-variation-settings: 'wght' 500; color: #111; } 
+.modal-sub-tit { font-size: 0.875rem; font-weight: 400; font-variation-settings: 'wght' 400; color: #888; word-break: keep-all; line-height: 1.42; } 
+
+/* modal.alert */
+.modal.alert .modal-cont-wrap { display: flex; flex-direction: column; justify-content: center; padding: 2.50em 1.250em; } 
+.modal.alert .modal-txt-wrap {margin: 16px 0 0; }
+.modal.alert .modal-tit, .modal.alert .modal-sub-tit {text-align: center;}
+
+/* modal.msg */
+.modal.msg .modal-cont-wrap { padding: 1.250em 1.250em 2.50em; font-size: 1rem;} 
+.modal.msg .modal-tit-wrap {margin: 0 0 12px;}
+.modal.msg .modal-txt-wrap {padding: 20px 0 0; border-top: 1px solid var(--basic-line-color);}
+.modal.msg .modal-txt-wrap:has(.modal-sub-tit) .modal-tit {margin: 0 0 0.89em;}
+.modal.msg .modal-txt-wrap .basic-check-box {margin: 24px 0 0;}
+
+.modal-btn-wrap {display: flex;}
+.modal-btn-wrap .basic-btn { padding: 1em; border-radius:0 ; }
+.modal-close-btn { position: absolute; top: 50%; right: -10px; transform: translate(0, -50%); } 
+.modal-close-btn a { opacity: 1; display: block; width: 44px; height: 44px; background-image: url('../images/common/icon-close-black.svg'); background-repeat: no-repeat; background-position: center center; background-size: 24px auto; text-indent: -9999px; transition: opacity 300ms; color: #fff; } 
+
+.modal.msg .modal-txt-wrap:has(.textarea-box-wrap) {padding: 14px 0 0;}
+.modal-switch-area {display: flex; justify-content: space-between; align-items: center;}
+.textarea-box-wrap + .modal-switch-area {margin: 20px 0 0;}
+.modal-switch-tit {font-size: 1rem; font-weight: 500; font-variation-settings: 'wght' 500;color: #000;}
+
+@media screen and (max-width: 375px) {
+    .modal-wrap { width: 100%; margin: 0 24px; } 
+}
+@media screen and (min-width: 421px) {
+    .modal-wrap {font-size: clamp(16px, 4.267vw, 20px);} 
+    .modal-tit {font-size: clamp(18px, 4.8vw, 23px);} 
+    .modal-sub-tit {font-size: clamp(14px, 3.733vw, 18px);} 
+
+    /* modal.msg */
+    .modal.msg .modal-cont-wrap {font-size: clamp(16px, 4.267vw, 20px);} 
+    .modal-switch-tit {font-size: clamp(16px, 4.267vw, 20px);} 
+}

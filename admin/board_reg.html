@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FONT -->
+	<link rel="preload" href="../asset/font/SUIT-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../admin/assets/css/adm_common.css">
+    <link rel="stylesheet" href="../admin/assets/css/adm_board.css">
+    <link rel="stylesheet" href="../admin/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="../admin/assets/css/jquery.timepicker.min.css">
+
+    <!-- JS -->
+    <script src="../admin/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../admin/assets/js/jquery-ui.min.js"></script>
+    <script src="../admin/assets/js/jquery.timepicker.min.js"></script>
+    <title>Singit - 등록</title>
+</head>
+<body>
+    <main>
+        <div class="head-area"></div>
+        <script>
+            $(function(){
+                $('.head-area').load("../admin/include/header.html");
+            });
+        </script>
+        <!--========== CONTENTS ==========-->
+        <div id="main" class="board-list-type board-reg">
+            <div class="admin-section-wrap">
+                <div class="page-title-wrap">
+                    <h2 class="page-title">콘텐츠 관리</h2>
+                    <div class="btn-wrap">
+                        <a href="#none" class="common-btn small white preview" onclick="modalPopup('#exPop')"><span>미리보기</span></a>
+                        <button class="common-btn small blue-line copy" aria-label="저장" onclick="modalPopup('#popSaveMsg')"><span>저장</span></button>
+                        <button class="common-btn small save" aria-label="취소" onclick="modalPopup('#popCancelMsg')"><span>취소</span></button>
+                    </div>
+                </div>
+                <div class="admin-section-inner">
+                    <section class="section">
+                        <div class="tit-box">
+                            <div class="tooltip-box left">
+                                <h3 class="sec-title">콘텐츠 관리 등록</h3>
+                            </div>
+                        </div>
+                        <form>
+                            <fieldset class="hidden">콘텐츠 관리 등록</fieldset>
+                            <ul class="search-filter-list">
+                                <li class="depth01">
+                                    <strong class="tit essential-mark">카테고리1</strong>
+                                    <div class="filter-box-wrap">
+                                        <div class="input-box-wrap">
+                                            <div class="basic-select-box w200">
+                                                <select class="select-category">
+                                                    <option value="0">-- 메뉴 전체 --</option>
+                                                </select>
+                                                <span class="border-focus"><i></i></span>
+                                            </div>
+                                            <!-- 사용가능 아이디 일 경우 input-box 클래스 pass 추가 -->
+                                            <div class="pass-wrap">
+                                                <p class="pass">사용 가능한 아이디입니다.</p>  
+                                            </div>
+                                            <!-- 에러일 경우 input-box 클래스 error 추가 -->
+                                            <div class="error-wrap">
+                                                <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="depth02">
+                                    <strong class="tit essential-mark">카테고리2</strong>
+                                    <div class="filter-box-wrap">
+                                        <div class="input-box-wrap">
+                                            <div class="basic-select-box w200 disabled">
+                                                <select class="select-sub-category">
+                                                    <option value="0">-- 카테고리 전체 --</option>
+                                                </select>
+                                                <span class="border-focus"><i></i></span>
+                                            </div>
+                                            <!-- 사용가능 아이디 일 경우 input-box 클래스 pass 추가 -->
+                                            <div class="pass-wrap">
+                                                <p class="pass">사용 가능한 아이디입니다.</p>  
+                                            </div>
+                                            <!-- 에러일 경우 input-box 클래스 error 추가 -->
+                                            <div class="error-wrap">
+                                                <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <script>
+                                    $(function(){
+                                        // 메뉴 & 카테고리 Select
+                                        if($(".board-reg").length > 0) {
+                                            var mainMenu0 = ["영상관리","곡 관리","프로모션 관리","Singig Box"];
+                                            var mainMenu1 = ["댓글","신고","공개여부"];
+                                            var mainMenu2 = ["카테고리 관리","곡 추가/삭제","신청곡 관리"];
+                                            var mainMenu3 = ["Battle","KPOP Contest"];
+                                            var mainMenu4 = ["Singit Box"];
+                                            var $type = $("select.select-sub-category");
+
+                                            $("select.select-category").each(function(){
+                                                $division = $(this);
+                                                var ii = 0;
+                                                $.each(eval(mainMenu0),function(){
+                                                    ii = ii + 1;
+                                                    $division.append("<option value='"+ii+"'>"+this+"</option>");
+                                                });
+                                                
+                                            });
+                                            $("select.select-category").change(function(){
+                                                var mainMenu = "mainMenu"+$("option",$(this)).index($("option:selected",$(this)));
+                                                $("option",$type).remove();
+                                                $type.parent().removeClass('disabled');
+
+                                                if(mainMenu == "mainMenu0"){
+                                                    $type.append("<option value='0'>-- 카테고리 전체 --</option>");
+                                                    $type.parent().addClass('disabled'); 
+                                                }else{
+                                                    var ii = 0;
+                                                    $type.parent().removeClass('disabled');
+                                                    $.each(eval(mainMenu),function(){
+                                                        ii = ii + 1;
+                                                        $type.append("<option value='"+ii+"'>"+this+"</option>");
+                                                    });
+                                                }
+                                            });
+                                        }
+                                    });
+                                </script>
+
+
+                                <li class="original-image thumbnail-img">
+                                    <strong class="tit essential-mark">썸네일 이미지</strong>
+                                    <div class="filter-box-wrap vertical">
+                                        <div class="input-upload-box">
+                                            <div class="input-upload-btn">
+                                                <span class="common-btn small small2 gray-b">파일선택</span>
+                                                <input type="file" class="upload" onchange="readURL(this);" multiple="" accept=".gif, .jpg, .png">
+                                            </div>
+                                            <div class="input-box text">
+                                                <input class="form-control filename-input" type="text" placeholder="" disabled="" readonly="">
+                                                <span class="border-focus"><i></i></span>
+                                            </div>
+                                            <a href="javascript:;" class="common-btn white remove file-del"><span>삭제</span></a>
+                                            <script>
+                                                $(function(){
+                                                    /* 첨부파일 삭제 */
+                                                    $('.thumbnail-img a.file-del').on('click', function (e) {
+                                                        e.preventDefault();
+                                                        $('.thumbnail-img .filename-input').val("");
+                                                    });
+                                                });
+                                            </script>
+                                        </div>
+                                        <div class="info-text-box">
+                                            <p class="info dec red">
+                                                <span class="red">이미지 크기 및 사이즈 제한 안내 문구 (추후 안내 문구 수정 필요)</span>
+                                            </p>
+                                        </div>
+                                        <div class="thumbnail-preview flex">
+                                            <div class="img_preview">
+                                                <img src="../admin/assets/img/basic-bg-image.gif" alt="기본 이미지" name="cover_image" width="100" height="100">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="original-image thumbnail-img">
+                                    <strong class="tit essential-mark">영상 URL</strong>
+                                    <div class="filter-box-wrap">
+                                        <div class="input-box-wrap">
+                                            <div class="input-box text w600">
+                                                <input type="text" placeholder="URL을 입력해주세요.">
+                                                <span class="border-focus"><i></i></span>
+                                            </div>
+                                            <!-- 사용가능 아이디 일 경우 input-box-wrap 클래스 pass 추가 -->
+                                            <div class="pass-wrap">
+                                                <p class="pass">사용 가능한 아이디입니다.</p>  
+                                            </div>
+                                            <!-- 에러일 경우 input-box-wrap 클래스 error 추가 -->
+                                            <div class="error-wrap">
+                                                <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="board-title">
+                                    <div class="tit essential-mark">제목</div>
+                                    <div class="filter-box-wrap">
+                                        <div class="input-box-wrap">
+                                            <div class="input-box text w600"> 
+                                                <input type="text">
+                                                <span class="border-focus"><i></i></span>
+                                            </div>
+                                            <!-- 사용가능 아이디 일 경우 input-box-wrap 클래스 pass 추가 -->
+                                            <div class="pass-wrap">
+                                                <p class="pass">사용 가능한 아이디입니다.</p>  
+                                            </div>
+                                            <!-- 에러일 경우 input-box-wrap 클래스 error 추가 -->
+                                            <div class="error-wrap">
+                                                <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="badge-recommend">
+                                    <strong class="tit">기타</strong>
+                                    <div class="filter-box-wrap prd-reg-content">
+                                        <div class="basic-check-box">
+                                            <input type="checkbox" id="badge-recommend" tabindex="-1">
+                                            <label for="badge-recommend" tabindex="0">추천</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="top-fix">
+                                    <strong class="tit essential-mark">상단고정</strong>
+                                    <div class="filter-box-wrap">
+                                        <div class="radio-box-wrap">
+                                            <div class="basic-radio-box">
+                                                <input type="radio" id="top-unfixed" name="top-fix" value="고정안함" checked="">
+                                                <label for="top-unfixed"><span>고정안함</span></label>
+                                            </div>
+                                            <div class="basic-radio-box">
+                                                <input type="radio" id="top-fixed" name="top-fix" value="고정">
+                                                <label for="top-fixed"><span>고정</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="board-post">
+                                    <strong class="tit essential-mark">게시여부</strong>
+                                    <div class="filter-box-wrap">
+                                        <div class="radio-box-wrap">
+                                            <div class="basic-radio-box">
+                                                <input type="radio" id="board-post" name="board-post" value="게시" checked="">
+                                                <label for="board-post"><span>게시</span></label>
+                                            </div>
+                                            <div class="basic-radio-box">
+                                                <input type="radio" id="board-pre-post" name="board-post" value="게시안함">
+                                                <label for="board-pre-post"><span>게시안함</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="post-period period">
+                                    <strong class="tit essential-mark">공개일자</strong>
+                                    <div class="filter-box-wrap vertical">
+                                        <div class="radio-box-wrap flex">
+                                            <div class="basic-radio-box">
+                                                <input type="radio" id="post-Immediately" name="post-period" value="즉시공개" checked="">
+                                                <label for="post-Immediately"><span>즉시공개</span></label>
+                                            </div>
+                                            <div class="basic-radio-box">
+                                                <input type="radio" id="post-date" name="post-period" value="공개일자 선택">
+                                                <label for="post-date"><span></span></label>
+                                            </div>
+                                            <div class="limited-box">
+                                                <div class="datepicker-box-wrap">
+                                                    <div class="input-box datepicker-box error">
+                                                        <input type="text" class="datepicker" disabled>
+                                                        <span class="border-focus"><i></i></span>
+                                                    </div>
+                                                    <div class="input-box timepicker-box">
+                                                        <input type="text" class="timepicker" disabled>
+                                                        <span class="border-focus"><i></i></span>
+                                                    </div>
+                                                    <span class="mid">-</span>
+                                                    <div class="input-box datepicker-box">
+                                                        <input type="text" class="datepicker" disabled>
+                                                        <span class="border-focus"><i></i></span>
+                                                    </div>
+                                                    <div class="input-box timepicker-box">
+                                                        <input type="text" class="timepicker" disabled>
+                                                        <span class="border-focus"><i></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <script>
+                                                $(document).ready(function() {
+                                                    // "즉시공개" 선택 시
+                                                    $("li.post-period #post-Immediately").change(function() {
+                                                        $("li.post-period .limited-box .datepicker").prop("disabled", true);
+                                                        $("li.post-period .limited-box .timepicker").prop("disabled", true);
+                                                    });
+                                                    // "공개일자 선택" 선택 시
+                                                    $("li.post-period #post-date").change(function() {
+                                                        $("li.post-period .limited-box .datepicker").prop("disabled", false);
+                                                        $("li.post-period .limited-box .timepicker").prop("disabled", false);
+                                                    });
+                                                });
+                                            </script>
+                                        </div>
+                                        <!-- 에러일 경우 input-box 클래스 error 추가 -->
+                                        <div class="error-wrap">
+                                            <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="hashtag">
+                                    <div class="tit essential-mark">내용</div>
+                                    <div class="filter-box-wrap">
+                                        <div class="input-box-wrap">
+                                            <div class="input-box text w600"> 
+                                                <input type="text" placeholder="내용을 입력해주세요.">
+                                            <span class="border-focus"><i></i></span>
+                                        </div>
+                                        <!-- 사용가능 아이디 일 경우 input-box-wrap 클래스 pass 추가 -->
+                                        <div class="pass-wrap">
+                                            <p class="pass">사용 가능한 아이디입니다.</p>  
+                                        </div>
+                                        <!-- 에러일 경우 input-box-wrap 클래스 error 추가 -->
+                                        <div class="error-wrap">
+                                            <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="original-image files-adding">
+                                    <strong class="tit">파일첨부</strong>
+                                    <div class="filter-box-wrap original-image-wrap">
+                                        <div class="input-upload-btn">
+                                            <span class="common-btn small small2 gray-b">파일선택</span>
+                                            <input type="file" class="upload" onchange="readURL(this);" multiple="">
+                                        </div>
+                                        <div class="input-upload-box">
+                                            
+                                            <div class="input-wrap">
+                                                <div class="input-box text">
+                                                    <input class="form-control filename-input" type="text" placeholder="" disabled="" readonly="">
+                                                    <span class="border-focus"><i></i></span>
+                                                </div>
+                                                <a href="javascript:;" class="common-btn white minus file-del"><span>삭제</span></a>
+                                            </div>  
+                                            <div class="input-wrap">
+                                                <div class="input-box text">
+                                                    <input class="form-control filename-input" type="text" placeholder="" disabled="" readonly="">
+                                                    <span class="border-focus"><i></i></span>
+                                                </div>
+                                                <a href="javascript:;" class="common-btn white minus file-del"><span>삭제</span></a>
+                                            </div>
+                                            <div class="input-wrap">
+                                                <div class="input-box text">
+                                                    <input class="form-control filename-input" type="text" placeholder="" disabled="" readonly="">
+                                                    <span class="border-focus"><i></i></span>
+                                                </div>
+                                                <a href="javascript:;" class="common-btn white minus file-del"><span>삭제</span></a>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="vote-choice">
+                                    <strong class="tit">댓글기능</strong>
+                                    <div class="filter-box-wrap">
+                                        <div class="radio-box-wrap">
+                                            <div class="basic-radio-box">
+                                                <input type="radio" id="vote-unused" name="vote-choice" value="미사용" checked="">
+                                                <label for="vote-unused"><span>미사용</span></label>
+                                            </div>
+                                            <div class="basic-radio-box">
+                                                <input type="radio" id="vote-used" name="vote-choice" value="사용">
+                                                <label for="vote-used"><span>사용</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="vote-option-set">
+                                    <ul class="filter-list-inner">
+                                        <li>
+                                            <strong class="tit">댓글</strong>
+                                            <div class="filter-box-wrap">
+                                                <div class="input-box-wrap">
+                                                    <div class="input-box text w600"> 
+                                                    <input type="text">
+                                                    <span class="border-focus"><i></i></span>
+                                                </div>
+                                                <!-- 사용가능 아이디 일 경우 input-box-wrap 클래스 pass 추가 -->
+                                                <div class="pass-wrap">
+                                                    <p class="pass">사용 가능한 아이디입니다.</p>  
+                                                </div>
+                                                <!-- 에러일 경우 input-box-wrap 클래스 error 추가 -->
+                                                <div class="error-wrap">
+                                                    <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <script>
+                                    $(document).ready(function() {
+                                        var useOptionY = $('li.vote-choice #vote-used');
+                                        var useOptionN = $('li.vote-choice #vote-unused');
+                                        var optionSet = $('li.vote-option-set');
+                                        
+                                        if (useOptionY.is(':checked')) {
+                                            optionSet.show(); 
+                                        } else {
+                                            optionSet.hide(); 
+                                        }
+                                        
+                                        useOptionY.on('change', function() {
+                                            optionSet.show(); 
+                                        });
+                                        useOptionN.on('change', function() {
+                                            optionSet.hide(); 
+                                        });
+                                    });
+                                </script>
+                                <li class="vote-option-set">
+                                    <ul class="filter-list-inner">
+                                        <li>
+                                            <strong class="tit">댓글 이미지</strong>
+                                            <div class="filter-box-wrap vertical">
+                                                <ul class="unit-box-wrap">
+                                                    <li class="original-image vote-img-a w57hp">
+                                                        <div class="input-upload-box">
+                                                            <p class="unit-tit">A 항목 예시이미지</p>
+                                                            <div class="upload-box-inner vertical">
+                                                                <div>
+                                                                    <div class="input-upload-btn">
+                                                                        <span class="common-btn small small2 gray-b">파일선택</span>
+                                                                        <input type="file" class="upload" onchange="readURL(this);" multiple="" accept=".gif, .jpg, .png">
+                                                                    </div>
+                                                                    <div class="input-box text">
+                                                                        <input class="form-control filename-input" type="text" placeholder="" disabled="" readonly="">
+                                                                        <span class="border-focus"><i></i></span>
+                                                                    </div>
+                                                                    <a href="javascript:;" class="common-btn white remove file-del"><span>삭제</span></a>
+                                                                </div>
+                                                                <div class="info-text-box">
+                                                                    <p class="info dec red">
+                                                                        <span class="red">이미지 크기 및 사이즈 제한 안내 문구 (추후 안내 문구 수정 필요)</span>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="img-wrap">
+                                                                    <div class="img_preview">
+                                                                        <img src="../admin/assets/img/basic-bg-image.gif" alt="기본 이미지" name="cover_image" width="100" height="100">
+                                                                    </div>
+                                                                    <div class="img_preview">
+                                                                        <img src="../admin/assets/img/basic-bg-image.gif" alt="기본 이미지" name="cover_image" width="100" height="100">
+                                                                    </div>
+                                                                </div>
+                                                                <script>
+                                                                    $(function(){
+                                                                        /* 첨부파일 삭제 */
+                                                                        $('.vote-img-a a.file-del').on('click', function (e) {
+                                                                            e.preventDefault();
+                                                                            $('.vote-img-a .filename-input').val("");
+                                                                        });
+                                                                    });
+                                                                </script>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <ul class="unit-box-wrap">
+                                                    <li class="original-image vote-img-b w57hp">
+                                                        <div class="input-upload-box">
+                                                            <p class="unit-tit">B 항목 예시이미지</p>
+                                                            <div class="upload-box-inner vertical">
+                                                                <div>
+                                                                    <div class="input-upload-btn">
+                                                                        <span class="common-btn small small2 gray-b">파일선택</span>
+                                                                        <input type="file" class="upload" onchange="readURL(this);" multiple="" accept=".gif, .jpg, .png">
+                                                                    </div>
+                                                                    <div class="input-box text">
+                                                                        <input class="form-control filename-input" type="text" placeholder="" disabled="" readonly="">
+                                                                        <span class="border-focus"><i></i></span>
+                                                                    </div>
+                                                                    <a href="javascript:;" class="common-btn white remove file-del"><span>삭제</span></a>
+                                                                </div>
+                                                                <div class="info-text-box">
+                                                                    <p class="info dec red">
+                                                                        <span class="red">이미지 크기 및 사이즈 제한 안내 문구 (추후 안내 문구 수정 필요)</span>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="img-wrap">
+                                                                    <div class="img_preview">
+                                                                        <img src="../admin/assets/img/basic-bg-image.gif" alt="기본 이미지" name="cover_image" width="100" height="100">
+                                                                    </div>
+                                                                </div>
+                                                                <script>
+                                                                    $(function(){
+                                                                        /* 첨부파일 삭제 */
+                                                                        $('.vote-img-b a.file-del').on('click', function (e) {
+                                                                            e.preventDefault();
+                                                                            $('.vote-img-b .filename-input').val("");
+                                                                        });
+                                                                    });
+                                                                </script>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="vote-option-set vote-period">
+                                    <strong class="tit">기간</strong>
+                                    <div class="filter-box-wrap">
+                                        <div class="basic-radio-box">
+                                            <input type="radio" id="vote-period" name="vote-period" value="기간" checked>
+                                            <label for="vote-period"><span></span></label>
+                                        </div>
+                                        <div class="datepicker-box-wrap">
+                                            <div class="input-box datepicker-box">
+                                                <input type="text" class="datepicker">
+                                                <span class="border-focus"><i></i></span>
+                                            </div>
+                                            <div class="input-box timepicker-box">
+                                                <input type="text" class="timepicker">
+                                                <span class="border-focus"><i></i></span>
+                                            </div>
+                                            <span class="mid">-</span>
+                                            <div class="input-box datepicker-box">
+                                                <input type="text" class="datepicker">
+                                                <span class="border-focus"><i></i></span>
+                                            </div>
+                                            <div class="input-box timepicker-box">
+                                                <input type="text" class="timepicker">
+                                                <span class="border-focus"><i></i></span>
+                                            </div>
+                                        </div>
+                                        <a href="#none" class="btnRefresh" title="새로고침"></a>
+                                        <a href="#none" class="btnDate selected"><span>이번주</span></a>
+                                        <a href="#none" class="btnDate"><span>이번달</span></a>
+                                        <a href="#none" class="btnDate"><span>이번년도</span></a>
+                                        <span class="unit">까지</span>
+                                        <div class="basic-radio-box">
+                                            <input type="radio" id="vote-noPeriod" name="vote-period" value="기간없음">
+                                            <label for="vote-noPeriod"><span>기간없음</span></label>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        $(document).ready(function() {
+                                            // "기간" 선택 시
+                                            $("li.vote-period #vote-period").change(function() {
+                                                $("li.vote-period .datepicker-box-wrap .datepicker").prop("disabled", false);
+                                                $("li.vote-period .datepicker-box-wrap .timepicker").prop("disabled", false);
+                                            });
+                                            // "기간없음" 선택 시
+                                            $("li.vote-period #vote-noPeriod").change(function() {
+                                                $("li.vote-period .datepicker-box-wrap .datepicker").prop("disabled", true);
+                                                $("li.vote-period .datepicker-box-wrap .timepicker").prop("disabled", true);
+                                            });
+                                        });
+                                    </script>
+                                </li>
+                                <li class="vote-option-set vote-people">
+                                    <div class="tit">인원</div>
+                                    <div class="filter-box-wrap select-box-wrap flex-start">
+                                        <div class="input-box-wrap">
+                                            <div class="basic-select-box">
+                                                <select class="vote-people-select">
+                                                    <option value="1">인원 선택</option>
+                                                    <option value="제한없음">제한없음</option>
+                                                    <option value="10">10명</option>
+                                                    <option value="20">20명</option>
+                                                    <option value="50">50명</option>
+                                                    <option value="100">100명</option>
+                                                    <option value="직접입력">직접입력</option>
+                                                </select>
+                                                <span class="border-focus"><i></i></span>
+                                            </div>
+                                            <!-- 사용가능 아이디 일 경우 input-box-wrap 클래스 pass 추가 -->
+                                            <div class="pass-wrap">
+                                                <p class="pass">사용 가능한 아이디입니다.</p>  
+                                            </div>
+                                            <!-- 에러일 경우 input-box-wrap 클래스 error 추가 -->
+                                            <div class="error-wrap">
+                                                <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                                            </div>
+                                        </div>
+                                        <div class="input-box-wrap">
+                                            <div class="input-box text w130 vote-people-input">
+                                                <input type="number" placeholder="" disabled>
+                                                <span class="border-focus"><i></i></span>
+                                            </div>
+                                            <!-- 사용가능 아이디 일 경우 input-box-wrap 클래스 pass 추가 -->
+                                            <div class="pass-wrap">
+                                                <p class="pass">사용 가능한 아이디입니다.</p>  
+                                            </div>
+                                            <!-- 에러일 경우 input-box-wrap 클래스 error 추가 -->
+                                            <div class="error-wrap">
+                                                <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                                            </div>
+                                        </div>
+                                        <span class="unit">명</span>
+                                    </div>    
+                                    <script>
+                                        $(function(){
+                                            $('li.vote-people select').change(function(e) {
+                                                e.preventDefault();
+                                                var voteNum = $('.vote-people-select option:selected').val();
+                                                if(voteNum == '직접입력'){ 
+                                                    $('.vote-people-input input').prop("disabled", false);
+                                                    $('.vote-people-input input').focus();
+                                                } 
+                                                // if(voteNum == '1'){ 
+                                                //     $('.vote-people-input input').prop("disabled", false);
+                                                // }   
+                                                else { 
+                                                    $('.vote-people-input input').prop("disabled", true);
+                                                };
+                                            });
+                                        });
+                                    </script>
+                                </li>
+                                <li class="vote-option-set vote-etc">
+                                    <ul class="search-filter-list typeCol2">
+                                        <li class="vote-result">
+                                            <strong class="tit">공개 여부</strong>
+                                            <div class="filter-box-wrap">
+                                                <div class="radio-box-wrap">
+                                                    <div class="basic-radio-box">
+                                                        <input type="radio" id="vote-resultY" name="vote-result" value="Y" checked="">
+                                                        <label for="vote-resultY"><span>공개</span></label>
+                                                    </div>
+                                                    <div class="basic-radio-box">
+                                                        <input type="radio" id="vote-resultN" name="vote-result" value="N">
+                                                        <label for="vote-resultN"><span>비공개</span></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="vote-position">
+                                            <strong class="tit">위치</strong>
+                                            <div class="filter-box-wrap">
+                                                <div class="radio-box-wrap">
+                                                    <div class="basic-radio-box">
+                                                        <input type="radio" id="vote-positionUp" name="vote-position" value="Up" checked="">
+                                                        <label for="vote-positionUp"><span>컨텐츠 보다 위</span></label>
+                                                    </div>
+                                                    <div class="basic-radio-box">
+                                                        <input type="radio" id="vote-positionDown" name="vote-position" value="Down">
+                                                        <label for="vote-positionDown"><span>컨텐츠 보다 아래</span></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="editor-area-wrap">
+                                    <strong class="tit">내용</strong>
+                                    <div class="filter-box-wrap">
+                                        <div class="editor-area" style="width: 100%; background-color: #f5f5f5; height: 491px; text-align: center; line-height: 491px;">웹에디터 영역</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--========== FOOTER ==========-->
+        <footer id="footer">
+   
+        </footer>
+        <script>
+            $(function(){
+                $('#footer').load("../admin/include/footer.html");
+            });
+        </script>
+        <div id="top-btn">
+            <a href="javascript:;" tabindex="0"><span class="hidden">페이지 맨 위로</span></a>
+        </div>
+        <!--========== MODAL POPUP ==========-->
+        <div class="popup-group">
+
+            <!-- 미리보기 팝업 -->
+            <div id="exPop" class="modal exPop board-exPop">
+                <div class="modal-wrap">
+                    <section class="modal-content">
+                        <div class="modal-tit-wrap">
+                            <h3 class="modal-tit">미리보기</h3>
+                        </div>
+                        <div class="modal-close-btn">
+                            <a href="javascript:;" onclick="modalPopupClose('#exPop')" title="팝업창 닫기">팝업창 닫기</a>
+                        </div>
+                        <div class="modal-cont-wrap">
+                            <div class="scroll-wrap" style="height: 450px; overflow-y: auto;">
+                                <section class="section sub-sec board-detail">
+                                    <h2 class="sec-title hidden">제목</h2>
+                                    <div class="inner">
+                                        <div class="main-title-area">
+                                            <span class="sub-tit">서브제목</span>
+                                            <h3 class="main-tit">메인제목</h3>
+                                        </div>
+                                    </div>
+                                    <article class="board-contents">
+                                        <h3 class="sec-title hidden">제목</h3>
+                                        <div class="board-detail-cont top flex">
+                                            <ul class="list-info flex">
+                                                <li class="list-date"><span>2024.07.22 월</span></li>
+                                                <li class="list-view"><span>3,958</span></li>
+                                                <li class="list-like"><span>3,604</span></li>
+                                            </ul>
+                                            <ul class="share-area flex">
+                                                <li>
+                                                    <a href="javascript:;" target="" alt="카카오톡" title="카카오톡" onclick="">
+                                                        <picture class="share-img kakao">
+                                                            <source srcset="../admin/assets/img/icon-kakao.svg" media="(max-width: 768px)">
+                                                            <img class="fade-in lazyloaded" decoding="async" alt="링크복사" data-src="../admin/assets/img/icon-kakao.svg" src="../admin/assets/img/icon-kakao.svg">
+                                                            <noscript><img class="fade-in lazyloaded" decoding="async" src="../admin/assets/img/icon-kakao.svg" alt="링크복사"></noscript>
+                                                        </picture>
+                                                        <span class="sns_caption hidden">카카오톡</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" alt="링크복사" title="링크복사" onclick="">
+                                                        <picture class="share-img kakao">
+                                                            <source srcset="../admin/assets/img/icon-linkcopy.svg" media="(max-width: 768px)">
+                                                            <img class="fade-in lazyloaded" decoding="async" alt="카카오톡" data-src="../admin/assets/img/icon-linkcopy.svg" src="../admin/assets/img/icon-linkcopy.svg">
+                                                            <noscript><img class="fade-in lazyloaded" decoding="async" src="../admin/assets/img/icon-linkcopy.svg" alt="카카오톡"></noscript>
+                                                        </picture>
+                                                        <span class="sns_caption hidden">링크복사</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="inner">
+                                            <div class="board-detail-cont mid">
+                                                <!-- 에디터 영역 -->
+                                                <div class="board-content-box" style="text-align: center; height: 500px; line-height: 500px; background-color: #f5f5f5;">
+                                                    <h4 style="font-size: 34px;">에디터 영역입니다.</h4>
+                                                </div>
+                                                <!-- //에디터 영역 -->
+                                            </div>
+                                        </div>
+                                    </article>
+                                </section>
+                            </div>
+                            <div class="modal-btn-wrap">
+                                <a href="javascript:;" onclick="modalPopupClose('#exPop')" class="common-btn blue"><span>확인</span></a>
+                            </div>
+                        </div>
+                        
+                    </section>
+                </div>
+            </div>
+
+            <!-- 저장 혹은 이동 버튼 클릭시 확인 팝업 -->
+            <div id="popSaveMsg" class="modal msg popSaveMsg">
+                <div class="modal-wrap">
+                    <section class="modal-content">
+                        <h3 class="hidden">저장이 완료되었습니다.</h3>
+                        <div class="modal-msg-wrap">
+                            <p class="msg-tit">저장이 완료되었습니다.</p>
+                        </div>
+                        <div class="modal-msg-btn-wrap">
+                            <a href="javascript:;" onclick="modalPopAllClose();" class="common-btn white">확인</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- 취소 버튼 클릭시 확인 팝업 -->
+            <div id="popCancelMsg" class="modal msg popCancelMsg">
+                <div class="modal-wrap">
+                    <section class="modal-content">
+                        <h3 class="hidden">입력 중인 페이지를 나가시겠습니까?</h3>
+                        <div class="modal-msg-wrap">
+                            <p class="msg-tit">입력 중인 페이지를 나가시겠습니까?</p>
+                        </div>
+                        <div class="modal-msg-btn-wrap select">
+                            <a href="javascript:;" onclick="modalPopupClose('#popCancelMsg');" class="common-btn white">아니오</a>
+                            <a href="#none" class="common-btn blue">네</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- JS -->
+	<script src="../admin/assets/js/basic_admin.js"></script>
+    <script src="../admin/assets/js/basic.js"></script>
+    <script>
+        /*========== TimePicker ==========*/
+        $('input.timepicker').timepicker({});        
+        $(function(){
+            $('.timepicker').timepicker({
+                timeFormat: 'HH:mm',
+                interval: 30,
+                minTime: '0',
+                maxTime: '11:30pm',
+                startTime: '00:00am',
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true
+            });
+        });
+    </script>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var filename = input.files[0].name;
+                var parentDiv = input.closest(".input-upload-box");
+                var filenameInput = parentDiv.querySelector(".filename-input");
+                filenameInput.value = filename;
+            }
+        }
+    </script>
+</body>
+</html>

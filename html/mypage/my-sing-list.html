@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- FONTS -->
+	<link rel="preload" href="../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../asset/css/common.css">
+
+	<!-- JS | library -->
+	<script src="../asset/js/lazysizes.min.js"></script>
+	<script src="../asset/js/prefixfree.min.js"></script>
+	<script src="../asset/js/jquery-3.7.1.min.js"></script>
+
+	<!-- JS -->
+	<script src="../asset/js/basic.js"></script>
+	<script src="../asset/js/popup.js"></script>
+
+    <title>SingIt</title>
+</head>
+<body>
+	<!--==================
+		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+		- PLAY 페이지 : play 클래스
+		- SING 페이지 : sing 클래스
+		- BATTLE 페이지 : battle 클래스
+		- MY 페이지 : my 클래스
+		- 서브 페이지 : sub 클래스 
+	======================-->
+    <div id="container" class="sing">
+        <!--========== MODAL POPUP ==========-->
+        <div class="modal-popup-group">
+
+		</div>
+
+		<!--========== HEADER ==========-->
+		<header id="header"></header>
+		<script>
+			$(function () {
+				$('#header').load("include/header.html", function () {
+					// 로드된 후에 실행될 코드
+					$.getScript("../asset/js/header.js");
+					// $.getScript("../asset/js/basic.js");
+				});
+			});
+		</script>
+        <main id="main">
+			<!-- ! 페이지 섹션에 맞는 클래스 추가해서 사용 : 예) play-sec  -->
+            <section class="section">
+                <div class="inner" style="background-color: rgba(0, 0, 0, 0.5); height: 89vh;">
+                    <div class="section-tit-wrap" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; flex-flow: column;">
+						<h2 class="main-title skeleton">페이지 메인 타이틀</h2>
+						<div class="section-content">
+							<div style="text-align: center; color: #fff;">컨텐츠 영역 들어갑니다.</div>
+						</div>
+                    </div>
+                </div>
+            </section>
+
+			<!-- Floating Button -->
+			<aside id="singit-box" class="content-txt2">
+				<a href="javascript:;" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
+			</aside>
+        </main>
+
+        <!--========== APP BAR : FOOTER ==========-->
+		<footer id="footer"></footer>
+        <script>
+			$(function () {
+				$('#footer').load("include/footer.html", function () {
+					// 로드된 후에 실행될 코드
+					$.getScript("../asset/js/footer.js");
+				});
+			});
+		</script>
+
+		<!--========== TOAST POPUP ==========-->
+		<div class="toast-popup-group">
+
+		</div>
+    </div>
+</body>
+</html>

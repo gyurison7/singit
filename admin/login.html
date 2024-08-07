@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+	<!-- FONT -->
+	<link rel="preload" href="../asset/font/SUIT-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../admin/assets/css/adm_common.css">
+	<link rel="stylesheet" href="../admin/assets/css/adm_login.css">
+	
+	<!-- JS -->
+    <script src="../admin/assets/js/jquery-3.6.0.min.js"></script>
+
+    <title>Singit 관리자 로그인</title>
+</head>
+<body>
+    <main>
+        <!--========== CONTENTS ==========-->
+        <div class="admin admin-login">
+            <section class="section access-sec login-sec">
+                <h2 class="sec-title hidden">Singit 관리자 로그인</h2>
+                <div class="login-logo-box">
+                    <figure class="logo"><img src="../admin/assets/img/logo-h-red-white.svg" alt="logo"></figure>
+                </div>
+                <div class="login-txt">
+                    <p>Singit 관리자 로그인</p>
+                </div>
+                <div class="login-form-wrap">
+                    <form>
+                        <fieldset>
+                            <legend class="hidden">관리자 로그인 - 정보입력</legend>
+                            <div class="input-box-wrap">
+                                <div class="input-box text">
+                                    <input type="text" name="id" class="id" placeholder="아이디" autofocus>
+                                    <span class="border-focus"><i></i></span>
+                                </div>
+                            </div>
+							<div class="input-box-wrap">
+								<div class="input-box password">
+									<input type="password" name="password" class="pw" placeholder="비밀번호">
+									<span class="border-focus"><i></i></span>
+									<button type="button" class="eye-btn" aria-label="비밀번호 보이기/숨기기"></button>
+								</div>
+							</div>
+							
+							<div class="error-wrap">
+								<!-- 
+									# 아이디 미입력시,
+									 * .input-box.text에 error 클래스 추가
+									 * .error-wrap에 on 클래스 추가하여 노출
+									 * alert msg : 아이디를 입력해주세요.
+
+									# 비밀번호 미입력시, 
+									 * .input-box.password에 error 클래스 추가
+									 * .error-wrap에 on 클래스 추가하여 노출
+									 * alert msg : 비밀번호를 입력해주세요.
+									 
+									# 아이디 또는 비밀번호 오입력 시,
+									 * .input-box.text, .input-box.password에 error 클래스 추가
+									 * .error-wrap에 on 클래스 추가하여 노출
+									 * alert msg : 아이디 또는 비밀번호가 올바르지 않습니다.<br>현재까지 오류 횟수는 N번입니다.
+
+									# 로그인 가능 횟수 초과 시,
+									 * .input-box.text, .input-box.password에 error 클래스 추가
+									 * .error-wrap에 on 클래스 추가하여 노출
+									 * alert msg : 로그인 가능 횟수 초과하여 해당 계정의 로그인이 제한되었습니다.
+									
+									# 계정 사용기한이 지났을 경우/해당 관리자 계정의 사용여부가 N일경우/해당 관리자가 속한 관리자 그룹의 사용여부가 N일 경우,
+									 * .input-box.text, .input-box.password에 error 클래스 추가
+									 * .error-wrap에 on 클래스 추가하여 노출
+									 * alert msg : 사용할 수 없는 계정입니다.
+
+									예시로 아이디, 비밀번호 미입력시 alert 적용했습니다.
+								-->
+								<p class="error login-error wrong">아이디 또는 비밀번호가 올바르지 않습니다. <br>현재까지 오류 횟수는 N번입니다.</p>
+							</div>
+							<div class="id-save-wrap">
+								<div class="basic-check-box">
+									<input type="checkbox" id="id-save-check-box" tabindex="-1">
+									<label for="id-save-check-box" tabindex="0">아이디 저장</label>
+								</div>
+							</div>
+							<ul class="info-wrap">
+								<li>로그인 5회 이상 오류 시 로그인이 제한됩니다.</li>
+							</ul>
+                            <div class="input-box submit login">
+                                <input type="submit" onclick="" value="로그인" tabindex="0" class="common-btn">
+                            </div>
+							<script>
+								/* alert 예시 */
+								$(function(){
+									$(".input-box.submit.login").on("click",function(e){
+										/* 아이디 값이 없을때 */
+										if($(".input-box .id").val() <= 0){
+											e.preventDefault();
+											$(".error-wrap").addClass("on");
+											$(".error-wrap .login-error").text("아이디를 입력해주세요.");
+											$(".input-box.password").removeClass("error");
+											$(".input-box.text").addClass("error");
+											alert("아이디를 입력해주세요.");
+										/* 비밀번호 값이 없을때 */
+										} else if($(".input-box .pw").val() <= 0){
+											e.preventDefault();
+											$(".error-wrap").addClass("on");
+											$(".error-wrap .login-error").text("비밀번호를 입력해주세요.");
+											$(".input-box.text").removeClass("error");
+											$(".input-box.password").addClass("error");
+											alert("비밀번호를 입력해주세요.");
+										}
+									});
+								});
+							</script>
+							<a href="#none" class="common-btn blue-line btn-home" target="_blank">Singit 바로가기</a>
+							
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+	<!-- JS -->
+    <script src="../admin/assets/js/basic.js"></script>
+    <script src="../admin/assets/js/basic_admin.js"></script>
+</body>
+</html>

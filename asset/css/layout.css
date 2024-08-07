@@ -1,0 +1,87 @@
+@charset "utf-8";
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Ajin Lee. Sunhyeong Kim. (Weaverloft Corp.)
+ * 2. Production Date: 2024-07-30
+ * 3. Client: MEDIASCOPE Inc.
+ */
+
+/*========== Common ==========*/
+#container {max-width: 750px; margin: 0 auto; box-sizing: border-box; background-color: #fff;box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.04);}
+main {min-height: calc(100vh - 5.25em); min-height: calc(100dvh - 5.25em); padding: 4em 0 1.25em; font-size: 1rem;}
+.inner { margin: 0 16px; } 
+@media screen and (min-width: 421px){
+    main {font-size: clamp(16px, 4.267vw, 20px);} 
+}
+
+/*========== Header ==========*/
+#header { position: fixed;top: 0; left: 50%; transform: translate(-50%, 0); max-width: 750px; width: 100%; z-index: 100; background-color:#fff; } 
+#header .header-main {display: flex; justify-content: space-between; align-items: center; height: 2.75em; font-size: 1rem;}
+#header .header-logo a {font-size: 1.38rem; color: #1A1A1A; text-transform: uppercase;}
+#header .header-right-area ul {display: flex; align-items: center; justify-content: flex-end; gap: 8px;}
+#header .header-right-area ul li {display: flex; justify-content: center; align-items: center;}
+#header .header-right-area ul li a {width: 1.50em; height: 1.50em; font-size: 1rem; background-repeat: no-repeat; background-position: center; background-size: contain;}
+#header .header-right-area ul li.header-coin a {background-image: url('../images/common/icon-singcoin.svg');}
+#header .header-right-area ul li.header-alarm a {background-image: url('../images/common/icon-alarm.svg');}
+#header .header-right-area ul li.header-alarm.on a {background-image: url('../images/common/icon-alarm-on.svg');}
+#header .header-right-area ul li.header-search a {background-image: url('../images/common/icon-search.svg');}
+#header .header-right-area ul li.header-setting a {background-image: url('../images/common/icon-setting.svg');}
+#header .header-right-area .singcoin {display: inline-block; margin: 0 0 0 4px; font-weight: 700; font-variation-settings: 'wght' 700;color: var(--main-point-color);line-height: 1;}
+/* sub */
+#header .header-sub {display: none;height: 2.75em; font-size: 1rem; border-bottom: 1px solid var(--basic-line-color);}
+#header .header-sub ul {position: relative; display: flex; justify-content: center; align-items: center; height: inherit; font-size: inherit;}
+#header .header-sub ul li {display: flex; justify-content: center; align-items: center;}
+#header .header-sub ul li.off {display: none;}
+#header .header-sub ul li.header-side {z-index: 102; position: absolute;top: 50%;transform: translate(0, -50%); height: 100%;}
+#header .header-sub ul li.header-back {left: 0;}
+#header .header-sub ul li.header-close {right: 0;}
+#header .header-sub ul li.header-sub-tit h2 {font-weight: 500; font-variation-settings: 'wght' 500; color: #111;}
+#header .header-sub ul li button {width: 2.50em; height: 100%; font-size: 1rem; background-repeat: no-repeat; background-size: 1.50em auto;}
+#header .header-sub ul li.header-back button {background-image: url('../images/common/icon-gnb-prev.svg');background-position: right center;}
+#header .header-sub ul li.header-close button {background-image: url('../images/common/icon-close-black.svg'); background-position: left center;}
+
+/* 페이지 별 gnb 메뉴 */
+.play #header .header-right-area ul li.header-coin, .play #header .header-right-area ul li.header-setting {display: none;}
+.sing #header .header-right-area ul li.header-setting {display: none;}
+.battle #header .header-right-area ul li.header-setting {display: none;}
+.my #header .header-right-area ul li.header-coin, .my #header .header-right-area ul li.header-search {display: none;}
+.sub #header .header-main {display: none;}
+.sub #header .header-sub {display: block;}
+
+@media screen and (min-width: 421px){
+    #header .header-main, #header .header-sub {font-size: clamp(16px, 4.267vw, 20px);} 
+    #header .header-logo a {font-size: clamp(22px, 5.867vw, 28px);} 
+    #header .header-right-area ul li a {font-size: clamp(16px, 4.267vw, 20px);} 
+}
+
+/*========== Footer ==========*/
+#footer { position: fixed;bottom: 0; left: 50%; transform: translate(-50%, 0); max-width: 750px; width: 100%; z-index: 100; background-color:#fff; } 
+#footer .footer-inner {height: 3.44em; font-size: 1rem}
+#footer .app-bar-wrap {display: flex;align-items: center; height: inherit; font-size: inherit;}
+#footer .app-bar-wrap li {display: flex; justify-content: center; align-items: center; width: calc(100% / 4); margin: -0.38em 0 0; }
+#footer .app-bar-wrap li a {display: flex; flex-direction: column; justify-content: center; align-items: center; width: 3.75em; height: 100%; font-size: 1rem;}
+#footer .app-bar-wrap li figure {width: 2.25em; font-size: inherit;}
+#footer .app-bar-wrap li .app-bar-img {display: block; aspect-ratio: 1 / 1;transition: all 300ms;}
+#footer .app-bar-wrap li .app-bar-img.active {display: none; opacity: 0; visibility: hidden;}
+#footer .app-bar-wrap li.active .app-bar-img:not(.active), #footer .app-bar-wrap li a:active .app-bar-img:not(.active) {display: none; opacity: 0; visibility: hidden;}
+#footer .app-bar-wrap li.active .app-bar-img.active, #footer .app-bar-wrap li a:active .app-bar-img.active {display: block; opacity: 1; visibility: visible;}
+#footer .app-bar-wrap li .app-bar-tit {font-size: 0.750rem;text-align: center;color: #888;text-transform: uppercase;line-height: 1;transition: color 300ms;}
+#footer .app-bar-wrap li.active .app-bar-tit, #footer .app-bar-wrap li a:active .app-bar-tit {font-weight: 700; font-variation-settings: 'wght' 700;color: #333;}
+@media screen and (min-width: 421px){
+    #footer .footer-inner {font-size: clamp(16px, 4.267vw, 20px);} 
+    #footer .app-bar-wrap li, #footer .app-bar-wrap li a {font-size: clamp(16px, 4.267vw, 20px);} 
+    #footer .app-bar-wrap li .app-bar-tit {font-size: clamp(12px, 3.2vw, 15px);}  
+}
+@media (hover:hover) {
+    #footer .app-bar-wrap li:hover .app-bar-img:not(.active) {display: none;opacity: 0; visibility: hidden;}
+    #footer .app-bar-wrap li:hover .app-bar-img.active {display: block; opacity: 1; visibility: visible;}
+    #footer .app-bar-wrap li:hover .app-bar-tit {font-weight: 700; font-variation-settings: 'wght' 700;color: #333;}
+}
+
+/*========== Floating Button ==========*/
+#singit-box {opacity: 1; visibility: visible;position: fixed;right: 50%;bottom: 3.88em;transform:translate(18.35em, 0);width: 3.50em;height: 3.38em;border-radius: 0.63em;background: linear-gradient( to bottom right,#FF5E4A,#F82A2E);box-shadow: 2px 2px 8px rgba(255, 43, 47, 0.35);}
+#singit-box a {width: 100%;height: 100%;background-image: url("../images/common/logo-v-white.svg");background-repeat: no-repeat;background-position: center center;background-size: 2.75em auto;font-size: inherit;}
+@media screen and (max-width: 750px){
+    #singit-box {right: 10px;transform:translate(0, 0);}
+}

@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+	<!-- FONT -->
+	<link rel="preload" href="../asset/font/SUIT-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../admin/assets/css/adm_common.css">
+    <link rel="stylesheet" href="../admin/assets/css/adm_statistics.css">
+	<link rel="stylesheet" href="../admin/assets/css/toastui-chart.min.css">
+    <link rel="stylesheet" href="../admin/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="../admin/assets/css/jquery.timepicker.min.css">
+
+	<!-- JS -->
+    <script src="../admin/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../admin/assets/js/jquery-ui.min.js"></script>
+    <script src="../admin/assets/js/jquery.timepicker.min.js"></script>
+	<script src="../admin/assets/js/toastui-chart.js"></script>
+
+    <title>Singit - 통계 관리</title>
+</head>
+<body>
+    <main>
+        <div class="head-area"></div>
+        <script>
+            $(function(){
+                $('.head-area').load("../admin/include/header.html");
+            });
+        </script>
+        <!--========== CONTENTS ==========-->
+        <div id="main" class="admin page-stat">
+            <div class="admin-section-wrap">
+                <div class="page-title-wrap">
+                    <h2 class="page-title">통계 관리</h2>
+                    <div class="btn-wrap">
+                        <a href="#none" class="common-btn small excel-download"><span>엑셀 다운로드</span></a>
+                    </div>
+                </div>
+
+                <div class="admin-section-inner">
+                    <section class="section stat-tab-sec">
+                        <h3 class="sec-title hidden">통계 관리 목록</h3>
+                        <div class="sec-title-wrap">
+                            <ul class="tab-menu main-tab">
+                                <li class="slider"></li>
+                                <li class="tab-link current" data-tab="visit-cont"><a href="javascript:;"><span>방문현황</span></a></li>
+                                <li class="tab-link" data-tab="access-cont"><a href="javascript:;"><span>접속현황</span></a></li>
+                                <li class="tab-link" data-tab="view-cont"><a href="javascript:;"><span>컨텐츠 조회 현황</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-container">
+                            <div class="tab-content-wrap">
+                                <div id="visit-cont" class="tab-content current">
+                                    <div class="cont-wrap">
+										<div class="top-date-wrap">
+											<div class="left-wrap"></div>
+											<div class="center-wrap">
+												<div class="date-wrap">
+													<button type="button" aria-label="이전" class="btn prev"><img src="assets/img/icon-arrow-prev.svg" alt="이전 월"></button>
+													<div class="day-wrap period-wrap current">
+														<p class="date">2024.07.22</p>
+														<div class="input-box datepicker-box">
+															<input type="text" class="datepicker">
+														</div>
+													</div>
+													<div class="week-wrap period-wrap">
+														<p class="date"><span>2023.09.18</span> ~ <span>2023.09.24</span></p>
+														<div class="input-box datepicker-box">
+															<input type="text" class="datepicker">
+														</div>
+													</div>
+													<div class="month-wrap period-wrap">
+														<p class="date">2023.09</p>
+														<div class="input-box datepicker-box">
+															<input type="text" class="datepicker monthpicker">
+														</div>
+													</div>
+													<button type="button" aria-label="다음" class="btn next"><img src="assets/img/icon-arrow-next.svg" alt="다음 월"></button>
+												</div>
+											</div>
+											<div class="right-wrap">
+												<ul class="tab-menu view-period-tab">
+													<li class="tab-link-sub current" data-tab="day"><a href="javascript:;"><span>일간</span></a></li>
+													<li class="tab-link-sub" data-tab="week"><a href="javascript:;"><span>주간</span></a></li>
+													<li class="tab-link-sub" data-tab="month"><a href="javascript:;"><span>월간</span></a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="tab-container-sub">
+											<div class="tab-content-wrap">
+												<div id="day" class="tab-content-sub current">
+													<div class="left-wrap">
+														<p>(단위 : 회)</p>
+														<div class="chart-sec">
+															<div class="chart-container">
+																<div id="chart-stat-visit-day-table"></div>
+															</div>
+														</div>
+													</div>
+													<div class="right-wrap">
+														<p>(단위 : 회)</p>
+														<div class="common-table-wrap">
+															<table class="common-table visit-table">
+																<caption class="hidden">방문현황 테이블</caption>
+																<thead>
+																	<tr>
+																		<th class="cell-th">
+																			<div class="con-th">날짜</div>
+																		</th>
+																		<th class="cell-th">
+																			<div class="con-th">방문 횟수</div>
+																		</th> 
+																	</tr>
+																</thead>
+																<tbody>  
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td"> 2024.07.27 (월)</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">37</div>
+																		</td>
+																	</tr>    
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td"> 2024.07.26 (일)</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">148</div>
+																		</td>
+																	</tr>    
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td"> 2024.07.25 (토)</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">500</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td"> 2024.07.24 (목)</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">300</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td"> 2024.07.23 (수)</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">200</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td"> 2024.07.22 (화)</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">250</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td"> 2024.07.21 (월)</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">120</div>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>    
+													</div>
+												</div>
+												<div id="week" class="tab-content-sub">
+													<div class="left-wrap">
+														<p>(단위 : 회)</p>
+														<div class="chart-sec">
+															<div class="chart-container">
+																<div id="chart-stat-visit-week-table"></div>
+															</div>
+														</div>
+													</div>
+													<div class="right-wrap">
+														<p>(단위 : 회)</p>
+														<div class="common-table-wrap">
+															<table class="common-table visit-table">
+																<caption class="hidden">방문현황 테이블</caption>
+																<thead>
+																	<tr>
+																		<th class="cell-th">
+																			<div class="con-th">날짜</div>
+																		</th>
+																		<th class="cell-th">
+																			<div class="con-th">방문 횟수</div>
+																		</th> 
+																	</tr>
+																</thead>
+																<tbody>  
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2024.07.13 (월) ~ 08.19 (일)</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">37</div>
+																		</td>
+																	</tr>    
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2024.07.06 (월) ~ 08.12 (일)</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">148</div>
+																		</td>
+																	</tr>    
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2023.07.30 (월) ~ 08.05 (일)</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">500</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2023.07.23 (월) ~ 07.29 (일)</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">300</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2023.07.16 (월) ~ 07.22 (일)</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">200</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2023.07.19 (월) ~ 07.15 (일)</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">250</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2023.07.02(월) ~ 07.08 (일)</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">120</div>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>    
+													</div>
+												</div>
+												<div id="month" class="tab-content-sub">
+													<div class="left-wrap">
+														<p>(단위 : 회)</p>
+														<div class="chart-sec">
+															<div class="chart-container">
+																<div id="chart-stat-visit-month-table"></div>
+															</div>
+														</div>
+													</div>
+													<div class="right-wrap">
+														<p>(단위 : 회)</p>
+														<div class="common-table-wrap">
+															<table class="common-table visit-table">
+																<caption class="hidden">방문현황 테이블</caption>
+																<thead>
+																	<tr>
+																		<th class="cell-th">
+																			<div class="con-th">날짜</div>
+																		</th>
+																		<th class="cell-th">
+																			<div class="con-th">방문 횟수</div>
+																		</th> 
+																	</tr>
+																</thead>
+																<tbody>  
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2023년 8월</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">240</div>
+																		</td>
+																	</tr>    
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2023년 7월</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">600</div>
+																		</td>
+																	</tr>    
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2023년 6월</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">480</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2023년 5월</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">800</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2023년 4월</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">1050</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2023년 3월</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">900</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2023년 2월</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">550</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2023년 1월</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">850</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2022년 12월</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">700</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2022년 11월</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">400</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2022년 10월</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">240</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="cell-td">
+																			<div class="con-td">2022년 9월</div>
+																		</td>
+																		<td class="cell-td">
+																			<div class="con-td">120</div>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>    
+													</div>
+												</div>
+											</div>
+										</div>
+                                    </div>
+                                </div>
+                                <div id="access-cont" class="tab-content">
+                                    <div class="search-top-wrap">
+										<p>조회기간</p>
+										<ul class="search-period-btns">
+											<li class="search-today">
+												<a href="javascript:;" class="selected"><span>오늘</span></a>
+											</li>
+											<li class="search-thisweek">
+												<a href="javascript:;"><span>이번주</span></a>
+											</li>
+											<li class="search-thismonth">
+												<a href="javascript:;"><span>이번달</span></a>
+											</li>
+										</ul>
+										<div class="datepicker-box-wrap search-period-datepicker">
+											<div class="input-box datepicker-box">
+												<input type="text" class="datepicker set">
+												<span class="border-focus"><i></i></span>
+											</div>
+											<span class="mid-line">-</span>
+											<div class="input-box datepicker-box">
+												<input type="text" class="datepicker set">
+												<span class="border-focus"><i></i></span>
+											</div>
+										</div>
+										<button type="button" class="common-btn" aria-label="조회하기" onclick="location.href='#none'"><span>조회하기</span></button>
+                                    </div>
+									<div class="table-wrap">
+										<div class="os-access">
+											<h3>운영체제별 방문횟수</h3>
+											<div class="common-table-wrap">
+												<table class="common-table os-access-table">
+													<caption class="hidden">운영체제별 방문횟수 테이블</caption>
+													<thead>
+														<tr>
+															<th class="cell-th">
+																<div class="con-th">순위</div>
+															</th>
+															<th class="cell-th">
+																<div class="con-th">운영체제</div>
+															</th> 
+															<th class="cell-th">
+																<div class="con-th">방문 횟수</div>
+															</th> 
+														</tr>
+													</thead>
+													<tbody>  
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">1</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">Windows</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">128</div>
+															</td>
+														</tr>    
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">2</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">Macintosh</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">122</div>
+															</td>
+														</tr>  
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">3</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">iOS</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">120</div>
+															</td>
+														</tr>  
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">4</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">Andriod</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">111</div>
+															</td>
+														</tr>  
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">5</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">Linux</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">64</div>
+															</td>
+														</tr>  
+													</tbody>
+												</table>
+											</div>  
+										</div>
+										<div class="device-access">
+											<h3>기기별 방문횟수</h3>
+											<div class="common-table-wrap">
+												<table class="common-table device-access-table">
+													<caption class="hidden">기기별 방문횟수 테이블</caption>
+													<thead>
+														<tr>
+															<th class="cell-th">
+																<div class="con-th">순위</div>
+															</th>
+															<th class="cell-th">
+																<div class="con-th">기기</div>
+															</th> 
+															<th class="cell-th">
+																<div class="con-th">방문 횟수</div>
+															</th> 
+														</tr>
+													</thead>
+													<tbody>  
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">1</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">DESKTOP</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">128</div>
+															</td>
+														</tr>    
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">2</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">MOBILE</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">122</div>
+															</td>
+														</tr>  
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">3</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">TABLET</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">120</div>
+															</td>
+														</tr>  
+													</tbody>
+												</table>
+											</div> 
+										</div>
+										<div class="browser-access">
+											<h3>브라우저별 방문횟수</h3>
+											<div class="common-table-wrap">
+												<table class="common-table browser-access-table">
+													<caption class="hidden">브라우저별 방문횟수 테이블</caption>
+													<thead>
+														<tr>
+															<th class="cell-th">
+																<div class="con-th">순위</div>
+															</th>
+															<th class="cell-th">
+																<div class="con-th">브라우저</div>
+															</th> 
+															<th class="cell-th">
+																<div class="con-th">방문 횟수</div>
+															</th> 
+														</tr>
+													</thead>
+													<tbody>  
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">1</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">Chrome</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">128</div>
+															</td>
+														</tr>    
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">2</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">Edge</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">122</div>
+															</td>
+														</tr>  
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">3</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">Safari</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">120</div>
+															</td>
+														</tr>  
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">4</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">Whale Browser</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">111</div>
+															</td>
+														</tr>  
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">5</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">Android Webview</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">64</div>
+															</td>
+														</tr>  
+													</tbody>
+												</table>
+											</div>  
+										</div>
+									</div>
+                                </div>
+                                <div id="view-cont" class="tab-content">
+                                    <div class="search-top-wrap">
+										<p>조회기간</p>
+										<ul class="search-period-btns">
+											<li class="search-today">
+												<a href="javascript:;" class="selected"><span>오늘</span></a>
+											</li>
+											<li class="search-thisweek">
+												<a href="javascript:;"><span>이번주</span></a>
+											</li>
+											<li class="search-thismonth">
+												<a href="javascript:;"><span>이번달</span></a>
+											</li>
+										</ul>
+										<div class="datepicker-box-wrap search-period-datepicker">
+											<div class="input-box datepicker-box">
+												<input type="text" class="datepicker set">
+												<span class="border-focus"><i></i></span>
+											</div>
+											<span class="mid-line">-</span>
+											<div class="input-box datepicker-box">
+												<input type="text" class="datepicker set">
+												<span class="border-focus"><i></i></span>
+											</div>
+										</div>
+										<button type="button" class="common-btn" aria-label="조회하기" onclick="location.href='#none'"><span>조회하기</span></button>
+                                    </div>
+									<div class="table-wrap">
+										<div class="menu-view">
+											<h3>메뉴별 조회 순위</h3>
+											<div class="common-table-wrap">
+												<table class="common-table menu-view-table">
+													<caption class="hidden">메뉴별 조회 순위 테이블</caption>
+													<thead>
+														<tr>
+															<th class="cell-th">
+																<div class="con-th">순위</div>
+															</th>
+															<th class="cell-th">
+																<div class="con-th">영상</div>
+															</th> 
+															<th class="cell-th">
+																<div class="con-th">제목</div>
+															</th> 
+															<th class="cell-th">
+																<div class="con-th">클릭수</div>
+															</th> 
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">1</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">아로하</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">아로하</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">128</div>
+															</td>
+														</tr>    
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">2</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">아로하</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">아로하</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">128</div>
+															</td>
+														</tr>    
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">3</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">아로하</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">아로하</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">128</div>
+															</td>
+														</tr>    
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">4</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">아로하</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">아로하</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">128</div>
+															</td>
+														</tr>    
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">5</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">아로하</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">아로하</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">128</div>
+															</td>
+														</tr>    
+													</tbody>
+												</table>
+											</div>  
+										</div>
+										<div class="content-view">
+											<h3>컨텐츠 인기 순위</h3>
+											<div class="common-table-wrap">
+												<table class="common-table content-view-table">
+													<caption class="hidden">컨텐츠 인기 순위 테이블</caption>
+													<colgroup>
+														<col width="8%">  
+														<col width="9%">  
+														<col width="24%">  
+														<col width="*">      
+														<col width="18%">  
+													</colgroup>
+													<thead>
+														<tr>
+															<th class="cell-th">
+																<div class="con-th">순위</div>
+															</th>
+															<th class="cell-th">
+																<div class="con-th">조회수</div>
+															</th> 
+															<th class="cell-th">
+																<div class="con-th">사용자</div>
+															</th> 
+															<th class="cell-th">
+																<div class="con-th">제목</div>
+															</th> 
+															<th class="cell-th">
+																<div class="con-th">등록일</div>
+															</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">1</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">125</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">SF9 다원(솔로 ver.)</div>
+															</td>
+															<td class="cell-td dt-left">
+																<div class="con-td">
+																	<a href="#none" class="ellipsis-txt">All For You</a>
+																</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">2024-7-22</div>
+															</td>
+														</tr> 
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">2</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">125</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">SF9 다원(솔로 ver.)</div>
+															</td>
+															<td class="cell-td dt-left">
+																<div class="con-td">
+																	<a href="#none" class="ellipsis-txt">All For You</a>
+																</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">2024-7-22</div>
+															</td>
+														</tr> 
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">3</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">125</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">SF9 다원(솔로 ver.)</div>
+															</td>
+															<td class="cell-td dt-left">
+																<div class="con-td">
+																	<a href="#none" class="ellipsis-txt">All For You</a>
+																</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">2024-7-22</div>
+															</td>
+														</tr> 
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">4</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">125</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">SF9 다원(솔로 ver.)</div>
+															</td>
+															<td class="cell-td dt-left">
+																<div class="con-td">
+																	<a href="#none" class="ellipsis-txt">All For You</a>
+																</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">2024-7-22</div>
+															</td>
+														</tr> 
+														<tr>
+															<td class="cell-td">
+																<div class="con-td">5</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">125</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">SF9 다원(솔로 ver.)</div>
+															</td>
+															<td class="cell-td dt-left">
+																<div class="con-td">
+																	<a href="#none" class="ellipsis-txt">All For You</a>
+																</div>
+															</td>
+															<td class="cell-td">
+																<div class="con-td">2024-7-22</div>
+															</td>
+														</tr> 
+													</tbody>
+												</table>
+											</div> 
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--========== FOOTER ==========-->
+        <footer id="footer">
+
+        </footer>
+        <script>
+            $(function(){
+                $('#footer').load("../admin/include/footer.html");
+            });
+        </script>
+        <div id="top-btn">
+            <a href="javascript:;" tabindex="0"><span class="hidden">페이지 맨 위로</span></a>
+        </div>
+        <script>
+            /*========== 두번째 tab (tab-content-sub) 기능 ==========*/
+            $(function(){
+                $(".tab-link-sub").on("click",function(){
+					let tab = $(this).attr("data-tab");
+					$(".tab-content-sub").removeClass("current");
+					$(`#${tab}`).addClass("current");
+					$(".tab-link-sub").removeClass("current");
+					$(this).addClass("current");
+					$(".period-wrap").removeClass("current");
+					$(`.${tab}-wrap.period-wrap`).addClass("current");
+                });
+            });
+        </script>
+    </main>
+
+	<!-- JS -->
+	<script src="../admin/assets/js/basic_admin.js"></script>
+    <script src="../admin/assets/js/basic.js"></script>
+	<script src="../admin/assets/js/chart.js"></script>
+    <script>
+        /*========== TimePicker ==========*/
+        $('input.timepicker').timepicker({});        
+        $(function(){
+            $('.timepicker').timepicker({
+                timeFormat: 'HH:mm',
+                interval: 30,
+                minTime: '0',
+                maxTime: '11:30pm',
+                startTime: '00:00am',
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true
+            });
+        });
+    </script>
+</body>
+</html>

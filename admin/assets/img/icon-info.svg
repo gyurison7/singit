@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="그룹_258" data-name="그룹 258" transform="translate(-974 -724)">
+    <rect id="사각형_212" data-name="사각형 212" width="24" height="24" transform="translate(974 724)" fill="none"/>
+    <g id="Icon_ionic-md-information-circle-outline" data-name="Icon ionic-md-information-circle-outline" transform="translate(997.374 747.249) rotate(180)">
+      <path id="패스_18" data-name="패스 18" d="M11.374,4.99A6.381,6.381,0,1,1,6.859,6.859,6.357,6.357,0,0,1,11.374,4.99m0-1.615a8,8,0,1,0,8,8,8,8,0,0,0-8-8Z" fill="#666"/>
+      <path id="패스_19" data-name="패스 19" d="M18.139,18.687H16.523V13.879h1.615Zm0-6.384H16.523V10.688h1.615Z" transform="translate(-5.957 -3.313)" fill="#666"/>
+    </g>
+  </g>
+</svg>

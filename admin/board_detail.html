@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- FONT -->
+	<link rel="preload" href="../asset/font/SUIT-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../admin/assets/css/adm_common.css">
+    <link rel="stylesheet" href="../admin/assets/css/adm_board.css">
+    <link rel="stylesheet" href="../admin/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="../admin/assets/css/jquery.timepicker.min.css">
+
+    <!-- JS -->
+    <script src="../admin/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../admin/assets/js/jquery-ui.min.js"></script>
+    <script src="../admin/assets/js/jquery.timepicker.min.js"></script>
+
+    <title>Singit - 등록</title>
+</head>
+<body>
+    <main>
+        <div class="head-area"></div>
+        <script>
+            $(function(){
+                $('.head-area').load("../admin/include/header.html");
+            });
+        </script>
+        <!--========== CONTENTS ==========-->
+        <div id="main" class="board-list-type board-search">
+            <div class="admin-section-wrap">
+                <div class="page-title-wrap">
+                    <h2 class="page-title">콘텐츠 관리</h2>
+                    <div class="btn-wrap">
+                        <button class="common-btn small white" aria-label="삭제" onclick="modalPopup('#popCancelMsg')"><span>삭제</span></button>
+                        <a href="../admin/board_reg.html" class="common-btn small save"><span>수정</span></a>
+                        <a href="../admin/board_list.html" class="common-btn small blue-line"><span>목록</span></a>
+                    </div>
+                </div>
+                <div class="admin-section-inner">
+                    <section class="section">
+                        <h3 class="sec-title hidden">콘텐츠 관리 조회</h3>
+                        <div class="common-table-wrap mgb40">
+                            <div class="tit-box">
+                                <div class="tooltip-box left">
+                                    <h3 class="sec-title">콘텐츠 등록</h3>
+                                </div>
+                            </div>
+                            <table class="common-table board-search-table">
+                                <caption class="hidden">콘텐츠 관리 조회</caption>
+                                <tbody>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">카테고리1</div>
+                                        </th>
+                                        <td class="cell-td">콘텐츠 관리</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">카테고리2</div>
+                                        </th>
+                                        <td class="cell-td">영상 관리</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">썸네일</div>
+                                        </th>
+                                        <td class="cell-td">
+                                            <div class="img_preview">
+                                                <img src="../admin/assets/img/basic-bg-image.gif" alt="기본 이미지" name="cover_image" width="100" height="100">
+                                            </div>
+                                            <a href="#none" target="_blank" class="download-btn" title="썸네일 이미지 다운로드" aria-label="썸네일 이미지 다운로드" download=""><span>썸네일 이미지 다운로드.png [384kb]</span></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">제목</div>
+                                        </th>
+                                        <td class="cell-td">Singit Battle 도전왕 쿠폰!</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">회원 등급</div>
+                                        </th>
+                                        <td class="cell-td">VIP</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">상단고정</div>
+                                        </th>
+                                        <td class="cell-td">고정안함</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">게시여부</div>
+                                        </th>
+                                        <td class="cell-td">게시</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">댓글 여부</div>
+                                        </th>
+                                        <td class="cell-td yes">y</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">내용</div>
+                                        </th>
+                                        <td class="cell-td">Singit Battle 도전왕 쿠폰!</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">파일첨부</div>
+                                        </th>
+                                        <td class="cell-td">
+                                            <div class="download-box-wrap">
+                                                <button class="common-btn small dark-blue" aria-label="전체 다운로드" onclick=""><span>전체 다운로드</span></button>
+                                                <ul class="download-list">
+                                                    <li><a href="#none" target="_blank" class="download-btn" title="자료1.png" aria-label="자료1.png" download="">자료1.png [384kb]</a></li>
+                                                    <li><a href="#none" target="_blank" class="download-btn" title="자료2.png" aria-label="자료2.png" download="">자료2.png [22kb]</a></li>
+                                                    <li><a href="#none" target="_blank" class="download-btn" title="자료3.png" aria-label="자료3.png" download="">자료3.png [457kb]</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">추가기능</div>
+                                        </th>
+                                        <td class="cell-td">선택없음</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">조회수</div>
+                                        </th>
+                                        <td class="cell-td">125</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th"></div>
+                                        </th>
+                                        <td class="cell-td">25</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">등록자</div>
+                                        </th>
+                                        <td class="cell-td">홍길동(superadmin)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">등록일시</div>
+                                        </th>
+                                        <td class="cell-td">2024-07-22 14:03:02</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">댓글기능</div>
+                                        </th>
+                                        <td class="cell-td">사용</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">댓글 제목</div>
+                                        </th>
+                                        <td class="cell-td">좋아요!</td>  
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">배너 이미지</div>
+                                        </th>
+                                        <td class="cell-td">
+                                            <ul class="cell-ul">
+                                                <li>
+                                                    <div class="img_preview">
+                                                        <img src="../admin/assets/img/basic-bg-image.gif" alt="기본 이미지" name="cover_image" width="100" height="100">
+                                                    </div>
+                                                    <p class="vote-num">배너1</p>
+                                                </li>
+                                                <li>
+                                                    <div class="img_preview">
+                                                        <img src="../admin/assets/img/basic-bg-image.gif" alt="기본 이미지" name="cover_image" width="100" height="100">
+                                                    </div>
+                                                    <p class="vote-num">배너2</p>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">기간</div>
+                                        </th>
+                                        <td class="cell-td">2024-07-01 09:00 ~ 2024-07-22 18:00</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">인원</div>
+                                        </th>
+                                        <td class="cell-td">제한없음</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">댓글수</div>
+                                        </th>
+                                        <td class="cell-td">25</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">정보</div>
+                                        </th>
+                                        <td class="cell-td">
+                                            <button class="common-btn small dark-blue" aria-label="엑셀 다운로드" onclick="modalPopup('#boardSearchPop01')"><span>엑셀 다운로드</span></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="row-th cell-th w160" scope="row">
+                                            <div class="con-th">내용</div>
+                                        </th>
+                                        <td class="cell-td">
+                                            <div class="editor-area" style="width: 100%; background-color: #f5f5f5; height: 491px; text-align: center; line-height: 491px;">웹에디터 영역</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="common-table-wrap comment-wrap">
+                            <div class="tit-box">
+                                <div class="tooltip-box left">
+                                    <h3 class="sec-title">댓글 관리</h3>
+                                </div>
+                            </div>
+                            <div class="comment-box">
+                                <ul class="search-filter-list comment-list-area">
+                                    <li class="comment-list01">
+                                        <strong class="tit">댓글 작성</strong>
+                                        <div class="filter-box-wrap w100p">
+                                            <div class="filter-inner w100p">
+                                                <div class="table-option-top">
+                                                    <div class="left-wrap"></div>
+                                                    <div class="right-wrap">
+                                                        <a href="javascript:;" onclick="modalPopup('#applyPointAll')" class="common-btn blue-line small"><span>등록</span></a>
+                                                    </div>
+                                                </div>
+                                                <div class="textarea-box keyup w100p">
+                                                    <div class="textarea-input">
+                                                        <textarea placeholder="" maxlength="500"></textarea>
+                                                        <span class="border-focus"><i></i></span>
+                                                    </div>
+                                                    <div class="write-typing">
+                                                        <span class="typing-num">0</span>
+                                                        <span>/</span>
+                                                        <span class="typing-max-num">500</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="comment-listed reply-textarea">
+                                        <div class="comment-listed-inner w100p">
+                                            <div class="number"><span>4</span></div>
+                                            <div class="comment-list-box w100p">
+                                                <div class="table-option-top">
+                                                    <div class="left-wrap">
+                                                        <div class="info-date">
+                                                            <p>홍길동</p>
+                                                            <span>회원</span>
+                                                            <span class="heart"><i class="heart-icon"></i> 7</span>
+                                                            <span>2023-08-26 14:03:23</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="right-wrap">
+                                                        <div class="btn-on-off-wrap open">
+                                                            <input type="checkbox" id="btn-onoff-05" class="btn-on-off">
+                                                            <label for="btn-onoff-05"><span></span></label>
+                                                        </div>
+                                                        <button type="button" class="common-btn white small reply-btn" aria-label="답글달기" onclick=""><span>답글달기</span></button>
+                                                    </div>
+                                                </div>
+                                                <div class="option-bottom comment-txt-box">
+                                                    <p> 노래 실력이 좋습니다~! 저두 노래 불러보고 싶어요~ 
+                                                        항상 화이팅하시는 모습 보기 좋아요~ 아이들 눈높이에서 즐겁게 일하시는 선생님의 정성과 
+                                                        열정이 아이들에게도 그대로 느껴지나봅니다. 항상 화이팅하시는 모습 보기 좋아요~ 노래 실력이 좋습니다~! 저두 노래 불러보고 싶어요~ 항상 화이팅하시는 모습 보기 ~ 노래 실력이 좋습니다~! 저두 노래 불러보고 싶어요~ 항상 화이팅하시는 모습 보기 ~ 노래 실력이 좋습니다~! 저두 노래 불러보고 싶어요~ 항상 화이팅하시는 모습 보기 ~</p>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                        <div class="reply-textarea-box">
+                                            <div class="comment-list-box w100p">
+                                                <div class="table-option-top w100p">
+                                                    <div class="left-wrap w100p">
+                                                        <div class="option-bottom comment-txt-box w100p">
+                                                            <div class="badge-mark-wrap mgr10">
+                                                                <span class="badge-mark reply">RE : </span>
+                                                            </div>
+                                                            <div class="textarea-box keyup w100p">
+                                                                <div class="textarea-input">
+                                                                    <textarea placeholder="" maxlength="500"></textarea>
+                                                                    <span class="border-focus"><i></i></span>
+                                                                </div>
+                                                                <div class="write-typing">
+                                                                    <span class="typing-num">0</span>
+                                                                    <span>/</span>
+                                                                    <span class="typing-max-num">500</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>   
+                                                    </div>
+                                                    <div class="right-wrap">
+                                                        <button type="button" class="common-btn small small2 blue-line" onclick="modalPopup('#popSaveMsg')" aria-label="등록"><span>등록</span></button>
+                                                        <button type="button" class="common-btn small small2 gray-b reply-cancel" aria-label="취소" onclick=""><span>취소</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="comment-listed reply">
+                                        <div class="comment-listed-inner w100p">
+                                            <div class="number"><span>3</span></div>
+                                            <div class="comment-list-box w100p">
+                                                <div class="table-option-top">
+                                                    <div class="left-wrap">
+                                                        <div class="info-date">
+                                                            <p>홍길동</p>
+                                                            <span>회원</span>
+                                                            <span class="heart"><i class="heart-icon"></i> 7</span>
+                                                            <span>2023-08-26 14:03:23</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="right-wrap">
+                                                        <div class="btn-on-off-wrap open">
+                                                            <input type="checkbox" id="btn-onoff-03" class="btn-on-off" checked="">
+                                                            <label for="btn-onoff-03"><span></span></label>
+                                                        </div>
+                                                        <button type="button" class="common-btn white small reply-btn" aria-label="답글달기" onclick=""><span>답글달기</span></button>
+                                                    </div>
+                                                </div>
+                                                <div class="option-bottom comment-txt-box">
+                                                    <div class="badge-mark-wrap mgr10">
+                                                        <span class="badge-mark reply">RE : </span>
+                                                    </div>
+                                                    <p>노래 실력이 좋습니다~! 저두 노래 불러보고 싶어요~</p>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                        <div class="reply-textarea-box">
+                                            <div class="comment-list-box w100p">
+                                                <div class="table-option-top w100p">
+                                                    <div class="left-wrap w100p">
+                                                        <div class="option-bottom comment-txt-box w100p">
+                                                            <div class="badge-mark-wrap mgr10">
+                                                                <span class="badge-mark reply">RE : </span>
+                                                            </div>
+                                                            <div class="textarea-box keyup w100p">
+                                                                <div class="textarea-input">
+                                                                    <textarea placeholder="" maxlength="500"></textarea>
+                                                                    <span class="border-focus"><i></i></span>
+                                                                </div>
+                                                                <div class="write-typing">
+                                                                    <span class="typing-num">0</span>
+                                                                    <span>/</span>
+                                                                    <span class="typing-max-num">500</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>   
+                                                    </div>
+                                                    <div class="right-wrap">
+                                                        <button type="button" class="common-btn small small2 blue-line" onclick="modalPopup('#popSaveMsg')" aria-label="등록"><span>등록</span></button>
+                                                        <button type="button" class="common-btn small small2 gray-b reply-cancel" aria-label="취소" onclick=""><span>취소</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="comment-listed reply">  <!-- 댓글 등록 된 상태 일때 reply 클래스 추가 -->
+                                        <div class="comment-listed-inner w100p">
+                                            <div class="number"><span>2</span></div>
+                                            <div class="comment-list-box w100p">
+                                                <div class="table-option-top">
+                                                    <div class="left-wrap">
+                                                        <div class="info-date">
+                                                            <p>홍길동</p>
+                                                            <span>회원</span>
+                                                            <span class="heart"><i class="heart-icon"></i> 3</span>
+                                                            <span>2023-08-26 14:03:23</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="right-wrap">
+                                                        <div class="btn-on-off-wrap open">
+                                                            <input type="checkbox" id="btn-onoff-04" class="btn-on-off">
+                                                            <label for="btn-onoff-04"><span></span></label>
+                                                        </div>
+                                                        <button type="button" class="common-btn white small reply-btn" aria-label="답글달기" onclick=""><span>답글달기</span></button>
+                                                    </div>
+                                                </div>
+                                                <div class="option-bottom comment-txt-box">
+                                                    <div class="badge-mark-wrap mgr10">
+                                                        <span class="badge-mark reply">RE : </span>
+                                                    </div>
+                                                    <p>노래 실력이 좋습니다~! 저두 노래 불러보고 싶어요~ 항상 화이팅하시는 모습 보기 좋아요~ </p>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                        <div class="reply-textarea-box">
+                                            <div class="comment-list-box w100p">
+                                                <div class="table-option-top w100p">
+                                                    <div class="left-wrap w100p">
+                                                        <div class="option-bottom comment-txt-box w100p">
+                                                            <div class="badge-mark-wrap mgr10">
+                                                                <span class="badge-mark reply">RE : </span>
+                                                            </div>
+                                                            <div class="textarea-box keyup w100p">
+                                                                <div class="textarea-input">
+                                                                    <textarea placeholder="" maxlength="500"></textarea>
+                                                                    <span class="border-focus"><i></i></span>
+                                                                </div>
+                                                                <div class="write-typing">
+                                                                    <span class="typing-num">0</span>
+                                                                    <span>/</span>
+                                                                    <span class="typing-max-num">500</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>   
+                                                    </div>
+                                                    <div class="right-wrap">
+                                                        <button type="button" class="common-btn small small2 blue-line" onclick="modalPopup('#popSaveMsg')" aria-label="등록"><span>등록</span></button>
+                                                        <button type="button" class="common-btn small small2 gray-b reply-cancel" aria-label="취소" onclick=""><span>취소</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="comment-listed reply-textarea"> <!-- 댓글 달기 버튼 클릭 시 reply-textarea 클래스 추가 -->
+                                        <div class="comment-listed-inner w100p">
+                                            <div class="number"><span>1</span></div>
+                                            <div class="comment-list-box w100p">
+                                                <div class="table-option-top">
+                                                    <div class="left-wrap">
+                                                        <div class="info-date">
+                                                            <p>홍길동</p>
+                                                            <span>회원</span>
+                                                            <span class="heart"><i class="heart-icon"></i> 7</span>
+                                                            <span>2023-08-26 14:03:23</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="right-wrap">
+                                                        <div class="btn-on-off-wrap open">
+                                                            <input type="checkbox" id="btn-onoff-05" class="btn-on-off">
+                                                            <label for="btn-onoff-05"><span></span></label>
+                                                        </div>
+                                                        <button type="button" class="common-btn white small reply-btn" aria-label="답글달기" onclick="replyAdd()"><span>답글달기</span></button>
+                                                    </div>
+                                                </div>
+                                                <div class="option-bottom comment-txt-box">
+                                                    <p>노래 실력이 좋습니다~! 저두 노래 불러보고 싶어요~ 항상 화이팅하시는 모습 보기 좋아요~
+                                                        노래 실력이 좋습니다~! 저두 노래 불러보고 싶어요~ 항상 화이팅하시는 모습 보기 좋아요~ </p>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                        <div class="reply-textarea-box">
+                                            <div class="comment-list-box w100p">
+                                                <div class="table-option-top w100p">
+                                                    <div class="left-wrap w100p">
+                                                        <div class="option-bottom comment-txt-box w100p">
+                                                            <div class="badge-mark-wrap mgr10">
+                                                                <span class="badge-mark reply">RE : </span>
+                                                            </div>
+                                                            <div class="textarea-box keyup w100p">
+                                                                <div class="textarea-input">
+                                                                    <textarea placeholder="" maxlength="500"></textarea>
+                                                                    <span class="border-focus"><i></i></span>
+                                                                </div>
+                                                                <div class="write-typing">
+                                                                    <span class="typing-num">0</span>
+                                                                    <span>/</span>
+                                                                    <span class="typing-max-num">500</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>   
+                                                    </div>
+                                                    <div class="right-wrap">
+                                                        <button type="button" class="common-btn small small2 blue-line" onclick="modalPopup('#popSaveMsg')" aria-label="등록"><span>등록</span></button>
+                                                        <button type="button" class="common-btn small small2 gray-b reply-cancel" aria-label="취소" onclick=""><span>취소</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <a class="comment-box-btn" href="javascript:;">
+                                    <span class="comment-open"></span>
+                                </a>
+                            </div>
+                            <script>
+                                $(function(){
+                                    $(document).ready(function(){
+                                        $(".comment-box-btn").removeClass("on"); 
+                                        $(".comment-box-btn").click(function(e){
+                                            e.preventDefault();
+                                            $(".comment-list-area").stop();
+                                            $(".comment-box-btn").toggleClass("on"); 
+                                            $(".comment-list-area").slideToggle();
+                                            btnCommentBox();
+                                        });
+                                        function btnCommentBox(){
+                                            if ($('.comment-box-btn').hasClass("on")) {
+                                                $('.comment-open').text('댓글 열기');
+                                            }else{
+                                                $('.comment-open').text('댓글 닫기');
+                                            }
+                                        } btnCommentBox();
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--========== FOOTER ==========-->
+        <footer id="footer">
+   
+        </footer>
+        <script>
+            $(function(){
+                $('#footer').load("../admin/include/footer.html");
+            });
+        </script>
+        <div id="top-btn">
+            <a href="javascript:;" tabindex="0"><span class="hidden">페이지 맨 위로</span></a>
+        </div>
+        <!--========== MODAL POPUP ==========-->
+        <div class="popup-group">
+
+            <!-- 엑셀 다운로드 버튼 클릭 : 파일 암호 설정 팝업 -->
+            <div id="boardSearchPop01" class="modal msg exPop boardSearchPop">
+                <div class="modal-wrap">
+                    <section class="modal-content">
+                        <div class="modal-tit-wrap">
+                            <h3 class="modal-tit">파일 암호 설정</h3>
+                        </div>
+                        <div class="modal-close-btn">
+                            <a href="javascript:;" onclick="modalPopupClose('#boardSearchPop01')" title="팝업창 닫기">팝업창 닫기</a>
+                        </div>
+                        <div class="modal-cont-wrap">
+                            <div class="scroll-wrap">
+                                <p>개인정보가 포함된 파일은 보안을 위해 암호 설정이 필수입니다.<br>다운로드 받을 파일의 암호를 설정해주세요.</p>
+                                <br>
+                                <div class="textarea-box">
+                                    <textarea placeholder="다운로드 사유를 입력해주세요."></textarea>
+                                    <span class="border-focus"><i></i></span>
+                                </div>
+                                <div class="input-box-wrap">
+                                    <div class="input-box text">
+                                        <input type="text" placeholder="암호 입력">
+                                        <span class="border-focus"><i></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-btn-wrap">
+                                <a href="javascript:;" onclick="modalPopup('#boardSearchPop02')" class="common-btn blue-line"><span>확인</span></a>
+                            </div>
+                        </div>
+                        
+                    </section>
+                </div>
+            </div>
+
+            <!-- 엑셀 다운로드 버튼 클릭 : 파일 암호 설정 팝업 -->
+            <div id="boardSearchPop02" class="modal msg exPop boardSearchPop">
+                <div class="modal-wrap">
+                    <section class="modal-content">
+                        <div class="modal-tit-wrap">
+                            <h3 class="modal-tit">파일 암호 설정</h3>
+                        </div>
+                        <div class="modal-close-btn">
+                            <a href="javascript:;" onclick="modalPopupClose('#boardSearchPop02')" title="팝업창 닫기">팝업창 닫기</a>
+                        </div>
+                        <div class="modal-cont-wrap">
+                            <div class="scroll-wrap">
+                                <ul>
+                                    <li>다운로드 사유 : 이벤트 당첨자 발표</li>
+                                    <li>파일 암호 : 30%$^@$&1</li>
+                                </ul>
+                                <p class="mgt20">위와 같이 암호가 설정되었습니다.<br>
+                                다운로드 받은 파일을 열 때 <em>위의 파일 암호를 입력</em>해주세요.</p>
+                            </div>
+                            <div class="modal-btn-wrap">
+                                <button type="button" id="excelMemberDownload" class="common-btn small excel-download" aria-label="엑셀 다운로드" onclick=""><span>엑셀 다운로드</span></button>
+                            </div>
+                        </div>
+                        
+                    </section>
+                </div>
+            </div>
+
+            <!-- 게시여부 ON & OFF 버튼 : 게시여부 알림 팝업 -->
+            <div id="exPopMsg01" class="modal msg exPopMsg01">
+                <div class="modal-wrap">
+                    <section class="modal-content">
+                        <h3 class="hidden">게시 여부 알림</h3>
+                        <div class="modal-msg-wrap">
+                            <p class="msg-tit"></p>
+                        </div>
+                        <div class="modal-msg-btn-wrap">
+                            <a href="javascript:;" onclick="modalPopupClose('#exPopMsg01');" class="common-btn white">확인</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- 등록 클릭시 확인 팝업 -->
+            <div id="popSaveMsg" class="modal msg popSaveMsg">
+                <div class="modal-wrap">
+                    <section class="modal-content">
+                        <h3 class="hidden">등록이 완료되었습니다.</h3>
+                        <div class="modal-msg-wrap">
+                            <p class="msg-tit">등록이 완료되었습니다.</p>
+                        </div>
+                        <div class="modal-msg-btn-wrap">
+                            <a href="javascript:;" onclick="modalPopAllClose();" class="common-btn white">확인</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- 취소 버튼 클릭시 확인 팝업 -->
+            <div id="popCancelMsg" class="modal msg popCancelMsg">
+                <div class="modal-wrap">
+                    <section class="modal-content">
+                        <h3 class="hidden">해당 게시물을 삭제하시겠습니까?</h3>
+                        <div class="modal-msg-wrap">
+                            <p class="msg-tit">해당 게시물을 삭제하시겠습니까?</p>
+                        </div>
+                        <div class="modal-msg-btn-wrap select">
+                            <a href="javascript:;" onclick="modalPopupClose('#popCancelMsg');" class="common-btn white">아니오</a>
+                            <a href="#none" class="common-btn blue">네</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <script>
+            /*========== 게시여부 토글 alert일 경우 ==========*/
+            $(function(){
+                $("input.btn-on-off[type='checkbox']:not(#btn-onoff-02)").each(function () {
+                    var onOff = $(this);
+                    onOff.change(function(e) {
+                        e.preventDefault();
+                        var onOffPopup = $('#exPopMsg01');
+                        var onOffPopupTxt = $('#exPopMsg01 .msg-tit');
+                        if(onOff.is(":checked")){
+                            onOffPopup.addClass('open');
+                            onOffPopupTxt.text('해당 댓글이 공개상태로 등록됩니다.')
+                        } else {
+                            onOffPopup.addClass('open');
+                            onOffPopupTxt.text('해당 댓글이 비공개상태로 등록됩니다.')
+                        }
+                    });
+                });
+            });
+
+            /*========== 게시여부 토글 Tooltip일 경우 ==========*/
+            $(function () {
+                $("input.btn-on-off[type='checkbox']#btn-onoff-02").each(function () {
+                    var onOffTool = $(this);
+                    onOffTool.change(function(e) {
+                        e.preventDefault();
+                        var onOffToolTxtArea = $(this).parent('.btn-on-off-wrap').children().find('.on-off-tooltip');
+                        var onOffToolTxt = onOffToolTxtArea.children('p');
+
+                        if(onOffTool.is(":checked")){
+                            onOffToolTxtArea.addClass('on');
+                            onOffToolTxt.text('해당 댓글이 공개상태로 등록됩니다.');
+                        } else {
+                            onOffToolTxtArea.addClass('on');
+                            onOffToolTxt.text('해당 댓글이 비공개상태로 등록됩니다.');
+                        }
+                    });
+                });
+            });
+
+            /*========== 댓글달기 버튼 ==========*/
+            $(function(){
+                $('.reply-textarea-box').css('display','none'); 
+                $(".reply-btn").on("click",function(){
+                    let commentArea = $(this).closest(".comment-listed");
+                    $(commentArea).addClass("reply-textarea");
+                    $(commentArea).children(".reply-textarea-box").css("display","block");
+                });
+
+                $(".reply-cancel").on("click",function(){
+                    let replyArea = $(this).closest(".reply-textarea-box");
+                    $(replyArea).parent(".comment-listed").removeClass("reply-textarea");
+                    $(replyArea).css("display","none");
+                });
+            });
+        </script>
+    </main>
+    
+    <!-- JS -->
+	<script src="../admin/assets/js/basic_admin.js"></script>
+    <script src="../admin/assets/js/basic.js"></script>
+</body>
+</html>

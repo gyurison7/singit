@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Ajin Lee. Sunhyeong Kim. (Weaverloft Corp.)
+ * 2. Production Date: 2024-08-05
+ * 3. Client: MEDIASCOPE Inc.
+ */
+
+#login {min-height: auto;margin: 0;padding: 0;}
+.login-section .inner {display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100vh; height: 100dvh; min-height: 100vh; min-height: 100dvh; padding: 0 20px;}
+
+/*========== SNS ==========*/
+.login-sns .section-tit-wrap {display: flex; flex-direction: column; justify-content: center; width: 100%; height: calc(100% - 268px);}
+.login-sns .section-title {color: #000; text-align: center;}
+.login-sns .login-sns-wrap {width: 100%; padding: 20px 0 clamp(10px, 10.667vw, 60px);}
+.login-sns .login-sns-img {display: flex; justify-content: center; align-items: center; width: 62%; margin: 0 auto; padding: clamp(20px, 8vw, 47px) 0 0;}
+.login-sns .login-sns-img img {aspect-ratio: 205 / 194; max-width: 287px;}
+.login-sns .sns-btn-wrap {display: flex; flex-direction: column; justify-content: center; gap: 12px;}
+.login-sns .sns-btn-wrap button {font-weight: 500; font-variation-settings: 'wght' 500; }
+.login-sns .sns-btn-wrap button.kakao { border-color: #FEE500; background-color: #FEE500; color: #000;} 
+.login-sns .sns-btn-wrap button.google { border-color: var(--basic-line-color); background-color: #fff; color: #111;} 
+.login-sns .sns-btn-wrap button.facebook { border: #1E66FC; background-color: #1E66FC; color: #fff;} 
+.login-sns .sns-btn-wrap button.apple { border-color: #000; background-color: #000000; color: #fff;} 
+
+.login-sns .sns-btn-wrap button span {margin: 0 9px; background-repeat: no-repeat; background-position: left center; background-size: 1.50em auto; }
+.login-sns .sns-btn-wrap button.kakao span { background-image: url('../images/common/icon-kakao.svg');} 
+.login-sns .sns-btn-wrap button.google span { background-image: url('../images/common/icon-google.svg');} 
+.login-sns .sns-btn-wrap button.facebook span { background-image: url('../images/common/icon-facebook.svg');} 
+.login-sns .sns-btn-wrap button.apple span { background-image: url('../images/common/icon-apple.svg');} 
+
+.login-sns .login-link-wrap {display: flex; justify-content: center; align-items: center; gap: 12px; margin: 1.71em 0 0;font-weight: 400; font-variation-settings: 'wght' 400; color: #888;}
+.login-link-wrap .login-link { font-weight: 500; font-variation-settings: 'wght' 500; text-decoration: underline; text-underline-position : under; color: #333;}
+
+@media screen and (width: 320px) and (height: 568px) {
+    .login-sns .login-sns-wrap {padding: 20px 0;}
+    .login-sns .login-sns-img {width: 46%;}
+}
+@media screen and (max-height: 567px) {
+    .login-section .inner {height: auto;}
+    .login-sns .login-sns-wrap {padding: 20px 0;}
+    .login-sns .login-sns-img {width: 44%;}
+}
+
+/*========== login ==========*/

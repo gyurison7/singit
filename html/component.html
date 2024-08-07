@@ -1,0 +1,964 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS | library -->
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../asset/css/common.css">
+
+	<!-- JS | library -->
+	<script src="../asset/js/lazysizes.min.js"></script>
+	<script src="../asset/js/prefixfree.min.js"></script>
+	<script src="../asset/js/jquery-3.7.1.min.js"></script>
+
+	<!-- JS -->
+	<script src="../asset/js/basic.js"></script>
+	<script src="../asset/js/popup.js"></script>
+
+    <title>SingIt - 공통요소 페이지</title>
+	<style>
+		body { width:100%; height:100vh; background-color: #fff;} 
+		.component-sec:not(.first) {margin: 80px 0;}
+		.component-sec p:not(.modal-sub-tit) {margin-bottom: 10px;}
+		.component-sec .toast-popup p {margin-bottom: 0 !important;}
+
+		/*========== Ring Graph ==========*/
+		.ring-graph-container { position: relative; width: 300px; aspect-ratio: 1 / 1; }
+		.ring-graph { width: 100%; height: 100%; }
+		.ring-graph .ring { transform-origin: 50%; }
+		.ring-graph .completed { animation: RingProgress 1s ease-in-out forwards; stroke-linecap: round; }
+		.ring-graph circle { fill: none; }
+		.ring-graph .background { opacity: .16; }
+		.ring-graph .ring1 { transform: scale(1) rotate(-90deg); }
+		.ring-graph .ring1 .background, .ring1 .completed { stroke: #FF4848; }
+		.ring-graph .ring2 { transform: scale(0.82) rotate(-90deg); }
+		.ring-graph .ring2 .background, .ring2 .completed { stroke: #00DB8F; }
+		.ring-graph .ring3 { transform: scale(0.64) rotate(-90deg); }
+		.ring-graph .ring3 .background, .ring3 .completed { stroke: #FFB62C; }
+		.ring-graph .ring4 { transform: scale(0.46) rotate(-90deg); }
+		.ring-graph .ring4 .background, .ring4 .completed { stroke: #6FB6FF; }
+		.ring-graph-container .ring-graph-score { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-52%); } @keyframes RingProgress { 0% { stroke-dasharray: 0 100; } }
+	</style>
+</head>
+
+<body>
+	<div style="width:90%; margin: 0 auto;">
+		<!--========== HEADER ==========-->
+		<header id="header" style="width: 100%; max-width: 100%;">
+			<h1 class="header-logo skeleton" style="display: flex; justify-content: center; align-items: center;"><a href="/" style="width: 140px; padding: 15px 0;"><img src="../asset/images/common/logo-h-red-white.svg" alt="SingIt_logo"><span class="hidden">SingIt</span></a><span class="page-title" style="display: inline-block; margin-left: 30px; font-size: 24px; font-weight: 700; font-variation-settings: 'wght' 700; text-align: center; text-transform: uppercase;">Singit style guide</span></h1>
+		</header>
+
+		<!--========== CONTENTS ==========-->
+		<main id="main" class="sub" style="background: #fff;">
+			<section class="component-sec first" style="padding-top: 140px;">
+				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px; font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;01. Typography</p>
+				<div class="tit-wrap 타이틀 WRAP 태그" style="padding: 0 20px;">
+					<!-- font 사이즈, 굵기, 행간, 자간 공통 (기타 요소 제외)-->
+					<h1 style="display: flex;"><span style="display: inline-block; min-width: 160px;">H1</span>  최신곡과 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요! 방금 들은 곡! SingIt(싱잇), 최강 스마트 노래방</h1>
+					<h2 style="display: flex; margin-top: 15px;"><span style="display: inline-block; min-width: 160px;">H2</span> 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요! 방금 들은 곡! SingIt(싱잇), 최강 스마트 노래방</h2>
+					<h3 style="display: flex; margin-top: 15px;"><span style="display: inline-block; min-width: 160px;">H3</span> 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요! 방금 들은 곡! SingIt(싱잇), 최강 스마트 노래방</h3>
+					<h4 style="display: flex; margin-top: 15px;"><span style="display: inline-block; min-width: 160px;">H4</span> 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요! 방금 들은 곡! SingIt(싱잇), 최강 스마트 노래방</h4>
+					<h5 style="display: flex; margin-top: 15px;"><span style="display: inline-block; min-width: 160px;">H5</span> 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요! 방금 들은 곡! SingIt(싱잇), 최강 스마트 노래방</h5>
+					<h6 style="display: flex; margin-top: 15px;"><span style="display: inline-block; min-width: 160px;">H6</span> 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요! 방금 들은 곡! SingIt(싱잇), 최강 스마트 노래방 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요! </h6>
+				</div>
+				<br>
+				<hr>
+				<br>
+				<div class="txt-wrap 텍스트 WRAP 태그"  style="padding: 0 20px;">
+					<!-- font 사이즈, 행간, 자간 공통 (굵기 등 기타 요소 제외) -->
+					<div class="content-txt1 클래스 명으로 사용" style="display: flex;"><span style="display: inline-block; min-width: 160px;">.content-txt1</span>최신곡과 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요! 방금 들은 곡! SingIt(싱잇), 최강 스마트 노래방 최신곡과 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요!</div>
+					<div class="content-txt2 클래스 명으로 사용" style="display: flex; margin-top: 15px;"><span style="display: inline-block; min-width: 160px;">.content-txt2</span>최신곡과 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요! 방금 들은 곡! SingIt(싱잇), 최강 스마트 노래방 최신곡과 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요!</div>
+					<div class="content-txt3 클래스 명으로 사용" style="display: flex; margin-top: 15px;"><span style="display: inline-block; min-width: 160px;">.content-txt3</span>최신곡과 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요! 방금 들은 곡! SingIt(싱잇), 최강 스마트 노래방 최신곡과 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요!</div>
+				</div>
+				<br>
+				<hr>
+				<br>
+				<div class="txt-wrap 텍스트 WRAP 태그"  style="padding: 0 20px;">
+					<!-- font 사이즈, 행간, 자간 공통 (굵기 등 기타 요소 제외) -->
+					<div class="caption-txt1 클래스 명으로 사용" style="display: flex;"><span style="display: inline-block; min-width: 160px;">.caption-txt1</span>최신곡과 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요! 방금 들은 곡! SingIt(싱잇), 최강 스마트 노래방 최신곡과 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요!</div>
+					<div class="caption-txt2 클래스 명으로 사용" style="display: flex; margin-top: 15px;"><span style="display: inline-block; min-width: 160px;">.caption-txt2</span>최신곡과 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요! 방금 들은 곡! SingIt(싱잇), 최강 스마트 노래방 최신곡과 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요! 최신곡과 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요! 방금 들은 곡! SingIt(싱잇), 최강 스마트 노래방 최신곡과 고품질 반주 노래방 전문가의 고급 반주와 최고의 음석 필터로 스튜디오 느낌 그대로! 당신의 놀라운 노래 실력을 발견해 보세요!</div>
+				</div>
+			</section>
+			<br>
+			<section class="component-sec">
+				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px; font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;02. BUTTON</p>
+				<div style="display: flex; gap: 85px;">
+                    <div style="width: 375px;">
+                        <p style="font-variation-settings: 'wght' 700;">1. 원버튼 : default</p>
+						<br>
+                        <div class="btn-wrap 버튼 WRAP 태그 필수 사용!" style="max-width: 375px;">
+                            <!-- 기본적으로 링크 이동은 a태그 사용 -->
+                            <!-- button 태그는 form 안에서 type="button" 필수! -->
+                            <button type="button" class="basic-btn red round" aria-label="title" onclick="location.href='#none'"><span>다음</span></button>
+                        </div>
+                        <br><br>
+                        <p style="font-variation-settings: 'wght' 700;">1-2. 원버튼 : pressed</p>
+						<br>
+                        <div class="btn-wrap" style="max-width: 375px;">
+                            <button type="button" class="basic-btn red round" aria-label="title" onclick="location.href='#none'" style="background-color: var(--main-pressed-color);"><span>다음</span></button>
+                        </div>
+                        <br><br>
+                        <p style="font-variation-settings: 'wght' 700;">1-3. 원버튼 : disabled</p>
+						<br>
+                        <div class="btn-wrap" style="max-width: 375px;">
+                            <!-- class "disabled" 혹은 disabled 속성 값 -->
+                            <button type="button" class="basic-btn red round disabled" aria-label="title" onclick="location.href='#none'" disabled><span>다음</span></button>
+                        </div>
+                    </div>
+                    <div style="width: 375px;">
+                        <p style="font-variation-settings: 'wght' 700;">2. 투버튼 : default</p>
+						<br>
+                        <div class="btn-wrap couple 클래스 추가" style="max-width: 375px;">
+                            <button type="button" class="basic-btn round line" aria-label="title" onclick="location.href='#none'"><span>재도전</span></button>
+                            <button type="button" class="basic-btn red round" aria-label="title" onclick="location.href='#none'"><span>다음</span></button>
+                        </div>
+                        <br><br>
+                        <p style="font-variation-settings: 'wght' 700;">2-2. 투버튼 : pressed</p>
+						<br>
+                        <div class="btn-wrap couple" style="max-width: 375px;">
+                            <button type="button" class="basic-btn round line" aria-label="title" onclick="location.href='#none'" style="background-color: var(--sub-pressed-color);"><span>재도전</span></button>
+                            <button type="button" class="basic-btn red round" aria-label="title" onclick="location.href='#none'" style="background-color: var(--main-pressed-color);"><span>다음</span></button>
+                        </div>
+                        <br><br>
+                        <p style="font-variation-settings: 'wght' 700;">2-3. 투버튼 : disabled</p>
+						<br>
+                        <div class="btn-wrap couple" style="max-width: 375px;">
+                            <button type="button" class="basic-btn round line disabled" aria-label="title" onclick="location.href='#none'" disabled><span>재도전</span></button>
+                            <button type="button" class="basic-btn red round disabled" aria-label="title" onclick="location.href='#none'" disabled><span>다음</span></button>
+                        </div>
+                    </div>
+                    <div style="width: 375px; height: 112px;">
+                        <p style="font-variation-settings: 'wght' 700;">3. 다중버튼</p>
+                        <br>
+                        <div class="btn-wrap multi">
+                            <button type="button" class="basic-btn red round w100" aria-label="title" onclick="location.href='#none'"><span>다음</span></button>
+                            <button type="button" class="basic-btn round line" aria-label="title" onclick="location.href='#none'"><span>재도전</span></button>
+                            <button type="button" class="basic-btn red round" aria-label="title" onclick="location.href='#none'"><span>다음</span></button>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                    <div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">5. Select Type</p>
+						<div class="btn-wrap" style="max-width: 375px;">
+                            <button type="button" class="basic-btn sel round" aria-label="title" onclick="location.href='#none'" title="노래부르기"><span>노래부르기</span></button>
+                        </div>
+					</div>
+				</div>
+			</section>
+			<br>
+			<section class="component-sec">
+				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px;font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;03. TAB</p>
+				<div style="display: flex; gap: 0 85px; padding: 0 20px;">
+					<div style="width: 375px;">
+						<p style="font-variation-settings: 'wght' 700;">1. 기본탭</p>
+						<br>
+						<div class="tab-container">
+							<ul class="tab-menu">
+								<li class="slider"></li>
+								<li class="tab-link current" data-tab="tab-1"><a href="javascript:;"><span>최신곡</span></a></li>
+								<li class="tab-link" data-tab="tab-2"><a href="javascript:;"><span>솔로곡 인기</span></a></li>
+								<li class="tab-link" data-tab="tab-3"><a href="javascript:;"><span>듀엣곡 인기</span></a></li>
+							</ul>
+							<div class="tab-content-wrap">
+								<div id="tab-1" class="tab-content current">
+									<p style="padding: 25px 0; text-align: center; background-color: #f9f9f9;">CONTENTS 1</p>
+								</div>
+								<div id="tab-2" class="tab-content">
+									<p style="padding: 25px 0; text-align: center; background-color: #f9f9f9;">CONTENTS 2</p>
+								</div>
+								<div id="tab-3" class="tab-content">
+									<p style="padding: 25px 0; text-align: center; background-color: #f9f9f9;">CONTENTS 3</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="width: 375px;">
+						<p style="font-variation-settings: 'wght' 700;">2. 버튼식 탭</p>
+						<br>
+						<div class="tab-btn-container">
+							<ul class="tab-btn-menu">
+								<li class="tab-btn-link current" data-tab="tab-btn-1"><a href="javascript:;"><span>전체</span></a></li>
+								<li class="tab-btn-link" data-tab="tab-btn-2"><a href="javascript:;"><span>충전/적립</span></a></li>
+								<li class="tab-btn-link" data-tab="tab-btn-3"><a href="javascript:;"><span>사용/소멸</span></a></li>
+							</ul>
+							<div class="tab-btn-cont-wrap" style="margin-top: 18px;">
+								<div id="tab-btn-1" class="tab-btn-cont current">
+									<p style="padding: 25px 0; text-align: center; background-color: #f9f9f9;">CONTENTS 1</p>
+								</div>
+								<div id="tab-btn-2" class="tab-btn-cont">
+									<p style="padding: 25px 0; text-align: center; background-color: #f9f9f9;">CONTENTS 2</p>
+								</div>
+								<div id="tab-btn-3" class="tab-btn-cont">
+									<p style="padding: 25px 0; text-align: center; background-color: #f9f9f9;">CONTENTS 3</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+            <br>
+			<section class="component-sec">
+				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px; font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;04. FORM</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                    <div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">1. Input : Text</p>
+                        <div class="input-box-wrap">
+                            <div class="input-box line text">
+                                <input type="text" placeholder="placeholder">
+                                <span class="line-focus"></span>
+                            </div>
+                            <div class="error-wrap">
+                                <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">1-1. Focus</p>
+                        <div class="input-box-wrap">
+                            <div class="input-box line text">
+                                <input type="text" placeholder="placeholder">
+								<!-- autofocus="" -->
+                                <span class="line-focus on"></span>
+                            </div>
+                            <div class="error-wrap">
+                                <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">1-2. Disabled & Readonly(대기)</p>
+                        <div class="input-box-wrap">
+                            <div class="input-box line text">
+                                <input type="text" placeholder="placeholder" disabled>
+                                <span class="line-focus"></span>
+                            </div>
+                            <div class="error-wrap">
+                                <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">1-3. Error(대기)</p>
+                        <div class="input-box-wrap error">
+                            <div class="input-box line text">
+                                <input type="text" placeholder="placeholder" autocomplete="">
+                                <span class="line-focus"></span>
+                            </div>
+                            <div class="error-wrap">
+                                <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                    <div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">2. Input : Number</p>
+                        <div class="input-box-wrap">
+                            <div class="input-box number">
+                                <input type="number" placeholder="123456">
+                                <span class="line-focus"></span>
+                            </div>
+                            <div class="error-wrap">
+                                <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">2-1. Input : Number(comma)</p>
+                        <div class="input-box-wrap">
+                            <div class="input-box number">
+                                <input type="text" name="number" placeholder="100,000">
+                                <span class="line-focus"></span>
+                            </div>
+                            <div class="error-wrap">
+                                <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">2-2. Input : Tel</p>
+                        <div class="input-box-wrap">
+                            <div class="input-box tel">
+                                <input type="tel" placeholder="010 1234 4567">
+                                <span class="line-focus"></span>
+                            </div>
+                            <div class="error-wrap">
+                                <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">2-3. Input : Password</p>
+                        <div class="input-box-wrap">
+                            <div class="input-box password">
+                                <input type="password">
+                                <span class="line-focus"></span>
+                                <button type="button" class="eye-btn" aria-label="비밀번호 보이기/숨기기"></button>
+                            </div>
+                            <div class="error-wrap">
+                                <p class="error">에러메세지는 이렇게 뜹니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+					<div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">2-4. Input : Text Count</p>
+						<div class="input-box-wrap">
+							<div class="input-box text keyup">
+								<input type="text" placeholder="" maxlength="30">
+								<span class="line-focus"></span>
+								<div class="write-typing">
+									<span class="typing-num"></span><span>/</span><span class="typing-max-num">30</span>
+								</div>
+							</div>
+						</div>
+                    </div>
+					<div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">2-5. Input : Focus Text Count</p>
+						<div class="input-box-wrap">
+							<div class="input-box text keyup focus">
+								<input type="text" placeholder="" maxlength="30" autofocus="autofocus" value="singit@example.com">
+								<span class="line-focus"></span>
+								<div class="write-typing">
+									<span class="typing-num"></span><span>/</span><span class="typing-max-num">30</span>
+								</div>
+							</div>
+						</div>
+                    </div>
+                </div>
+				<br><br><br>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+					<div style="max-width: 380px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">3. Form Input Button : Default</p>
+                        <div class="input-area">
+                            <div class="form-input-box">
+								<div class="input-box text box">
+									<input type="text" placeholder="쿠폰 코드를 입력해주세요.">
+								</div>
+								<div class="btn-wrap">
+									<button type="button" class="basic-btn black-line" aria-label="쿠폰 등록" onclick="location.href='#none'"><span>쿠폰 등록</span></button>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+				<br><br><br>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                    <div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">4. Input Button : Default</p>
+                        <div class="input-area">
+                            <div class="input-box-wrap">
+                                <div class="input-box btn button">
+                                    <input type="button" value="input-button" class="basic-btn red">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="input-box-wrap">
+                                <div class="input-box btn button">
+                                    <input type="button" value="disabled-button" class="basic-btn red disabled" disabled="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">4-1. Input Button : Submit</p>
+                        <div class="input-area">
+                            <div class="input-box-wrap">
+                                <div class="input-box btn submit">
+                                    <input type="submit" value="input-submit" class="basic-btn red">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="input-box-wrap">
+                                <div class="input-box btn submit">
+                                    <input type="submit" value="disabled-submit" class="basic-btn red disabled" disabled="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                    <div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">4. Textarea : Default</p>
+                        <div class="textarea-area">
+                            <div class="textarea-box-wrap">
+								<div class="textarea-box text" style="height: 140px;">
+									<textarea placeholder="내용을 입력해주세요."></textarea>
+								</div>
+							</div>
+                            <br>
+                        </div>
+                    </div>
+                    <div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">4-1. Textarea : Disabled</p>
+                        <div class="textarea-area">
+							<div class="textarea-box-wrap">
+								<div class="textarea-box text disabled" style="height: 140px;">
+									<textarea placeholder="내용을 입력해주세요." disabled=""></textarea>
+								</div>
+							</div>
+                            <br>
+                        </div>
+                    </div>
+                    <div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">4-2. Textarea : Text Count</p>
+                        <div class="textarea-area">
+							<div class="textarea-box-wrap">
+								<div class="textarea-box text keyup" style="height: 140px;">
+									<textarea placeholder="내용을 입력해주세요." maxlength="200"></textarea>
+								</div>
+								<div class="write-typing">
+									<span class="typing-num"></span><span>/</span><span class="typing-max-num">200</span>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                    <div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">4-2. Textarea : Focus Text Count</p>
+                        <div class="textarea-area">
+							<div class="textarea-box-wrap">
+								<div class="textarea-box text keyup" style="height: 140px;">
+									<textarea placeholder="내용을 입력해주세요." maxlength="200" autofocus="autofocus">입력된 내용이 나옵니다.</textarea>
+								</div>
+								<div class="write-typing">
+									<span class="typing-num"></span><span>/</span><span class="typing-max-num">200</span>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+			</section>
+            <br>
+			<section class="component-sec">
+				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px;font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;05. Controls Input</p>
+				<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 0 20px;">
+                    <div style="width: calc(50% - 15px); max-width: 340px;">
+                        <p style="font-variation-settings: 'wght' 700;">1. Checkbox : Default</p>
+                        <div class="basic-check-box">
+                            <input type="checkbox" id="check-box" tabindex="-1">
+                            <label for="check-box" tabindex="0">위 내용을 확인하고 동의합니다.</label>
+                        </div>
+                    </div>
+                    <div style="width: calc(50% - 15px); max-width: 340px;">
+                        <p style="font-variation-settings: 'wght' 700;">1-2. Checkbox : Checked</p>
+                        <div class="basic-check-box">
+                            <input type="checkbox" id="check-box01" tabindex="-1" checked>
+                            <label for="check-box01" tabindex="0">위 내용을 확인하고 동의합니다.</label>
+                        </div>
+                    </div>
+                    <div style="width: calc(50% - 15px); max-width: 340px;">
+                        <p style="font-variation-settings: 'wght' 700;">1-3. Checkbox : Disabled</p>
+                        <div class="basic-check-box disabled">
+                            <input type="checkbox" id="check-box02" tabindex="-1" disabled="">
+                            <label for="check-box02" tabindex="0">위 내용을 확인하고 동의합니다.</label>
+                        </div>
+                    </div>
+                    <div style="width: calc(50% - 15px); max-width: 340px;">
+                        <p style="font-variation-settings: 'wght' 700;">1-4. Checkbox : Disabled & Checked</p>
+                        <div class="basic-check-box disabled">
+                            <input type="checkbox" id="check-box03" tabindex="-1" disabled="" checked="">
+                            <label for="check-box03" tabindex="0">위 내용을 확인하고 동의합니다.</label>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+				<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 0 20px;">
+                    <div style="width: calc(50% - 15px); max-width: 340px;">
+                        <p style="font-variation-settings: 'wght' 700;">2. Radio Button / Basic Type</p>
+                        <div class="switch-wrap">
+                            <div class="basic-switch">
+                                <input id="checkbox-switch" type="checkbox" class="checkbox-switch" checked>
+                                <label for="checkbox-switch" class="hidden"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: calc(50% - 15px); max-width: 340px;">
+                        <p style="font-variation-settings: 'wght' 700;">2-1. Radio Button / Basic Type : Disabled</p>
+                        <div class="switch-wrap">
+                            <div class="basic-switch disabled">
+                                <input id="checkbox-switch01" type="checkbox" class="checkbox-switch" disabled="">
+                                <label for="checkbox-switch01" class="hidden"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<br><br><br>
+				<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 0 20px;">
+					<div style="width: calc(50% - 15px); max-width: 340px;">
+                        <p style="font-variation-settings: 'wght' 700;">3. Radio Button / Text Type</p>
+                        <div class="switch-wrap">
+                            <div class="basic-switch txt">
+                                <input id="checkbox-switch02" type="checkbox" class="checkbox-switch" checked>
+                                <label for="checkbox-switch02"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: calc(50% - 15px); max-width: 375px;">
+                        <p style="font-variation-settings: 'wght' 700;">3-1. Radio Button / Text Type : Disabled</p>
+                        <div class="switch-wrap txt">
+                            <div class="basic-switch txt disabled">
+                                <input id="checkbox-switch03" type="checkbox" class="checkbox-switch" disabled="">
+                                <label for="checkbox-switch03"></label>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</section>
+			<br>
+			<section class="component-sec">
+				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px;font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;06. Modal Popup</p>
+				<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 0 20px;">
+					<div style="width: 340px;">
+						<p style="font-variation-settings: 'wght' 700;">1. Modal Popup 투버튼 : 타이틀 + 텍스트</p>
+						<br>
+						<a style="max-width: 86px; font-size: 15px;" href="javascript:;" onclick="modalPopup('#exPop01')" class="basic-btn round line"><span>팝업 열기</span></a>
+					</div>
+					<div style="width: 340px;">
+						<p style="font-variation-settings: 'wght' 700;">2. Modal Popup 투버튼 : 타이틀</p>
+						<br>
+						<a style="max-width: 86px; font-size: 15px;" href="javascript:;" onclick="modalPopup('#exPop02')" class="basic-btn round line"><span>팝업 열기</span></a>
+					</div>
+					<div style="width: 340px;">
+						<p style="font-variation-settings: 'wght' 700;">3. Modal Popup 원버튼 : 타이틀</p>
+						<br>
+						<a style="max-width: 86px; font-size: 15px;" href="javascript:;" onclick="modalPopup('#exPop03')" class="basic-btn round line"><span>팝업 열기</span></a>
+					</div>
+				</div>
+				<br><br><br>
+				<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 0 20px;">
+					<div style="width: 340px;">
+						<p style="font-variation-settings: 'wght' 700;">4. Modal Popup 투버튼 : 설명 팝업</p>
+						<br>
+						<a style="max-width: 86px; font-size: 15px;" href="javascript:;" onclick="modalPopup('#exPop04')" class="basic-btn round line"><span>팝업 열기</span></a>
+					</div>
+					<div style="width: 340px;">
+						<p style="font-variation-settings: 'wght' 700;">5. Modal Popup 투버튼 : 설명 + 체크박스</p>
+						<br>
+						<a style="max-width: 86px; font-size: 15px;" href="javascript:;" onclick="modalPopup('#exPop05')" class="basic-btn round line"><span>팝업 열기</span></a>
+					</div>
+					<div style="width: 420px;">
+						<p style="font-variation-settings: 'wght' 700;">5. Modal Popup 투버튼 : textarea + Radio 버튼</p>
+						<br>
+						<a style="max-width: 86px; font-size: 15px;" href="javascript:;" onclick="modalPopup('#exPop06')" class="basic-btn round line"><span>팝업 열기</span></a>
+					</div>
+				</div>
+
+				<div class="popup-group">
+					<div id="exPop01" class="modal alert exPop01">
+						<div class="modal-wrap">
+							<section class="modal-content">
+								<div class="modal-cont-wrap">
+									<div class="modal-tit-wrap">
+										<h3 class="modal-tit">영상을 삭제하시겠습니까?</h3>
+									</div>
+									<div class="modal-txt-wrap">
+										<p class="modal-sub-tit">삭제된 영상은 복구하거나<br> 되돌릴 수 없습니다.</p>
+									</div>
+								</div>
+								<div class="modal-btn-wrap">
+									<a href="javascript:;" onclick="modalPopupClose('#exPop01');" class="basic-btn gray" tabindex="1">취소</a>
+									<a href="javascript:;" onclick="modalPopupClose('#exPop01');" class="basic-btn red" tabindex="1">확인</a>
+								</div>
+							</section>
+						</div>
+					</div>
+					<div id="exPop02" class="modal alert exPop02">
+						<div class="modal-wrap">
+							<section class="modal-content">
+								<div class="modal-cont-wrap">
+									<div class="modal-tit-wrap">
+										<h3 class="modal-tit">영상을 삭제하시겠습니까?</h3>
+									</div>
+								</div>
+								<div class="modal-btn-wrap">
+									<a href="javascript:;" onclick="modalPopupClose('#exPop02');" class="basic-btn gray" tabindex="1">취소</a>
+									<a href="javascript:;" onclick="modalPopupClose('#exPop02');" class="basic-btn red" tabindex="1">확인</a>
+								</div>
+							</section>
+						</div>
+					</div>
+					<div id="exPop03" class="modal alert exPop03">
+						<div class="modal-wrap">
+							<section class="modal-content">
+								<div class="modal-cont-wrap">
+									<div class="modal-tit-wrap">
+										<h3 class="modal-tit">쿠폰 코드를 확인해주세요.</h3>
+									</div>
+								</div>
+								<div class="modal-btn-wrap">
+									<a href="javascript:;" onclick="modalPopupClose('#exPop03');" class="basic-btn red" tabindex="1">확인</a>
+								</div>
+							</section>
+						</div>
+					</div>
+					<div id="exPop04" class="modal msg exPop04">
+						<div class="modal-wrap">
+							<section class="modal-content">
+								<div class="modal-cont-wrap">
+									<div class="modal-tit-wrap">
+										<h3 class="modal-tit">미성년자의 노출 또는 성행위</h3>
+									</div>
+									<div class="modal-txt-wrap">
+										<ul class="list-style">
+											<li class="circle">일반 의약품 무단 사용을 촉진하는 이모티콘 사용을 포함하여 미성년자의 알코올, 담배 또는 마약 도지 및 소비를 권장하거나 보여주거나 모방하거나 보여주는 콘텐츠</li>
+											<li class="circle">미성년자에게 알코올, 담배 또는 규제 물질의 구매, 판매 또는 거래 방법을 알려주는 콘텐츠</li>
+										</ul>
+									</div>
+								</div>
+								<div class="modal-btn-wrap">
+									 <a href="javascript:;" onclick="modalPopupClose('#exPop04');" class="basic-btn gray" tabindex="1">취소</a>
+									<a href="javascript:;" onclick="modalPopupClose('#exPop04');" class="basic-btn red" tabindex="1">신고</a>
+								</div>
+							</section>
+						</div>
+					</div>
+					<div id="exPop05" class="modal msg exPop05">
+						<div class="modal-wrap">
+							<section class="modal-content">
+								<div class="modal-cont-wrap">
+									<div class="modal-tit-wrap">
+										<h3 class="modal-tit">회원탈퇴</h3>
+										<div class="modal-close-btn">
+											<a href="javascript:;" onclick="modalPopupClose('#exPop05')" title="팝업창 닫기" tabindex="0">팝업창 닫기</a>
+										</div>
+									</div>
+									<div class="modal-txt-wrap">
+										<h3 class="modal-tit">탈퇴전 꼭 확인해주세요!</h3>
+										<p class="modal-sub-tit">Singit 계정 정보, 서비스 이용 이력, 멤버쉽 내역이 모두 삭제되며 복구할 수 없습니다.</p>
+										<br>
+										<p class="modal-sub-tit">Singit 멤버쉽을 구독하고 계시다면 탈퇴 전에 해지해주시기 바랍니다.</p>
+										<div class="basic-check-box">
+											<input type="checkbox" id="pop-check-box01" tabindex="-1">
+											<label for="pop-check-box01" tabindex="0">위 내용을 확인하고 동의합니다.</label>
+										</div>
+									</div>
+								</div>
+								<div class="modal-btn-wrap">
+									 <a href="javascript:;" onclick="modalPopupClose('#exPop05');" class="basic-btn gray" tabindex="1">취소</a>
+									<a href="javascript:;" onclick="modalPopupClose('#exPop05');" class="basic-btn red" tabindex="1">회원탈퇴</a>
+								</div>
+							</section>
+						</div>
+					</div>
+					<div id="exPop06" class="modal msg exPop06">
+						<div class="modal-wrap">
+							<section class="modal-content">
+								<div class="modal-cont-wrap">
+									<div class="modal-tit-wrap">
+										<h3 class="modal-tit">수정하기</h3>
+										<div class="modal-close-btn">
+											<a href="javascript:;" onclick="modalPopupClose('#exPop06')" title="팝업창 닫기" tabindex="0">팝업창 닫기</a>
+										</div>
+									</div>
+									<div class="modal-txt-wrap">
+										<div class="textarea-box-wrap">
+											<div class="textarea-box text keyup" style="height: 140px;">
+												<textarea placeholder="내용을 입력해주세요." maxlength="200"></textarea>
+											</div>
+											<div class="write-typing">
+												<span class="typing-num">0</span>
+												<span>/</span>
+												<span class="typing-max-num">200</span>
+											</div>
+										</div>
+										<div class="modal-switch-area">
+											<p class="modal-switch-tit">공개여부</p>
+											<div class="switch-wrap">
+												<div class="basic-switch txt">
+													<input id="popup-checkbox-switch" type="checkbox" class="checkbox-switch" checked="">
+													<label for="popup-checkbox-switch">공개</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-btn-wrap">
+									 <a href="javascript:;" onclick="modalPopupClose('#exPop06');" class="basic-btn gray" tabindex="1">취소</a>
+									<a href="javascript:;" onclick="modalPopupClose('#exPop06');" class="basic-btn red" tabindex="1">확인</a>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</section>
+			<br>
+			<section class="component-sec">
+				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px;font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;07. Bottom Sheet & Toast Popup</p>
+				<div style="display: flex; gap: 20px; padding: 0 20px;">
+					<div style="width: 340px;">
+						<p style="font-variation-settings: 'wght' 700;">1. Bottom Sheet : 더보기</p>
+						<br>
+						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="openBottomSheet('#view')"><span>Bottom Sheet 열기</span></button>
+					</div>
+					<div style="width: 340px;">
+						<p style="font-variation-settings: 'wght' 700;">2. Bottom Sheet : 더보기 수정/삭제</p>
+						<br>
+						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="openBottomSheet('#view-fix')"><span>Bottom Sheet 열기</span></button>
+					</div>
+					<div style="width: 340px;">
+						<p style="font-variation-settings: 'wght' 700;">3. Bottom Sheet : 신고</p>
+						<br>
+						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="openBottomSheet('#warning')"><span>Bottom Sheet 열기</span></button>
+					</div>
+					<div style="width: 340px;">
+						<p style="font-variation-settings: 'wght' 700;">4. Bottom Sheet : 구체적 사유</p>
+						<br>
+						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="openBottomSheet('#warning-reason')"><span>Bottom Sheet 열기</span></button>
+					</div>
+				</div>
+				<br><br><br>
+				<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 0 20px;">
+					<div style="width: 340px;">
+						<p style="font-variation-settings: 'wght' 700;">2. Bottom Sheet : Toast Popup</p>
+						<br>
+						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="toastPopup('toast01')"><span>Toast Popup 열기</span></button>
+					</div>
+				</div>
+				<br><br><br>
+				<!--==================
+					* Toast Popup
+					- toastPopup('클래스명')에 의해, 해당 되는 클래스명의 .toast-popup > p를 호출합니다.
+				======================-->
+				<div class="toast-popup">
+					<p class="toast-popup-txt toast01">링크를 복사하였습니다.</p> <!-- toastPopup(toast01')에 의해 호출 -->
+				</div>
+
+				<!--==================
+					* Bottom Sheet
+					- openBottomSheet('#아이디값')에 의해, 해당 되는 아이디값의 .bottom-sheet-wrap를 호출합니다.
+					- 크기 조절이 가능한 handle sheet인경우
+					  1) 클래스 sheet-stretch 추가합니다.
+					  2) .bottom-sheet 내에 <div class="handle-area"><div class="handle"></div></div> 요소가 필요합니다.
+				======================-->
+				<div id="view" class="bottom-sheet-wrap view"> <!-- openBottomSheet('#view')에 의해 호출 -->
+					<div class="bottom-sheet">
+						<div class="sheet-content">
+							<h4 class="sheet-tit">더보기</h4>
+							<div class="sheet-cont-inner">
+								<div class="btn-wrap sheet-btn-wrap">
+									<button type="button" class="basic-btn gray-line share" aria-label="공유"><span>공유</span></button>
+									<button type="button" class="basic-btn gray-line copy" aria-label="링크 복사" onclick="toastPopup('toast01')"><span>링크 복사</span></button>
+									<a href="파일경로/파일이름.확장자" class="basic-btn gray-line download" aria-label="다운로드" download=""><span>다운로드</span></a>
+									<button type="button" class="basic-btn gray-line warning" aria-label="신고"><span>신고</span></button>
+									<!-- <button type="button" class="basic-btn gray-line book" aria-label="링크 북마크"><span>링크 북마크</span></button> -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+
+				<div id="view-fix" class="bottom-sheet-wrap view fix">
+					<div class="bottom-sheet sheet-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<h4 class="sheet-tit">더보기</h4>
+							<div class="sheet-cont-inner">
+								<div class="btn-wrap sheet-btn-wrap">
+									<button type="button" class="basic-btn gray-line share" aria-label="공유"><span>공유</span></button>
+									<button type="button" class="basic-btn gray-line copy" aria-label="링크 복사" onclick="toastPopup('toast01')"><span>링크 복사</span></button>
+									<a href="파일경로/파일이름.확장자" class="basic-btn gray-line download" aria-label="다운로드" download=""><span>다운로드</span></a>
+									<button type="button" class="basic-btn gray-line warning" aria-label="신고"><span>신고</span></button>
+								</div>
+								<div class="btn-wrap sheet-btn-wrap">
+									<button type="button" class="basic-btn white-line fix" aria-label="수정하기" onclick=""><span>수정하기</span></button>
+									<button type="button" class="basic-btn white-line del" aria-label="삭제하기" onclick=""><span>삭제하기</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+
+				<div id="warning" class="bottom-sheet-wrap warning">
+					<div class="bottom-sheet sheet-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<h4 class="sheet-tit">신고</h4>
+							<div class="sheet-cont-inner">
+								<ul class="sheet-list">
+									<li><a href="#none">미성년자 안전</a></li>
+									<li><a href="#none">위험한 행동 및 도전</a></li>
+									<li><a href="#none">자살, 자해 및 섭식 장애</a></li>
+									<li><a href="#none">성인 노출 및 성행위</a></li>
+									<li><a href="#none">괴롭힘 및 희롱</a></li>
+									<li><a href="#none">혐오적 행동</a></li>
+									<li><a href="#none">폭력적 극단주의</a></li>
+									<li><a href="#none">스팸 및 허위 참여</a></li>
+									<li><a href="#none">유해한 허위 정보</a></li>
+									<li><a href="#none">불법 행위 및 규제 품목</a></li>
+									<li><a href="#none">폭력적이고 노골적인 콘텐츠</a></li>
+									<li><a href="#none">지적 재산 침해</a></li>
+									<li><a href="#none">기타</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+
+				<div id="warning-reason" class="bottom-sheet-wrap warning reason">
+					<div class="bottom-sheet sheet-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<h4 class="sheet-tit">구체적 사유</h4>
+							<div class="sheet-cont-inner">
+								<ul class="sheet-list">
+									<li><a href="#none">미성년자의 노출 또는 성행위</a></li>
+									<li><a href="#none">미성년자의 대한 학대 또는 범죄</a></li>
+									<li><a href="#none">미성년자의 위험한 행동</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+
+			</section>
+			<br>
+			<br>
+			<br>
+			<section class="component-sec"> <!-- css는 페이지 상단에 있습니다. -->
+				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px;font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;08. Score Ring Graph</p>
+				<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 0 20px;">
+					<!--==================
+						* Score Ring Graph
+						- 각 부문의 점수는 circle.completed 내 속성 stroke-dasharray 값 앞부분에 인라인으로 기입합니다.
+						(ex: 음정 26점 일경우, .ring1 circle.completed 요소에 stroke-dasharray="26, 100")
+					======================-->
+					<div class="ring-graph-container">
+						<svg class="ring-graph" viewBox="0 0 35 35">
+							<!-- 1.음정 -->
+							<g class="ring ring1">
+								<circle class="background"
+									cx="50%" cy="50%"
+									r="15.915"
+									stroke-width="2.1" />
+								<circle class="completed"
+									cx="50%" cy="50%"
+									r="15.915"
+									stroke-width="2.1"
+									stroke-dasharray="46, 100" />
+							</g>
+							
+							<!-- 2.박자 -->
+							<g class="ring ring2">
+								<circle class="background"
+										cx="50%" cy="50%"
+										r="15.915"
+										stroke-width="2.56" />
+									<circle class="completed"
+										cx="50%" cy="50%"
+										r="15.915"
+										stroke-width="2.56"
+										stroke-dasharray="50, 100" />
+							</g>
+							<!-- 3.음높이 -->
+							<g class="ring ring3">
+								<circle class="background"
+										cx="50%" cy="50%"
+										r="15.915"
+										stroke-width="3.281" />
+									<circle class="completed"
+										cx="50%" cy="50%"
+										r="15.915"
+										stroke-width="3.281"
+										stroke-dasharray="70, 100" />
+							</g>
+							<!-- 4.성량 -->
+							<g class="ring ring4">
+								<circle class="background"
+										cx="50%" cy="50%"
+										r="15.915"
+										stroke-width="4.565" />
+									<circle class="completed"
+										cx="50%" cy="50%"
+										r="15.915"
+										stroke-width="4.565"
+										stroke-dasharray="76, 100" />
+							</g>
+						</svg>
+						<div class="ring-graph-score semi-b-num">
+							<!-- 종합 점수 -->
+							<span>75.9</span>
+						</div>
+					</div>
+				</div>
+			</section>
+			<br>
+			<br>
+			<br>
+			<section class="component-sec">
+				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px;font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;09. Contents</p>
+				<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 0 20px;">
+					<figure>
+						<!-- figcaption은 선택적(필요한 경우) -->
+						<figcaption>이미지에 대한 타이틀</figcaption>
+						<img class="fade-in lazyload" decoding="async" style="width: 250px; height: 250px;" src="../asset/images/common/singit-og-img.jpg" alt="alt값 필수" title="선택적 제목">
+					</figure>
+					<p style="font-family: 'Rubik', sans-serif; font-weight: 300;">test 1,234,456</p>
+					<p class="medium-num">test22 987,888</p>
+				</div>
+			</section>
+		</main>
+	</div>
+</body>
+</html>

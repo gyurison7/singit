@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Ajin Lee. (Weaverloft Corp.)
+ * 2. Production Date: 2024-07-23
+ * 3. Client: Mediascope Singit
+ */
+
+/*========== Common ==========*/
+.page-stat .sec-title-wrap {border-bottom: 1px solid #B0B0C7; } 
+
+/*========== .1 방문현황 ==========*/
+#visit-cont .top-date-wrap {display: flex;justify-content: space-between;align-items: center;margin-top: 24px; } 
+#visit-cont .date-wrap {display: flex; flex-flow: row nowrap; justify-content: center; align-items: center; } 
+#visit-cont .date-wrap .btn {width: 28px; height: 28px;margin: 0 20px; padding: 3px; border-radius: 2px; background-color: #F3F3F9; transition: opacity 300ms; } 
+#visit-cont .date-wrap .btn:hover {opacity: 0.7; transition: opacity 300ms; } 
+#visit-cont .date-wrap .period-wrap {display: none;justify-content: flex-start;align-items: center;}
+#visit-cont .date-wrap .period-wrap.current {display: flex; } 
+#visit-cont .date-wrap .period-wrap p {font-size: 20px;font-weight: 800;font-variation-settings: 'wght' 800;white-space: nowrap; } 
+#visit-cont .date-wrap .period-wrap .datepicker {width: 30px;margin-left: 12px;font-size: 0px; font-weight: 800;font-variation-settings: 'wght' 800;color: #222;border: none;background-size: 18px auto; background-position: center;transition: opacity 300ms; } 
+#visit-cont .date-wrap .period-wrap .datepicker:hover {opacity: 0.7;transition: opacity 300ms; } 
+#visit-cont .top-date-wrap .left-wrap {width: 195px; } 
+#visit-cont .top-date-wrap .tab-menu li {width: auto;border: none;margin: 0 0 0 10px; } 
+#visit-cont .top-date-wrap .tab-menu li a {display: block;height: 28px;padding: 0 15px;border-radius: 2px; background-color: #F3F3F9;text-align: center;font-size: 15px; color: #777; line-height: 28px;transition: opacity 300ms; } 
+#visit-cont .top-date-wrap .tab-menu li.current a {background-color: #DCD7F0; color: #6854A7; } 
+#visit-cont .top-date-wrap .tab-menu li:hover a {opacity: 0.7;transition: opacity 300ms; } 
+#visit-cont .tab-content-sub {position: relative;display: none;margin-top: 30px; } 
+#visit-cont .tab-content-sub.current {display: block; } 
+#visit-cont .tab-content-sub .left-wrap {float: left;width: 63%;padding: 20px 0 0 20px;border: 1px solid #D5D5E1; border-radius: 6px; } 
+#visit-cont .tab-content-sub .right-wrap {float: right;width: 32%;padding-right: 30px; border-radius: 6px; } 
+#visit-cont .tab-content-sub::after {content: ''; display: block; clear: both; } 
+#visit-cont .tab-content-sub .left-wrap > p,
+#visit-cont .tab-content-sub .right-wrap > p {margin-bottom: 15px;font-weight: 500;font-variation-settings: 'wght' 500; } 
+#visit-cont .tab-content-sub .right-wrap > p {text-align: right; } 
+#visit-cont .tab-content-sub .right-wrap .visit-table {border: none;border-top: 1px solid #e8e8f1;border-bottom: 1px solid #e8e8f1; } 
+
+/*========== .2 접속현황 ==========*/
+.search-top-wrap {display: flex;align-items: center;gap: 10px;padding: 20px 0 20px 4%;border-bottom: 1px solid #e5eaef; } 
+.search-period-btns {position: relative; display: flex; flex-flow: row nowrap; justify-content: flex-start; align-items: flex-end; } 
+
+.search-period-btns li {width: auto;border: none; } 
+.search-period-btns li:nth-of-type(2) {margin: 0 6px; } 
+.search-period-btns li a {display: block; min-width: 46px; padding: 5.5px; border-radius: 2px; background-color: #F3F3F9; font-size: 13px; color: #777; line-height: 1; text-align: center;transition: opacity 300ms; } 
+.search-period-btns li a.selected {background-color: #DCD7F0; color: #6854A7; } 
+.search-period-btns li:hover a {opacity: 0.7;transition: opacity 300ms; } 
+.table-wrap {display: flex;margin: 40px 0 50px; } 
+.table-wrap > div {display: flex;flex-flow: column nowrap;align-items: center;width: calc(100% / 3);padding: 0 25px; } 
+.table-wrap > div h3 {width: 100%;max-width: 420px;margin-bottom: 15px;font-size: 18px;text-align: left; } 
+.table-wrap .common-table-wrap {max-width: 420px; } 
+
+#view-cont .table-wrap > div:first-of-type {width: 40%;padding: 0 40px; } 
+#view-cont .table-wrap > div:last-of-type {width: 60%;padding: 0 40px; } 
+#view-cont .table-wrap > div h3 {font-size: 20px;margin-bottom: 24px;max-width: none;text-align: center; } 
+#view-cont .table-wrap .common-table-wrap {max-width: none; } 
+#view-cont .table-wrap .common-table-wrap .con-td a:hover {text-decoration: underline; text-underline-position: auto; } 
