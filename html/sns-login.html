@@ -62,32 +62,42 @@
     <title>SingIt</title>
 </head>
 <body>
-	<div id="container">
-		<main id="login" class="login login-sns">
-			<h2 class="main-title hidden">SNS계정으로 로그인하기</h2>
-			<section class="login-section">
-				<div class="inner">
-					<div class="section-tit-wrap">
-						<h3 class="section-title">방금 들은 곡<br>싱잇에서 불러봐!</h3>
-						<figure class="login-sns-img content-txt2">
-							<img src="../asset/images/common/login-main-img.svg" alt="방금 들은 곡 싱잇에서 불러봐!">
-						</figure>
-					</div>
-					<div class="login-sns-wrap">
-						<div class="btn-wrap sns-btn-wrap">
-                            <button type="button" class="basic-btn round kakao" aria-label="카카오로 시작하기"><span>카카오로 시작하기</span></button>
-                            <button type="button" class="basic-btn round google" aria-label="Google로 시작하기"><span>Google로 시작하기</span></button>
-                            <button type="button" class="basic-btn round facebook" aria-label="Facebook으로 시작하기"><span>Facebook으로 시작하기</span></button>
-                            <button type="button" class="basic-btn round apple" aria-label="Apple로 시작하기"><span>Apple로 시작하기</span></button>
+    <div id="wrap">
+        <!--==================
+		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+		- PLAY 페이지 : play 클래스
+		- SING 페이지 : sing 클래스
+		- BATTLE 페이지 : battle 클래스
+		- MY 페이지 : my 클래스
+		- 서브 페이지 : sub 클래스 
+        ======================-->
+        <div id="container">
+            <main id="login" class="login login-sns">
+                <section class="login-section">
+                    <h2 class="main-title hidden">SNS계정으로 로그인하기</h2>
+                    <div class="inner">
+                        <div class="section-tit-wrap">
+                            <h3 class="section-title">방금 들은 곡<br>싱잇에서 불러봐!</h3>
+                            <figure class="login-sns-img content-txt2">
+                                <img src="../asset/images/common/login-main-img.svg" alt="방금 들은 곡 싱잇에서 불러봐!">
+                            </figure>
                         </div>
-						<div class="login-link-wrap content-txt3">
-							<span>이미 가입하셨나요?</span>
-							<a href="../html/login.html" class="login-link" title="로그인 페이지로 이동">로그인</a>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
-	</div>
+                        <div class="login-sns-wrap">
+                            <div class="btn-wrap sns-btn-wrap">
+                                <button type="button" class="basic-btn round kakao" aria-label="카카오로 시작하기"><span>카카오로 시작하기</span></button>
+                                <button type="button" class="basic-btn round google" aria-label="Google로 시작하기"><span>Google로 시작하기</span></button>
+                                <button type="button" class="basic-btn round facebook" aria-label="Facebook으로 시작하기"><span>Facebook으로 시작하기</span></button>
+                                <button type="button" class="basic-btn round apple" aria-label="Apple로 시작하기"><span>Apple로 시작하기</span></button>
+                            </div>
+                            <div class="login-link-wrap content-txt3">
+                                <span>이미 가입하셨나요?</span>
+                                <a href="../html/login.html" class="login-link" title="로그인 페이지로 이동">로그인</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
 </body>
 </html>

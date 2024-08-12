@@ -44,87 +44,276 @@
 	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
 
 	<!-- FONTS -->
-	<link rel="preload" href="../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
 
 	<!-- FONTS -->
-	<link rel="preload" href="../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/mypage/my-membership.css">
 
 	<!-- JS | library -->
-	<script src="../asset/js/lazysizes.min.js"></script>
-	<script src="../asset/js/prefixfree.min.js"></script>
-	<script src="../asset/js/jquery-3.7.1.min.js"></script>
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
 
 	<!-- JS -->
-	<script src="../asset/js/basic.js"></script>
-	<script src="../asset/js/popup.js"></script>
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
 
     <title>SingIt</title>
 </head>
 <body>
-	<!--==================
+	<div id="wrap">
+		<!--==================
 		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
 		- PLAY 페이지 : play 클래스
 		- SING 페이지 : sing 클래스
 		- BATTLE 페이지 : battle 클래스
 		- MY 페이지 : my 클래스
 		- 서브 페이지 : sub 클래스 
-	======================-->
-    <div id="container" class="sing">
-        <!--========== MODAL POPUP ==========-->
-        <div class="modal-popup-group">
-
-		</div>
-
-		<!--========== HEADER ==========-->
-		<header id="header"></header>
-		<script>
-			$(function () {
-				$('#header').load("include/header.html", function () {
-					// 로드된 후에 실행될 코드
-					$.getScript("../asset/js/header.js");
-					// $.getScript("../asset/js/basic.js");
+        ======================-->
+		<div id="container" class="my sub">
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<script>
+				$(function () {
+					$('#header').load("../include/header.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/header.js");
+						// $.getScript("../../asset/js/basic.js");
+					});
 				});
-			});
-		</script>
-        <main id="main">
-			<!-- ! 페이지 섹션에 맞는 클래스 추가해서 사용 : 예) play-sec  -->
-            <section class="section">
-                <div class="inner" style="background-color: rgba(0, 0, 0, 0.5); height: 89vh;">
-                    <div class="section-tit-wrap" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; flex-flow: column;">
-						<h2 class="main-title skeleton">페이지 메인 타이틀</h2>
-						<div class="section-content">
-							<div style="text-align: center; color: #fff;">컨텐츠 영역 들어갑니다.</div>
+			</script>
+			<main id="main" class="sub">
+				<h2 class="main-title hidden">싱코인 이용내역</h2>
+				<section class="section my-sc-sec">
+					<div class="inner">
+						<h3 class="section-title hidden">싱코인 이용내역</h3>
+						<div class="section-tit-wrap">
+							<div class="section-content">
+								<div class="my-sc-box content-txt2">
+									<p>내 싱코인</p>
+									<div class="sc-num"><span class="num content-txt1 medium-num">105506</span>개</div> <!-- .sc-num span.num에 현재 보유중인 싱코인 숫자가 들어갑니다. -->
+								</div>
+								<div class="tab-btn-container sc-history-container">
+									<ul class="tab-btn-menu">
+										<li class="tab-btn-link current" data-tab="tab-btn-1"><a href="javascript:;"><span>전체</span></a></li>
+										<li class="tab-btn-link" data-tab="tab-btn-2"><a href="javascript:;"><span>충전/적립</span></a></li>
+										<li class="tab-btn-link" data-tab="tab-btn-3"><a href="javascript:;"><span>사용/소멸</span></a></li>
+									</ul>
+									<div class="tab-btn-cont-wrap content-txt3">
+										<div id="tab-btn-1" class="tab-btn-cont current">
+											<div class="sc-history-wrap">
+												<div class="sc-history sc-minus">
+													<div class="sc-history-txt">
+														<div class="sc-history-tit">코인 챌린지 실패</div>
+														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+													</div>
+													<div class="sc-history-amount">
+														<span class="sc-history-num num content-txt2 medium-num">100</span>개
+													</div>
+													<!--==================
+														* sc-history-amount
+														- span.sc-history-num에 숫자 절대값만 넣어주세요.
+														사용/소멸한 케이스의 경우 .sc-history의 sc-minus 클래스에 의해 자동으로 마이너스 부호(-)가 붙습니다.
+														(ex1: -100개 일 경우, <span class="sc-history-num">100</span>개)
+													======================-->
+												</div>
+												<div class="sc-history">
+													<div class="sc-history-txt">
+														<div class="sc-history-tit">챌린지 성공 보상</div>
+														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+													</div>
+													<div class="sc-history-amount">
+														<span class="sc-history-num num content-txt2 medium-num">500</span>개
+													</div>
+												</div>
+												<div class="sc-history">
+													<div class="sc-history-txt">
+														<div class="sc-history-tit">1등 보상</div>
+														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+													</div>
+													<div class="sc-history-amount">
+														<span class="sc-history-num num content-txt2 medium-num">500</span>개
+													</div>
+												</div>
+												<div class="sc-history">
+													<div class="sc-history-txt">
+														<div class="sc-history-tit">테스트합니다. 테스트 중인 이용내역. 이용내역 테스트.</div>
+														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+													</div>
+													<div class="sc-history-amount">
+														<span class="sc-history-num num content-txt2 medium-num">550000</span>개
+													</div>
+												</div>
+												<div class="sc-history">
+													<div class="sc-history-txt">
+														<div class="sc-history-tit">음역테스트 성공 보상</div>
+														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+													</div>
+													<div class="sc-history-amount">
+														<span class="sc-history-num num content-txt2 medium-num">100</span>개
+													</div>
+												</div>
+												<div class="sc-history sc-minus">
+													<div class="sc-history-txt">
+														<div class="sc-history-tit">테스트합니다. 테스트 중인 이용내역. 이용내역 테스트. 테스트</div>
+														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+													</div>
+													<div class="sc-history-amount">
+														<span class="sc-history-num num content-txt2 medium-num">150000</span>개
+													</div>
+												</div>
+												<div class="sc-history sc-minus">
+													<div class="sc-history-txt">
+														<div class="sc-history-tit">“내가만든쿠키”님에게 보낸 선물</div>
+														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+													</div>
+													<div class="sc-history-amount">
+														<span class="sc-history-num num content-txt2 medium-num">200</span>개
+													</div>
+												</div>
+											</div>
+										</div>
+										<div id="tab-btn-2" class="tab-btn-cont">
+											<div class="sc-history-wrap">
+												<div class="sc-history">
+													<div class="sc-history-txt">
+														<div class="sc-history-tit">챌린지 성공 보상</div>
+														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+													</div>
+													<div class="sc-history-amount">
+														<span class="sc-history-num num content-txt2 medium-num">500</span>개
+													</div>
+												</div>
+												<div class="sc-history">
+													<div class="sc-history-txt">
+														<div class="sc-history-tit">1등 보상</div>
+														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+													</div>
+													<div class="sc-history-amount">
+														<span class="sc-history-num num content-txt2 medium-num">500</span>개
+													</div>
+												</div>
+												<div class="sc-history">
+													<div class="sc-history-txt">
+														<div class="sc-history-tit">테스트합니다. 테스트 중인 이용내역. 이용내역 테스트.</div>
+														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+													</div>
+													<div class="sc-history-amount">
+														<span class="sc-history-num num content-txt2 medium-num">550000</span>개
+													</div>
+												</div>
+												<div class="sc-history">
+													<div class="sc-history-txt">
+														<div class="sc-history-tit">음역테스트 성공 보상</div>
+														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+													</div>
+													<div class="sc-history-amount">
+														<span class="sc-history-num num content-txt2 medium-num">100</span>개
+													</div>
+												</div>
+											</div>
+										</div>
+										<div id="tab-btn-3" class="tab-btn-cont">
+											<div class="sc-history-wrap">
+												<div class="sc-history sc-minus">
+													<div class="sc-history-txt">
+														<div class="sc-history-tit">코인 챌린지 실패</div>
+														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+													</div>
+													<div class="sc-history-amount">
+														<span class="sc-history-num num content-txt2 medium-num">100</span>개
+													</div>
+													<!--==================
+														* sc-history-amount
+														- span.sc-history-num에 숫자 절대값만 넣어주세요.
+														사용/소멸한 케이스의 경우 .sc-history의 sc-minus 클래스에 의해 자동으로 마이너스 부호(-)가 붙습니다.
+														(ex1: -100개 일 경우, <span class="sc-history-num">100</span>개)
+													======================-->
+												</div>
+												<div class="sc-history sc-minus">
+													<div class="sc-history-txt">
+														<div class="sc-history-tit">테스트합니다. 테스트 중인 이용내역. 이용내역 테스트. 테스트</div>
+														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+													</div>
+													<div class="sc-history-amount">
+														<span class="sc-history-num num content-txt2 medium-num">150000</span>개
+													</div>
+												</div>
+												<div class="sc-history sc-minus">
+													<div class="sc-history-txt">
+														<div class="sc-history-tit">“내가만든쿠키”님에게 보낸 선물</div>
+														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+													</div>
+													<div class="sc-history-amount">
+														<span class="sc-history-num num content-txt2 medium-num">200</span>개
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-                    </div>
-                </div>
-            </section>
+					</div>
+				</section>
+				<!-- 기능 스크립트 부분 -->
+				<script>
+					$(function(){
+						/* 내 싱코인 숫자가 길어지는 경우, 클래스 over를 붙여서 구도를 변경합니다. */
+						if($(".my-sc-box .sc-num").width() > ($(".my-sc-box").width() - parseInt($(".my-sc-box").css('padding-left'), 10) - parseInt($(".my-sc-box").css('padding-right'), 10)) - $(".my-sc-box p").width() - 12) {
+							$(".my-sc-box").addClass("over");
+						}
+						/* 싱코인 내역 숫자가 길어지는 경우(너비의 50% 이상), 클래스 over를 붙여서 구도를 변경합니다. */
+						$(".sc-history").each(function(index,el){
+							if($(el).find(".sc-history-amount").width() > $(el).width()*0.5) {
+								$(".sc-history").addClass("over");
+							}
+						});
+					});
+				</script>
 
-			<!-- Floating Button -->
-			<aside id="singit-box" class="content-txt2">
-				<a href="javascript:;" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
-			</aside>
-        </main>
+				<!-- Floating Button -->
+				<aside id="singit-box" class="content-txt2">
+					<a href="javascript:;" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
+				</aside>
+			</main>
 
-        <!--========== APP BAR : FOOTER ==========-->
-		<footer id="footer"></footer>
-        <script>
-			$(function () {
-				$('#footer').load("include/footer.html", function () {
-					// 로드된 후에 실행될 코드
-					$.getScript("../asset/js/footer.js");
+			<!--========== APP BAR : FOOTER ==========-->
+			<footer id="footer"></footer>
+			<script>
+				$(function () {
+					$('#footer').load("../include/footer.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/footer.js");
+					});
 				});
-			});
-		</script>
+			</script>
 
-		<!--========== TOAST POPUP ==========-->
-		<div class="toast-popup-group">
+			<!--========== TOAST POPUP ==========-->
+			<div class="toast-popup-group">
 
+			</div>
 		</div>
-    </div>
+	</div>
 </body>
 </html>

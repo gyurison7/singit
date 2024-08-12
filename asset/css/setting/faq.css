@@ -1,0 +1,26 @@
+@charset "utf-8"; /* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Gyuri Son. (Weaverloft Corp.)
+ * 2. Production Date: 2024-08-07
+ * 3. Client: MEDIASCOPE Inc.
+ */
+
+.tab-menu li.tab-link { width: 50%; } 
+.tab-menu li.slider { width: calc((100% - 32px) / 2); } 
+.btn-wrap .basic-btn.sel { margin-top: 1.21em; font-weight: 500; font-variation-settings: "wght" 500; } 
+.tab-content { margin-top: 1.75em; } 
+
+/*========== faq ==========*/
+.faq-list { border-top: 1px solid #707070; font-weight: 400; font-variation-settings: "wght" 400; } 
+.faq-list .faq-item .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 1.14em; border-bottom: 1px solid var(--basic-line-color); word-break: keep-all; cursor: pointer; --transform: rotate(0); } 
+.faq-list .faq-item .faq-question::after { display: block; width: 24px; height: 24px; background-image: url("../../images/common/icon-arrow-down.svg"); content: ''; transform: var(--transform); } 
+.faq-list .faq-item .faq-question.on { --transform: rotate(180deg); } 
+.faq-list .faq-item .faq-question span { flex: 1; padding-right: 35px; } 
+.faq-list .faq-item .faq-answer { display: none; width: 100%; padding: 1.14em 1.14em 1.71em; background-color: var(--sub-bg-color-f5); word-break: keep-all; } 
+
+/*========== 1:1 문의 ==========*/
+.input-area input { color: #333; } 
+.textarea-area { margin: 0.75em 0 1em; } 
+.textarea-area .textarea-box-wrap .textarea-box { height: 11.25em; }
+.textarea-area .textarea-box-wrap .textarea-box textarea { min-height: 100%; color: #333; } 

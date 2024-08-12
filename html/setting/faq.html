@@ -44,24 +44,25 @@
 	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
 
 	<!-- FONTS -->
-	<link rel="preload" href="../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
 
 	<!-- FONTS -->
-	<link rel="preload" href="../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/setting/faq.css">
 
 	<!-- JS | library -->
-	<script src="../asset/js/lazysizes.min.js"></script>
-	<script src="../asset/js/prefixfree.min.js"></script>
-	<script src="../asset/js/jquery-3.7.1.min.js"></script>
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
 
 	<!-- JS -->
-	<script src="../asset/js/basic.js"></script>
-	<script src="../asset/js/popup.js"></script>
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
 
     <title>SingIt</title>
 </head>
@@ -75,57 +76,165 @@
 			- MY 페이지 : my 클래스
 			- 서브 페이지 : sub 클래스 
 		======================-->
-		<div id="container" class="sing">
+		<div id="container" class="my sub">
 			<!--========== MODAL POPUP ==========-->
 			<div class="modal-popup-group">
-		
-				</div>
-		
-				<!--========== HEADER ==========-->
-				<header id="header"></header>
-				<script>
-					$(function () {
-						$('#header').load("include/header.html", function () {
-							// 로드된 후에 실행될 코드
-							$.getScript("../asset/js/header.js");
-							// $.getScript("../asset/js/basic.js");
-						});
-					});
-				</script>
-			<main id="main">
-					<!-- ! 페이지 섹션에 맞는 클래스 추가해서 사용 : 예) play-sec  -->
-				<section class="section">
-					<div class="inner" style="background-color: rgba(0, 0, 0, 0.5); height: 89vh;">
-						<div class="section-tit-wrap" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; flex-flow: column;">
-								<h2 class="main-title skeleton">페이지 메인 타이틀</h2>
-								<div class="section-content">
-									<div style="text-align: center; color: #fff;">컨텐츠 영역 들어갑니다.</div>
+				<div id="exPop03" class="modal alert exPop03">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">저장되었습니다.</h3>
 								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#exPop03');" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+	
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<script>
+				$(function () {
+					$('#header').load("../include/header.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/header.js");
+					});
+				});
+			</script>
+			<main id="main" class="sub">
+				<h2 class="main-title hidden">고객센터</h2>
+				<section class="section faq-sec">
+					<div class="section-tit-wrap">
+						<h3 class="section-title hidden">고객센터</h3>
+					</div>
+					<div class="section-content">
+						<div class="tab-container">
+							<ul class="tab-menu">
+								<li class="slider"></li>
+								<li class="tab-link current" data-tab="tab-1"><a href="javascript:;"><span>FAQ</span></a></li>
+								<li class="tab-link" data-tab="tab-2"><a href="javascript:;"><span>1:1 문의</span></a></li>
+							</ul>
+							<div class="inner">
+								<div class="tab-content-wrap">
+									<div class="btn-wrap">
+										<button type="button" class="basic-btn sel round" aria-label="title" onclick="openBottomSheet('#selected')" title="노래부르기">
+											<span class="selected-txt">노래부르기</span>
+										</button>
+									</div>
+									<div id="tab-1" class="tab-content current">
+										<ul class="faq-list content-txt3">
+											<li class="faq-item">
+												<div class="faq-question"><span>목소리에 효과는 어떻게 주나요?</span></div>
+												<!-- faq-question 클릭 시 class "on" 추가되어 토글이 오픈됩니다. -->
+												<div class="faq-answer"><span>가창 후, 레코딩 편집 단계에서 하단 SYNC 설정을 통해 보컬 및 반주 싱크 조절이 가능합니다.</span></div>
+											</li>
+											<li class="faq-item">
+												<div class="faq-question"><span>제가 부른 노래를 들어보는데 노래가 빠르게 재생되요</span></div>
+												<!-- faq-question 클릭 시 class "on" 추가되어 토글이 오픈됩니다. -->
+												<div class="faq-answer"><span>가창 후, 레코딩 편집 단계에서 하단 SYNC 설정을 통해 보컬 및 반주 싱크 조절이 가능합니다.</span></div>
+											</li>
+											<li class="faq-item">
+												<div class="faq-question"><span>편집 후 업로드 화면으로 넘어가면 다시 편집 할 수 없나요?</span></div>
+												<!-- faq-question 클릭 시 class "on" 추가되어 토글이 오픈됩니다. -->
+												<div class="faq-answer"><span>가창 후, 레코딩 편집 단계에서 하단 SYNC 설정을 통해 보컬 및 반주 싱크 조절이 가능합니다.</span></div>
+											</li>
+											<li class="faq-item">
+												<div class="faq-question"><span>녹음된 반주와 목소리의 싱크가 맞지 않아요.</span></div>
+												<!-- faq-question 클릭 시 class "on" 추가되어 토글이 오픈됩니다. -->
+												<div class="faq-answer"><span>가창 후, 레코딩 편집 단계에서 하단 SYNC 설정을 통해 보컬 및 반주 싱크 조절이 가능합니다.</span></div>
+											</li>
+											<li class="faq-item">
+												<div class="faq-question"><span>반주에 비해 목소리의 볼륨이 너무 커요.</span></div>
+												<!-- faq-question 클릭 시 class "on" 추가되어 토글이 오픈됩니다. -->
+												<div class="faq-answer"><span>가창 후, 레코딩 편집 단계에서 하단 SYNC 설정을 통해 보컬 및 반주 싱크 조절이 가능합니다.</span></div>
+											</li>
+											<li class="faq-item">
+												<div class="faq-question"><span>스티커를 사용하려고 하는데 스티커버튼이 보이지 않아요.</span></div>
+												<!-- faq-question 클릭 시 class "on" 추가되어 토글이 오픈됩니다. -->
+												<div class="faq-answer"><span>가창 후, 레코딩 편집 단계에서 하단 SYNC 설정을 통해 보컬 및 반주 싱크 조절이 가능합니다.</span></div>
+											</li>
+											<li class="faq-item">
+												<div class="faq-question"><span>내가 부른 노래를 공개하고 싶지 않아요.</span></div>
+												<!-- faq-question 클릭 시 class "on" 추가되어 토글이 오픈됩니다. -->
+												<div class="faq-answer"><span>가창 후, 레코딩 편집 단계에서 하단 SYNC 설정을 통해 보컬 및 반주 싱크 조절이 가능합니다.</span></div>
+											</li>
+											<li class="faq-item">
+												<div class="faq-question"><span>저장하지 않고 노래만 부르고 싶어요.</span></div>
+												<!-- faq-question 클릭 시 class "on" 추가되어 토글이 오픈됩니다. -->
+												<div class="faq-answer"><span>가창 후, 레코딩 편집 단계에서 하단 SYNC 설정을 통해 보컬 및 반주 싱크 조절이 가능합니다.</span></div>
+											</li>
+										</ul>
+									</div>
+									<div id="tab-2" class="tab-content">
+										<div class="inquiry-area">
+											<div class="input-area content-txt2">
+												<div class="input-box-wrap">
+													<div class="input-box text box">
+														<input type="text" placeholder="이메일">
+													</div>
+												</div>
+											</div>
+											<div class="textarea-area content-txt2">
+												<div class="textarea-box-wrap">
+													<div class="textarea-box text label-box">
+														<p class="input-label caption-txt1">문의 내용</p>
+														<textarea class="label-input" placeholder="문의 내용을 입력해 주세요."></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="basic-check-box">
+												<input type="checkbox" id="check-box" tabindex="-1">
+												<label for="check-box" tabindex="0">답변을 위해 이메일정보를 수집하는 것에 동의합니다.</label>
+											</div>
+											<div class="btn-wrap bottom text">
+												<div class="inner">
+													<p class="bottom-txt content-txt3">문의하신 내용에 대한 답변은 이메일로 안내 드립니다.</p>
+													<button type="button" class="basic-btn red round" aria-label="title" onclick="modalPopup('#exPop03')">
+														<span>확인</span>
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</section>
-		
-					<!-- Floating Button -->
-					<aside id="singit-box" class="content-txt2">
-						<a href="javascript:;" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
-					</aside>
 			</main>
-			<!--========== APP BAR : FOOTER ==========-->
-				<footer id="footer"></footer>
-			<script>
-					$(function () {
-						$('#footer').load("include/footer.html", function () {
-							// 로드된 후에 실행될 코드
-							$.getScript("../asset/js/footer.js");
-						});
-					});
-				</script>
-		
-				<!--========== TOAST POPUP ==========-->
-				<div class="toast-popup-group">
-		
+			<!--========== TOAST POPUP ==========-->
+			<div class="toast-popup-group">
+				<div id="selected" class="bottom-sheet-wrap check faq">
+					<div class="bottom-sheet sheet-stretch"> 
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<div class="sheet-cont-inner">
+								<ul class="sheet-check-list">
+									<li><a href="javascript:;" class="active">노래 부르기</a></li>
+									<li><a href="javascript:;">가입/계정관리</a></li>
+									<li><a href="javascript:;">결제/멤버쉽</a></li>
+									<li><a href="javascript:;">기타</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
 				</div>
+			</div>
 		</div>
 	</div>
+
+	<script>
+		$(".faq-question").click(function() {
+			$(this).closest(".faq-item").find(".faq-answer").slideToggle(); // .faq-answer 토글 오픈
+			$(this).toggleClass("on"); // 화살표 아이콘 방향 전환
+		});
+	</script>
 </body>
 </html>

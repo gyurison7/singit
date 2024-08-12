@@ -66,65 +66,73 @@
     <title>SingIt</title>
 </head>
 <body>
-	<!--==================
+    <div id="wrap">
+        <!--==================
 		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
 		- PLAY 페이지 : play 클래스
 		- SING 페이지 : sing 클래스
 		- BATTLE 페이지 : battle 클래스
 		- MY 페이지 : my 클래스
 		- 서브 페이지 : sub 클래스 
-	======================-->
-    <div id="container" class="sing">
-        <!--========== MODAL POPUP ==========-->
-        <div class="modal-popup-group">
+        ======================-->
+        <div id="container" class="sing">
+            <!--========== MODAL POPUP ==========-->
+            <div class="modal-popup-group">
 
-		</div>
+            </div>
 
-		<!--========== HEADER ==========-->
-		<header id="header"></header>
-		<script>
-			$(function () {
-				$('#header').load("include/header.html", function () {
-					// 로드된 후에 실행될 코드
-					$.getScript("../asset/js/header.js");
-					// $.getScript("../asset/js/basic.js");
-				});
-			});
-		</script>
-        <main id="main">
-			<!-- ! 페이지 섹션에 맞는 클래스 추가해서 사용 : 예) play-sec  -->
-            <section class="section">
-                <div class="inner" style="background-color: rgba(0, 0, 0, 0.5); height: 89vh;">
-                    <div class="section-tit-wrap" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; flex-flow: column;">
-						<h2 class="main-title skeleton">페이지 메인 타이틀</h2>
-						<div class="section-content">
-							<div style="text-align: center; color: #fff;">컨텐츠 영역 들어갑니다.</div>
-						</div>
+            <!--========== HEADER ==========-->
+            <header id="header"></header>
+            <script>
+                $(function () {
+                    $('#header').load("include/header.html", function () {
+                        // 로드된 후에 실행될 코드
+                        $.getScript("../asset/js/header.js");
+                        // $.getScript("../asset/js/basic.js");
+                    });
+                });
+            </script>
+            <main id="main">
+                <!-- ! 페이지 섹션에 맞는 클래스 추가해서 사용 : 예) play-sec  -->
+                <section class="section">
+                    <h2 class="main-title hidden skeleton">공지사항</h2>
+                    <div class="inner" style="background-color: rgba(0, 0, 0, 0.5); height: 89vh;">
+                        <div class="section-tit-wrap" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; flex-flow: column;">
+                            <h3 class="section-title">공지사항</h2>
+                        </div>
+                        <div class="section-content">
+                            <div style="text-align: center; color: #fff;">컨텐츠 영역 들어갑니다.</div>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-			<!-- Floating Button -->
-			<aside id="singit-box" class="content-txt2">
-				<a href="javascript:;" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
-			</aside>
-        </main>
+                <!-- Floating Button -->
+                <aside id="singit-box" class="content-txt2">
+                    <a href="javascript:;" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
+                </aside>
+            </main>
 
-        <!--========== APP BAR : FOOTER ==========-->
-		<footer id="footer"></footer>
-        <script>
-			$(function () {
-				$('#footer').load("include/footer.html", function () {
-					// 로드된 후에 실행될 코드
-					$.getScript("../asset/js/footer.js");
-				});
-			});
-		</script>
+            <!--========== APP BAR : FOOTER ==========-->
+            <footer id="footer"></footer>
+            <script>
+                $(function () {
+                    $('#footer').load("include/footer.html", function () {
+                        // 로드된 후에 실행될 코드
+                        $.getScript("../asset/js/footer.js");
+                    });
+                });
+            </script>
 
-		<!--========== TOAST POPUP ==========-->
-		<div class="toast-popup-group">
+            <!--========== FULL PAGE POPUP ==========-->
+            <div class="full-popup-group">
 
-		</div>
+            </div>
+
+            <!--========== TOAST POPUP ==========-->
+            <div class="toast-popup-group">
+
+            </div>
+        </div>
     </div>
 </body>
 </html>

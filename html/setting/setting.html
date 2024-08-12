@@ -76,106 +76,81 @@
 			- MY 페이지 : my 클래스
 			- 서브 페이지 : sub 클래스 
 		======================-->
-		<div id="container" class="sub">
-			<!--========== MODAL POPUP ==========-->
-			<div class="modal-popup-group">
-		
-			</div>
-	
+		<div id="container" class="my sub">
 			<!--========== HEADER ==========-->
 			<header id="header"></header>
 			<script>
 				$(function () {
-					$('#header').load("/html/include/header.html", function () {
+					$('#header').load("../include/header.html", function () {
 						// 로드된 후에 실행될 코드
 						$.getScript("../../asset/js/header.js");
 					});
 				});
 			</script>
-			<main id="main">
-				<h2 class="main-title blind">설정</h2>
+			<main id="main" class="sub">
+				<h2 class="main-title hidden">설정</h2>
 				<section class="section account-sec divider">
 					<div class="inner">
 						<div class="section-tit-wrap">
 							<h3 class="section-title content-txt3">계정</h3>
 						</div>
-						<div class="section-content">
-							<ul class="setting-list content-txt2">
-								<li><a href="">프로필 수정</a></li>
+						<div class="section-content content-txt2">
+							<ul class="setting-list">
+								<li><a href="../mypage/my-profile.html" title="프로필 수정 페이지로 이동">프로필 수정</a></li>
 								<li>
 									<a href="">멤버쉽
 										<div class="membership-label free">무료회원</div>
 									</a>
 								</li>
-								<li><a href="">싱코인 구매</a></li>
+								<li><a href="../mypage/my-purchase.html" title="싱코인 구매 페이지로 이동">싱코인 구매</a></li>
 								<li><a href="">로그아웃</a></li>
 							</ul>
 						</div>
 					</div>
 				</section>
-					<section class="section option-sec divider">
+				<section class="section option-sec divider">
 					<div class="inner">
 						<div class="section-tit-wrap"><h3 class="section-title content-txt3">옵션</h3></div>
-							<div class="section-content">
-								<ul class="setting-list content-txt2">
-									<li><a href="">알림 설정</a></li>
-									<li class="switch-option">
-										고화질 녹화
-										<div class="switch-wrap">
-											<div class="basic-switch">
-												<input id="checkbox-switch" type="checkbox" class="checkbox-switch">
-												<label for="checkbox-switch" class="hidden"></label>
-											</div>
+						<div class="section-content content-txt2">
+							<ul class="setting-list">
+								<li><a href="./alarm-setting.html" title="알림 설정 페이지로 이동">알림 설정</a></li>
+								<li class="switch-option">
+									고화질 녹화
+									<div class="switch-wrap">
+										<div class="basic-switch">
+											<input id="checkbox-switch1" type="checkbox" class="checkbox-switch">
+											<label for="checkbox-switch1" class="hidden"></label>
 										</div>
-									</li>
-									<li class="switch-option">
-										모바일 데이터 사용
-										<div class="switch-wrap">
-											<div class="basic-switch">
-												<input id="checkbox-switch" type="checkbox" class="checkbox-switch" checked>
-												<label for="checkbox-switch" class="hidden"></label>
-											</div>
+									</div>
+								</li>
+								<li class="switch-option">
+									모바일 데이터 사용
+									<div class="switch-wrap">
+										<div class="basic-switch">
+											<input id="checkbox-switch2" type="checkbox" class="checkbox-switch" checked>
+											<label for="checkbox-switch2" class="hidden"></label>
 										</div>
-									</li>
-								</ul>
-							</div>
+									</div>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</section>
 				<section class="section guide-sec">
 					<div class="inner">
 						<div class="section-tit-wrap"><h3 class="section-title content-txt3">안내</h3></div>
-							<div class="section-content">
-								<ul class="setting-list content-txt2">
-									<li><a href="">공지사항</a></li>
-									<li><a href="">고객센터</a></li>
-									<li><a href="">서비스 이용약관</a></li>
-									<li><a href="">개인정보 처리방침</a></li>
-									<li><a href="">회원탈퇴</a></li>
-								</ul>
-							</div>
+						<div class="section-content content-txt2">
+							<ul class="setting-list">
+								<li><a href="./notice-list.html" title="공지사항 페이지로 이동">공지사항</a></li>
+								<li><a href="./faq.html" title="고객센터 페이지로 이동">고객센터</a></li>
+								<li><a href="./service-info.html" title="서비스 이용약관 페이지로 이동">서비스 이용약관</a></li>
+								<li><a href="./privacy-info.html" title="개인정보 처리방침 페이지로 이동">개인정보 처리방침</a></li>
+								<li><a href="">회원탈퇴</a></li>
+							</ul>
+						</div>
 					</div>
 				</section>
-		
-				<!-- Floating Button -->
-				<aside id="singit-box" class="content-txt2">
-					<a href="javascript:;" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
-				</aside>
 			</main>
-			<!--========== APP BAR : FOOTER ==========-->
-			<footer id="footer"></footer>
-			<script>
-				$(function () {
-					$('#footer').load("/html/include/footer.html", function () {
-						// 로드된 후에 실행될 코드
-						$.getScript("../../asset/js/footer.js");
-					});
-				});
-			</script>
-	
-			<!--========== TOAST POPUP ==========-->
-			<div class="toast-popup-group">
-	
-			</div>
 		</div>
 	</div>
 </body>

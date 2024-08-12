@@ -76,40 +76,35 @@
 			- MY 페이지 : my 클래스
 			- 서브 페이지 : sub 클래스 
 		======================-->
-		<div id="container" class="sub">
-			<!--========== MODAL POPUP ==========-->
-			<div class="modal-popup-group">
-		
-			</div>
-	
+		<div id="container" class="my sub">
 			<!--========== HEADER ==========-->
 			<header id="header"></header>
 			<script>
 				$(function () {
-					$('#header').load("/html/include/header.html", function () {
+					$('#header').load("../include/header.html", function () {
 						// 로드된 후에 실행될 코드
 						$.getScript("../../asset/js/header.js");
 					});
 				});
 			</script>
-			<main id="main">
-				<h2 class="main-title blind">알림 설정</h2>
+			<main id="main" class="sub">
+				<h2 class="main-title hidden">알림 설정</h2>
 				<section class="section device-setting-sec divider">
 					<div class="inner">
 						<div class="section-tit-wrap">
 							<h3 class="section-title content-txt3">디바이스 설정</h3>
 						</div>
-						<div class="section-content">
-							<ul class="setting-list content-txt2">
+						<div class="section-content content-txt2">
+							<ul class="setting-list">
 								<li class="switch-option">
 									<div>
 										프로필 수정
-										<p class="alarm-txt">설정 > 알림에서 Singit의 알림을 허용하면 알림을 받을 수 있습니다.</p>
+										<p class="alarm-txt caption-txt1">설정 > 알림에서 Singit의 알림을 허용하면 알림을 받을 수 있습니다.</p>
 									</div>
 									<div class="switch-wrap">
 										<div class="basic-switch">
-											<input id="checkbox-switch" type="checkbox" class="checkbox-switch">
-											<label for="checkbox-switch" class="hidden"></label>
+											<input id="checkbox-switch1" type="checkbox" class="checkbox-switch">
+											<label for="checkbox-switch1" class="hidden"></label>
 										</div>
 									</div>
 								</li>
@@ -120,102 +115,82 @@
 				<section class="section alarm-guide-sec divider">
 					<div class="inner">
 						<div class="section-tit-wrap"><h3 class="section-title content-txt3">안내</h3></div>
-							<div class="section-content">
-								<ul class="setting-list content-txt2">
-									<li class="switch-option">
-										<div>
-											좋아요 알림
-											<p class="alarm-txt">내가 부른 노래에 좋아요 되면 알림 수신</p>
+						<div class="section-content content-txt2">
+							<ul class="setting-list">
+								<li class="switch-option">
+									<div>
+										좋아요 알림
+										<p class="alarm-txt caption-txt1">내가 부른 노래에 좋아요 되면 알림 수신</p>
+									</div>
+									<div class="switch-wrap">
+										<div class="basic-switch">
+											<input id="checkbox-switch2" type="checkbox" class="checkbox-switch" checked>
+											<label for="checkbox-switch2" class="hidden"></label>
 										</div>
-										<div class="switch-wrap">
-											<div class="basic-switch">
-												<input id="checkbox-switch" type="checkbox" class="checkbox-switch" checked>
-												<label for="checkbox-switch" class="hidden"></label>
-											</div>
+									</div>
+								</li>
+								<li class="switch-option">
+									<div>
+										댓글 알림
+										<p class="alarm-txt caption-txt1">내가 부른 노래에서 댓글이 달리면 알림 수신</p>
+									</div>
+									<div class="switch-wrap">
+										<div class="basic-switch">
+											<input id="checkbox-switch3" type="checkbox" class="checkbox-switch">
+											<label for="checkbox-switch3" class="hidden"></label>
 										</div>
-									</li>
-									<li class="switch-option">
-										<div>
-											댓글 알림
-											<p class="alarm-txt">내가 부른 노래에서 댓글이 달리면 알림 수신</p>
+									</div>
+								</li>
+								<li class="switch-option">
+									<div>
+										팔로우 알림
+										<p class="alarm-txt caption-txt1">나를 팔로우하면 알림 수신</p>
+									</div>
+									<div class="switch-wrap">
+										<div class="basic-switch">
+											<input id="checkbox-switch4" type="checkbox" class="checkbox-switch">
+											<label for="checkbox-switch4" class="hidden"></label>
 										</div>
-										<div class="switch-wrap">
-											<div class="basic-switch">
-												<input id="checkbox-switch" type="checkbox" class="checkbox-switch">
-												<label for="checkbox-switch" class="hidden"></label>
-											</div>
+									</div>
+								</li>
+								<li class="switch-option">
+									<div>
+										선물 알림
+										<p class="alarm-txt caption-txt1">나에게 선물이 도착하면 알림 수신</p>
+									</div>
+									<div class="switch-wrap">
+										<div class="basic-switch">
+											<input id="checkbox-switch5" type="checkbox" class="checkbox-switch">
+											<label for="checkbox-switch5" class="hidden"></label>
 										</div>
-									</li>
-									<li class="switch-option">
-										<div>
-											팔로우 알림
-											<p class="alarm-txt">나를 팔로우하면 알림 수신</p>
-										</div>
-										<div class="switch-wrap">
-											<div class="basic-switch">
-												<input id="checkbox-switch" type="checkbox" class="checkbox-switch">
-												<label for="checkbox-switch" class="hidden"></label>
-											</div>
-										</div>
-									</li>
-									<li class="switch-option">
-										<div>
-											선물 알림
-											<p class="alarm-txt">나에게 선물이 도착하면 알림 수신</p>
-										</div>
-										<div class="switch-wrap">
-											<div class="basic-switch">
-												<input id="checkbox-switch" type="checkbox" class="checkbox-switch">
-												<label for="checkbox-switch" class="hidden"></label>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
+									</div>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</section>
 				<section class="section etc-sec">
 					<div class="inner">
 						<div class="section-tit-wrap"><h3 class="section-title content-txt3">기타</h3></div>
-							<div class="section-content">
-								<ul class="setting-list content-txt2">
-									<li class="switch-option">
-										<div>
-											서비스 알림
-											<p class="alarm-txt">이벤트 혹은 서비스 업데이트 시 알림 수신</p>
+						<div class="section-content content-txt2">
+							<ul class="setting-list">
+								<li class="switch-option">
+									<div>
+										서비스 알림
+										<p class="alarm-txt caption-txt1">이벤트 혹은 서비스 업데이트 시 알림 수신</p>
+									</div>
+									<div class="switch-wrap">
+										<div class="basic-switch">
+											<input id="checkbox-switch6" type="checkbox" class="checkbox-switch">
+											<label for="checkbox-switch6" class="hidden"></label>
 										</div>
-										<div class="switch-wrap">
-											<div class="basic-switch">
-												<input id="checkbox-switch" type="checkbox" class="checkbox-switch">
-												<label for="checkbox-switch" class="hidden"></label>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
+									</div>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</section>
-		
-				<!-- Floating Button -->
-				<aside id="singit-box" class="content-txt2">
-					<a href="javascript:;" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
-				</aside>
 			</main>
-			<!--========== APP BAR : FOOTER ==========-->
-			<footer id="footer"></footer>
-			<script>
-				$(function () {
-					$('#footer').load("/html/include/footer.html", function () {
-						// 로드된 후에 실행될 코드
-						$.getScript("../../asset/js/footer.js");
-					});
-				});
-			</script>
-	
-			<!--========== TOAST POPUP ==========-->
-			<div class="toast-popup-group">
-	
-			</div>
 		</div>
 	</div>
 </body>

@@ -32,16 +32,6 @@ $(function () {
 	}
 });
 
-/* 본문 바로가기 */
-// $(function(){
-// 	var skipNavDiv = document.createElement('div');
-// 	skipNavDiv.className = 'skip-nav';
-// 	skipNavDiv.innerHTML = '<a href="#main" tabindex="0">본문바로가기</a>';
-
-// 	var bodyElement = document.body;
-// 	bodyElement.insertBefore(skipNavDiv, bodyElement.firstChild);
-// });
-
 /* Tab Menu */
 $(function(){
 	if ($(".tab-container").length > 0) {
@@ -167,6 +157,7 @@ $(document).on('keyup', 'input[name=number]', function (event) {
 	if (before != after) cursorIndex++; // ',' 추가시 커서 위치 조정
 	this.setSelectionRange(cursorIndex, cursorIndex);
 });
+
 // 일반 num comma
 $(function(){
 	if($('.num').length > 0){
@@ -182,11 +173,23 @@ $(function(){
 $(function () {
 	// border animation
 	$(".input-box input").focusin(function () {
-		$(this).next().addClass('on');
+		$(this).next('.line-focus').addClass('on');
 	});
 	$(".input-box input").focusout(function () {
-		$(this).next().removeClass('on');
+		$(this).next('.line-focus').removeClass('on');
 	});
+	// Label
+	$(".label-box .label-input").focusin(function () {
+		$(this).parent('.label-box').children('.input-label').addClass('on');
+	});
+	$(".label-box .label-input").focusout(function () {
+		if ($(this).val() === '') {
+			$(this).parent('.label-box').children('.input-label').removeClass('on');
+		} else {
+			$(this).parent('.label-box').children('.input-label').addClass('on');
+		}
+	});
+
 	// input password eye-btn
 	$(".input-box.password .eye-btn").click(function() {
 		$(this).toggleClass("open");
@@ -408,3 +411,14 @@ $(document).ready(function() {
 
 //     observer.observe(document.body, { childList: true, subtree: true });
 // });
+
+/* Bottom Sheet : 고객센터(faq) */
+$(function() {
+	$(".sheet-check-list li a").click(function() {
+		const selectedTxt = $(this).text();
+
+		$(".sheet-check-list li a").removeClass("active");
+		$(this).toggleClass("active");
+		$(".selected-txt").text(selectedTxt)
+	});
+});

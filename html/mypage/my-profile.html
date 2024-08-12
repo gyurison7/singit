@@ -44,87 +44,127 @@
 	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
 
 	<!-- FONTS -->
-	<link rel="preload" href="../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
 
 	<!-- FONTS -->
-	<link rel="preload" href="../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/mypage/my-profile.css">
 
 	<!-- JS | library -->
-	<script src="../asset/js/lazysizes.min.js"></script>
-	<script src="../asset/js/prefixfree.min.js"></script>
-	<script src="../asset/js/jquery-3.7.1.min.js"></script>
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
 
 	<!-- JS -->
-	<script src="../asset/js/basic.js"></script>
-	<script src="../asset/js/popup.js"></script>
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
 
     <title>SingIt</title>
 </head>
 <body>
-	<!--==================
+	<div id="wrap">
+		<!--==================
 		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
 		- PLAY 페이지 : play 클래스
 		- SING 페이지 : sing 클래스
 		- BATTLE 페이지 : battle 클래스
 		- MY 페이지 : my 클래스
 		- 서브 페이지 : sub 클래스 
-	======================-->
-    <div id="container" class="sing">
-        <!--========== MODAL POPUP ==========-->
-        <div class="modal-popup-group">
+        ======================-->
+		<div id="container" class="my sub">
+			<!--========== MODAL POPUP ==========-->
+            <div class="modal-popup-group">
+				<div id="regPop01" class="modal alert regPop01">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">작성중인 내용이 있습니다.<br> 나가시겠어요?</h3>
+								</div>
+								<div class="modal-txt-wrap">
+									<p class="modal-sub-tit">작성한 내용은 저장되지 않고 사라집니다.</p>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#regPop01');" class="basic-btn gray" tabindex="1">취소</a>
+								<a href="javascript:;" onclick="modalPopupClose('#regPop01');" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+            </div>
 
-		</div>
-
-		<!--========== HEADER ==========-->
-		<header id="header"></header>
-		<script>
-			$(function () {
-				$('#header').load("include/header.html", function () {
-					// 로드된 후에 실행될 코드
-					$.getScript("../asset/js/header.js");
-					// $.getScript("../asset/js/basic.js");
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<script>
+				$(function () {
+					$('#header').load("../include/header.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/header.js");
+					});
 				});
-			});
-		</script>
-        <main id="main">
-			<!-- ! 페이지 섹션에 맞는 클래스 추가해서 사용 : 예) play-sec  -->
-            <section class="section">
-                <div class="inner" style="background-color: rgba(0, 0, 0, 0.5); height: 89vh;">
-                    <div class="section-tit-wrap" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; flex-flow: column;">
-						<h2 class="main-title skeleton">페이지 메인 타이틀</h2>
-						<div class="section-content">
-							<div style="text-align: center; color: #fff;">컨텐츠 영역 들어갑니다.</div>
+			</script>
+			<main id="main" class="sub">
+				<h2 class="main-title hidden">프로필 수정</h2>
+				<section class="section my-profile-sec">
+					<h3 class="section-title hidden">프로필 수정</h3>
+					<div class="section-content inner">
+						<div class="profile-reg-area">
+							<div class="profile-reg-img-wrap">
+								<a href="javascript:;" title="프로필 이미지 수정하기" onclick="modalPopup('#regPop01')">
+									<figure><img src="../../asset/images/temp/profile-temp-zzang.png" alt="예시 이미지"></figure>
+								</a>	
+							</div>
+							<div class="profile-reg-info-wrap">
+								<div class="input-box-wrap">
+									<div class="input-box text keyup label-box">
+										<p class="input-label caption-txt1">이름</p>
+										<input class="label-input" type="text" placeholder="이름" maxlength="20">
+										<span class="line-focus"></span>
+										<div class="write-typing">
+											<span class="typing-num">0</span><span>/</span><span class="typing-max-num">20</span>
+										</div>
+									</div>
+								</div>
+								<div class="textarea-area">
+									<div class="textarea-box-wrap">
+										<div class="textarea-box text keyup label-box">
+											<p class="input-label caption-txt1">소개</p>
+											<textarea class="label-input" placeholder="내용을 입력해주세요." maxlength="100"></textarea>
+										</div>
+										<div class="write-typing">
+											<span class="typing-num">0</span><span>/</span><span class="typing-max-num">100</span>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-                    </div>
-                </div>
-            </section>
+						<div class="btn-wrap bottom">
+							<div class="inner">
+								<button type="button" class="basic-btn red round" aria-label="title" onclick="modalPopup('#regPop01');">
+									<span>확인</span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			
+			<!--========== FULL PAGE POPUP ==========-->
+			<div class="full-popup-group">
 
-			<!-- Floating Button -->
-			<aside id="singit-box" class="content-txt2">
-				<a href="javascript:;" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
-			</aside>
-        </main>
+			</div>
 
-        <!--========== APP BAR : FOOTER ==========-->
-		<footer id="footer"></footer>
-        <script>
-			$(function () {
-				$('#footer').load("include/footer.html", function () {
-					// 로드된 후에 실행될 코드
-					$.getScript("../asset/js/footer.js");
-				});
-			});
-		</script>
+			<!--========== TOAST POPUP ==========-->
+			<div class="toast-popup-group">
 
-		<!--========== TOAST POPUP ==========-->
-		<div class="toast-popup-group">
-
+			</div>
 		</div>
-    </div>
+	</div>
 </body>
 </html>
