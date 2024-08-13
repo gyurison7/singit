@@ -7,18 +7,19 @@
  */
 
 /*========== 설정 ==========*/
-.account-sec { padding-top: 1.25em; } 
+.account-sec { margin-top: 1.25em; } 
 .divider::after { display: block; width: 100%; height: 5px; margin: 1.5em 0; background-color: #F5F5F5; content: ''; } 
 .section-tit-wrap .section-title { color: #888; } 
 .section-content { padding-top: 1em; color: #333; } 
 .section-content .setting-list { display: flex; flex-direction: column; gap: 1.25em; } 
 .section-content .setting-list a { display: flex; justify-content: space-between; align-items: center; position: relative; color: #333; } 
-.section-content .setting-list a::after { display: block; width: 24px; height: 24px; background-image: url("../../images/common/icon-arrow-next-gray.svg"); content: ''; } 
-.section-content .setting-list .status-label { position: absolute; right: 34px; } 
+.section-content .setting-list a::after { display: block; width: 1.5em; height: 1.5em; background-image: url("../../images/common/icon-arrow-next-gray.svg"); background-repeat: no-repeat; background-position: center; background-size: cover; content: ''; } 
+.section-content .setting-list .status-label { position: absolute; right: 2.13em; } 
 .section-content .setting-list .switch-option { display: flex; justify-content: space-between; } 
 
 /*========== 알림 설정 ==========*/
-.device-setting-sec { padding-top: 1.25em; } 
+.device-setting-sec { margin-top: 1.25em; } 
+.switch-txt-wrap { padding-right: 1.38em; }
 .alarm-txt { padding-top: 0.5em; color: #888888; font-weight: 400; font-variation-settings: "wght" 400; } 
 
 /*========== 공지사항 ==========*/
@@ -31,20 +32,20 @@
 /*========== 공지사항 상세 ==========*/
 .notice-title-wrap { padding: 1.25em 1em 1em; width: 100%; background-color: var(--sub-bg-color-f5); } 
 .notice-title-wrap .notice-title { font-weight: 700; font-variation-settings: "wght" 700; word-break: keep-all; } 
-.notice-content-wrap { margin-top: 1.43em; } 
+.notice-content-wrap { width: 100%; margin-top: 1.43em; } 
 
-/*========== 공통(정리중) ==========*/
+/*========== 고객센터 ==========*/
 .tab-menu li.tab-link { width: 50%; } 
 .tab-menu li.slider { width: calc((100% - 32px) / 2); } 
 .btn-wrap .basic-btn.sel { margin-top: 1.21em; font-weight: 500; font-variation-settings: "wght" 500; } 
 .tab-content { margin-top: 1.75em; } 
 
-/*========== faq, 서비스 이용 약관 ==========*/
+/*========== faq, 서비스 이용 약관 공통 ==========*/
 .toggle-list { border-top: 1px solid #707070; } 
 .toggle-list .toggle-item .toggle-title { display: flex; justify-content: space-between; align-items: center; padding: 1.14em; border-bottom: 1px solid var(--basic-line-color); color: #333; word-break: keep-all; cursor: pointer; --transform: rotate(0); } 
-.toggle-list .toggle-item .toggle-title::after { display: block; width: 24px; height: 24px; background-image: url("../../images/common/icon-arrow-down.svg"); content: ''; transform: var(--transform); transition: transform 0.3s; } 
+.toggle-list .toggle-item .toggle-title::after { display: block; width: 1.71em; height: 1.71em; background-image: url("../../images/common/icon-arrow-down.svg"); background-repeat: no-repeat; background-position: center; background-size: cover; content: ''; transform: var(--transform); transition: transform 0.3s; } 
 .toggle-list .toggle-item .toggle-title.on { --transform: rotate(180deg); } 
-.toggle-list .toggle-item .toggle-title span { flex: 1; padding-right: 35px; } 
+.toggle-list .toggle-item .toggle-title span { flex: 1; padding-right: 2.5em; } 
 .toggle-list .toggle-item .toggle-content { display: none; width: 100%; padding: 1.14em 1.14em 1.71em; background-color: var(--sub-bg-color-f5); color: #666; font-weight: 400; font-variation-settings: "wght" 400; word-break: keep-all; } 
 
 /*========== 1:1 문의 ==========*/
@@ -52,3 +53,7 @@
 .textarea-area { margin: 0.75em 0 1em; } 
 .textarea-area .textarea-box-wrap .textarea-box { height: 11.25em; }
 .textarea-area .textarea-box-wrap .textarea-box textarea { min-height: 100%; color: #333; } 
+
+/*========== 서비스 이용약관, 개인정보 처리방침 ==========*/
+.full-modal-cont.info { margin-top: 1.88em; }
+.full-modal-cont.info .content { color: #333; }

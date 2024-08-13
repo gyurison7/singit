@@ -418,14 +418,13 @@ input[type="checkbox"] + label {cursor: pointer; font-size: 0.875rem;font-weight
 }
 
 /* Check btn */
-.bottom-sheet-wrap.check .sheet-content { padding: 1.63em 1.5em 2.5em; }
+.bottom-sheet-wrap.check .sheet-content { padding: 1.63em 1.5em 1.25em; }
 .bottom-sheet-wrap.check .sheet-check-list { display: flex; flex-direction: column;  }
-.bottom-sheet-wrap.check .sheet-check-list li { padding-bottom: 20px; }
-.bottom-sheet-wrap.check .sheet-check-list li:last-child { padding-bottom: 0; }
-.bottom-sheet-wrap.check .sheet-check-list li a { display: flex; justify-content: space-between; align-items: center; min-height: 24px; color: #666; transition: color 0.3s; }
-.bottom-sheet-wrap.check .sheet-check-list li a::after { display: none; width: 24px; height: 24px; background-image: url("../images/common/icon-check-black.svg"); content: ''; }
+.bottom-sheet-wrap.check .sheet-check-list li a { display: flex; justify-content: space-between; align-items: center; padding-bottom: 1.25em; color: #666; transition: color 0.3s; }
+.bottom-sheet-wrap.check .sheet-check-list li:last-child a { padding-bottom: 0; }
+.bottom-sheet-wrap.check .sheet-check-list li a::after { visibility: hidden; opacity: 0; width: 1.5em; height: 1.5em; background-image: url("../images/common/icon-check-black.svg"); background-repeat: no-repeat; background-position: center; background-size: cover; content: ''; }
 .bottom-sheet-wrap.check .sheet-check-list li a.active { color: #333; }
-.bottom-sheet-wrap.check .sheet-check-list li a.active::after { display: block; }
+.bottom-sheet-wrap.check .sheet-check-list li a.active::after { visibility: visible; opacity: 1; }
 
 /*========== Toast Popup ==========*/
 .toast-popup {z-index: 151;position: fixed;opacity: 0;bottom: 0;left: 50%;transform: translate(-50%,calc(100% + 18px));width: 100%; max-width: 327px; padding: 1.07em;background: #333;border-radius: 1.71em;font-size: 0.875rem; font-weight:400; font-variation-settings: 'wght' 400;color: #fff;box-shadow: 3px 4px 11px 0px #00000040;transition: 300ms;}
