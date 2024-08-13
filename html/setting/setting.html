@@ -77,6 +77,54 @@
 			- 서브 페이지 : sub 클래스 
 		======================-->
 		<div id="container" class="my sub">
+			<!--========== MODAL POPUP ==========-->
+			<div class="modal-popup-group">
+				<div id="exPop02" class="modal alert exPop02">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">로그아웃 하시겠어요?</h3>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#exPop02');" class="basic-btn gray" tabindex="1">취소</a>
+								<a href="javascript:;" onclick="modalPopupClose('#exPop02');" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+
+				<div id="exPop05" class="modal msg exPop05">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">회원탈퇴</h3>
+									<div class="modal-close-btn">
+										<a href="javascript:;" onclick="modalPopupClose('#exPop05')" title="팝업창 닫기" tabindex="0">팝업창 닫기</a>
+									</div>
+								</div>
+								<div class="modal-txt-wrap">
+									<h3 class="modal-tit">탈퇴전 꼭 확인해주세요!</h3>
+									<p class="modal-sub-tit">Singit 계정 정보, 서비스 이용 이력, 멤버쉽 내역이 모두 삭제되며 복구할 수 없습니다.</p>
+									<br>
+									<p class="modal-sub-tit">Singit 멤버쉽을 구독하고 계시다면 탈퇴 전에 해지해주시기 바랍니다.</p>
+									<div class="basic-check-box">
+										<input type="checkbox" id="pop-check-box01" tabindex="-1">
+										<label for="pop-check-box01" tabindex="0">위 내용을 확인하고 동의합니다.</label>
+									</div>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								 <a href="javascript:;" onclick="modalPopupClose('#exPop05');" class="basic-btn gray" tabindex="1">취소</a>
+								<a href="javascript:;" onclick="modalPopupClose('#exPop05');" class="basic-btn red disabled" id="withdrawMember" tabindex="1">회원탈퇴</a>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+
 			<!--========== HEADER ==========-->
 			<header id="header"></header>
 			<script>
@@ -99,11 +147,13 @@
 								<li><a href="../mypage/my-profile.html" title="프로필 수정 페이지로 이동">프로필 수정</a></li>
 								<li>
 									<a href="">멤버쉽
-										<div class="membership-label free">무료회원</div>
+										<div class="status-label">
+											<span class="free">무료회원</span>
+										</div>
 									</a>
 								</li>
 								<li><a href="../mypage/my-purchase.html" title="싱코인 구매 페이지로 이동">싱코인 구매</a></li>
-								<li><a href="">로그아웃</a></li>
+								<li><a href="javascript:;" onclick="modalPopup('#exPop02')">로그아웃</a></li>
 							</ul>
 						</div>
 					</div>
@@ -145,7 +195,7 @@
 								<li><a href="./faq.html" title="고객센터 페이지로 이동">고객센터</a></li>
 								<li><a href="./service-info.html" title="서비스 이용약관 페이지로 이동">서비스 이용약관</a></li>
 								<li><a href="./privacy-info.html" title="개인정보 처리방침 페이지로 이동">개인정보 처리방침</a></li>
-								<li><a href="">회원탈퇴</a></li>
+								<li><a href="javascript:;" onclick="modalPopup('#exPop05')">회원탈퇴</a></li>
 							</ul>
 						</div>
 					</div>
@@ -153,5 +203,15 @@
 			</main>
 		</div>
 	</div>
+
+	<script>
+		$("#pop-check-box01").click(function() {
+			if($(this).is(":checked")) {
+				$("#withdrawMember").removeClass("disabled");
+			} else {
+				$("#withdrawMember").addClass("disabled");
+			}
+		})
+	</script>
 </body>
 </html>

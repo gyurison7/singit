@@ -220,6 +220,15 @@
                         </div>
 					</div>
 				</div>
+				<br><br><br>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                    <div style="max-width: 340px; width: calc(50% - 15px);">
+                        <p style="font-variation-settings: 'wght' 700;">5-1. Select Type : text</p>
+						<div class="btn-wrap" style="max-width: 375px;">
+                            <button type="button" class="basic-btn sel txt" aria-label="title" onclick="openBottomSheet('#selected')" title="노래부르기"><span class="selected-txt">노래부르기</span></button>
+                        </div>
+					</div>
+				</div>
 			</section>
 			<br>
 			<section class="component-sec">
@@ -228,14 +237,14 @@
 					<div style="width: 375px;">
 						<p style="font-variation-settings: 'wght' 700;">1. 기본탭</p>
 						<br>
-						<div class="tab-container">
-							<ul class="tab-menu">
+						<div class="tab-container scroll-tab-wrap">
+							<ul class="tab-menu scroll-tab">
 								<li class="slider"></li>
 								<li class="tab-link current" data-tab="tab-1"><a href="javascript:;"><span>최신곡</span></a></li>
 								<li class="tab-link" data-tab="tab-2"><a href="javascript:;"><span>솔로곡 인기</span></a></li>
 								<li class="tab-link" data-tab="tab-3"><a href="javascript:;"><span>듀엣곡 인기</span></a></li>
 							</ul>
-							<div class="tab-content-wrap">
+							<div class="tab-content-wrap scroll-tab-cont">
 								<div id="tab-1" class="tab-content current">
 									<p style="padding: 25px 0; text-align: center; background-color: #f9f9f9;">CONTENTS 1</p>
 								</div>
@@ -472,7 +481,7 @@
                         <p style="font-variation-settings: 'wght' 700;">4. Textarea : Default</p>
                         <div class="textarea-area">
                             <div class="textarea-box-wrap">
-								<div class="textarea-box text label-box" style="height: 140px;">
+								<div class="textarea-box text label-box" style="min-height: 180px;">
 									<p class="input-label caption-txt1">소개</p>
 									<textarea class="label-input" placeholder="내용을 입력해주세요."></textarea>
 								</div>
@@ -484,7 +493,7 @@
                         <p style="font-variation-settings: 'wght' 700;">4-1. Textarea : Disabled</p>
                         <div class="textarea-area">
 							<div class="textarea-box-wrap">
-								<div class="textarea-box text label-box disabled" style="height: 140px;">
+								<div class="textarea-box text label-box disabled" style="min-height: 180px;">
 									<p class="input-label caption-txt1">소개</p>
 									<textarea class="label-input" placeholder="내용을 입력해주세요." disabled=""></textarea>
 								</div>
@@ -496,7 +505,7 @@
                         <p style="font-variation-settings: 'wght' 700;">4-2. Textarea : Text Count</p>
                         <div class="textarea-area">
 							<div class="textarea-box-wrap">
-								<div class="textarea-box text keyup label-box" style="height: 140px;">
+								<div class="textarea-box text keyup label-box" style="min-height: 180px;">
 									<p class="input-label caption-txt1">소개</p>
 									<textarea class="label-input" placeholder="내용을 입력해주세요." maxlength="200"></textarea>
 								</div>
@@ -510,7 +519,7 @@
                         <p style="font-variation-settings: 'wght' 700;">4-2. Textarea : Focus Text Count</p>
                         <div class="textarea-area">
 							<div class="textarea-box-wrap">
-								<div class="textarea-box text keyup label-box" style="height: 140px;">
+								<div class="textarea-box text keyup label-box" style="min-height: 180px;">
 									<p class="input-label caption-txt1">소개</p>
 									<textarea class="label-input" placeholder="내용을 입력해주세요." maxlength="200" autofocus="autofocus">입력된 내용이 나옵니다.</textarea>
 								</div>
@@ -524,7 +533,7 @@
                         <p style="font-variation-settings: 'wght' 700;">4-3. Textarea : Label</p>
                         <div class="textarea-area">
 							<div class="textarea-box-wrap">
-								<div class="textarea-box text keyup label-box " style="height: 140px;">
+								<div class="textarea-box text keyup label-box " style="min-height: 180px;">
 									<p class="input-label caption-txt1">이메일</p>
 									<textarea class="label-input" placeholder="내용을 입력해주세요." maxlength="200"></textarea>
 								</div>
@@ -760,7 +769,7 @@
 									</div>
 									<div class="modal-txt-wrap">
 										<div class="textarea-box-wrap">
-											<div class="textarea-box text keyup" style="height: 140px;">
+											<div class="textarea-box text keyup" style="min-height: 180px;">
 												<textarea placeholder="내용을 입력해주세요." maxlength="200"></textarea>
 											</div>
 											<div class="write-typing">
@@ -794,7 +803,7 @@
 				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px;font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;07. Bottom Sheet & Toast Popup & Full Page Popup</p>
 				<div style="display: flex; gap: 20px; padding: 0 20px;">
 					<div style="width: 340px;">
-						<p style="font-variation-settings: 'wght' 700;">1. Bottom Sheet : 더보기</p>
+						<p style="font-variation-settings: 'wght' 700;">1. Bottom Sheet : 더보기 (닫힘만)</p>
 						<br>
 						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="openBottomSheet('#view')"><span>Bottom Sheet 열기</span></button>
 					</div>
@@ -852,12 +861,13 @@
 				<!--==================
 					* Bottom Sheet
 					- openBottomSheet('#아이디값')에 의해, 해당 되는 아이디값의 .bottom-sheet-wrap를 호출합니다.
-					- 크기 조절이 가능한 handle sheet인경우
-					  1) 클래스 sheet-stretch 추가합니다.
-					  2) .bottom-sheet 내에 <div class="handle-area"><div class="handle"></div></div> 요소가 필요합니다.
+					- sheet 크기가 커지지 못하는 경우, 클래스 sheet-stretch 대신 unable-stretch을 추가합니다.
 				======================-->
 				<div id="view" class="bottom-sheet-wrap view"> <!-- openBottomSheet('#view')에 의해 호출 -->
-					<div class="bottom-sheet">
+					<div class="bottom-sheet unable-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
 						<div class="sheet-content">
 							<h4 class="sheet-tit">더보기</h4>
 							<div class="sheet-cont-inner">
@@ -888,9 +898,9 @@
 									<a href="파일경로/파일이름.확장자" class="basic-btn gray-line download" aria-label="다운로드" download=""><span>다운로드</span></a>
 									<button type="button" class="basic-btn gray-line warning" aria-label="신고"><span>신고</span></button>
 								</div>
-								<div class="btn-wrap sheet-btn-wrap">
-									<button type="button" class="basic-btn white-line fix" aria-label="수정하기" onclick=""><span>수정하기</span></button>
-									<button type="button" class="basic-btn white-line del red-txt" aria-label="삭제하기" onclick=""><span>삭제하기</span></button>
+								<div class="btn-wrap sheet-btn-wrap multi">
+									<button type="button" class="basic-btn white-line fix w100" aria-label="수정하기" onclick=""><span>수정하기</span></button>
+									<button type="button" class="basic-btn white-line del red-txt w100" aria-label="삭제하기" onclick=""><span>삭제하기</span></button>
 								</div>
 							</div>
 						</div>
@@ -946,7 +956,8 @@
 					<div class="bottom-sheet-dimmed"></div>
 				</div>
 
-				<div id="comment" class="bottom-sheet-wrap comment"> <!-- openBottomSheet('#comment')에 의해 호출 -->
+				<!-- 댓글 bottom sheet - openBottomSheet('#comment')에 의해 호출 -->
+				<div id="comment" class="bottom-sheet-wrap comment">
 					<div class="bottom-sheet sheet-stretch">
 						<div class="handle-area">
 							<div class="handle"></div>
@@ -959,33 +970,169 @@
 										<!--==================
 											* comment-list
 											- 댓글 단 유저의 프로필 사진은 .profile-area 에 img 태그로 들어갑니다.
-											- .content-area 내에
-											.user에는 유저 닉네임, .comment-txt > p에는 댓글 내용이 노출됩니다.
-											- .bottom-wrap 내에
-											.comment-date : 댓글 발행 날짜 / .like-btn > .like-num : 좋아요 수 / .view-reply-btn > .reply-num : 답글 수 노출.
-											- 좋아요 버튼(.like-btn)을 누르면 on 클래스가 toggle로 추가/삭제되며 .like-num의 수가 변동됩니다.
-											- 답글쓰기 버튼(.reply-btn)을 누르면 
-											- 답글 보기 버튼(.view-reply-btn)을 누르면 ...가 보여집니다.
+											
+											- .content-area 내
+											(1) .user : 유저 닉네임,
+											(2) .comment-txt > p : 댓글 내용 노출.
+											
+											- .bottom-info-wrap 내
+											(1) .info-date : 댓글 발행 날짜,
+											(2) .like-btn > .like-num : 좋아요 수,
+											(3) .view-reply-btn > .reply-num : 답글 수 노출.
+											
+											- 좋아요 버튼(.like-btn)을 누르면,
+											(1) on 클래스가 toggle로 추가/삭제
+											(2) .like-num의 수가 변동됩니다.
+											
+											- 답글쓰기 버튼(.reply-btn)을 누르면, 
+											
+											- 답글 보기 버튼(.view-reply-btn)을 누르면,
+											(1) .view-reply-btn에 on 클래스 토글
+											(2) 대댓글 영역(.comment-reply-wrap) slideUp/slideDown 실행
+											(3) 만약 답글이 없을 경우 .view-reply-btn은 노출되지 않습니다.
+											
+											- 댓글 메뉴 버튼(.comment-menu-btn)을 누르면, 댓글 메뉴 팝업(#commentMenu)이 노출됩니다. ( openBottomSheet('#commentMenu'); 실행 )
+
+											- 원댓글: .comment-list.comment-tree1 /
+											대댓글: .comment-list.comment-tree2
 										======================-->
-										<div class="comment-list caption-txt1">
+										<!-- 원댓글: .comment-list.comment-tree1 -->
+										<div class="comment-list comment-tree1">
 											<div class="profile-area">
 												<img class="fade-in lazyload" decoding="async" src="../asset/images/temp/profile-temp01.png" alt="유저 프로필 이미지">
 											</div>
 											<div class="content-area">
-												<div class="user">내가만든쿠키</div>
-												<div class="comment-txt"><p>덕분에 노래 잘 감상하고 갑니다 :)<br>
-												혹시 신청곡도 받으시나요?! ㅎㅎ</p></div>
-												<div class="bottom-wrap">
-													<div class="comment-date bottom-el">1일전</div>
-													<a href="javascript:;" class="like-btn bottom-el on" role="button"><div class="like-wrap"><span class="like-num num">2225</span></div></a>
-													<a href="javascript:;" class="reply-btn bottom-el" role="button">답글쓰기</a>
-													<a href="javascript:;" class="view-reply-btn bottom-el" role="button">답글 <span class="reply-num num">1</span>개</a>
+												<div class="comment-content-wrap">
+													<div class="user">내가만든쿠키</div>
+													<div class="comment-txt"><p>덕분에 노래 잘 감상하고 갑니다 :)<br>
+													혹시 신청곡도 받으시나요?! ㅎㅎ</p></div>
+													<div class="bottom-info-wrap">
+														<div class="info-date bottom-info">1일전</div>
+														<a href="javascript:;" class="like-btn bottom-info on" role="button"><div class="like-wrap"><span class="like-num num">2225</span></div></a>
+														<a href="javascript:;" class="reply-btn bottom-info" role="button">답글쓰기</a>
+														<a href="javascript:;" class="view-reply-btn bottom-info on" role="button">답글 <span class="reply-num num">1</span>개</a>
+													</div>
+													<button type="button" class="comment-menu-btn" aria-label="댓글 메뉴 버튼" onclick="openBottomSheet('#commentMenu')"><span class="hidden">댓글 메뉴</span></button>
+												</div>
+												<!-- 대댓글 모음 영역 -->
+												<div class="comment-reply-wrap">
+													<!-- 대댓글: .comment-list.comment-tree2 -->
+													<div class="comment-list comment-tree2">
+														<div class="profile-area">
+															<img class="fade-in lazyload" decoding="async" src="../asset/images/temp/profile-temp-zzang.png" alt="유저 프로필 이미지">
+														</div>
+														<div class="content-area">
+															<div class="comment-content-wrap">
+																<div class="user">싱싱카</div>
+																<div class="comment-txt"><p>ㅎㅎ 감사합니다. 신청곡 남겨주시면 한번 불러볼게요!</p></div>
+																<div class="bottom-info-wrap">
+																	<div class="info-date bottom-info">16시간 전</div>
+																	<a href="javascript:;" class="like-btn bottom-info" role="button"><div class="like-wrap"><span class="like-num num">25</span></div></a>
+																</div>
+																<button type="button" class="comment-menu-btn" aria-label="댓글 메뉴 버튼" onclick="openBottomSheet('#commentMenu')"><span class="hidden">댓글 메뉴</span></button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="comment-list comment-tree1">
+											<div class="profile-area">
+												<img class="fade-in lazyload" decoding="async" src="../asset/images/temp/profile-temp02.png" alt="유저 프로필 이미지">
+											</div>
+											<div class="content-area">
+												<div class="comment-content-wrap">
+													<div class="user">너를위해구웠지</div>
+													<div class="comment-txt"><p>테스트 중입니다. 대댓글이 없는 댓글입니다.</p></div>
+													<div class="bottom-info-wrap">
+														<div class="info-date bottom-info">2일전</div>
+														<a href="javascript:;" class="like-btn bottom-info" role="button"><div class="like-wrap"><span class="like-num num">5</span></div></a>
+														<a href="javascript:;" class="reply-btn bottom-info" role="button">답글쓰기</a>
+													</div>
+													<button type="button" class="comment-menu-btn" aria-label="댓글 메뉴 버튼" onclick="openBottomSheet('#commentMenu')"><span class="hidden">댓글 메뉴</span></button>
+												</div>
+												<!-- 대댓글 모음 영역 -->
+												<div class="comment-reply-wrap">
+												</div>
+											</div>
+										</div>
+										<div class="comment-list comment-tree1">
+											<div class="profile-area">
+												<img class="fade-in lazyload" decoding="async" src="../asset/images/temp/profile-temp03.png" alt="유저 프로필 이미지">
+											</div>
+											<div class="content-area">
+												<div class="comment-content-wrap">
+													<div class="user">다시만든쿠키</div>
+													<div class="comment-txt"><p>덕분에 노래 잘 감상하고 갑니다 :)<br>
+													혹시 신청곡도 받으시나요?! ㅎㅎ</p></div>
+													<div class="bottom-info-wrap">
+														<div class="info-date bottom-info">3일전</div>
+														<a href="javascript:;" class="like-btn bottom-info" role="button"><div class="like-wrap"><span class="like-num num">25</span></div></a>
+														<a href="javascript:;" class="reply-btn bottom-info" role="button">답글쓰기</a>
+														<a href="javascript:;" class="view-reply-btn bottom-info" role="button">답글 <span class="reply-num num">2</span>개</a>
+													</div>
+													<button type="button" class="comment-menu-btn" aria-label="댓글 메뉴 버튼" onclick="openBottomSheet('#commentMenu')"><span class="hidden">댓글 메뉴</span></button>
+												</div>
+												<!-- 대댓글 모음 영역 -->
+												<div class="comment-reply-wrap">
+													<!-- 대댓글: .comment-list.comment-tree2 -->
+													<div class="comment-list comment-tree2">
+														<div class="profile-area">
+															<img class="fade-in lazyload" decoding="async" src="../asset/images/temp/profile-temp-zzang.png" alt="유저 프로필 이미지">
+														</div>
+														<div class="content-area">
+															<div class="comment-content-wrap">
+																<div class="user">싱싱카</div>
+																<div class="comment-txt"><p>ㅎㅎ 감사합니다. 신청곡 남겨주시면 한번 불러볼게요!</p></div>
+																<div class="bottom-info-wrap">
+																	<div class="info-date bottom-info">16시간 전</div>
+																	<a href="javascript:;" class="like-btn bottom-info" role="button"><div class="like-wrap"><span class="like-num num">25</span></div></a>
+																</div>
+																<button type="button" class="comment-menu-btn" aria-label="댓글 메뉴 버튼" onclick="openBottomSheet('#commentMenu')"><span class="hidden">댓글 메뉴</span></button>
+															</div>
+														</div>
+													</div>
+													<div class="comment-list comment-tree2">
+														<div class="profile-area">
+															<img class="fade-in lazyload" decoding="async" src="../asset/images/temp/profile-temp-zzang.png" alt="유저 프로필 이미지">
+														</div>
+														<div class="content-area">
+															<div class="comment-content-wrap">
+																<div class="user">싱싱카</div>
+																<div class="comment-txt"><p>ㅎㅎ 감사합니다. 신청곡 남겨주시면 한번 불러볼게요!</p></div>
+																<div class="bottom-info-wrap">
+																	<div class="info-date bottom-info">16시간 전</div>
+																	<a href="javascript:;" class="like-btn bottom-info" role="button"><div class="like-wrap"><span class="like-num num">25</span></div></a>
+																</div>
+																<button type="button" class="comment-menu-btn" aria-label="댓글 메뉴 버튼" onclick="openBottomSheet('#commentMenu')"><span class="hidden">댓글 메뉴</span></button>
+															</div>
+														</div>
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="input-txt-box">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+
+				<div id="commentMenu" class="bottom-sheet-wrap commentMenu">
+					<div class="bottom-sheet">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<h4 class="sheet-tit hidden">댓글 메뉴</h4>
+							<div class="sheet-cont-inner">
+								<div class="btn-wrap sheet-btn-wrap">
+									<button type="button" class="basic-btn white-line fix" aria-label="수정하기" onclick=""><span>수정하기</span></button>
+									<button type="button" class="basic-btn white-line del" aria-label="수정하기" onclick=""><span>삭제하기</span></button>
+									<button type="button" class="basic-btn white-line warning red-txt" aria-label="신고하기" onclick=""><span>신고하기</span></button>
 								</div>
 							</div>
 						</div>
@@ -1129,7 +1276,7 @@
 			<br>
 			<section class="component-sec">
 				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px;font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;09. Contents</p>
-				<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 0 20px;">
+				<div style="display: flex; flex-wrap: wrap; gap: 40px; padding: 0 20px;">
 					<div class="">
 						<p style="font-variation-settings: 'wght' 700;">1. 이미지 : lazyload</p>
 						<figure>
@@ -1138,14 +1285,30 @@
 							<img class="fade-in lazyload" decoding="async" style="width: 250px; height: 250px; margin-top: 20px;" src="../asset/images/common/singit-og-img.jpg" alt="alt값 필수" title="선택적 제목">
 						</figure>
 					</div>
-					<div style="width: 375px;">
+					<div class="">
+						<p style="font-variation-settings: 'wght' 700;">1-1. 이미지 : 1:1</p>
+						<figure>
+							<!-- figcaption은 선택적(필요한 경우) -->
+							<figcaption>이미지에 대한 타이틀</figcaption>
+							<img class="fade-in lazyload" decoding="async" style="width: 250px; height: 250px; margin-top: 20px;" src="../asset/images/common/singit-og-img.jpg" alt="alt값 필수" title="선택적 제목">
+						</figure>
+					</div>
+					<div class="">
+						<p style="font-variation-settings: 'wght' 700;">1-2. 이미지 : 16:9</p>
+						<figure>
+							<!-- figcaption은 선택적(필요한 경우) -->
+							<figcaption>이미지에 대한 타이틀</figcaption>
+							<img class="fade-in lazyload" decoding="async" style="width: 250px; height: 250px; margin-top: 20px;" src="../asset/images/common/singit-og-img.jpg" alt="alt값 필수" title="선택적 제목">
+						</figure>
+					</div>
+					<div style="width: 480px;">
 						<p style="font-variation-settings: 'wght' 700;">2. 프로필</p>
 						<div class="profile-area">
 							<ul class="profile-list-wrap">
 								<li class="profile-list">
 									<!-- profile-wrap 너비 시안에 따라 변경 필요 -->
 									<div class="profile-wrap">
-										<figure class="profile-img skeleton"><img src="../asset/images/common/profile-default-img.svg" alt="프로필 기본 이미지"></figure>
+										<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../asset/images/common/profile-default-img.svg" alt="프로필 기본 이미지"></figure>
 										<div class="profile-info">
 											<p class="profile-tit content-txt3 skeleton">내가 만든쿠키</p>
 										</div>
@@ -1162,7 +1325,7 @@
 								<li class="profile-list">
 									<!-- profile-wrap 너비 시안에 따라 변경 필요 -->
 									<div class="profile-wrap">
-										<figure class="profile-img skeleton"><img src="../asset/images/common/profile-default-img.svg" alt="프로필 기본 이미지"></figure>
+										<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../asset/images/common/profile-default-img.svg" alt="프로필 기본 이미지"></figure>
 										<div class="profile-info">
 											<p class="profile-tit content-txt3 skeleton">한 페이지가 될 수 있게</p>
 											<span class="profile-txt content-txt3 skeleton">DAY6 (데이식스)</span>
@@ -1174,10 +1337,34 @@
 								</li>
 							</ul>
 						</div>
+						<br>
+						<div class="bottom-info-wrap">
+							<!-- 게시일 -->
+							<div class="info-date bottom-info">16시간 전</div>
+							<!-- 조회수 -->
+							<div class="info-views bottom-info"><div class="views-wrap"><span class="num">25</span></div></div>
+							<!-- 좋아요 버튼 -->
+							<a href="javascript:;" class="like-btn bottom-info" role="button"><div class="like-wrap"><span class="num">25</span></div></a>
+							<!-- 영상,팔로워,팔로잉 수 -->
+							<div class="info-video bottom-info bottom-profile-info">영상<span class="num">11</span></div>
+							<div class="info-follower bottom-info bottom-profile-info">팔로워<span class="num">1221</span></div>
+							<div class="info-following bottom-info bottom-profile-info">팔로잉<span class="num">1</span></div>
+							<a href="javascript:;" class="lock-btn bottom-info" role="button"><i></i>공개</a>
+						</div>
 					</div>
 					<div>
-						<p style="font-variation-settings: 'wght' 700;">3. 회원 label</p>
-						<div class="membership-label free">무료회원</div>
+						<p style="font-variation-settings: 'wght' 700;">3. label</p>
+						<div class="status-label">
+							<span class="free">무료회원</span>
+						</div>
+						<div class="status-label">
+							<span class="free">루키</span>
+						</div>
+						<br>
+						<div class="status-label round">
+							<span class="red">솔로</span>
+							<span class="blue">듀엣</span>
+						</div>
 					</div>
 				</div>
 			</section>

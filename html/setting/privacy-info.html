@@ -44,24 +44,25 @@
 	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
 
 	<!-- FONTS -->
-	<link rel="preload" href="../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
 
 	<!-- FONTS -->
-	<link rel="preload" href="../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/setting/setting.css">
 
 	<!-- JS | library -->
-	<script src="../asset/js/lazysizes.min.js"></script>
-	<script src="../asset/js/prefixfree.min.js"></script>
-	<script src="../asset/js/jquery-3.7.1.min.js"></script>
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
 
 	<!-- JS -->
-	<script src="../asset/js/basic.js"></script>
-	<script src="../asset/js/popup.js"></script>
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
 
     <title>SingIt</title>
 </head>
@@ -75,56 +76,29 @@
 			- MY 페이지 : my 클래스
 			- 서브 페이지 : sub 클래스 
 		======================-->
-		<div id="container" class="sing">
-			<!--========== MODAL POPUP ==========-->
-			<div class="modal-popup-group">
-		
-				</div>
-		
-				<!--========== HEADER ==========-->
-				<header id="header"></header>
-				<script>
-					$(function () {
-						$('#header').load("include/header.html", function () {
-							// 로드된 후에 실행될 코드
-							$.getScript("../asset/js/header.js");
-							// $.getScript("../asset/js/basic.js");
-						});
-					});
-				</script>
-			<main id="main">
-					<!-- ! 페이지 섹션에 맞는 클래스 추가해서 사용 : 예) play-sec  -->
-				<section class="section">
-					<div class="inner" style="background-color: rgba(0, 0, 0, 0.5); height: 89vh;">
-						<div class="section-tit-wrap" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; flex-flow: column;">
-								<h2 class="main-title skeleton">페이지 메인 타이틀</h2>
-								<div class="section-content">
-									<div style="text-align: center; color: #fff;">컨텐츠 영역 들어갑니다.</div>
+		<div id="container" class="my sub">
+			<h2 class="main-title hidden">개인정보 처리방침</h2>
+			<!--========== FULL PAGE POPUP ==========-->
+            <div class="full-popup-group">
+				<div id="full01" class="modal full full01 open">
+					<div class="full-modal-wrap">
+						<section class="full-modal-content">
+							<h3 class="section-title hidden">개인정보 처리방침</h3>
+							<div class="header-sub">
+								<ul>
+									<li class="header-sub-tit"><h2 class="content-txt2">개인정보 처리방침</h2></li>
+									<li class="header-side header-close"><button type="button" aria-label="페이지 닫기" onclick="modalPopupClose('#full01');"><span class="hidden">페이지 닫기</span></button></li>
+								</ul>
+							</div>
+							<div class="full-modal-cont">
+								<div class="inner">
+									개인정보 처리방침
 								</div>
-						</div>
+							</div>
+						</section>
 					</div>
-				</section>
-		
-					<!-- Floating Button -->
-					<aside id="singit-box" class="content-txt2">
-						<a href="javascript:;" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
-					</aside>
-			</main>
-			<!--========== APP BAR : FOOTER ==========-->
-				<footer id="footer"></footer>
-			<script>
-					$(function () {
-						$('#footer').load("include/footer.html", function () {
-							// 로드된 후에 실행될 코드
-							$.getScript("../asset/js/footer.js");
-						});
-					});
-				</script>
-		
-				<!--========== TOAST POPUP ==========-->
-				<div class="toast-popup-group">
-		
 				</div>
+            </div>
 		</div>
 	</div>
 </body>
