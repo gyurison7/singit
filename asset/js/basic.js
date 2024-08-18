@@ -1,9 +1,9 @@
 /* Info
  ========================================================================== */
 /**
- * 1. Writer: Ajin Lee. Sunhyeong Kim. (Weaverloft Corp.)
- * 2. Production Date: 2023-01-02
- * 3. Client: 서울대학교병원 융합의학기술원
+ * 1. Writer: Ajin Lee. Sunhyeong Kim, Gyuri Son. (Weaverloft Corp.)
+ * 2. Production Date: 2024-07-30
+ * 3. Client: MEDIASCOPE Inc.
  */
 
 /*========== vh ==========*/
@@ -412,6 +412,56 @@ $(document).ready(function() {
 //     observer.observe(document.body, { childList: true, subtree: true });
 // });
 
+/* 댓글 관련 기능 */
+$(function(){
+	// 대댓글 보기 버튼
+	$(".view-reply-btn").on("click",function(){
+		const $replyBtn = $(this);
+		if ($replyBtn.hasClass("sliding")) return;
+
+		$replyBtn.addClass("sliding");
+		const $replyWrap = $replyBtn.closest(".content-area").find(".comment-reply-wrap");
+
+		if ($replyBtn.hasClass("on")) {
+			$replyWrap.animate({
+				height: 'toggle',
+				opacity: 'toggle'
+			}, 300, function() {
+				$replyBtn.removeClass("on sliding");
+			});
+		} else {
+			$replyWrap.animate({
+				height: 'toggle',
+				opacity: 'toggle'
+			}, 300, function() {
+				$replyBtn.addClass("on").removeClass("sliding");
+			});
+		}
+	});
+	// 답글쓰기
+	$(".comment-list .reply-btn").on("click",function(){
+		if($(".input-txt-box").hasClass("reply")) return;
+		// 댓글 작성자 닉네임 가져오기
+		const commenter = $(this).closest(".comment-content-wrap").children(".user").text();
+		$(".input-txt-box .input-txt-popup .input-popup-cont span").text(commenter);
+		$(".input-txt-box").addClass("reply");
+	});
+	$(".input-txt-box .input-popup-cancel-btn").on("click",function(){
+		$(".input-txt-box").removeClass("reply");
+	});
+	// 댓글 입력 중일시
+	$(".input-txt-box input").focusin(function () {
+		$(this).closest('.input-txt-box').addClass('typing');
+	});
+	$(".input-txt-box input").focusout(function () {
+		if ($(this).val() === '') {
+			$(this).closest('.input-txt-box').removeClass('typing');
+		} else {
+			$(this).closest('.input-txt-box').addClass('typing');
+		}
+	});
+});
+
 /* Bottom Sheet : 고객센터(faq) */
 $(function() {
 	$(".sheet-check-list li a").click(function() {
@@ -420,5 +470,243 @@ $(function() {
 		$(".sheet-check-list li a").removeClass("active");
 		$(this).toggleClass("active");
 		$(".selected-txt").text(selectedTxt)
+	});
+});
+
+/* Tab Scroll */
+$(function(){
+	if($(".scroll-tab-wrap").length > 0){
+		const $tab = $(".scroll-tab");
+		const $tabCont = $(".scroll-tab-cont");
+		let tabHt = $tab.outerHeight();
+		let tabTop = $tab.offset().top;
+		let headerResponsive = window.innerWidth * 0.04267 * 2.75 > 55 ? 55 : window.innerWidth * 0.04267 * 2.75;
+		let headerHt = headerResponsive < 44 ? 44 : headerResponsive;
+		if(window.innerWidth < 421){ headerHt = 44; } 
+		let innerWd = $(".scroll-tab-wrap").width();
+
+		tabFixed();
+
+		$(window).resize(function () {
+			// fixed 풀기
+			$tab.removeClass('fixed');
+			$tab.css({
+				top: '',
+				width: ''
+			});
+			$tabCont.css('paddingTop', '');
+			// 재설정
+			tabHt = $tab.outerHeight();
+			tabTop = $tab.offset().top;
+			headerResponsive = window.innerWidth * 0.04267 * 2.75 > 55 ? 55 : window.innerWidth * 0.04267 * 2.75;
+			headerHt = headerResponsive < 44 ? 44 : headerResponsive;
+			if(window.innerWidth < 421){ headerHt = 44; } 
+			innerWd = $(".scroll-tab-wrap").width();
+			
+			tabFixed();
+		});
+		
+		$(window).scroll(function () {
+			tabFixed();
+		});	
+
+		function tabFixed(){
+			if ($(window).scrollTop() > tabTop - headerHt) {
+				$tab.addClass('fixed');
+				$tab.css({
+					top: headerHt+"px",
+					width: innerWd+"px"
+				});
+				$tabCont.css('paddingTop',tabHt+"px");
+			} else {
+				$tab.removeClass('fixed');
+				$tab.css({
+					top: '',
+					width: ''
+				});
+				$tabCont.css('paddingTop', '');
+			}
+		}
+	}
+});
+$(function(){
+	/* 좋아요 버튼 */
+	$(".like-btn").on("click",function(e){
+		e.preventDefault();
+		$(this).toggleClass("on");
+	});
+	
+	/* 공개 버튼 */
+	$(document).ready(function() {
+		$(".lock-btn").each(function() {
+			lockBtnText($(this));
+		});
+	});
+	$(".lock-btn").on("click", function(e) {
+		e.preventDefault();
+		$(this).toggleClass("on");
+		lockBtnText($(this));
+	});
+	function lockBtnText(lockBtn) {
+		if (lockBtn.hasClass("on")) {
+			lockBtn.children('span').text("공개");
+		} else {
+			lockBtn.children('span').text("비공개");
+		}
+	}
+
+	/* 내 팔로우 */
+	$(document).ready(function() {
+		$(".follow .pink").each(function() {
+			followBtnText($(this));
+		});
+	});
+	$(".follow .pink").on("click", function(e) {
+		e.preventDefault();
+		$(this).toggleClass("on");
+		followBtnText($(this));
+	});
+	function followBtnText(followBtn) {
+		if (followBtn.hasClass("on")) {
+			followBtn.children('span').text("팔로우");
+		} else {
+			followBtn.children('span').text("팔로잉");
+		}
+	}
+
+	/* 북마크 */
+	$(".img-btn-wrap .img-btn.bookmark").on("click",function(e){
+		e.preventDefault();
+		$(this).toggleClass("on");
+	});
+
+	/* 팔로우 버튼 */
+	$(".follow-btn-wrap .follow-btn").on("click",function(){
+		$(this).parent(".follow-btn-wrap").addClass("following");
+	});
+	$(".follow-btn-wrap .following-btn").on("click",function(){
+		$(this).parent(".follow-btn-wrap").removeClass("following");
+	});
+
+	/* sorting 버튼 active */
+	$(".sorting-list > li").on("click",function(){
+		$(this).parent(".sorting-list").children("li").removeClass("active");
+		$(this).addClass("active");
+	});
+});
+
+/* 더보기 텍스트 아티클 */
+$(function(){
+	if($(".more-article").length <= 0) return;
+
+	const moreArticleText = document.querySelector('.more-article-txt');
+	
+	function checkTextOverflow() {
+        const lineHeight = parseInt(window.getComputedStyle(moreArticleText).lineHeight);
+        const threeLinesHeight = lineHeight * 3;
+        
+        if (moreArticleText.scrollHeight > threeLinesHeight) {
+            moreArticleText.classList.remove('notmore');
+        } else {
+            moreArticleText.classList.add('notmore');
+        }
+    }
+
+    // 한 번만 클릭 이벤트 처리
+    moreArticleText.addEventListener('click', function() {
+        if (!this.classList.contains('overview')) {
+            this.classList.add('overview');
+            this.classList.remove('notmore');
+            // 클릭 이벤트 리스너 제거
+            this.removeEventListener('click', arguments.callee);
+        }
+    });
+
+    // 초기 확인
+    checkTextOverflow();
+
+    // 윈도우 리사이즈 시 다시 확인 (overview 상태가 아닐 때만)
+    window.addEventListener('resize', function() {
+        if (!moreArticleText.classList.contains('overview')) {
+            checkTextOverflow();
+        }
+    });
+});
+
+/* 싱코인 선물하기 팝업 */
+$(function(){
+	if($(".giftScPop").length <= 0) return;
+	const minusBtn = document.querySelector('.minus-gift-sc-btn');
+	const plusBtn = document.querySelector('.plus-gift-sc-btn');
+	const input = document.querySelector('.gift-sc-input');
+	const allCheckBox = document.querySelector('#gift-all-check-box');
+	const currentScSpan = document.querySelector('.current-sc.num');
+
+	// 현재 보유 코인 수
+	let currentSc = parseInt(currentScSpan.textContent.replace(/,/g, ''));
+
+	// 숫자 포맷팅 함수 (1000 -> 1,000)
+	function formatNumber(num) {
+		return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
+	// 쉼표 제거 함수
+	function removeCommas(str) {
+		return str.replace(/,/g, '');
+	}
+
+	// 입력값 업데이트 함수
+	function updateInput(value) {
+		input.value = formatNumber(value);
+		checkAllGiftStatus(value);
+	}
+
+	// 모두 주기 체크박스 상태 확인 및 업데이트
+	function checkAllGiftStatus(value) {
+		if (value < currentSc) {
+			allCheckBox.checked = false;
+		} else if (value === currentSc) {
+			allCheckBox.checked = true;
+		}
+	}
+
+	// 입력값 변경 처리 함수
+	function handleInputChange() {
+		let value = parseInt(removeCommas(input.value));
+		if (isNaN(value) || value < 0) {
+			value = 0;
+		} else if (value > currentSc) {
+			value = currentSc;
+		}
+		updateInput(value);
+	}
+
+	// 감소 버튼 클릭 이벤트
+	minusBtn.addEventListener('click', () => {
+		let currentValue = parseInt(removeCommas(input.value));
+		if (currentValue > 0) {
+			updateInput(currentValue - 1);
+		}
+	});
+
+	// 증가 버튼 클릭 이벤트
+	plusBtn.addEventListener('click', () => {
+		let currentValue = parseInt(removeCommas(input.value));
+		if (currentValue < currentSc) {
+			updateInput(currentValue + 1);
+		}
+	});
+
+	// 입력값 변경 이벤트
+	input.addEventListener('input', handleInputChange);
+
+	// 입력 필드에서 포커스가 벗어날 때 이벤트
+	input.addEventListener('blur', handleInputChange);
+
+	// '모두 주기' 체크박스 이벤트
+	allCheckBox.addEventListener('change', (e) => {
+		if (e.target.checked) {
+			updateInput(currentSc);
+		}
 	});
 });

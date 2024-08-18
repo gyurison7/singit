@@ -79,30 +79,339 @@
 		======================-->
 		<div id="container" class="my sub">
 			<h2 class="main-title hidden">서비스 이용 약관</h2>
+
+			<!--==================
+				* 해당 페이지는 팝업 형식으로 제작되었습니다. 
+				일반 페이지로도 사용 가능하니 참고 부탁드립니다.
+			======================-->
+
 			<!--========== FULL PAGE POPUP ==========-->
             <div class="full-popup-group">
-				<div id="full01" class="modal full full01 open">
+				<!-- 풀페이지 팝업 열기 : 클래스 open 추가 / 닫기 : open 클래스 제거 -->
+				<div id="m-service-popup" class="modal full m-service-popup open">
 					<div class="full-modal-wrap">
 						<section class="full-modal-content">
 							<h3 class="section-title hidden">서비스 이용 약관</h3>
 							<div class="header-sub">
 								<ul>
 									<li class="header-sub-tit"><h2 class="content-txt2">서비스 이용 약관</h2></li>
-									<li class="header-side header-close"><button type="button" aria-label="페이지 닫기" onclick="modalPopupClose('#full01');"><span class="hidden">페이지 닫기</span></button></li>
+									<li class="header-side header-close"><button type="button" aria-label="페이지 닫기" onclick="modalPopupClose('#m-service-popup');"><span class="hidden">페이지 닫기</span></button></li>
 								</ul>
 							</div>
 							<div class="full-modal-cont info">
 								<div class="inner">
 									<ul class="toggle-list content-txt3">
 										<li class="toggle-item">
-											<div class="toggle-title"><span>서비스 이용약관</span></div>
+											<div class="toggle-title first"><span>서비스 이용약관</span></div>
 											<!-- toggle-title 클릭 시 class "on" 추가되어 토글이 오픈됩니다. -->
-											<div class="toggle-content"><span>서비스 이용 약관</span></div>
+											<div class="toggle-content">
+												<div class="temrs_service_wrap">
+													<p class="t_01">서비스 이용 약관</p>
+													<br>
+													<p class="t_02">제1장 총칙</p>
+													<br>
+													<strong>제1조 (목적)</strong><br>
+													<br>
+													본 약관은 미디어스코프(주)(이하 "회사"라 합니다)가 제공하는 SingIt 서비스(이하 "서비스"라 합니다) 이용과 관련하여 회원과 회사 간의 권리, 의무, 책임사항 및 회원의 본 서비스 이용조건 및 절차 등 기본적인 사항을 규정함을 그 목적으로 합니다.<br>
+													<br>
+													<strong>제2조 용어의 정의 </strong><br>
+													<br>
+													1. 이 약관에서 사용하는 용어의 정의는 다음과 같습니다.<br>
+													1) '서비스'란 회사가 제공하는 모든 서비스 일체를 의미합니다.<br>
+													2) '콘텐츠'란 회사가 온라인을 통해 이용자가 이용할 수 있도록 제공하는 내용물을 의미합니다.<br>
+													3) 'SingCoin'이란 서비스 내에서 제공되는 콘텐츠 사용, 디지털아이템 구매, 선물(클로버) 보내기 등 유료서비스의 이용대금을 결제할 수 있는 인터넷 결제수단을 말하며, 상사소멸시효에 따라 구입일로부터 5년 경과 시 소멸됩니다.<br>
+													4) '충전'이란 회사가 지정한 방법으로 납입한 금액에 해당하는 SingCoin을 회원에게 적립하여 주는 것을 의미합니다.<br>
+													5) '클로버'란 서비스 내에서 SingCoin으로 교환하여 선물할 수 있는 포인트 아이템을 의미합니다.<br>
+													6) '아이템'이란 서비스에서 SingCoin을 통해 구매할 수 있는 각종 상품을 의미합니다.<br>
+													7) '사용취소'란 SingCoin을 충전한 회원이 아이템을 구매하려고 하였으나 회사의 고의나 과실로 인해 정상적으로 서비스를 제공하지 못하였을 경우 SingCoin을 환불해주는 것을 말합니다.<br>
+													8) '환전'이란 회원에게 선물받아 적립 된 클로버를 현금으로 돌려받는 것을 말합니다.<br>
+													9) '탈퇴'란 이용자가 서비스 개통 후에 그 이용계약을 종료시키는 의사표시를 말합니다.<br>
+													<br>
+													2. 이 약관에서 사용하는 용어의 정의는 제1항에서 정하는 것을 제외하고는 관계법령에서 정하는 바에 의합니다. 관계법령에서 정하지 않는 것은 일반적인 상관례에 의합니다.<br>
+													<br>
+													<strong>제3조 (약관의 효력 및 변경) </strong><br>
+													<br>
+													1. 본 약관은 본 서비스를 이용하고자 하는 모든 회원에게 그 효력이 발생합니다.<br>
+													<br>
+													2. 서비스가 회원에게 제공하는 소프트웨어, 데이터피드, 서비스를 설치하고 액세스 및 사용함으로써 회원은<br>
+													(1) 본 이용 약관 (이하 "서비스 약관"),<br>
+													(2) 서비스의 개인 정보 보호 정책<br>
+													(<a href="/singit/v3.5/common/privacy"><u>개인정보 보호 정책</u></a><u>참조</u>)에 동의하여 서비스를 사용합니다.<br>
+													<br>
+													3. 회사가 필요하다고 인정되는 경우 본 약관을 변경할 수 있으며, 회사가 약관을 변경할 때에는 적용 일자와 변경 사유를 밝혀 그 적용일자 7일 전부터 공지합니다. 다만, 회원에게 불리하게 약관을 변경할 때에는 그 적용일자 30일 전부터 공지하며, 회원에게 개별 통지합니다. 본 서비스 화면에 약관을 공지하는 것을 개별 통지한 것으로 간주합니다.<br>
+													<br>
+													4. 회원은 변경된 약관에 동의하지 않을 경우 본 서비스 이용을 중단하고, 회원 해지 신청을 통해 회사와의 이용계약을 해지할 수 있습니다.<br>
+													<br>
+													5. 본 약관에 동의하는 것은 회사가 운영하는 본 서비스에 정기적으로 방문하여 약관의 변경사항을 확인하는 것에 동의함을 의미합니다. 변경된 약관에 대한 정보를 알지 못하여 발생하는 회원의 피해에 대하여는 회사는 책임이 없습니다.<br>
+													<br>
+													<strong>제4조 (약관 외 준칙)</strong><br>
+													<br>
+													1. 본 약관에 명시되지 않은 사항은 전기통신사업법, 정보통신망이용촉진및정보보호등에관한법률 등 관계 법령 및 회사가 정한 본 서비스의 이용 지침 등의 규정을 따릅니다.<br>
+													2. 회사는 필요한 경우 본 서비스 내의 특정 서비스에 관하여 적용될 사항(이하 ‘개별약관’이라 합니다)을 정하여 이를 제2조 제3항의 방법에 따라 공지할 수 있습니다.<br>
+													3. 회사는 필요한 경우 본 서비스 이용과 관련된 세부 이용 지침을 정하여 이를 제2조 제3항의 방법에 따라 공지할 수 있습니다.<br>
+													4. 본 약관과 관련하여 회사의 정책 변경, 법령의 제·개정 또는 공공기관의 고시나 지침 등에 따라 회사가 공지사항 게시판 등을 통해 공지하는 내용도 이용계약의 일부를 구성합니다.<br>
+													<br>
+													<strong>제5조 (이용계약의 체결)</strong><br>
+													<br>
+													1. 이용계약은 회원이 되고자 하는 자(이하 ‘가입신청자’)가 본 약관의 내용에 동의한 후 회원가입신청을 하고 회사가 위 신청을 승낙함으로써 체결됩니다.<br>
+													<br>
+													2. 회사는 가입신청자의 신청에 대하여 본 서비스 이용을 승낙함을 원칙으로 합니다. 단, 회사는 다음 각 호에 해당하는 신청에 대해서는 그 사유가 해소될 때까지 승낙을 유보하거나 승낙을 거부할 수 있습니다.<br>
+													1) 가입신청자가 이 약관에 의하여 이전에 회원자격을 상실한 적이 있는 경우<br>
+													2) 다른 사람의 개인정보를 이용한 경우<br>
+													3) 허위 정보를 기재하거나 회사가 제시하는 내용을 기재하지 않은 경우<br>
+													4) 기술상 서비스를 제공할 수 없는 경우<br>
+													5) 부정한 용도 또는 영리 추구 목적으로 서비스를 이용할 경우<br>
+													6) 회사로부터 회원자격 정지 조치를 받은 회원이 그 조치기간 동안에 이용계약을 임의로 해지하고 재이용을 신청하는 경우<br>
+													7) 관계법령에 위배되거나 사회의 질서 혹은 미풍양속을 저해할 수 있는 목적으로 신청한 경우<br>
+													8) 기타 회사가 정한 이용계약 요건을 만족시키지 않았거나 위법 또는 부당한 가입신청이 확인된 경우<br>
+													<br>
+													3. 서비스를 이용하려는 회원은 허가없이 다른 사용자의 계정을 사용할 수 없습니다. 계정을 만들 때에는 정확하고 완전한 정보를 제공해야 합니다. 회원은 본인이 만든 계정에서 발생하는 활동에 대해 전적으로 책임을 지며, 본인이 가진 계정의 암호를 안전하게 관리해야 합니다.<br>
+													<br>
+													4. 서비스는 회원이 계정과 암호를 무분별하게 사용함으로써 입은 손실에 대해서는 책임지지 않습니다.<br>
+													<br>
+													5. 회사는 본 서비스의 품질 향상 등 필요한 경우가 있으면, 회원을 등급별로 구분하여 이용횟수, 서비스 메뉴, 기타 필요한 사항을 세분하여 그 이용에 차등을 둘 수 있습니다.<br>
+													<br>
+													6. 회사는 회원에게 청소년보호법 등 관련 법령에 따른 등급 및 연령 준수를 위하여 이용제한이나 등급별 제한, 기타 필요한 조치를 할 수 있습니다.<br>
+													<br>
+													<strong>제6조 (서비스의 이용)</strong><br>
+													<br>
+													1. 서비스는 회원이 서비스에 액세스하고 사용할 수 있는 권한을 부여합니다.<br>
+													<br>
+													2. 회원은 서비스에서 제공하는 기능이 아닌 다른 수단을 사용하거나, 서비스의 사전 서면 승인 없이 서비스 또는 콘텐츠의 일부를 다른 어떤 매체에도 배포하지 않음에 동의합니다.<br>
+													<br>
+													3. 회원은 회사가 게시한 각종 정보를 무단으로 변경하지 않음에 동의합니다.<br>
+													<br>
+													4. 회원은 서비스에서 제공하는 기능, 혹은 서비스에서 지정하고 명시적으로 인증한 수단 이외의 기술이나 수단을 통해 콘텐츠에 액세스하지 않음에 동의합니다.<br>
+													<br>
+													5. 서비스의 사전 서면 승인을 받지 않는 한, 회원은 다음의 상업적 용도로 서비스를 사용하지 않음에 동의합니다.<br>
+													1) 서비스에 대한 액세스의 판매<br>
+													2) 서비스 내 모든 콘텐츠를 포함하여 서비스에 배치된 광고, 스폰서십 또는 프로모션의 판매<br>
+													3) 서비스를 이용하여 얻은 정보를 가공, 판매하는 행위 등 서비스에 게재된 자료를 영리 목적으로 이용하거나 제3자에게 이용하게 하는 행위<br>
+													<br>
+													6. 서비스를 사용할 때 모든 관련 법규를 준수합니다.<br>
+													<br>
+													<strong>제7조 (콘텐츠의 이용)</strong><br>
+													<br>
+													위의 일반적인 제한 사항 외에도 다음과 같은 제한 사항과 조건이 회원의 콘텐츠 사용에 적용됩니다. <br>
+													<br>
+													1. 콘텐츠 및 서비스의 상표, 서비스 표시 및 로고는 저작권법 및 기타지적재산권에 따릅니다.<br>
+													<br>
+													2. 회원은 서비스 약관에서 허용한 바에 따라, 서비스에서 제공하는 기능을 통해 개인적인 용도로만 콘텐츠에 액세스할 수 있습니다. 서비스가 제공하는 "다운로드" 기능 또는 이와 유사한 링크가 표시되지 않는 한 콘텐츠를 다운로드할 수 없습니다. 회원은 서비스 또는 콘텐츠의 각 라이센스 소유자의 사전 서면 동의 없이 다른 목적으로 콘텐츠를 복제, 배포, 전송, 방송, 전시, 판매, 라이센스 또는 기타 방법으로 이용할 수 없습니다.<br>
+													<br>
+													3. 회원은 서비스 또는 콘텐츠 사용에 대한 제한을 적용하는 보안 관련 기능을 우회하여, 비활성화 또는 간섭하지 않음에 동의합니다. <br>
+													<br>
+													4. 회원은 서비스를 사용함에 있어 다양한 출처의 콘텐츠에 노출되며, 서비스는 그러한 콘텐츠에 대한 정확성, 유용성, 안전성 또는 관련 지적 재산권에 대해 책임을 지지 않음을 인정합니다. 회원은 부정확하거나, 공격적이거나, 불쾌한 콘텐츠에 노출될 수 있습니다. 서비스, 소유주, 운영자, 계열사, 라이센스 제공자 및 보유자는 회원의 서비스 이용과 관련된 모든 사항에 대해, 법률이 허용하는 최대 한도까지 면책 및 면제할 수 있음에 동의합니다.<br>
+													<br>
+													<strong>제8조 (게시물의 저작권)</strong><br>
+													<br>
+													1. 서비스의 계정 소유자로서 회원은 서비스에 게시물을 등록할 수 있습니다. 서비스는 회원이 게시하는 모든 게시물과 관련한 기밀을 보장할 의무가 없습니다.<br>
+													<br>
+													2. 회원이 서비스 내에 게시한 게시물(회원간 전달 포함)의 저작권은 회원이 소유하며 회사는 서비스 내에 이를 게시할 수 있는 권리를 가집니다. 서비스에 게시물을 제출함으로써 회원은 서비스에 전세계에 대한 비독점적 하위 라이센스 및 서비스의 개발, 복제, 배포, 수정 및 전송 가능한 권리를 부여합니다. 서비스는 모든 미디어 형식과 미디어 채널을 통해 게시물의 일부 또는 전부를 홍보하고 재배포할 수 있습니다. 회원은 서비스를 통해 게시물에 액세스하고 해당 게시물에 대한 사용, 복제, 배포, 수정 작업을 수행할 수 있는 전세계에 대한 비독점적 권한을 사용자에게 부여합니다.<br>
+													<br>
+													3. 회사는 회원이 서비스에 등록한 게시물이 타인의 저작권, 프로그램 저작권 등을 침해하더라도 이에 대한 민, 형사상의 책임을 부담하지 않습니다. 만일 회원이 타인의 저작권, 프로그램 저작권 등을 침해하였다는 이유로 회사가 타인으로부터 손해배상청구 등의 이의 제기를 받은 경우, 회원은 회사의 면책을 위해 노력해야 하며, 회사가 면책되지 못한 경우 회원은 그로 인해 회사에 발생한 모든 손해를 부담하여야 합니다.<br>
+													<br>
+													4. 서비스의 일부 기능은 상호작용하므로, 회원의 사전 승인없이 서비스의 다른 사용자가 게시물을 업데이트 수정(사례: 듀엣 레코딩 추가) 할 수 있습니다. 이런 업데이트는 콘텐츠 및 게시물을 향상시키거나 손상시킬 수 있습니다. 회원은 서비스의 다른 사용자의 게시물 수정과 관련된 위험을 감수할 수 있음에 동의합니다.<br>
+													<br>
+													5. 회사는 회원이 이용계약을 해지하거나 적법한 사유로 이용계약이 해지된 경우, 해당 회원이 등록하였던 게시물을 삭제할 수 있습니다. 회원의 게시물이 정보통신이용촉진및정보보호등에관한법률 및 저작권법 등 관련 법령에 위반되는 내용을 포함할 경우, 해당 권리자는 관련 법령이 정한 절차에 의거하여 해당 게시물의 게시 중단 및 삭제 등을 회사에 요청할 수 있으며, 회사는 관련 법령에 따른 조치를 취하여야 합니다. 다른 사용자가 듀엣으로 업데이트한 게시물은 최초에 게시한 회원의 통제 하에 유지됩니다.<br>
+													<br>
+													6. 회사는 전항의 권리자의 요청이 없을 경우에도 사생활 침해 또는 명예훼손 등 타인의 권리를 침해한다고 인정되는 경우에는 관련 법령에 의거 해당 게시물에 대한 접근을 임시적으로 차단하거나 삭제할 수 있습니다.<br>
+													<br>
+													7. 회사가 작성한 저작물, 기타 콘텐츠에 대한 저작권 및 기타 권리는 회사에 귀속합니다.<br>
+													<br>
+													<strong>제9조 (이용 제한)</strong><br>
+													<br>
+													1. 회사는 특정 상황에서 사용자가 반복적인 침해자임을 확인한 경우 서비스의 이용 권한을 해지할 수 있습니다.<br>
+													<br>
+													2. 회사는 음란물이나 저작권 침해 등의 사유로 콘텐츠가 서비스 약관을 위반하였는지의 여부를 결정할 권리가 있습니다. 회사는 언제든지 사전 통지없이 해당 콘텐츠를 삭제하거나 서비스 약관을 위반한 사용자의 계정을 해지할 수 있습니다.<br>
+													<br>
+													3. 회사는 다음의 각 호에 해당하는 경우, 해당 회원에 대해 경고, 일시 이용정지, 영구 이용정지(향후가입신청 승인거절) 등 회원의 본 서비스 이용을 제한할 수 있습니다.<br>
+													1) 개인이나 단체를 공격하거나 비난하는 경우<br>
+													2) 스토킹, 괴롭힘 또는 협박 등의 행위를 하는 경우<br>
+													3) 타인에게 불쾌한 발언을 하는 경우<br>
+													4) 괴롭힘에 관여하는 경우<br>
+													<br>
+													4. 회원은 회사의 이용 제한에 대하여 회사가 정한 절차에 따라 이의신청을 할 수 있습니다. 이 때 회원의 이의신청이 정당하다고 회사가 인정하는 경우, 회사는 즉시 회원이 본 서비스 이용을 재개할 수 있도록 조치를 취합니다.<br>
+													<br>
+													<strong>제10조 ( SingCoin의 이용)</strong><br>
+													<br>
+													1.  SingCoin의 이용 계약은 회원이 본 약관에 동의하고, 회사가 정하는 결제 수단과 방법을 통해  SingCoin을 구매(충전)함으로써 성립됩니다.<br>
+													<br>
+													2. 플랫폼별(Android/iOS)로 각각 충전 가능하며, 충전한  SingCoin으로 서비스내에서 아이템을 구매하거나 선물을 보낼 수 있습니다.  SingCoin은 회사가 프로모션으로 무상 지급하는 무료  SingCoin과 회원이 충전하는 유료  SingCoin로 구분됩니다.<br>
+													<br>
+													3.  SingCoin의 가격은 대략적으로 100SingCoin에 $1의 가치를 기준으로 하지만 결제 플랫폼/국가/수단 및 기타 조건에 따라 달라질 수 있습니다. SingCoin의 구매 단위는 서비스에서 제공되는 단위로만 구매 가능합니다.<br>
+													<br>
+													4. 무료 SingCoin은 환불 신청할 수 없으며, 회사는 무료 SingCoin의 유효기간을 지정할 수 있습니다.<br>
+													<br>
+													5.  SingCoin로 교환하는 아이템은 본인에게 선물할 수 없습니다.<br>
+													<br>
+													6.  SingCoin의 이용기간은 충전일 혹은 마지막 이용일로부터 5년으로, 해당 기간 내 사용되지 않은  SingCoin은 상사 시효에 근거하여 자동으로 소멸됩니다.<br>
+													<br>
+													<strong>제11조 (클로버의 내용 및 현금 환전)</strong><br>
+													<br>
+													1. 회사는 회원이 클로버의 환전 전에 클로버의 환전 조건을 정확하게 이해하고 실수나 착오 없이 거래할 수 있도록 다음 각 호의 사항들을 적절한 방법으로 본 약관 및 서비스 내에서 고지합니다.<br>
+													<br>
+													2. 종류 및 가치: 클로버란 서비스 내에서 다른 사용자로부터 선물 받는 환전 가능한 아이템을 말합니다. SingCoin 13개에 클로버 1개의 가치를 기준으로 합니다. <br>
+													<br>
+													3. 현금 환전 : 클로버 1개에 60원을 기준으로 합니다. 서비스가 정한 현금 환전 가능한 최소 클로버 수량을 적립한 경우 현금 환전을 신청할 수 있습니다. 현금 환전 가능한 최소 클로버는 3,000개이며, 회사는 현금 환전 가능한 최소 수량을 조정할 수 있습니다. 회사는 회원이 직접 신청하는 경우에 한해 절차에 따라 정상적으로 적립된 클로버를 현금으로 환전합니다.<br>
+													<br>
+													4. 환전 절차 : 회사는 회원이 현금 환전을 신청하는 경우 본인 확인과 세금 처리를 위한 관련 서류를 요청할 수 있으며, 이에 불응하거나 회원이 서비스 이용약관 및 운영정책을 준수하지 않는다고 판단되는 경우 현금 환전을 보류할 수 있습니다.<br>
+													<br>
+													5. 수수료 및 세금: 회사는 현금 환전 시 소정의 수수료를 공제하며, 인출에 따라 발생하는 각종 세금, 기타 비용은 회원이 부담합니다.<br>
+													<br>
+													6. 한국을 제외한 국적의 회원의 경우 국가별로 부과되는 원천징수 세액 20%를 일괄 적용하며, 환전 수수료 및 해외 송금 수수료를 추가 공제합니다.<br>
+													<br>
+													7. 이용조건: 클로버 수량 확인 및 현금 환전 신청은 서비스 회원에 한 해 할 수 있으며, 서비스 탈퇴 시 클로버 확인 및 현금 환전 신청이 불가합니다. 서비스 탈퇴 시 환전되지 않은 클로버는 소멸되며, 회사는 소멸된 클로버에 대해 별도의 보상을 하지 않습니다.<br>
+													<br>
+													8. 선물 받은 클로버를 타회원에게 선물할 수 없습니다.<br>
+													<br>
+													9. 미성년자의 경우 보호자의 자필 서명이 포함된 동의서와, 보호자 중 1명의 신분증 사본을 추가로 제출하여야 합니다.<br>
+													<br>
+													<strong>제12조 (결제 및 환불)</strong><br>
+													<br>
+													서비스로부터 제품 및 서비스를 구매하는 경우, 회원은 서비스에 가입 갱신, 세금 및 거래수수료를 포함한 해당 요금을 청구할 권한을 위임합니다. 지정된 지불 방법을 통해, 회원은 서비스가 향후 제품 및 서비스에 대한 가격을 조정할 수 있음을 이해하고, 서비스로부터 통지받은 이후의 조정 요금을 청구 받게 됩니다.<br>
+													<br>
+													1. 정기 구독 상품을 구입한 경우 구독을 취소하기 전까지는, 기간에 따라 자동으로 갱신됩니다. 회원이 구독을 취소하면 현 구독 기간이 끝날 때 종료됩니다. 회원이 서비스에 이미 지불한 금액은 환불받을 수 없습니다. 서비스는 경우에 따라 회원에게 환불을 제공할 수는 있으나, 의무가 있는 것은 아닙니다.<br>
+													<br>
+													2. SingCoin과 같은 소모형 상품을 구입한 경우에는 구매일로부터 7일 이내에 별도의 수수료 없이 구매취소를 할 수 있습니다. 단, 구매 취소 당시 해당 상품을 이미 사용하였거나 사용한 것으로 간주되는 유료 콘텐츠나 이에 준하는 특성을 가진 일부 유료 콘텐츠에 대하여는 「전자상거래 등에서의 소비자보호에 관한 법률」 제17조 제2항에 따라 구매취소가 제한될 수 있습니다. 이 경우 회사는 이용자가 해당 유료 콘텐츠 구매 시 고지하는 등 관련 법률에서 정한 바에 따른 조치를 취하기로 합니다.<br>
+													<br>
+													3. 환불은 이용자가 이용하고 있는 각 앱스토어 사업자의 환불 운영정책에 따라 진행되며, 자세한 환불 신청 절차는 회사의 운영정책에 따릅니다. 또한 환불이 된 대가에 따라 서비스 내 상품은 해당 철회된 금액만큼 차감하여 반영합니다.<br>
+													<br>
+													4. 회사를 통하지 않고 각 앱스토어를 통해 SingCoin 상품의 환불이 진행된 경우, 회사는 회원의 서비스 이용에 제재를 가할 수 있으며, 회사 시스템에서 환불이 확인된 즉시 SingCoin을 차감하고 환불 요청 후 SingCoin 사용 내역이 차감 후 잔여 수량보다 많을 경우 비정상적인 사용으로 간주합니다.<br>
+													<br>
+													5. 비정상적인 사용 내역으로 판단된 경우 해당 계정을 해지할 수 있으며, 해당 계정의 회원이 비정상적인 사용을 통해 선물한 클로버의 수신자는 현금 교환 시 해당 수량만큼 차감하여 지급됩니다.<br>
+													<br>
+													<strong>제13조 (저작권 또는 기타 지적재산권 침해에 대한 고지 및 절차)</strong><br>
+													<br>
+													지적 재산권의 소유자 또는 대리인은 서비스 내의 콘텐츠가 소유하거나 대표하는 권리가 침해되었다고 판단될 경우, 침해 주장에 대한 신고서를 제출할 수 있으며 회사는 그에 따라 대응할 것입니다.<br>
+													<br>
+													<strong>제14조 (신고 정책)</strong><br>
+													<br>
+													회사는 회원들이 부적절한 콘텐츠를 신고할 때마다 개별적으로 대응합니다. 신고된 콘텐츠는 시스템에 의해 자동으로 삭제되지 않습니다. 커뮤니티 가이드를 위반하는 콘텐츠는 운영자가 확인 후 삭제합니다.<br>
+													<br>
+													1. 포르노와 같은 성적으로 노골적인 콘텐츠는 허용되지 않습니다. 페티쉬 콘텐츠가 포함된 동영상은 해당 행위의 심각도에 따라 삭제됩니다. 폭력적이거나 모욕감을 주는 동영상은 서비스에 표시될 수 없습니다.<br>
+													<br>
+													2. 충격적이고 선정적이거나 무례한 콘텐츠, 폭력적이거나 유혈성 콘텐츠는 게시될 수 없습니다. 해당의 경우 동영상은 그래픽이거나 추가 컨텍스트 및 정보가 제공되어야 합니다. 폭력적인 콘텐츠는 사이트에서 삭제될 수 있습니다.<br>
+													<br>
+													3. 다른 사람들에게 폭력 행위를 유도하는 동영상은 금지됩니다. 동영상에서 다른 사람들에게 폭력적인 행위를 저지르거나 심각한 폭력 행위를 하는 사람들을 보여준다면, 사이트에서 삭제됩니다.<br>
+													<br>
+													4. 스팸, 사기성 사례 : 회사는 스팸, 사기 및 서비스를 이용하는 회원들간 사기성 관행이 일어나지 않도록 노력하고 있습니다. 아래에서 이러한 정책을 위반하는 요소를 확인해주십시오.<br>
+													1) 동영상 및 댓글 스팸 : 동영상, 댓글, 비공개 메시지 또는 사이트에 반복적인 콘텐츠를 게시하지 않도록 합니다.<br>
+													2) 인위적인 트래픽 스팸 : 자동 시스템을 사용하거나 일반 회원에게 동영상을 노출하여 인위적으로 조회 수, 좋아요 수, 댓글 수 또는 기타 측정 가능한 항목 수를 늘리는 것은 서비스 약관에 위배됩니다. 약관에 위배되는 것으로 판단된 동영상 및 계정은 삭제될 수 있습니다. <br>
+													3) 오해의 소지가 있는 메타 데이터 : 메타 데이터는 동영상이 가지고 있는 모든 추가 정보입니다. 제목, 설명, 태그, 주석 등이 포함됩니다.<br>
+													4) 사기 : 의도적으로 사용자를 오도하여 재정적 이익을 얻으려고 의도하는 콘텐츠는 삭제될 수 있으며 경우에 따라 해당 회원에게 경고가 갈 수 있습니다.<br>
+													5) 협박 또는 강탈 : 서비스는 협박 또는 강탈에 대한 제로 관용 정책을 가지고 있습니다. 성적 착취 동영상을 녹화하거나 링크를 전송한 경우를 발견하면, 즉시 해당 동영상을 신고하고 1 : 1 문의를 해주십시오.<br>
+													<br>
+													<strong>제15조 (면책 사항)</strong><br>
+													<br>
+													1. 회사는 천재지변 또는 이에 준하는 불가항력으로 인하여 본 서비스를 제공할 수 없는 경우에는 본 서비스 제공에 관한 책임이 면제됩니다.<br>
+													<br>
+													2. 회사는 회원의 귀책사유로 인한 본 서비스 이용의 장애에 대하여는 책임을 지지 않습니다.<br>
+													<br>
+													3. 회사는 회원 간 또는 회원과 제3자 상호간에 본 서비스를 매개로 하여 거래 등을 한 경우에는 회사는 고의 또는 과실이 없는 한 어떠한 책임도 지지 않습니다.<br>
+													<br>
+													4. 회사는 고의 또는 과실이 없는 한 본 서비스를 이용한 회원이 기대하는 수익을 잃은 것에 대해 책임을 지지 않으며, 그 밖에 본 서비스를 통하여 얻은 자료로 인한 손해 등에 대해서도 책임을 지지 않습니다. 회사는 회원이 게시판 등에 게재한 정보, 자료, 사실의 신뢰도 및 정확성 등의 내용에 대해 책임을 지지 않습니다.<br>
+													<br>
+													5. 회사 및 회사의 임직원 그리고 대리인은 귀책사유가 없는 한 다음 각 호에 해당하는 사항으로부터 발생하는 손해에 대해 책임을 지지 않습니다.<br>
+													1) 회원 정보의 허위 또는 부정확성에 기인하는 손해<br>
+													2) 서버에 대한 제3자의 모든 불법적인 접속 또는 서버의 불법적인 이용으로 발생하는 손해<br>
+													3) 서버에 대한 전송 또는 서버로부터의 전송에 대한 제3자의 모든 불법적인 방해 또는 중단행위로부터 발생하는 손해<br>
+													4) 제3자가 본 서비스를 이용하여 불법적으로 전송, 유포하거나 또는 전송, 유포되도록 한 모든 바이러스, 스파이웨어 및 기타 악성 프로그램으로 인한 손해<br>
+													6. 서비스는 대한민국의 시설과 장비를 통해 제공되기에, 서비스가 다른 지역에서 사용하기에 적절하거나 사용할 수 있음을 보증하지 않습니다. 다른 지역에서 서비스에 액세스하거나 사용하는 회원은 자발적으로 해당 지역의 법을 준수할 책임이 있습니다.<br>
+													<br>
+													<strong>제16조 (손해 배상)</strong><br>
+													<br>
+													1) 회원이 본 약관의 규정을 위반함으로 인하여 회사에 손해가 발생하게 되는 경우, 본 약관을 위반한 회원은 회사에 발생하는 모든 손해를 배상하여야 합니다.<br>
+													<br>
+													2) 회원이 본 서비스를 이용하는 과정에서 행한 불법행위나 본 약관 위반행위로 인하여 회사가 당해 회원 이외의 제3자로부터 손해배상 청구 또는 소송을 비롯한 각종 이의제기를 받는 경우 당해 회원은 자신의 책임과 비용으로 회사를 면책시켜야 하며, 회사가 면책되지 못한 경우 당해 회원은 그로 인하여 회사에 발생한 모든 손해를 배상하여야 합니다.<br>
+													<br>
+													<strong>제17조 (서비스 약관 준수 능력)</strong><br>
+													<br>
+													회원은 13세 이상이거나 법적 부모 또는 보호자의 동의를 얻었으며, 본 약관에 명시된 조건, 의무, 확인, 진술 및 보증을 체결하고 준수할 수 있는 능력이 충분하다는 것을 확인합니다.<br>
+													<br>
+													<strong>제18조 (양도)</strong><br>
+													<br>
+													서비스 약관 및 본 계약에 따라 부여된 모든 권리 및 라이센스는 회원이 양도할 수 없으며 서비스가 제한없이 지정할 수 있습니다.<br>
+													<br>
+													<strong>제19조 (일반)</strong><br>
+													<br>
+													1. 회원은 다음에 동의합니다<br>
+													1) 서비스는 대한민국을 근거로 합니다. <br>
+													2) 본 서비스는 대한민국 이외의 지역에서는 서비스에 대한 속인적 관할권을 발생시키지 않는 수동 웹사이트로 간주됩니다. 본 서비스 약관은 별도로 명시되지 않는 한, 법률 원칙의 상충 여부와 관계없이 대한민국의 법률에 의합니다. 회원과 회사간에 서비스에서 발생하는 모든 분쟁은 대한민국에 위치한 관할 법원에서만 독점적으로 결정됩니다. <br>
+													<br>
+													2. 본 서비스 약관은 개인정보 보호정책 및 서비스가 명시한 기타 법적 정보와 함께 서비스에 관한 회원과 서비스의 완전한 합의를 구성합니다. <br>
+													<br>
+													3. 관할 법원에서 서비스 약관의 조항이 유효하지 않은 것으로 판단하는 경우, 해당 조항의 무효 성은 본 서비스 약관의 나머지 조항의 유효성에 영향을 미치지 않으며, 효력은 계속 유효합니다. 서비스 약관 중 어떤 조항의 포기는 해당 조건이나 다른 용어의 추가 또는 지속적인 포기로 간주되지 않으며, 서비스가 서비스 약관에 따른 권리 또는 조항을 주장하지 않는 경우에는 해당 조항의 포기를 하지 않습니다.<br>
+													<br>
+													4. 서비스는 사전 통보없이 언제든지 서비스 약관을 수정할 권리가 있습니다. 모든 변경 사항에 대해 서비스 약관을 검토하는 것은 회원의 책임입니다. 서비스 약관을 수정한 후에 서비스를 사용하면 개정된 약관에 동의하고 동의하는 것입니다. 서비스에서 야기된 모든 소송은 1년 이내에 발생한 사항에 한정함에 동의합니다.<br>
+													<br>
+													5. 본 약관의 영문 버전이 한국어 버전과 차이가 있을 경우, 한국어 버전이 우선합니다.<br>
+													<br>
+													<strong>부칙</strong><br>
+													(현행 시행일자) 본 약관은 2019년 7월 1일부터 시행합니다. 
+												</div>
+											</div>
 										</li>
 										<li class="toggle-item">
-											<div class="toggle-title"><span>저작권 정책</span></div>
+											<div class="toggle-title second"><span>저작권 정책</span></div>
 											<!-- toggle-title 클릭 시 class "on" 추가되어 토글이 오픈됩니다. -->
-											<div class="toggle-content"><span>저작권 정책</span></div>
+											<div class="toggle-content">
+												<div class="temrs_service_wrap">
+													<p class="t_01">Copyright and Intellectual Property Infringement</p>
+													<br>
+													Last revised on March 31, 2017<br>
+													<br>
+													To protect the rights of copyright holders, it is SingIt’s policy to respond to written notices of alleged infringement that comply with the Digital Millennium Copyright Act ("DMCA"). <br>
+													<br>
+													<p class="t_02">Respect of Third Party Rights</p>
+													<br>
+													SingIt respects the intellectual property right of others and desires to offer a platform which contains no content that violate those rights. SingIt’s terms and conditions of the Service requires that the material posted by Members be accurate, lawful and not in violation of the rights of third parties. Infringing activity will not be tolerated on or through the Service. <br>
+													<br>
+													<p class="t_02">Account Termination Policy</p>
+													<br>
+													a. SingIt will terminate a user's access to the Service if, under appropriate circumstances, the user is determined to be a repeat infringer.<br>
+													<br>
+													b. SingIt reserves the right to decide whether Content violates the Terms of Service for reasons other than copyright infringement, such as, but not limited to, pornography, obscenity, or excessive length. SingIt may at any time, without prior notice and in its sole discretion, remove such Content and/or terminate a user's account for submitting such material in violation of the Terms of Service.<br>
+													<br>
+													c. As part of SingIt's copyright policy, SingIt will terminate user access to SingIt’s platform if a user has been determined to be a repeat infringer. A repeat infringer is a user who has been notified of infringing activity more than two takedown notices compliant with the provisions of 17 U.S.C. § 512 (c) with respect to such Content.<br>
+													<br>
+													<p class="t_02">Procedure for Reporting Claimed Infringement</p>
+													<br>
+													If You believe that any Content made available on or through the Service has been used or exploited in a manner that infringes an intellectual property right You own, represent or control, promptly send a “Notification of Claimed Infringement” containing the following information to the Designated Agent identified below. Your communication must include substantially the following: <br>
+													<br>
+													a. A physical or electronic signature of a person authorized to act on behalf of the owner of the work(s) that has/have been allegedly infringed; <br>
+													b. A description of the copyrighted work that you claim has been infringed<br>
+													c. A description specifying the location on our website (server) of the material that you claim is infringing;<br>
+													d. Information reasonably sufficient to permit SingIt to contact You, such as email address, mailing address, telephone number. <br>
+													e. A statement that You have a good faith belief that the disputed use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law; and <br>
+													f. A statement by you, made under penalty of perjury, that the information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner’s behalf.<br>
+													<br>
+													You should consult with Your lawyer and/or see 17 U.S.C. § 512 of the DMCA to confirm Your obligations to provide a valid notice of claimed infringement. <br>
+													<br>
+													<p class="t_02">Copyright Contact Information</p>
+													<br>
+													Please submit your notice to SingIt s Copyright Agent as follows: <br>
+													<br>
+													MEDIASCOPE, Inc.<br>
+													Attention: Copyright Agent<br>
+													3FL, EWHA B/D. 21, Nonhyeon-ro 172-gil,<br>
+													Gangnam-gu, Seoul, Korea (06022)<br>
+													Email:  SingIt@mediascope.kr<br>
+													<br>
+													<p class="t_02">Counter-Notice</p>
+													<br>
+													If You receive a notification from SingIt that material made available by You on or through the Service has been the subject of a Notification of Claimed Infringement, and if you believe that a notice of copyright infringement has been improperly submitted against you, You will have the right to provide SingIt with what is called a “Counter Notice,” pursuant to Sections 512(g) (2) and (3) of the Digital Millennium Copyright Act.  To be effective, a Counter Notice must be in writing, provided to SingIt’s Copyright Agent to the same email or postal address identified above for reporting copyright infringement. Your Counter Notice should include substantially the following information: <br>
+													<br>
+													a. Your physical or electronic signature; <br>
+													b. Identification of the material that has been removed or to which access has been disabled; <br>
+													c. A statement, under penalty of perjury, that You have a good faith belief that the material was removed or disabled as a result of mistake or misidentification of the material to be removed or disabled; <br>
+													d. Your full name, your email address, your mailing address and telephone number; and <br>
+													e. A statement that You consent to the jurisdiction of the Federal District Court for the judicial district in which Your address is located or, if your address is outside of the United States, for any judicial district in which SingIt may be found, and that You will accept service of process from the person who provided a notice in compliance with SingIt’s Procedure for Reporting Claimed Infringement as described above. <br>
+													<br>
+													If You are submitting a Counter Notification, You should consult a lawyer or see 17 U.S.C. § 512 of the DMCA to confirm Your obligations to provide a valid counter notification under the DMCA. <br>
+													<br>
+													SingIt reserves the right to seek damages from any party that submits a notice of claimed infringement or counter notice in violation of the law. 
+												</div>
+											</div>
 										</li>
 									</ul>
 								</div>
@@ -113,5 +422,32 @@
             </div>
 		</div>
 	</div>
+
+	<script>
+		$(document).ready(function() {
+			var firstTitleClick = false;
+
+			$(".toggle-title.first").click(function() {
+				if($(".toggle-title.first").hasClass("on")) {
+					firstTitleClick = true;
+				} else {
+					firstTitleClick = false;
+				}
+			});
+
+			$(".toggle-title.second").click(function() {
+				if(firstTitleClick) {
+					var titleHeight = $(this).outerHeight(true); // 클릭된 toggle-title의 높이를 계산
+					var fontSize = parseFloat($('.full-modal-cont').css('font-size')); // full-modal-cont의 폰트 크기를 픽셀 단위로 가져옵니다.
+					var padding = 2.14 * fontSize; // 패딩 2.14em을 픽셀 단위로 변환
+					var scrollTop = titleHeight + padding; // 스크롤 위치를 titleHeight와 상단 패딩의 합만큼 설정
+
+					$('.full-modal-cont').animate({scrollTop: scrollTop}, 500);
+
+					firstTitleClick = false;
+				}
+			});
+		});
+	</script>
 </body>
 </html>

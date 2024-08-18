@@ -8,7 +8,7 @@
  */
 
 /*========== modalPopup ==========*/
-.modal { visibility: hidden; opacity: 0; display: flex; justify-content: center; align-items: center; position: fixed; top: 0; left: 50%; transform: translate(-50%, 0); z-index: 150; max-width: 750px; width: 100%; height: 100vh; height: 100dvh; background-color: rgba(0, 0, 0, 0.5); transition: 300ms 200ms; } 
+.modal { visibility: hidden; opacity: 0; display: flex; justify-content: center; align-items: center; position: fixed; top: 0; left: 50%; transform: translate(-50%, 0); z-index: 155; max-width: 750px; width: 100%; height: 100vh; height: 100dvh; background-color: rgba(0, 0, 0, 0.5); transition: 300ms 200ms; } 
 .modal.open { visibility: visible; opacity: 1; transition: 300ms; } 
 .modal-wrap { opacity: 0; width: 20.44em; max-height: 94vh; transition: opacity 300ms; } 
 .modal.open .modal-wrap { opacity: 1; margin-top: 0; } 
@@ -59,7 +59,24 @@
 .modal.full.open .full-modal-wrap { opacity: 1; width: 100%; height: 100%; transition: opacity 300ms; } 
 .modal.full .full-modal-content { height: 100vh; height: 100dvh; background-color: #fff; } 
 .modal.full .header-sub {display: block;}
-.modal.full .full-modal-cont {overflow: hidden; overflow-y: auto; height: 100vh; padding: 0 0 3.38em; font-size: 1rem;}
+.modal.full .full-modal-cont {overflow: hidden; overflow-y: auto; height: 100vh; padding: 0 0 7.60em; font-size: 1rem;}
 @media screen and (min-width: 421px) {
     .modal.full .full-modal-cont {font-size: clamp(16px, 4.267vw, 20px);} 
+}
+
+/*========== 싱코인 선물하기 팝업 (.giftScPop) ==========*/
+.giftScPop .gift-sc-cont { width: 10.955em; margin: 0 auto; font-size: 1.38rem;}
+.giftScPop .gift-sc-box { display: flex; margin-bottom: 0.4em; padding: 0.1818em; font-size: inherit; border-radius: 0.454em; background-color: #fff; border: 1px solid #EBEBEB;}
+.giftScPop .gift-sc-box .gift-sc-btn { flex-shrink: 0; width: 2.3636em; aspect-ratio: 1 / 1; font-size: inherit; border-radius: 0.454em; background-color: #ddd; background-repeat: no-repeat; background-position: center; background-size: 1.091em auto;}
+.giftScPop .gift-sc-box .gift-sc-btn.minus-gift-sc-btn { background-image: url('../images/common/icon-decrease.svg'); }
+.giftScPop .gift-sc-box .gift-sc-btn.plus-gift-sc-btn { background-image: url('../images/common/icon-increase.svg'); }
+.giftScPop .gift-sc-box .gift-sc-input { width: calc(100% - (2.3636em * 2)); font-size: inherit; text-align: center;}
+.giftScPop .gift-sc-box-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;}
+.giftScPop .gift-sc-box-bottom .current-sc-wrap p { padding-left: 2em; background-image: url('../images/common/icon-singcoin.svg'); background-repeat: no-repeat; background-position: left center; background-size: 1.714em auto; font-weight: 400; font-variation-settings: 'wght' 400; color: #666;}
+.giftScPop .gift-sc-box-bottom .current-sc-wrap p strong { font-weight: 700; font-variation-settings: 'wght' 700; color: #333; }
+.giftScPop.modal.msg .modal-txt-wrap .basic-check-box { margin: 0;}
+.giftScPop .basic-check-box input[type="checkbox"] + label { color: #333;}
+
+@media screen and (min-width: 421px){
+    .giftScPop .gift-sc-cont {font-size: clamp(22px, 5.867vw, 28px);} 
 }

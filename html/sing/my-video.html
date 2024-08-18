@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/mypage/mypage.css">
+
+	<!-- JS | library -->
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
+
+	<!-- JS -->
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
+
+    <title>SingIt</title>
+</head>
+<body>
+	<div id="wrap">
+		<!--==================
+		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+		- PLAY 페이지 : play 클래스
+		- SING 페이지 : sing 클래스
+		- BATTLE 페이지 : battle 클래스
+		- MY 페이지 : my 클래스
+		- 서브 페이지 : sub 클래스 
+        ======================-->
+		<div id="container" class="my sub">
+			<!--========== MODAL POPUP ==========-->
+            <div class="modal-popup-group">
+				<div id="regPop01" class="modal alert regPop01">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">수정하시겠습니까?</h3>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#regPop01');" class="basic-btn gray" tabindex="1">취소</a>
+								<a href="javascript:;" onclick="modalPopupClose('#regPop01');closeBottomSheet();" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+
+				<div id="delPop01" class="modal alert delPop01">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">영상을 삭제하시겠습니까?</h3>
+								</div>
+								<div class="modal-txt-wrap">
+									<p class="modal-sub-tit">삭제된 영상은 복구하거나<br> 되돌릴 수 없습니다.</p>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#delPop01');" class="basic-btn gray" tabindex="1">취소</a>
+								<a href="javascript:;" onclick="modalPopupClose('#delPop01');closeBottomSheet();" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+            </div>
+
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<script>
+				$(function () {
+					$('#header').load("../include/header.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/header.js");
+					});
+				});
+			</script>
+			<main id="main" class="sub">
+				<h2 class="main-title hidden">내 영상</h2>
+				<section class="section my-video-sec">
+					<h3 class="section-title hidden">내 영상</h3>
+					<div class="section-content">
+						<div class="tab-btn-container scroll-tab-wrap">
+							<div class="scroll-tab">
+								<div class="inner">
+									<ul class="tab-btn-menu">
+										<li class="tab-btn-link current" data-tab="tab-btn-1"><a href="javascript:;"><span>전체</span></a></li>
+										<li class="tab-btn-link" data-tab="tab-btn-2"><a href="javascript:;"><span>솔로</span></a></li>
+										<li class="tab-btn-link" data-tab="tab-btn-3"><a href="javascript:;"><span>듀엣</span></a></li>
+									</ul>
+									<div class="sorting-tit-wrap">
+										<p class="sorting-tit content-txt3">전체 <span>4개</span></p>
+										<ul class="sorting-list">
+											<li class="content-txt3">
+												<div class="btn-wrap">
+													<button type="button" class="basic-btn sel txt" aria-label="최신순" onclick="openBottomSheet('#sorting-popup')" title="최신순"><span class="selected-txt">최신순</span></button>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							
+							<div class="tab-btn-cont-wrap inner scroll-tab-cont">
+								<div id="tab-btn-1" class="tab-btn-cont current">
+									<!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+									<div class="profile-area song info">
+										<div class="no-result">
+											<p class="content-txt3">노래를 부른 후 영상을 보관합니다.<br> 아직 영상이 없어요.</p>
+										</div>
+										<ul class="profile-list-wrap">
+											<li class="profile-list">
+												<div class="profile-wrap">
+													<a href="#none" class="profile-wrap-inner" title="내 영상 보기">
+														<div class="thumbnail-area profile-img skeleton"> 
+															<!-- 이미지 확장자는 jpg 권장 -->
+															<div class="thumbnail-wrap">
+																<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="Love wins all 영상">
+																<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="Love wins all 영상">
+															</div>
+														</div>
+														<div class="profile-info">
+															<div class="status-label round skeleton">
+																<span class="red">솔로</span>
+															</div>
+															<p class="profile-tit content-txt3 skeleton">Love wins all Love wins all Love wins all Love wins all Love wins all Love wins all Love wins all</p>
+															<span class="profile-txt content-txt3 skeleton">아이유</span>
+														</div>
+													</a>
+													<div class="btn-wrap fixed">
+														<button type="button" class="basic-btn dot" aria-label="수정하기" onclick="openBottomSheet('#fix-popup')"><span></span></button>
+													</div>
+												</div>
+												<div class="bottom-info-wrap">
+													<div class="left-side">
+														<div class="info-date bottom-info skeleton">2024.08.06</div>
+														<div class="info-views bottom-info skeleton"><div class="views-wrap"><span class="num">25</span></div></div>
+														<a href="javascript:;" class="like-btn bottom-info skeleton" role="button"><div class="like-wrap"><span class="num">25</span></div></a>
+													</div>
+													<div class="right-side">
+														<a href="javascript:;" class="lock-btn bottom-info skeleton" role="button"><i></i><span>공개</span></a>
+													</div>
+												</div>
+											</li>
+											<li class="profile-list">
+												<div class="profile-wrap">
+													<a href="#none" class="profile-wrap-inner" title="내 영상 보기">
+														<div class="thumbnail-area profile-img skeleton"> 
+															<div class="thumbnail-wrap">
+																<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-duet.png" srcset="../../asset/images/temp/img-duet.png 2x" alt="Love wins all 영상">
+																<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-duet.png" srcset="../../asset/images/temp/img-duet.png 2x" alt="Love wins all 영상">
+															</div>
+														</div>
+														<div class="profile-info">
+															<div class="status-label round skeleton">
+																<span class="blue">듀엣</span>
+															</div>
+															<p class="profile-tit content-txt3 skeleton">Love wins all</p>
+															<span class="profile-txt content-txt3 skeleton">아이유</span>
+														</div>
+													</a>
+													<div class="btn-wrap fixed">
+														<button type="button" class="basic-btn dot" aria-label="수정하기" onclick="openBottomSheet('#fix-popup')"><span></span></button>
+													</div>
+												</div>
+												<div class="bottom-info-wrap">
+													<div class="left-side">
+														<div class="info-date bottom-info skeleton">2024.08.06</div>
+														<div class="info-views bottom-info skeleton"><div class="views-wrap"><span class="num">2555</span></div></div>
+														<a href="javascript:;" class="like-btn bottom-info skeleton" role="button"><div class="like-wrap"><span class="num">2554</span></div></a>
+													</div>
+													<div class="right-side">
+														<a href="javascript:;" class="lock-btn bottom-info skeleton" role="button"><i></i><span>공개</span></a>
+													</div>
+												</div>
+											</li>
+											<li class="profile-list">
+												<div class="profile-wrap">
+													<a href="#none" class="profile-wrap-inner" title="내 영상 보기">
+														<div class="thumbnail-area profile-img skeleton"> 
+															<!-- 이미지 확장자는 jpg 권장 -->
+															<div class="thumbnail-wrap">
+																<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="Love wins all 영상">
+																<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="Love wins all 영상">
+															</div>
+														</div>
+														<div class="profile-info">
+															<div class="status-label round skeleton">
+																<span class="red">솔로</span>
+															</div>
+															<p class="profile-tit content-txt3 skeleton">Love wins all Love wins all Love wins all Love wins all Love wins all Love wins all Love wins all</p>
+															<span class="profile-txt content-txt3 skeleton">아이유</span>
+														</div>
+													</a>
+													<div class="btn-wrap fixed">
+														<button type="button" class="basic-btn dot" aria-label="수정하기" onclick="openBottomSheet('#fix-popup')"><span></span></button>
+													</div>
+												</div>
+												<div class="bottom-info-wrap">
+													<div class="left-side">
+														<div class="info-date bottom-info skeleton">2024.08.06</div>
+														<div class="info-views bottom-info skeleton"><div class="views-wrap"><span class="num">25</span></div></div>
+														<a href="javascript:;" class="like-btn bottom-info skeleton" role="button"><div class="like-wrap"><span class="num">25</span></div></a>
+													</div>
+													<div class="right-side">
+														<a href="javascript:;" class="lock-btn bottom-info skeleton" role="button"><i></i><span>공개</span></a>
+													</div>
+												</div>
+											</li>
+											<li class="profile-list">
+												<div class="profile-wrap">
+													<a href="#none" class="profile-wrap-inner" title="내 영상 보기">
+														<div class="thumbnail-area profile-img skeleton"> 
+															<div class="thumbnail-wrap">
+																<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-duet.png" srcset="../../asset/images/temp/img-duet.png 2x" alt="Love wins all 영상">
+																<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-duet.png" srcset="../../asset/images/temp/img-duet.png 2x" alt="Love wins all 영상">
+															</div>
+														</div>
+														<div class="profile-info">
+															<div class="status-label round skeleton">
+																<span class="blue">듀엣</span>
+															</div>
+															<p class="profile-tit content-txt3 skeleton">Love wins all</p>
+															<span class="profile-txt content-txt3 skeleton">아이유</span>
+														</div>
+													</a>
+													<div class="btn-wrap fixed">
+														<button type="button" class="basic-btn dot" aria-label="수정하기" onclick="openBottomSheet('#fix-popup')"><span></span></button>
+													</div>
+												</div>
+												<div class="bottom-info-wrap">
+													<div class="left-side">
+														<div class="info-date bottom-info skeleton">2024.08.06</div>
+														<div class="info-views bottom-info skeleton"><div class="views-wrap"><span class="num">2555</span></div></div>
+														<a href="javascript:;" class="like-btn bottom-info skeleton" role="button"><div class="like-wrap"><span class="num">2554</span></div></a>
+													</div>
+													<div class="right-side">
+														<a href="javascript:;" class="lock-btn bottom-info skeleton" role="button"><i></i><span>공개</span></a>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div id="tab-btn-2" class="tab-btn-cont">
+									<!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+									<div class="profile-area song info no-result">
+										<div class="no-result">
+											<p class="content-txt3">노래를 부른 후 영상을 보관합니다.<br> 아직 영상이 없어요.</p>
+										</div>
+										<ul class="profile-list-wrap">
+											<li class="profile-list">
+												<div class="profile-wrap">
+													<a href="#none" class="profile-wrap-inner" title="내 영상 보기">
+														<div class="thumbnail-area profile-img skeleton"> 
+															<!-- 이미지 확장자는 jpg 권장 -->
+															<div class="thumbnail-wrap">
+																<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="Love wins all 영상">
+																<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="Love wins all 영상">
+															</div>
+														</div>
+														<div class="profile-info">
+															<div class="status-label round skeleton">
+																<span class="red">솔로</span>
+															</div>
+															<p class="profile-tit content-txt3 skeleton">Love wins all Love wins all Love wins all Love wins all Love wins all Love wins all Love wins all</p>
+															<span class="profile-txt content-txt3 skeleton">아이유</span>
+														</div>
+													</a>
+													<div class="btn-wrap fixed">
+														<button type="button" class="basic-btn dot" aria-label="수정하기" onclick="openBottomSheet('#fix-popup')"><span></span></button>
+													</div>
+												</div>
+												<div class="bottom-info-wrap">
+													<div class="left-side">
+														<div class="info-date bottom-info skeleton">2024.08.06</div>
+														<div class="info-views bottom-info skeleton"><div class="views-wrap"><span class="num">25</span></div></div>
+														<a href="javascript:;" class="like-btn bottom-info skeleton" role="button"><div class="like-wrap"><span class="num">25</span></div></a>
+													</div>
+													<div class="right-side">
+														<a href="javascript:;" class="lock-btn bottom-info skeleton" role="button"><i></i><span>공개</span></a>
+													</div>
+												</div>
+											</li>
+											<li class="profile-list">
+												<div class="profile-wrap">
+													<a href="#none" class="profile-wrap-inner" title="내 영상 보기">
+														<div class="thumbnail-area profile-img skeleton"> 
+															<div class="thumbnail-wrap">
+																<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-duet.png" srcset="../../asset/images/temp/img-duet.png 2x" alt="Love wins all 영상">
+																<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-duet.png" srcset="../../asset/images/temp/img-duet.png 2x" alt="Love wins all 영상">
+															</div>
+														</div>
+														<div class="profile-info">
+															<div class="status-label round skeleton">
+																<span class="blue">듀엣</span>
+															</div>
+															<p class="profile-tit content-txt3 skeleton">Love wins all</p>
+															<span class="profile-txt content-txt3 skeleton">아이유</span>
+														</div>
+													</a>
+													<div class="btn-wrap fixed">
+														<button type="button" class="basic-btn dot" aria-label="수정하기" onclick="openBottomSheet('#fix-popup')"><span></span></button>
+													</div>
+												</div>
+												<div class="bottom-info-wrap">
+													<div class="left-side">
+														<div class="info-date bottom-info skeleton">2024.08.06</div>
+														<div class="info-views bottom-info skeleton"><div class="views-wrap"><span class="num">2555</span></div></div>
+														<a href="javascript:;" class="like-btn bottom-info skeleton" role="button"><div class="like-wrap"><span class="num">2554</span></div></a>
+													</div>
+													<div class="right-side">
+														<a href="javascript:;" class="lock-btn bottom-info skeleton" role="button"><i></i><span>공개</span></a>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div id="tab-btn-3" class="tab-btn-cont">
+									<!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+									<div class="profile-area song info">
+										<div class="no-result">
+											<p class="content-txt3">노래를 부른 후 영상을 보관합니다.<br> 아직 영상이 없어요.</p>
+										</div>
+										<ul class="profile-list-wrap">
+											<li class="profile-list">
+												<div class="profile-wrap">
+													<a href="#none" class="profile-wrap-inner" title="내 영상 보기">
+														<div class="thumbnail-area profile-img skeleton"> 
+															<!-- 이미지 확장자는 jpg 권장 -->
+															<div class="thumbnail-wrap">
+																<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="Love wins all 영상">
+																<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="Love wins all 영상">
+															</div>
+														</div>
+														<div class="profile-info">
+															<div class="status-label round skeleton">
+																<span class="red">솔로</span>
+															</div>
+															<p class="profile-tit content-txt3 skeleton">Love wins all Love wins all Love wins all Love wins all Love wins all Love wins all Love wins all</p>
+															<span class="profile-txt content-txt3 skeleton">아이유</span>
+														</div>
+													</a>
+													<div class="btn-wrap fixed">
+														<button type="button" class="basic-btn dot" aria-label="수정하기" onclick="openBottomSheet('#fix-popup')"><span></span></button>
+													</div>
+												</div>
+												<div class="bottom-info-wrap">
+													<div class="left-side">
+														<div class="info-date bottom-info skeleton">2024.08.06</div>
+														<div class="info-views bottom-info skeleton"><div class="views-wrap"><span class="num">25</span></div></div>
+														<a href="javascript:;" class="like-btn bottom-info skeleton" role="button"><div class="like-wrap"><span class="num">25</span></div></a>
+													</div>
+													<div class="right-side">
+														<a href="javascript:;" class="lock-btn bottom-info skeleton" role="button"><i></i><span>공개</span></a>
+													</div>
+												</div>
+											</li>
+											<li class="profile-list">
+												<div class="profile-wrap">
+													<a href="#none" class="profile-wrap-inner" title="내 영상 보기">
+														<div class="thumbnail-area profile-img skeleton"> 
+															<div class="thumbnail-wrap">
+																<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-duet.png" srcset="../../asset/images/temp/img-duet.png 2x" alt="Love wins all 영상">
+																<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-duet.png" srcset="../../asset/images/temp/img-duet.png 2x" alt="Love wins all 영상">
+															</div>
+														</div>
+														<div class="profile-info">
+															<div class="status-label round skeleton">
+																<span class="blue">듀엣</span>
+															</div>
+															<p class="profile-tit content-txt3 skeleton">Love wins all</p>
+															<span class="profile-txt content-txt3 skeleton">아이유</span>
+														</div>
+													</a>
+													<div class="btn-wrap fixed">
+														<button type="button" class="basic-btn dot" aria-label="수정하기" onclick="openBottomSheet('#fix-popup')"><span></span></button>
+													</div>
+												</div>
+												<div class="bottom-info-wrap">
+													<div class="left-side">
+														<div class="info-date bottom-info skeleton">2024.08.06</div>
+														<div class="info-views bottom-info skeleton"><div class="views-wrap"><span class="num">2555</span></div></div>
+														<a href="javascript:;" class="like-btn bottom-info skeleton" role="button"><div class="like-wrap"><span class="num">2554</span></div></a>
+													</div>
+													<div class="right-side">
+														<a href="javascript:;" class="lock-btn bottom-info skeleton" role="button"><i></i><span>공개</span></a>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			
+			<!--========== FULL PAGE POPUP ==========-->
+			<div class="full-popup-group">
+
+			</div>
+
+			<!--========== TOAST POPUP ==========-->
+			<div class="toast-popup-group">
+				<!--==================
+					* Bottom Sheet
+					- openBottomSheet('#아이디값')에 의해, 해당 되는 아이디값의 .bottom-sheet-wrap를 호출합니다.
+					- sheet 크기가 커지지 못하는 경우, 클래스 sheet-stretch 대신 unable-stretch을 추가합니다.
+				======================-->
+
+				<!-- Sortiong -->
+				<div id="sorting-popup" class="bottom-sheet-wrap check sorting-popup">
+					<div class="bottom-sheet unable-stretch"> 
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<div class="sheet-cont-inner">
+								<ul class="sheet-check-list">
+									<li><a href="javascirpt:;" class="active">최신순</a></li>
+									<li><a href="javascirpt:;">좋아요순</a></li>
+									<li><a href="javascirpt:;">재생순</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+
+				<!-- 수정 & 삭제 -->
+				<div id="fix-popup" class="bottom-sheet-wrap view fix">
+					<div class="bottom-sheet unable-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<h4 class="sheet-tit hidden">수정하기</h4>
+							<div class="sheet-cont-inner">
+								<div class="btn-wrap sheet-btn-wrap multi">
+									<button type="button" class="basic-btn white-line fix w100" aria-label="수정하기" onclick="modalPopup('#regPop01');"><span>수정하기</span></button>
+									<button type="button" class="basic-btn white-line del red-txt w100" aria-label="삭제하기" onclick="modalPopup('#delPop01');"><span>삭제하기</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

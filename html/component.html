@@ -67,23 +67,6 @@
 		.component-sec:not(.first) {margin: 80px 0;}
 		.component-sec p:not(.modal-sub-tit) {margin-bottom: 10px;}
 		.component-sec .toast-popup p {margin-bottom: 0 !important;}
-
-		/*========== Ring Graph ==========*/
-		.ring-graph-container { position: relative; width: 300px; aspect-ratio: 1 / 1; }
-		.ring-graph { width: 100%; height: 100%; }
-		.ring-graph .ring { transform-origin: 50%; }
-		.ring-graph .completed { animation: RingProgress 1s ease-in-out forwards; stroke-linecap: round; }
-		.ring-graph circle { fill: none; }
-		.ring-graph .background { opacity: .16; }
-		.ring-graph .ring1 { transform: scale(1) rotate(-90deg); }
-		.ring-graph .ring1 .background, .ring1 .completed { stroke: #FF4848; }
-		.ring-graph .ring2 { transform: scale(0.82) rotate(-90deg); }
-		.ring-graph .ring2 .background, .ring2 .completed { stroke: #00DB8F; }
-		.ring-graph .ring3 { transform: scale(0.64) rotate(-90deg); }
-		.ring-graph .ring3 .background, .ring3 .completed { stroke: #FFB62C; }
-		.ring-graph .ring4 { transform: scale(0.46) rotate(-90deg); }
-		.ring-graph .ring4 .background, .ring4 .completed { stroke: #6FB6FF; }
-		.ring-graph-container .ring-graph-score { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-52%); } @keyframes RingProgress { 0% { stroke-dasharray: 0 100; } }
 	</style>
 </head>
 
@@ -654,9 +637,17 @@
 						<a style="max-width: 86px; font-size: 15px;" href="javascript:;" onclick="modalPopup('#exPop05')" class="basic-btn round line"><span>팝업 열기</span></a>
 					</div>
 					<div style="width: 420px;">
-						<p style="font-variation-settings: 'wght' 700;">5. Modal Popup 투버튼 : textarea + Radio 버튼</p>
+						<p style="font-variation-settings: 'wght' 700;">6. Modal Popup 투버튼 : textarea + Radio 버튼</p>
 						<br>
 						<a style="max-width: 86px; font-size: 15px;" href="javascript:;" onclick="modalPopup('#exPop06')" class="basic-btn round line"><span>팝업 열기</span></a>
+					</div>
+				</div>
+				<br><br><br>
+				<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 0 20px;">
+					<div style="width: 420px;">
+						<p style="font-variation-settings: 'wght' 700;">7. 선물하기 버튼 + 싱코인 선물하기 팝업</p>
+						<br>
+						<button type="button" class="basic-btn round line black-line gift-btn" aria-label="선물하기" onclick="modalPopup('#giftScPop')"><span>선물하기</span></button>
 					</div>
 				</div>
 
@@ -792,6 +783,46 @@
 								<div class="modal-btn-wrap">
 									 <a href="javascript:;" onclick="modalPopupClose('#exPop06');" class="basic-btn gray" tabindex="1">취소</a>
 									<a href="javascript:;" onclick="modalPopupClose('#exPop06');" class="basic-btn red" tabindex="1">확인</a>
+								</div>
+							</section>
+						</div>
+					</div>
+
+					<!--==================
+					* 싱코인 선물하기 팝업 (#giftScPop)
+					- .gift-sc-btn 버튼으로 .gift-sc-input 값이 증감합니다.
+					- 사용자의 현재 보유한 코인 값이 .current-sc에 로드되어야합니다.
+					- 모두 주기(#gift-all-check-box) 체크시, 현재 보유중인 코인 숫자값이 .gift-sc-input 값으로 입력됩니다.
+					======================-->
+					<div id="giftScPop" class="modal msg giftScPop">
+						<div class="modal-wrap">
+							<section class="modal-content">
+								<div class="modal-cont-wrap">
+									<div class="modal-tit-wrap">
+										<h3 class="modal-tit">싱코인 선물하기</h3>
+									</div>
+									<div class="modal-txt-wrap">
+										<div class="gift-sc-cont">
+											<div class="gift-sc-box">
+												<button type="button" class="gift-sc-btn minus-gift-sc-btn" aria-label="선물할 싱코인 감소" onclick=""></button>
+												<input class="gift-sc-input medium-num" type="text" value="0">
+												<button type="button" class="gift-sc-btn plus-gift-sc-btn" aria-label="선물할 싱코인 감소" onclick=""></button>
+											</div>
+											<div class="gift-sc-box-bottom">
+												<div class="current-sc-wrap">
+													<p class="content-txt3">보유 코인 <strong><span class="current-sc num">1200</span>개</strong></p>
+												</div>
+												<div class="basic-check-box">
+													<input type="checkbox" id="gift-all-check-box" tabindex="-1">
+													<label for="gift-all-check-box" tabindex="0">모두 주기</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-btn-wrap">
+									<a href="javascript:;" onclick="modalPopupClose('#giftScPop');" class="basic-btn gray" tabindex="1">취소</a>
+									<a href="javascript:;" onclick="modalPopupClose('#giftScPop');" class="basic-btn red" tabindex="1">확인</a>
 								</div>
 							</section>
 						</div>
@@ -956,6 +987,38 @@
 					<div class="bottom-sheet-dimmed"></div>
 				</div>
 
+				<!--==================
+					* .comment-list
+					- 댓글 단 유저의 프로필 사진은 .profile-area 에 img 태그로 들어갑니다.
+					- 원댓글: .comment-list.comment-tree1 / 대댓글: .comment-list.comment-tree2
+					
+					* .comment-list .content-area
+					- .user : 유저 닉네임,
+					- .comment-txt > p : 댓글 내용 노출.
+					
+					* .comment-list .bottom-info-wrap 내
+					(1) .info-date : 댓글 발행 날짜,
+					(2) .like-btn > .like-num : 좋아요 수,
+					(3) .view-reply-btn > .reply-num : 답글 수 노출.
+					
+					* 좋아요 버튼(.like-btn)
+					- on 클래스가 toggle로 추가/삭제
+					- .like-num의 수가 변동됩니다.
+					
+					* 답글쓰기 버튼(.reply-btn)
+					- .input-txt-box에 reply 클래스 토글
+					- 누른 답글쓰기 버튼의 댓글 기반으로 작성자의 닉네임을 .input-txt-popup p.input-popup-cont > span 으로 가져옵니다.
+					
+					* 답글 보기 버튼(.view-reply-btn)
+					- .view-reply-btn에 on 클래스 토글
+					- 대댓글 영역(.comment-reply-wrap) slideUp/slideDown 실행
+					- 만약 답글이 없을 경우 .view-reply-btn은 노출되지 않습니다.
+					
+					* 댓글 메뉴 버튼(.comment-menu-btn)
+					- 댓글 메뉴 팝업(#commentMenu)이 노출됩니다. ( openBottomSheet('#commentMenu'); 실행 )
+
+					* 댓글이 없는 경우, .no-comment-case가 노출됩니다.(css 처리)
+				======================-->
 				<!-- 댓글 bottom sheet - openBottomSheet('#comment')에 의해 호출 -->
 				<div id="comment" class="bottom-sheet-wrap comment">
 					<div class="bottom-sheet sheet-stretch">
@@ -967,35 +1030,6 @@
 							<div class="sheet-cont-inner">
 								<div class="comment-box">
 									<div class="comment-wrap">
-										<!--==================
-											* comment-list
-											- 댓글 단 유저의 프로필 사진은 .profile-area 에 img 태그로 들어갑니다.
-											
-											- .content-area 내
-											(1) .user : 유저 닉네임,
-											(2) .comment-txt > p : 댓글 내용 노출.
-											
-											- .bottom-info-wrap 내
-											(1) .info-date : 댓글 발행 날짜,
-											(2) .like-btn > .like-num : 좋아요 수,
-											(3) .view-reply-btn > .reply-num : 답글 수 노출.
-											
-											- 좋아요 버튼(.like-btn)을 누르면,
-											(1) on 클래스가 toggle로 추가/삭제
-											(2) .like-num의 수가 변동됩니다.
-											
-											- 답글쓰기 버튼(.reply-btn)을 누르면, 
-											
-											- 답글 보기 버튼(.view-reply-btn)을 누르면,
-											(1) .view-reply-btn에 on 클래스 토글
-											(2) 대댓글 영역(.comment-reply-wrap) slideUp/slideDown 실행
-											(3) 만약 답글이 없을 경우 .view-reply-btn은 노출되지 않습니다.
-											
-											- 댓글 메뉴 버튼(.comment-menu-btn)을 누르면, 댓글 메뉴 팝업(#commentMenu)이 노출됩니다. ( openBottomSheet('#commentMenu'); 실행 )
-
-											- 원댓글: .comment-list.comment-tree1 /
-											대댓글: .comment-list.comment-tree2
-										======================-->
 										<!-- 원댓글: .comment-list.comment-tree1 -->
 										<div class="comment-list comment-tree1">
 											<div class="profile-area">
@@ -1010,7 +1044,7 @@
 														<div class="info-date bottom-info">1일전</div>
 														<a href="javascript:;" class="like-btn bottom-info on" role="button"><div class="like-wrap"><span class="like-num num">2225</span></div></a>
 														<a href="javascript:;" class="reply-btn bottom-info" role="button">답글쓰기</a>
-														<a href="javascript:;" class="view-reply-btn bottom-info on" role="button">답글 <span class="reply-num num">1</span>개</a>
+														<a href="javascript:;" class="view-reply-btn bottom-info" role="button">답글 <span class="reply-num num">1</span>개</a>
 													</div>
 													<button type="button" class="comment-menu-btn" aria-label="댓글 메뉴 버튼" onclick="openBottomSheet('#commentMenu')"><span class="hidden">댓글 메뉴</span></button>
 												</div>
@@ -1069,7 +1103,8 @@
 														<div class="info-date bottom-info">3일전</div>
 														<a href="javascript:;" class="like-btn bottom-info" role="button"><div class="like-wrap"><span class="like-num num">25</span></div></a>
 														<a href="javascript:;" class="reply-btn bottom-info" role="button">답글쓰기</a>
-														<a href="javascript:;" class="view-reply-btn bottom-info" role="button">답글 <span class="reply-num num">2</span>개</a>
+														<a href="javascript:;" class="view-reply-btn bottom-info on" role="button">답글 <span class="reply-num num">2</span>개</a>
+														<!-- 예시로 .view-reply-btn에 의도적으로 on클래스를 붙였습니다. default는 on 클래스가 없어야 합니다. -->
 													</div>
 													<button type="button" class="comment-menu-btn" aria-label="댓글 메뉴 버튼" onclick="openBottomSheet('#commentMenu')"><span class="hidden">댓글 메뉴</span></button>
 												</div>
@@ -1112,8 +1147,24 @@
 											</div>
 										</div>
 									</div>
+									<!-- 댓글이 없는 경우 -->
+									<div class="no-comment-case">
+										<p>첫 번째로 이 영상에 댓글을 남겨보세요.</p>
+									</div>
 								</div>
+								
+								<!-- 댓글 입력 박스 -->
 								<div class="input-txt-box">
+									<div class="input-txt-wrap">
+										<input class="comment-input" type="text" placeholder="댓글을 입력해주세요.">
+										<button type="button" class="input-txt-send-btn" aria-label="댓글 작성" onclick=""></button>
+									</div>
+									<div class="input-txt-popup">
+										<div class="input-txt-popup-wrap">
+											<p class="input-popup-cont"><span></span>님에게 답글 남기는 중</p>
+											<button type="button" class="input-popup-cancel-btn" aria-label="답글 취소" onclick=""><span>취소</span></button>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -1181,6 +1232,7 @@
 				<!--==================
 					* Full Page Popup
 				======================-->	
+				<!-- 풀페이지 팝업 열기 : 클래스 open 추가 / 닫기 : open 클래스 제거 -->
 				<div id="full01" class="modal full full01">
 					<div class="full-modal-wrap">
 						<section class="full-modal-content">
@@ -1207,66 +1259,45 @@
 			<section class="component-sec"> <!-- css는 페이지 상단에 있습니다. -->
 				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px;font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;08. Score Ring Graph</p>
 				<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 0 20px;">
-					<!--==================
-						* Score Ring Graph
-						- 각 부문의 점수는 circle.completed 내 속성 stroke-dasharray 값 앞부분에 인라인으로 기입합니다.
-						(ex: 음정 26점 일경우, .ring1 circle.completed 요소에 stroke-dasharray="26, 100")
-					======================-->
-					<div class="ring-graph-container">
-						<svg class="ring-graph" viewBox="0 0 35 35">
-							<!-- 1.음정 -->
-							<g class="ring ring1">
-								<circle class="background"
-									cx="50%" cy="50%"
-									r="15.915"
-									stroke-width="2.1" />
-								<circle class="completed"
-									cx="50%" cy="50%"
-									r="15.915"
-									stroke-width="2.1"
-									stroke-dasharray="46, 100" />
-							</g>
-							
-							<!-- 2.박자 -->
-							<g class="ring ring2">
-								<circle class="background"
-										cx="50%" cy="50%"
-										r="15.915"
-										stroke-width="2.56" />
-									<circle class="completed"
-										cx="50%" cy="50%"
-										r="15.915"
-										stroke-width="2.56"
-										stroke-dasharray="50, 100" />
-							</g>
-							<!-- 3.음높이 -->
-							<g class="ring ring3">
-								<circle class="background"
-										cx="50%" cy="50%"
-										r="15.915"
-										stroke-width="3.281" />
-									<circle class="completed"
-										cx="50%" cy="50%"
-										r="15.915"
-										stroke-width="3.281"
-										stroke-dasharray="70, 100" />
-							</g>
-							<!-- 4.성량 -->
-							<g class="ring ring4">
-								<circle class="background"
-										cx="50%" cy="50%"
-										r="15.915"
-										stroke-width="4.565" />
-									<circle class="completed"
-										cx="50%" cy="50%"
-										r="15.915"
-										stroke-width="4.565"
-										stroke-dasharray="76, 100" />
-							</g>
-						</svg>
-						<div class="ring-graph-score semi-b-num">
-							<!-- 종합 점수 -->
-							<span>75.9</span>
+					<div class="graph-area">
+						<!--==================
+							* Score Ring Graph
+							- 각 부문의 점수는 circle.completed 내 속성 stroke-dasharray 값 앞부분에 인라인으로 기입합니다.
+							(ex: 음정 26점 일경우, .ring1 circle.completed 요소에 stroke-dasharray="26, 100")
+						======================-->
+						<div class="ring-graph-container">
+							<svg class="ring-graph" viewBox="0 0 35 35">
+								<!-- 1.음정 -->
+								<g class="ring ring1">
+									<circle class="background" cx="50%" cy="50%" r="15.915" stroke-width="2.1" />
+									<circle class="completed" cx="50%" cy="50%" r="15.915" stroke-width="2.1" stroke-dasharray="46, 100" />
+								</g>
+								<!-- 2.박자 -->
+								<g class="ring ring2">
+									<circle class="background" cx="50%" cy="50%" r="15.915" stroke-width="2.56" />
+									<circle class="completed" cx="50%" cy="50%" r="15.915" stroke-width="2.56" stroke-dasharray="50, 100" />
+								</g>
+								<!-- 3.음높이 -->
+								<g class="ring ring3">
+									<circle class="background" cx="50%" cy="50%" r="15.915" stroke-width="3.281" />
+									<circle class="completed" cx="50%" cy="50%" r="15.915" stroke-width="3.281" stroke-dasharray="70, 100" />
+								</g>
+								<!-- 4.성량 -->
+								<g class="ring ring4">
+									<circle class="background" cx="50%" cy="50%" r="15.915" stroke-width="4.565" />
+									<circle class="completed" cx="50%" cy="50%" r="15.915" stroke-width="4.565" stroke-dasharray="76, 100" />
+								</g>
+							</svg>
+							<div class="ring-graph-score">
+								<!-- 종합 점수 -->
+								<span class="semi-b-num">75.9</span>
+							</div>
+						</div>
+						<div class="graph-guide-wrap">
+							<div class="graph-guide guide01"><span class="guide-tit caption-txt1">음정</span><p class="graph-point caption-txt1"><strong class="content-txt1">46</strong>점</p></div>
+							<div class="graph-guide guide02"><span class="guide-tit caption-txt1">박자</span><p class="graph-point caption-txt1"><strong class="content-txt1">50</strong>점</p></div>
+							<div class="graph-guide guide03"><span class="guide-tit caption-txt1">음높이</span><p class="graph-point caption-txt1"><strong class="content-txt1">70</strong>점</p></div>
+							<div class="graph-guide guide04"><span class="guide-tit caption-txt1">성량</span><p class="graph-point caption-txt1"><strong class="content-txt1">76</strong>점</p></div>
 						</div>
 					</div>
 				</div>
@@ -1286,21 +1317,112 @@
 						</figure>
 					</div>
 					<div class="">
-						<p style="font-variation-settings: 'wght' 700;">1-1. 이미지 : 1:1</p>
-						<div class="thumbnail-area thumbnail-16" style="width: 250px; height: 250px;">
-							<a href="javascript:;" class="skeleton">
-								<img class="fade-in lazyload middle" decoding="async" src="../asset/images/temp/img-169.png" srcset="../images/img/img3@2x.png 2x" alt="alt값 필수" title="선택적 제목">
-								<img class="fade-in lazyload background" decoding="async" src="../asset/images/common/singit-og-img.jpg" srcset="../images/img/img3@2x.png 2x" alt="alt값 필수" title="선택적 제목">
-							</a>
+						<p style="font-variation-settings: 'wght' 700;">1-1. 이미지 : Default</p>
+						<!-- thumbnail-area onclick 연결(필요시) -->
+						<div class="thumbnail-area skeleton" style="width: 250px; height: 250px;" onclick="location.href='#none'"> 
+							<div class="img-btn-wrap top">
+								<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+								<button type="button" class="img-btn bookmark on" aria-label="북마크 저장"><i></i></button>
+							</div>
+							<div class="thumbnail-wrap">
+								<img class="fade-in lazyload middle" decoding="async" src="../asset/images/temp/img-169-01.jpg" srcset="../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+								<img class="fade-in lazyload background" decoding="async" src="../asset/images/temp/img-169-01.jpg" srcset="../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+							</div>
+							<div class="img-btn-wrap bottom">
+								<div class="play"><span class="num">248</span></div>
+								<div class="time">02:50</div>
+							</div>
 						</div>
 					</div>
 					<div class="">
-						<p style="font-variation-settings: 'wght' 700;">1-2. 이미지 : 16:9</p>
-						<figure>
-							<!-- figcaption은 선택적(필요한 경우) -->
-							<!-- <figcaption>이미지에 대한 타이틀</figcaption> -->
-							<img class="fade-in lazyload" decoding="async" style="width: 250px; height: 250px; margin-top: 20px;" src="../asset/images/common/singit-og-img.jpg" alt="alt값 필수" title="선택적 제목">
-						</figure>
+						<p style="font-variation-settings: 'wght' 700;">1-2. 이미지 : Duet</p>
+						<!-- thumbnail-area onclick 연결(필요시) / 듀엣일 경우 duet 클래스 -->
+						<div class="thumbnail-area skeleton duet" style="width: 250px; height: 250px;" onclick="location.href='#none'"> 
+							<div class="img-btn-wrap top">
+								<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+								<button type="button" class="img-btn bookmark" aria-label="북마크 저장"><i></i></button>
+							</div>
+							<div class="thumbnail-wrap">
+								<img class="fade-in lazyload duet-left" decoding="async" src="../asset/images/temp/img-169-01.jpg" srcset="../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+								<img class="fade-in lazyload duet-right" decoding="async" src="../asset/images/temp/img-169-02.jpg" srcset="../asset/images/temp/img-169-02.jpg 2x" alt="alt값 필수" title="선택적 제목">
+							</div>
+							<div class="img-btn-wrap bottom">
+								<div class="play"><span class="num">248</span></div>
+								<div class="time">02:50</div>
+							</div>
+						</div>
+					</div>
+					<div class="">
+						<p style="font-variation-settings: 'wght' 700;">1-3. 이미지 : 1:1</p>
+						<!-- thumbnail-area onclick 연결(필요시) -->
+						<div class="thumbnail-area skeleton" style="width: 113px; height: 113px;" onclick="location.href='#none'"> 
+							<div class="img-btn-wrap top">
+								<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+								<!-- <button type="button" class="img-btn bookmark" aria-label="북마크 저장"><i></i></button> -->
+							</div>
+							<div class="thumbnail-wrap">
+								<img class="fade-in lazyload middle" decoding="async" src="../asset/images/temp/img-11-01.jpg" srcset="../asset/images/temp/img-11-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+								<img class="fade-in lazyload background" decoding="async" src="../asset/images/temp/img-11-01.jpg" srcset="../asset/images/temp/img-11-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+							</div>
+							<div class="img-btn-wrap bottom">
+								<div class="play"><span class="num">248</span></div>
+								<!-- <div class="time">02:50</div> -->
+							</div>
+						</div>
+					</div>
+					<div class="">
+						<p style="font-variation-settings: 'wght' 700;">1-3. 이미지 : 음성만 녹음시 1:1 앨범커버</p>
+						<!-- thumbnail-area onclick 연결(필요시) / 앨범커버로 노출 될 경우 album 클래스 -->
+						<div class="thumbnail-area skeleton album" style="width: 113px; height: 113px;" onclick="location.href='#none'"> 
+							<div class="img-btn-wrap top">
+								<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+								<!-- <button type="button" class="img-btn bookmark" aria-label="북마크 저장"><i></i></button> -->
+							</div>
+							<div class="thumbnail-wrap">
+								<img class="fade-in lazyload middle" decoding="async" src="../asset/images/temp/img-cover-01.jpg" srcset="../asset/images/temp/img-cover-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+								<img class="fade-in lazyload background" decoding="async" src="../asset/images/temp/img-cover-01.jpg" srcset="../asset/images/temp/img-cover-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+							</div>
+							<div class="img-btn-wrap bottom">
+								<div class="play"><span class="num">248</span></div>
+								<!-- <div class="time">02:50</div> -->
+							</div>
+						</div>
+					</div>
+					<div class="">
+						<p style="font-variation-settings: 'wght' 700;">1-3. 이미지 : 16:9</p>
+						<!-- thumbnail-area onclick 연결(필요시) / 16:9로 노출 될 경우 vertical 클래스 -->
+						<div class="thumbnail-area skeleton vertical" style="width: 113px; height: 228px;" onclick="location.href='#none'"> 
+							<div class="img-btn-wrap top">
+								<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+								<!-- <button type="button" class="img-btn bookmark on" aria-label="북마크 저장"><i></i></button> -->
+							</div>
+							<div class="thumbnail-wrap">
+								<img class="fade-in lazyload middle" decoding="async" src="../asset/images/temp/img-169-04.jpg" srcset="../asset/images/temp/img-169-04.jpg 2x" alt="alt값 필수" title="선택적 제목">
+								<img class="fade-in lazyload background" decoding="async" src="../asset/images/temp/img-169-04.jpg" srcset="../asset/images/temp/img-169-04.jpg 2x" alt="alt값 필수" title="선택적 제목">
+							</div>
+							<div class="img-btn-wrap bottom">
+								<div class="play"><span class="num">248</span></div>
+								<!-- <div class="time">02:50</div> -->
+							</div>
+						</div>
+					</div>
+					<div class="">
+						<p style="font-variation-settings: 'wght' 700;">1-3. 이미지 : 3:4 (페이지 별 사이즈 조절 필요)</p>
+						<!-- thumbnail-area onclick 연결(필요시) -->
+						<div class="thumbnail-area skeleton" style="width: 148px; height: 205px;" onclick="location.href='#none'"> 
+							<div class="img-btn-wrap top">
+								<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+								<!-- <button type="button" class="img-btn bookmark on" aria-label="북마크 저장"><i></i></button> -->
+							</div>
+							<div class="thumbnail-wrap">
+								<img class="fade-in lazyload middle" decoding="async" src="../asset/images/temp/img-169-03.jpg" srcset="../asset/images/temp/img-169-03.jpg 2x" alt="alt값 필수" title="선택적 제목">
+								<img class="fade-in lazyload background" decoding="async" src="../asset/images/temp/img-169-03.jpg" srcset="../asset/images/temp/img-169-03.jpg 2x" alt="alt값 필수" title="선택적 제목">
+							</div>
+							<div class="img-btn-wrap bottom">
+								<div class="play"><span class="num">248</span></div>
+								<div class="time">02:50</div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<br><br><br>
@@ -1310,15 +1432,16 @@
 						<div class="profile-area">
 							<ul class="profile-list-wrap">
 								<li class="profile-list">
-									<!-- profile-wrap 너비 시안에 따라 변경 필요 -->
 									<div class="profile-wrap">
-										<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../asset/images/common/profile-default-img.svg" alt="프로필 기본 이미지"></figure>
-										<div class="profile-info">
-											<p class="profile-tit content-txt3 skeleton">내가 만든쿠키</p>
+										<a href="#none" class="profile-wrap-inner" title="프로필 보기">
+											<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../asset/images/common/profile-default-img.svg" alt="프로필 기본 이미지"></figure>
+											<div class="profile-info">
+												<p class="profile-tit content-txt3 skeleton">내가 만든쿠키 내가 만든쿠키 내가 만든쿠키 내가 만든쿠키 내가 만든쿠키 내가 만든쿠키</p>
+											</div>
+										</a>
+										<div class="btn-wrap profile-btn-wrap follow skeleton">
+											<button type="button" class="basic-btn small line pink on" aria-label="title" onclick="location.href='#none'"><span>팔로우</span></button>
 										</div>
-									</div>
-									<div class="btn-wrap profile-btn-wrap">
-										<button type="button" class="basic-btn small line pinked" aria-label="팔로우" onclick="location.href='#none'"><span>팔로우</span></button>
 									</div>
 								</li>
 							</ul>
@@ -1327,35 +1450,97 @@
 						<div class="profile-area song">
 							<ul class="profile-list-wrap">
 								<li class="profile-list">
-									<!-- profile-wrap 너비 시안에 따라 변경 필요 -->
 									<div class="profile-wrap">
-										<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../asset/images/common/profile-default-img.svg" alt="프로필 기본 이미지"></figure>
-										<div class="profile-info">
-											<p class="profile-tit content-txt3 skeleton">한 페이지가 될 수 있게</p>
-											<span class="profile-txt content-txt3 skeleton">DAY6 (데이식스)</span>
+										<a href="#none" class="profile-wrap-inner" title="프로필 보기">
+											<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../asset/images/common/profile-default-img.svg" alt="프로필 기본 이미지"></figure>
+											<div class="profile-info">
+												<p class="profile-tit content-txt3 skeleton">한 페이지가 될 수 있게 한 페이지가 될 수 있게 한 페이지가 될 수 있게 한 페이지가 될 수 있게</p>
+												<span class="profile-txt content-txt3 skeleton">DAY6 (데이식스) DAY6 (데이식스) DAY6 (데이식스) DAY6 (데이식스) DAY6 (데이식스)</span>
+											</div>
+										</a>
+										<div class="btn-wrap profile-btn-wrap">
+											<button type="button" class="basic-btn small line pink" aria-label="부르기" onclick="location.href='#none'"><span>부르기</span></button>
 										</div>
-									</div>
-									<div class="btn-wrap profile-btn-wrap">
-										<button type="button" class="basic-btn small line pink" aria-label="부르기" onclick="location.href='#none'"><span>부르기</span></button>
 									</div>
 								</li>
 							</ul>
 						</div>
+					</div>
+					<div style="width: 750px;">
 						<br>
-						<div class="bottom-info-wrap">
-							<!-- 게시일 -->
-							<div class="info-date bottom-info">16시간 전</div>
-							<!-- 조회수 -->
-							<div class="info-views bottom-info"><div class="views-wrap"><span class="num">25</span></div></div>
-							<!-- 좋아요 버튼 -->
-							<a href="javascript:;" class="like-btn bottom-info" role="button"><div class="like-wrap"><span class="num">25</span></div></a>
-							<!-- 영상,팔로워,팔로잉 수 -->
-							<div class="info-video bottom-info bottom-profile-info">영상<span class="num">11</span></div>
-							<div class="info-follower bottom-info bottom-profile-info">팔로워<span class="num">1221</span></div>
-							<div class="info-following bottom-info bottom-profile-info">팔로잉<span class="num">1</span></div>
-							<a href="javascript:;" class="lock-btn bottom-info" role="button"><i></i>공개</a>
+						<div class="profile-area song-list">
+							<ul class="profile-list-wrap">
+								<li class="profile-list">
+									<div class="profile-wrap">
+										<div class="profile-wrap-inner" onclick="location.href='#none'">
+											<div class="thumbnail-area skeleton duet"> 
+												<div class="img-btn-wrap top">
+													<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+													<button type="button" class="img-btn bookmark" aria-label="북마크 저장"><i></i></button>
+												</div>
+												<div class="thumbnail-wrap">
+													<img class="fade-in lazyload duet-left" decoding="async" src="../asset/images/temp/img-169-01.jpg" srcset="../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+													<img class="fade-in lazyload duet-right" decoding="async" src="../asset/images/temp/img-169-02.jpg" srcset="../asset/images/temp/img-169-02.jpg 2x" alt="alt값 필수" title="선택적 제목">
+												</div>
+												<div class="img-btn-wrap bottom">
+													<div class="play"><span class="num">248</span></div>
+													<div class="time">02:50</div>
+												</div>
+											</div>
+											<div class="profile-info">
+												<p class="profile-tit content-txt3 skeleton" style="margin: 0;">Moonlight sunrise Moonlight sunrise Moonlight sunrise Moonlight sunrise</p>
+												<span class="profile-txt caption-txt1 skeleton">트와이스 트와이스 트와이스 트와이스 트와이스 트와이스</span>
+											</div>
+											<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+											<div class="song-by-info skeleton">
+												<figure class="profile-img">
+													<!-- 이미지 확장자 추천 jpg -->
+													<img class="fade-in lazyloaded duet01" src="../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+												</figure>
+												<p class="profile-name" style="margin: 0;">두아리파앙파앙파앙&달고달디단냥이냥이냥이</p>
+											</div>
+										</a>
+									</div>
+								</li>
+								<li class="profile-list">
+									<div class="profile-wrap">
+										<div class="profile-wrap-inner" onclick="location.href='#none'">
+											<div class="thumbnail-area skeleton"> 
+												<div class="img-btn-wrap top">
+													<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+													<button type="button" class="img-btn bookmark on" aria-label="북마크 저장"><i></i></button>
+												</div>
+												<div class="thumbnail-wrap">
+													<img class="fade-in lazyload middle" decoding="async" src="../asset/images/temp/img-169-01.jpg" srcset="../asset/images/temp/img-169-01.jpg 2x" alt="Moonlight sunrise 트와이스">
+													<img class="fade-in lazyload background" decoding="async" src="../asset/images/temp/img-169-01.jpg" srcset="../asset/images/temp/img-169-01.jpg 2x" alt="Moonlight sunrise 트와이스">
+												</div>
+												<div class="img-btn-wrap bottom">
+													<div class="play"><span class="num">248</span></div>
+													<div class="time">02:50</div>
+												</div>
+											</div>
+											<div class="profile-info">
+												<p class="profile-tit content-txt3 skeleton" style="margin: 0;">Moonlight sunrise Moonlight sunrise Moonlight sunrise Moonlight sunrise</p>
+												<span class="profile-txt caption-txt1 skeleton">트와이스 트와이스 트와이스 트와이스 트와이스 트와이스</span>
+											</div>
+											<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+											<div class="song-by-info skeleton duet">
+												<figure class="profile-img">
+													<!-- 이미지 확장자 추천 jpg -->
+													<img class="fade-in lazyloaded duet01" src="../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+													<img class="fade-in lazyloaded duet02" src="../asset/images/temp/profile-temp01.png" alt="프로필 이미지">
+												</figure>
+												<p class="profile-name" style="margin: 0;">두아리파앙&달고달디단냥이</p>
+											</div>
+										</a>
+									</div>
+								</li>
+							</ul>
 						</div>
 					</div>
+				</div>
+				<br><br><br>
+				<div style="display: flex; flex-wrap: wrap; gap: 40px; padding: 0 20px;">
 					<div>
 						<p style="font-variation-settings: 'wght' 700;">3. label</p>
 						<div class="status-label">
@@ -1368,6 +1553,58 @@
 						<div class="status-label round">
 							<span class="red">솔로</span>
 							<span class="blue">듀엣</span>
+						</div>
+					</div>
+					<div style="width: 550px;">
+						<p style="font-variation-settings: 'wght' 700;">4. 기타 요소</p>
+						<div class="bottom-info-wrap">
+							<!-- 게시일 -->
+							<div class="info-date bottom-info">16시간 전</div>
+							<!-- 조회수 -->
+							<div class="info-views bottom-info"><div class="views-wrap"><span class="num">25</span></div></div>
+							<!-- 좋아요 버튼 -->
+							<a href="javascript:;" class="like-btn bottom-info" role="button"><div class="like-wrap"><span class="num">25</span></div></a>
+							<!-- 영상,팔로워,팔로잉 수 -->
+							<div class="info-video bottom-info bottom-profile-info">영상<span class="num">11</span></div>
+							<div class="info-follower bottom-info bottom-profile-info">팔로워<span class="num">1221</span></div>
+							<div class="info-following bottom-info bottom-profile-info">팔로잉<span class="num">1</span></div>
+							<a href="javascript:;" class="lock-btn bottom-info" role="button"><i></i><span>공개</span></a>
+						</div>
+						<div class="sorting-tit-wrap">
+							<p class="sorting-tit content-txt3">전체 <span>6개</span></p>
+							<ul class="sorting-list">
+								<li class="content-txt3 active"><a href="javascript:;" title="최신순">최신순</a></li>
+								<li class="content-txt3"><a href="javascript:;" title="참여순">참여순</a></li>
+							</ul>
+						</div>
+						<div class="sorting-tit-wrap">
+							<p class="sorting-tit content-txt3">전체 <span>4개</span></p>
+							<ul class="sorting-list">
+								<li class="content-txt3">
+									<div class="btn-wrap">
+										<button type="button" class="basic-btn sel txt" aria-label="최신순" onclick="openBottomSheet('#sorting-popup')" title="최신순"><span class="selected-txt">최신순</span></button>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<br>
+						<!--==================
+							* 더보기 텍스트 아티클 (.more-article)
+							- 텍스트 영역인 .more-article-txt이 2줄 초과가 될 경우, '더보기'가 노출 됩니다.
+							- 2줄 이하일 경우 notmore 클래스가 추가되며, '더보기'가 노출 되지 않습니다.
+							- 2줄 초과 상태인 텍스트 영역인 .more-article-txt 클릭시, overview 클래스가 토글됩니다.
+						======================-->
+						<div class="more-article content-txt2">
+							<div class="more-article-wrap">
+								<p class="more-article-txt">
+								내가 만든 쿠키 너를 위해 구웠지 But you know that it ain't for free, yeah 내가 만든 쿠키 너무 부드러우니 자꾸만 떠오르니 널 choco-chip으로 Sprinkle로 입맛 버리게 만들고 싶어 숨기고 있지만 널 더 보고 싶어</p>
+							</div>
+						</div>
+						<br>
+						<div class="btn-wrap follow-btn-wrap">
+							<button type="button" class="basic-btn red round follow-btn" aria-label="팔로우" onclick=""><span>팔로우</span></button>
+							<button type="button" class="basic-btn line round following-btn" aria-label="팔로잉" onclick=""><span>팔로잉</span></button>
+							<button type="button" class="basic-btn round line black-line gift-btn" aria-label="선물하기" onclick="modalPopup('#giftScPop')"><span>선물하기</span></button>
 						</div>
 					</div>
 				</div>

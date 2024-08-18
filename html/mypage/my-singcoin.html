@@ -93,180 +93,178 @@
 				<section class="section my-sc-sec">
 					<div class="inner">
 						<h3 class="section-title hidden">싱코인 이용내역</h3>
-						<div class="section-tit-wrap">
-							<div class="section-content">
-								<div class="my-sc-box content-txt2">
-									<p>내 싱코인</p>
-									<div class="sc-num"><span class="num content-txt1 medium-num">105506</span>개</div> <!-- .sc-num span.num에 현재 보유중인 싱코인 숫자가 들어갑니다. -->
-								</div>
-								<div class="tab-btn-container sc-history-container">
-									<ul class="tab-btn-menu">
-										<li class="tab-btn-link current" data-tab="tab-btn-1"><a href="javascript:;"><span>전체</span></a></li>
-										<li class="tab-btn-link" data-tab="tab-btn-2"><a href="javascript:;"><span>충전/적립</span></a></li>
-										<li class="tab-btn-link" data-tab="tab-btn-3"><a href="javascript:;"><span>사용/소멸</span></a></li>
-									</ul>
-									<div class="tab-btn-cont-wrap content-txt3">
-										<div id="tab-btn-1" class="tab-btn-cont current">
-											<div class="sc-history-wrap">
-												<div class="sc-history sc-minus">
-													<div class="sc-history-txt">
-														<div class="sc-history-tit">코인 챌린지 실패</div>
-														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
-														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
-													</div>
-													<div class="sc-history-amount">
-														<span class="sc-history-num num content-txt2 medium-num">100</span>개
-													</div>
-													<!--==================
-														* sc-history-amount
-														- span.sc-history-num에 숫자 절대값만 넣어주세요.
-														사용/소멸한 케이스의 경우 .sc-history의 sc-minus 클래스에 의해 자동으로 마이너스 부호(-)가 붙습니다.
-														(ex1: -100개 일 경우, <span class="sc-history-num">100</span>개)
-													======================-->
+						<div class="section-content">
+							<div class="my-sc-box content-txt2">
+								<p>내 싱코인</p>
+								<div class="sc-num"><span class="num content-txt1 medium-num">105506</span>개</div> <!-- .sc-num span.num에 현재 보유중인 싱코인 숫자가 들어갑니다. -->
+							</div>
+							<div class="tab-btn-container sc-history-container scroll-tab-wrap">
+								<ul class="tab-btn-menu scroll-tab">
+									<li class="tab-btn-link current" data-tab="tab-btn-1"><a href="javascript:;"><span>전체</span></a></li>
+									<li class="tab-btn-link" data-tab="tab-btn-2"><a href="javascript:;"><span>충전/적립</span></a></li>
+									<li class="tab-btn-link" data-tab="tab-btn-3"><a href="javascript:;"><span>사용/소멸</span></a></li>
+								</ul>
+								<div class="tab-btn-cont-wrap content-txt3 scroll-tab-cont">
+									<div id="tab-btn-1" class="tab-btn-cont current">
+										<div class="sc-history-wrap">
+											<div class="sc-history sc-minus">
+												<div class="sc-history-txt">
+													<div class="sc-history-tit">코인 챌린지 실패</div>
+													<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+													<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
 												</div>
-												<div class="sc-history">
-													<div class="sc-history-txt">
-														<div class="sc-history-tit">챌린지 성공 보상</div>
-														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
-														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
-													</div>
-													<div class="sc-history-amount">
-														<span class="sc-history-num num content-txt2 medium-num">500</span>개
-													</div>
+												<div class="sc-history-amount">
+													<span class="sc-history-num num content-txt2 medium-num">100</span>개
 												</div>
-												<div class="sc-history">
-													<div class="sc-history-txt">
-														<div class="sc-history-tit">1등 보상</div>
-														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
-														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
-													</div>
-													<div class="sc-history-amount">
-														<span class="sc-history-num num content-txt2 medium-num">500</span>개
-													</div>
+												<!--==================
+													* sc-history-amount
+													- span.sc-history-num에 숫자 절대값만 넣어주세요.
+													사용/소멸한 케이스의 경우 .sc-history의 sc-minus 클래스에 의해 자동으로 마이너스 부호(-)가 붙습니다.
+													(ex1: -100개 일 경우, <span class="sc-history-num">100</span>개)
+												======================-->
+											</div>
+											<div class="sc-history">
+												<div class="sc-history-txt">
+													<div class="sc-history-tit">챌린지 성공 보상</div>
+													<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+													<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
 												</div>
-												<div class="sc-history">
-													<div class="sc-history-txt">
-														<div class="sc-history-tit">테스트합니다. 테스트 중인 이용내역. 이용내역 테스트.</div>
-														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
-														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
-													</div>
-													<div class="sc-history-amount">
-														<span class="sc-history-num num content-txt2 medium-num">550000</span>개
-													</div>
+												<div class="sc-history-amount">
+													<span class="sc-history-num num content-txt2 medium-num">500</span>개
 												</div>
-												<div class="sc-history">
-													<div class="sc-history-txt">
-														<div class="sc-history-tit">음역테스트 성공 보상</div>
-														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
-														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
-													</div>
-													<div class="sc-history-amount">
-														<span class="sc-history-num num content-txt2 medium-num">100</span>개
-													</div>
+											</div>
+											<div class="sc-history">
+												<div class="sc-history-txt">
+													<div class="sc-history-tit">1등 보상</div>
+													<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+													<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
 												</div>
-												<div class="sc-history sc-minus">
-													<div class="sc-history-txt">
-														<div class="sc-history-tit">테스트합니다. 테스트 중인 이용내역. 이용내역 테스트. 테스트</div>
-														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
-														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
-													</div>
-													<div class="sc-history-amount">
-														<span class="sc-history-num num content-txt2 medium-num">150000</span>개
-													</div>
+												<div class="sc-history-amount">
+													<span class="sc-history-num num content-txt2 medium-num">500</span>개
 												</div>
-												<div class="sc-history sc-minus">
-													<div class="sc-history-txt">
-														<div class="sc-history-tit">“내가만든쿠키”님에게 보낸 선물</div>
-														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
-														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
-													</div>
-													<div class="sc-history-amount">
-														<span class="sc-history-num num content-txt2 medium-num">200</span>개
-													</div>
+											</div>
+											<div class="sc-history">
+												<div class="sc-history-txt">
+													<div class="sc-history-tit">테스트합니다. 테스트 중인 이용내역. 이용내역 테스트.</div>
+													<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+													<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+												</div>
+												<div class="sc-history-amount">
+													<span class="sc-history-num num content-txt2 medium-num">550000</span>개
+												</div>
+											</div>
+											<div class="sc-history">
+												<div class="sc-history-txt">
+													<div class="sc-history-tit">음역테스트 성공 보상</div>
+													<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+													<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+												</div>
+												<div class="sc-history-amount">
+													<span class="sc-history-num num content-txt2 medium-num">100</span>개
+												</div>
+											</div>
+											<div class="sc-history sc-minus">
+												<div class="sc-history-txt">
+													<div class="sc-history-tit">테스트합니다. 테스트 중인 이용내역. 이용내역 테스트. 테스트</div>
+													<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+													<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+												</div>
+												<div class="sc-history-amount">
+													<span class="sc-history-num num content-txt2 medium-num">150000</span>개
+												</div>
+											</div>
+											<div class="sc-history sc-minus">
+												<div class="sc-history-txt">
+													<div class="sc-history-tit">“내가만든쿠키”님에게 보낸 선물</div>
+													<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+													<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+												</div>
+												<div class="sc-history-amount">
+													<span class="sc-history-num num content-txt2 medium-num">200</span>개
 												</div>
 											</div>
 										</div>
-										<div id="tab-btn-2" class="tab-btn-cont">
-											<div class="sc-history-wrap">
-												<div class="sc-history">
-													<div class="sc-history-txt">
-														<div class="sc-history-tit">챌린지 성공 보상</div>
-														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
-														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
-													</div>
-													<div class="sc-history-amount">
-														<span class="sc-history-num num content-txt2 medium-num">500</span>개
-													</div>
+									</div>
+									<div id="tab-btn-2" class="tab-btn-cont">
+										<div class="sc-history-wrap">
+											<div class="sc-history">
+												<div class="sc-history-txt">
+													<div class="sc-history-tit">챌린지 성공 보상</div>
+													<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+													<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
 												</div>
-												<div class="sc-history">
-													<div class="sc-history-txt">
-														<div class="sc-history-tit">1등 보상</div>
-														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
-														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
-													</div>
-													<div class="sc-history-amount">
-														<span class="sc-history-num num content-txt2 medium-num">500</span>개
-													</div>
+												<div class="sc-history-amount">
+													<span class="sc-history-num num content-txt2 medium-num">500</span>개
 												</div>
-												<div class="sc-history">
-													<div class="sc-history-txt">
-														<div class="sc-history-tit">테스트합니다. 테스트 중인 이용내역. 이용내역 테스트.</div>
-														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
-														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
-													</div>
-													<div class="sc-history-amount">
-														<span class="sc-history-num num content-txt2 medium-num">550000</span>개
-													</div>
+											</div>
+											<div class="sc-history">
+												<div class="sc-history-txt">
+													<div class="sc-history-tit">1등 보상</div>
+													<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+													<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
 												</div>
-												<div class="sc-history">
-													<div class="sc-history-txt">
-														<div class="sc-history-tit">음역테스트 성공 보상</div>
-														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
-														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
-													</div>
-													<div class="sc-history-amount">
-														<span class="sc-history-num num content-txt2 medium-num">100</span>개
-													</div>
+												<div class="sc-history-amount">
+													<span class="sc-history-num num content-txt2 medium-num">500</span>개
+												</div>
+											</div>
+											<div class="sc-history">
+												<div class="sc-history-txt">
+													<div class="sc-history-tit">테스트합니다. 테스트 중인 이용내역. 이용내역 테스트.</div>
+													<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+													<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+												</div>
+												<div class="sc-history-amount">
+													<span class="sc-history-num num content-txt2 medium-num">550000</span>개
+												</div>
+											</div>
+											<div class="sc-history">
+												<div class="sc-history-txt">
+													<div class="sc-history-tit">음역테스트 성공 보상</div>
+													<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+													<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+												</div>
+												<div class="sc-history-amount">
+													<span class="sc-history-num num content-txt2 medium-num">100</span>개
 												</div>
 											</div>
 										</div>
-										<div id="tab-btn-3" class="tab-btn-cont">
-											<div class="sc-history-wrap">
-												<div class="sc-history sc-minus">
-													<div class="sc-history-txt">
-														<div class="sc-history-tit">코인 챌린지 실패</div>
-														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
-														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
-													</div>
-													<div class="sc-history-amount">
-														<span class="sc-history-num num content-txt2 medium-num">100</span>개
-													</div>
-													<!--==================
-														* sc-history-amount
-														- span.sc-history-num에 숫자 절대값만 넣어주세요.
-														사용/소멸한 케이스의 경우 .sc-history의 sc-minus 클래스에 의해 자동으로 마이너스 부호(-)가 붙습니다.
-														(ex1: -100개 일 경우, <span class="sc-history-num">100</span>개)
-													======================-->
+									</div>
+									<div id="tab-btn-3" class="tab-btn-cont">
+										<div class="sc-history-wrap">
+											<div class="sc-history sc-minus">
+												<div class="sc-history-txt">
+													<div class="sc-history-tit">코인 챌린지 실패</div>
+													<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+													<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
 												</div>
-												<div class="sc-history sc-minus">
-													<div class="sc-history-txt">
-														<div class="sc-history-tit">테스트합니다. 테스트 중인 이용내역. 이용내역 테스트. 테스트</div>
-														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
-														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
-													</div>
-													<div class="sc-history-amount">
-														<span class="sc-history-num num content-txt2 medium-num">150000</span>개
-													</div>
+												<div class="sc-history-amount">
+													<span class="sc-history-num num content-txt2 medium-num">100</span>개
 												</div>
-												<div class="sc-history sc-minus">
-													<div class="sc-history-txt">
-														<div class="sc-history-tit">“내가만든쿠키”님에게 보낸 선물</div>
-														<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
-														<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
-													</div>
-													<div class="sc-history-amount">
-														<span class="sc-history-num num content-txt2 medium-num">200</span>개
-													</div>
+												<!--==================
+													* sc-history-amount
+													- span.sc-history-num에 숫자 절대값만 넣어주세요.
+													사용/소멸한 케이스의 경우 .sc-history의 sc-minus 클래스에 의해 자동으로 마이너스 부호(-)가 붙습니다.
+													(ex1: -100개 일 경우, <span class="sc-history-num">100</span>개)
+												======================-->
+											</div>
+											<div class="sc-history sc-minus">
+												<div class="sc-history-txt">
+													<div class="sc-history-tit">테스트합니다. 테스트 중인 이용내역. 이용내역 테스트. 테스트</div>
+													<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+													<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+												</div>
+												<div class="sc-history-amount">
+													<span class="sc-history-num num content-txt2 medium-num">150000</span>개
+												</div>
+											</div>
+											<div class="sc-history sc-minus">
+												<div class="sc-history-txt">
+													<div class="sc-history-tit">“내가만든쿠키”님에게 보낸 선물</div>
+													<div class="sc-history-date caption-txt1"><span class="sc-history-day">2024.07.26</span> <span class="sc-history-time">16:00</span></div>
+													<!-- .sc-history-day에 날짜, .sc-history-time에 시간이 들어갑니다. -->
+												</div>
+												<div class="sc-history-amount">
+													<span class="sc-history-num num content-txt2 medium-num">200</span>개
 												</div>
 											</div>
 										</div>
@@ -291,28 +289,7 @@
 						});
 					});
 				</script>
-
-				<!-- Floating Button -->
-				<aside id="singit-box" class="content-txt2">
-					<a href="javascript:;" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
-				</aside>
 			</main>
-
-			<!--========== APP BAR : FOOTER ==========-->
-			<footer id="footer"></footer>
-			<script>
-				$(function () {
-					$('#footer').load("../include/footer.html", function () {
-						// 로드된 후에 실행될 코드
-						$.getScript("../../asset/js/footer.js");
-					});
-				});
-			</script>
-
-			<!--========== TOAST POPUP ==========-->
-			<div class="toast-popup-group">
-
-			</div>
 		</div>
 	</div>
 </body>

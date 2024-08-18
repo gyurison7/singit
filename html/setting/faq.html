@@ -113,13 +113,13 @@
 						<h3 class="section-title hidden">고객센터</h3>
 					</div>
 					<div class="section-content">
-						<div class="tab-container">
-							<ul class="tab-menu">
+						<div class="tab-container scroll-tab-wrap">
+							<ul class="tab-menu scroll-tab">
 								<li class="slider"></li>
 								<li class="tab-link current" data-tab="tab-1"><a href="javascript:;"><span>FAQ</span></a></li>
 								<li class="tab-link" data-tab="tab-2"><a href="javascript:;"><span>1:1 문의</span></a></li>
 							</ul>
-							<div class="inner">
+							<div class="inner scroll-tab-cont">
 								<div class="tab-content-wrap">
 									<div class="btn-wrap">
 										<button type="button" class="basic-btn sel round" aria-label="title" onclick="openBottomSheet('#selected')" title="노래부르기">
@@ -207,8 +207,14 @@
 					</div>
 				</section>
 			</main>
+
 			<!--========== TOAST POPUP ==========-->
 			<div class="toast-popup-group">
+				<!--==================
+					* Bottom Sheet
+					- openBottomSheet('#아이디값')에 의해, 해당 되는 아이디값의 .bottom-sheet-wrap를 호출합니다.
+					- sheet 크기가 커지지 못하는 경우, 클래스 sheet-stretch 대신 unable-stretch을 추가합니다.
+				======================-->
 				<div id="selected" class="bottom-sheet-wrap check faq">
 					<div class="bottom-sheet sheet-stretch"> 
 						<div class="handle-area">
@@ -228,6 +234,7 @@
 					<div class="bottom-sheet-dimmed"></div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </body>
