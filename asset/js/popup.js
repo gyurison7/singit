@@ -70,9 +70,15 @@ function modalPopAllClose(){
 }
 $(document).mouseup(function (e){
 	var modalPop = $(".modal:not(.alert)");
-	var modalFull = $(".modal.full");
-	if($(".modal.open").length > 0 && modalPop.has(e.target).length === 0 && !modalFull.has(e.target).length === 0 && !($(".modal.alert").hasClass("open"))){
-		modalPopAllClose();
+
+	if($(".modal.open").length > 0 && modalPop.has(e.target).length === 0 && !($(".modal.alert").hasClass("open"))){
+		if($(".modal.full.open").length > 0){
+			if(!$(".modal.full").has(e.target).length === 0){
+				modalPopAllClose();
+			}
+		} else {
+			modalPopAllClose();
+		}
 	}
 });
 

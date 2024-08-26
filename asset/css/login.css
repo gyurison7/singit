@@ -60,3 +60,19 @@
 @media screen and (min-width: 421px){
     .login-email.pw .login-section .inner {font-size: clamp(16px, 4.267vw, 20px);} 
 }
+
+/*========== login App ==========*/
+#accessPopup .modal-content { display: flex; flex-direction: column; max-height: inherit; }
+#accessPopup .modal-content .modal-cont-wrap { display: flex; flex-direction: column; padding: 2.50em 1.250em;}
+#accessPopup .modal-tit-wrap .modal-tit { text-align: left; }
+#accessPopup .modal-txt-wrap { padding: 0 0 1.43em; border-top: 0; color: #888888; font-weight: 400; font-variation-settings: "wght" 400; word-break: keep-all; }
+.access-rights-list { overflow-y: auto; border-top: 1px solid var(--basic-line-color); color: #333; }
+.access-rights-list li { display: flex; }
+.access-rights-list .list-tit-required { padding: 1.43em 0 1.14em; }
+.access-rights-list .list-tit-option { padding: 1.71em 0 1.36em; }
+.access-rights-list .access-rights-item3 { padding-top: 1.5em; }
+.access-rights-list .access-rights-item4, .access-rights-list .access-rights-item5 { padding-top: 1.25em; }
+.access-rights-list .img-wrap { display: flex; justify-content: center; align-items: center; width: 2.63em; height: 2.63em; background-color: #EEEEEE; border-radius: 50%; }
+.access-rights-list .img-wrap img { width: 1.5em; height: 1.5em; }
+.access-rights-list .access-rights-txt-wrap { display: flex; flex-direction: column; flex: 1; padding: 0 1.3em 0 1em; }
+.access-rights-list .access-rights-desc { color: #888888; font-weight: 400; font-variation-settings: "wght" 400; word-break: keep-all; }

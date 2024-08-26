@@ -67,6 +67,40 @@
 		.component-sec:not(.first) {margin: 80px 0;}
 		.component-sec p:not(.modal-sub-tit) {margin-bottom: 10px;}
 		.component-sec .toast-popup p {margin-bottom: 0 !important;}
+
+		.text-content {
+
+  overflow: hidden;
+  display: block;
+display: -webkit-box;
+display: box;
+position: relative;
+width: 100%;
+min-height: 2.58em;
+line-height: 1.42;
+max-height: 2.84em; /* line-height의 2배 */
+font-weight: 400;
+font-variation-settings: 'wght' 400;
+color: #666;
+overflow: hidden;
+text-overflow: ellipsis;
+line-clamp: 2;
+-webkit-line-clamp: 2;
+box-orient: vertical;
+-webkit-box-orient: vertical; white-space: normal;
+}
+.read-more {
+  float: right;
+  margin-top: -1.5em; /* -line-height */
+  position: relative;
+  background: white;
+  padding-left: 5px;
+}
+.ellipsis {
+  position: absolute;
+  right: 0;
+  background: white;
+}
 	</style>
 </head>
 
@@ -1600,6 +1634,67 @@
 								내가 만든 쿠키 너를 위해 구웠지 But you know that it ain't for free, yeah 내가 만든 쿠키 너무 부드러우니 자꾸만 떠오르니 널 choco-chip으로 Sprinkle로 입맛 버리게 만들고 싶어 숨기고 있지만 널 더 보고 싶어</p>
 							</div>
 						</div>
+
+						<div class="text-container">
+							<div class="text-content">영상에 대한 설명이 들어갑니다. 영상에 대한 설명이 들어갑니다. 영상에 대한 설명이 들어갑니다. 영상에 대한 설명이 들어갑니다.</div>
+<a href="#" class="read-more">더보기</a>
+</div>
+<script>
+$(document).ready(function() {
+  const $textContent = $('.text-content');
+  const originalText = $textContent.text();
+  const lineClamp = 2; // 2줄로 제한
+
+  function calculateLines(text, container) {
+    const testElement = $('<div>').text(text).css({
+      visibility: 'hidden',
+      position: 'absolute',
+      width: container.width(),
+      lineHeight: container.css('lineHeight'),
+      fontSize: container.css('fontSize'),
+      fontFamily: container.css('fontFamily')
+    }).appendTo(container.parent());
+    const height = testElement.height();
+    const lineHeight = parseFloat(container.css('lineHeight'));
+    const numberOfLines = Math.ceil(height / lineHeight);
+    testElement.remove();
+    return numberOfLines;
+  }
+
+  const textArray = originalText.split('');
+  let currentLines = 0;
+  let index = 0;
+
+  while (currentLines < lineClamp && index < textArray.length) {
+    const textSnippet = textArray.slice(0, index + 1).join('');
+    currentLines = calculateLines(textSnippet, $textContent);
+    if (currentLines <= lineClamp) {
+      index++;
+    } else {
+      break;
+    }
+  }
+
+  let finalText = textArray.slice(0, index).join('');
+  while (calculateLines(finalText + '...', $textContent) > lineClamp) {
+    finalText = finalText.slice(0, -1);
+  }
+
+  if (finalText !== originalText) {
+    $textContent.html(finalText + '<span class="ellipsis">...</span>');
+    $('.read-more').show();
+  } else {
+    $textContent.text(originalText);
+  }
+
+  $('.read-more').on('click', function(e) {
+    e.preventDefault();
+    $textContent.text(originalText);
+    $(this).hide();
+  });
+});
+</script>
+
 						<br>
 						<div class="btn-wrap follow-btn-wrap">
 							<button type="button" class="basic-btn red round follow-btn" aria-label="팔로우" onclick=""><span>팔로우</span></button>

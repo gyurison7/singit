@@ -37,8 +37,11 @@
 /*========== 고객센터 ==========*/
 .tab-menu li.tab-link { width: 50%; } 
 .tab-menu li.slider { width: calc((100% - 32px) / 2); } 
-.btn-wrap .basic-btn.sel { margin-top: 1.21em; font-weight: 500; font-variation-settings: "wght" 500; } 
-.tab-content { margin-top: 1.75em; } 
+/* .btn-wrap .basic-btn.sel { margin-top: 1.21em; font-weight: 500; font-variation-settings: "wght" 500; } 
+.tab-content { margin-top: 1.75em; }  */
+.tab-content-wrap .btn-wrap:first-child { position: sticky; top: calc(2.75em + 2.876em + 1px); z-index: 100; padding: 1em 0 1.75em; background-color: #fff; }
+.tab-content-wrap .btn-wrap .basic-btn.sel { font-weight: 500; font-variation-settings: "wght" 500; } 
+.tab-content { margin-top: 1px; }
 
 /*========== faq, 서비스 이용 약관 공통 ==========*/
 .toggle-list { border-top: 1px solid #707070; } 
@@ -60,3 +63,7 @@
 .full-modal-cont.info .toggle-title { position: sticky; top: 0; background: #fff; }
 .temrs_service_wrap a { display: inline; color: #666; }
 .temrs_service_wrap .t_01, .temrs_service_wrap .t_02, .temrs_service_wrap strong { font-weight: 600; font-variation-settings: "wght" 600; }
+
+@media screen and (min-width: 421px){
+    .tab-content-wrap .btn-wrap:first-child { font-size: clamp(16px, 4.267vw, 20px); } 
+}

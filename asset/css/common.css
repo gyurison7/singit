@@ -204,7 +204,8 @@ Common
 }
 /* Couple */
 .btn-wrap.couple { display: flex; flex-wrap: wrap; gap: 1em; } 
-.btn-wrap.couple .basic-btn { flex: 0 0 calc(100%/2 - 0.6em); } 
+.btn-wrap.couple .inner { display: flex; flex-wrap: wrap; gap: 1em; width: 100%; } 
+.btn-wrap.couple .basic-btn { flex: 0 0 calc(100%/2 - 0.5em); min-width: auto; } 
 
 /* Multi */
 .btn-wrap.multi { display: flex; flex-wrap: wrap; gap: 1em; } 
@@ -495,10 +496,13 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 
 /*========== 더보기 텍스트 아티클 (.more-article) ==========*/
 .more-article-wrap { display: flex; width: 100%; } 
-.more-article-txt { width: 100%; font-weight: 400; font-variation-settings: 'wght' 400; color: #666; text-overflow: ellipsis; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; white-space: unset; -webkit-line-clamp: 2; } 
-.more-article-txt::before { content: "더보기"; float: right; display: flex; align-items: flex-end; height: 100%; shape-outside: inset(calc(100% - 10px) 0 0 0); font-weight: 700; font-variation-settings: 'wght' 700; color: #666; } 
+.more-article-txt { display: block; display: -webkit-box; display: box; position: relative; width: 100%; height: 2.58em; line-height: 1.42; font-weight: 400; font-variation-settings: 'wght' 400; color: #666; overflow: hidden; text-overflow: ellipsis; line-clamp: 2; -webkit-line-clamp: 2; box-orient: vertical; -webkit-box-orient: vertical; white-space: normal; } 
+
+/* .view-more-btn { float: right; display: flex; align-items: flex-end; height: 100%; shape-outside: inset(calc(100% - 10px) 0 0 0); font-weight: 700; font-variation-settings: 'wght' 700; color: #888; line-height: 2.71; } */
+.more-article-txt::before { content: "더보기"; float: right; display: flex; align-items: flex-end; height: 100%; shape-outside: inset(calc(100% - 10px) 0 0 0); font-weight: 700; font-variation-settings: 'wght' 700; color: #888; line-height: 1; } 
 .more-article-txt.notmore::before, .more-article-txt.overview::before { display: none; } 
-.more-article-txt.overview { display: block; -webkit-line-clamp: unset; max-height: none; overflow: visible; } 
+.more-article-txt.overview { display: block; height: auto; -webkit-line-clamp: unset; max-height: none; overflow: visible; } 
+.more-article-txt.overview .view-more-btn { display: none; } 
 
 /*========== Ring Graph ==========*/
 /* Graph */
@@ -528,7 +532,7 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 }
 
 /* Guide */
-.graph-guide-wrap { display: flex; justify-content: center; align-items: center; width: 100%; padding: 1.13em 0; background-color: #F8F8F8; border-radius: 0.63em; font-size: 1rem; } 
+.graph-guide-wrap { display: flex; justify-content: center; align-items: center; width: 100%; padding: 1em 0; background-color: #F8F8F8; border-radius: 0.63em; font-size: 1rem; } 
 .graph-guide-wrap .graph-guide { display: flex; flex-direction: column; justify-content: center; align-items: center; width: calc(100% / 4); } 
 .graph-guide-wrap .graph-guide + .graph-guide { position: relative; font-size: inherit; } 
 .graph-guide-wrap .graph-guide + .graph-guide::before { content: ''; position: absolute; top: 50%; left: -0.5px; transform: translate(0, -50%); width: 1px; height: 2.38em; background-color: #ddd; } 

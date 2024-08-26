@@ -600,6 +600,7 @@ $(function(){
 	if($(".more-article").length <= 0) return;
 
 	const moreArticleText = document.querySelector('.more-article-txt');
+	const moreButton = document.querySelector('.view-more-btn');
 	
 	function checkTextOverflow() {
         const lineHeight = parseInt(window.getComputedStyle(moreArticleText).lineHeight);
@@ -632,6 +633,7 @@ $(function(){
         }
     });
 });
+
 
 /* 싱코인 선물하기 팝업 */
 $(function(){
