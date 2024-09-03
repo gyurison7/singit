@@ -16,8 +16,7 @@ $(function () {
 	});
 });
 
-/*========== Basic ==========*/
-// skeleton
+/*========== Skeleton ==========*/
 $(function () {
 	if ($(".skeleton").length > 0) {
 		const skeletonItem = document.querySelectorAll('.skeleton');
@@ -32,7 +31,7 @@ $(function () {
 	}
 });
 
-/* Tab Menu */
+/*========== Tab Menu ==========*/
 $(function(){
 	if ($(".tab-container").length > 0) {
 		$('ul.tab-menu li.tab-link a').click(function (e) {
@@ -98,7 +97,7 @@ $(function(){
 	};
 });
 
-/* Tab Btn Menu */
+/*========== Tab Btn Menu ==========*/
 $(function(){
 	if ($(".tab-btn-container").length > 0) {
 		$('ul.tab-btn-menu li.tab-btn-link a').click(function (e) {
@@ -111,37 +110,20 @@ $(function(){
 	};
 });
 
-/* Floating Button */
-// $(function () {
-// 	$(window).scroll(function(e) {
-// 		e.preventDefault(); 
-//         FloatBtn();
-// 		if ($(this).scrollTop() > 100) {
-// 			$('#singit-box"').fadeIn();
-// 		} else {
-// 			$('#singit-box"').fadeOut();
-// 		}
-// 	});
-// 	function FloatBtn(){
-// 		var WindowT = $(window).scrollTop();
-// 		var FooterHt = $('#footer').outerHeight();
-// 		var DocHt = $(document).height();
-//         var FloationgVal = DocHt - $(window).height() - FooterHt - ($(window).height()*0.02);
+/*========== Song Type Tab ==========*/
+$(function(){
+	if ($(".tab-song-container").length > 0) {
+		$('ul.tab-song-menu li.tab-song-link a').click(function (e) {
+			e.preventDefault();
+			var tabSong = $(this).parent('li').attr('data-tab');
+			$(this).parent('li').siblings('li').removeClass('current');
+			$(this).parent('li').addClass('current');
+			$("#" + tabSong).addClass('current').siblings().removeClass('current');
+		});
+	};
+});
 
-//         if (WindowT >= FloationgVal) {
-//             $('#singit-box').addClass('on');
-//         } else {
-//             $('#singit-box').removeClass('on');
-//         }
-// 	}
-// 	$('#singit-box').click(function () {
-// 		$("html, body").animate({ scrollTop: 0 }, 400);
-// 		return false;
-// 	});
-// });
-
-
-/* Input number + comma */
+/*========== Input number + comma ==========*/
 $(document).on('keyup', 'input[name=number]', function (event) {
 	if (event.keyCode === 65 || event.keyCode === 17) return; //Ctrl + A 시 전체선택 안됨 이슈 해결
 	if (this.value == '0') return;
@@ -158,7 +140,7 @@ $(document).on('keyup', 'input[name=number]', function (event) {
 	this.setSelectionRange(cursorIndex, cursorIndex);
 });
 
-// 일반 num comma
+/*========== 일반 num comma ==========*/
 $(function(){
 	if($('.num').length > 0){
 		$('.num').each(function(index,el){
@@ -169,7 +151,7 @@ $(function(){
 	}
 });
 
-// Input
+/*========== Input Style ==========*/
 $(function () {
 	// border animation
 	$(".input-box input").focusin(function () {
@@ -235,6 +217,8 @@ $(function () {
         });
     });
 });
+
+/*========== Keyup ==========*/
 $(function(){
 	// input keyup
 	if ($(".input-box.keyup").length > 0) {
@@ -294,7 +278,6 @@ $(function(){
 			$typingNum.removeClass('on');
 		});
 	}
-
 
 	//textarea keyup
 	if ($(".textarea-box.keyup").length > 0) {
@@ -356,27 +339,69 @@ $(function(){
 			$typingNumTxt.removeClass('on');
 		});
 	}
+
+	//Search Box
+	if ($(".search-input-wrap").length > 0) {
+		$(document).ready(function() {
+			const $searchWrap = $('.search-input-wrap');
+			const $searchInput = $searchWrap.find('input');
+			const $searchDeleteBtn = $('.search-del-btn');
+			const $searchBtn = $('.search-btn');
+			const $searchTxt = $('.search-keyword-wrap');
+
+			// 초기화 함수
+			function initializeSearch() {
+				$searchInput.val('');
+				$searchWrap.removeClass('on');
+			}
+
+			// 페이지 로드 시 초기화
+			initializeSearch();
+
+			// 1. 포커스 될 때 + 검색어 입력할 때 > 클래스 on 붙여주기
+			$searchInput.on('focus keyup', function() {
+				if ($(this).val().length > 0) {
+					$searchWrap.addClass('on');
+					$searchTxt.addClass('on');
+				} else {
+					$searchWrap.removeClass('on');
+					$searchTxt.removeClass('on');
+				}
+			});
+
+			// 2. 검색버튼 클릭시 페이지 이동으로 클래스 on 제거
+			$searchBtn.on('click', function() {
+				$searchWrap.removeClass('on');
+				$searchTxt.removeClass('on');
+			});
+
+			// 3. 검색어 지우기 버튼 클릭 시 클래스 on 제거, input에 검색어 삭제
+			$searchDeleteBtn.on('click', function() {
+				initializeSearch();
+				$searchTxt.removeClass('on');
+			});
+
+			// 4. 연관 검색어 
+			$(".keyword-list li").on("click",function(){
+				let keyword = $(this).children(".keyword").text();
+				$searchInput.val(keyword);
+			});
+
+			// 5. 외부 영역 클릭 시 클래스 on 제거
+			$(document).on('mouseup', function(e) {
+				if (!$searchWrap.is(e.target) && $searchWrap.has(e.target).length === 0) {
+					$searchWrap.removeClass('on');
+					$searchTxt.removeClass('on');
+				}
+			});
+
+			// 윈도우 리사이즈 시 초기화 (필요한 경우)
+			$(window).on('resize', initializeSearch);
+		});
+	}
 });
 
-/* Touch-mark */
-$(document).ready(function() {
-	var isDragging = false;
-	// 드래그 시작 시
-	$('.touch-area').on('mousedown touchstart', function() {
-		isDragging = true;
-		$(this).children('.touch-mark').addClass('off');
-	});
-	// 문서의 다른 부분을 터치할 때
-	$(document).on('mousedown touchstart', function(event) {
-		// 현재 터치 이벤트가 발생한 요소가 .touch-area인지 확인
-		if (!$(event.target).closest('.touch-area').length) {
-			$('.touch-mark').removeClass('off');
-		}
-	});
-});
-
-
-// 20240806 서브페이지 타이틀 가져오기
+/*========== 서브페이지 타이틀 가져오기 ==========*/
 function updateHeaderTitle() {
     var mainTitle = $('.main-title').text();
     var headerTitleElement = $('#header').find('#header-section-tit');
@@ -388,31 +413,11 @@ function updateHeaderTitle() {
         setTimeout(updateHeaderTitle, 100);
     }
 }
-
 $(document).ready(function() {
     updateHeaderTitle();
 });
 
-
-// $(document).ready(function() {
-//     var mainTitle = $('.main-title').text();
-
-//     var observer = new MutationObserver(function(mutations) {
-//         mutations.forEach(function(mutation) {
-//             if (mutation.addedNodes) {
-//                 var headerTitleElement = $('#header-section-tit');
-//                 if (headerTitleElement.length > 0) {
-//                     headerTitleElement.text(mainTitle);
-//                     observer.disconnect(); // 작업이 완료되면 관찰 중지
-//                 }
-//             }
-//         });
-//     });
-
-//     observer.observe(document.body, { childList: true, subtree: true });
-// });
-
-/* 댓글 관련 기능 */
+/*========== 댓글 관련 기능 ==========*/
 $(function(){
 	// 대댓글 보기 버튼
 	$(".view-reply-btn").on("click",function(){
@@ -462,7 +467,7 @@ $(function(){
 	});
 });
 
-/* Bottom Sheet : 고객센터(faq) */
+/*========== Bottom Sheet : Check Type ==========*/
 $(function() {
 	$(".sheet-check-list li a").click(function() {
 		const selectedTxt = $(this).text();
@@ -473,7 +478,7 @@ $(function() {
 	});
 });
 
-/* Tab Scroll */
+/*========== Tab Scroll Top ==========*/
 $(function(){
 	if($(".scroll-tab-wrap").length > 0){
 		const $tab = $(".scroll-tab");
@@ -529,6 +534,8 @@ $(function(){
 		}
 	}
 });
+
+/*========== Button Style ==========*/
 $(function(){
 	/* 좋아요 버튼 */
 	$(".like-btn").on("click",function(e){
@@ -595,7 +602,7 @@ $(function(){
 	});
 });
 
-/* 더보기 텍스트 아티클 */
+/*========== 더보기 버튼 : 말줄임 ==========*/
 $(function(){
 	if($(".more-article").length <= 0) return;
 
@@ -623,8 +630,10 @@ $(function(){
         }
     });
 
-    // 초기 확인
-    checkTextOverflow();
+    // 폰트 로드 완료 후 초기 확인
+    document.fonts.ready.then(function() {
+        checkTextOverflow();
+    });
 
     // 윈도우 리사이즈 시 다시 확인 (overview 상태가 아닐 때만)
     window.addEventListener('resize', function() {
@@ -634,8 +643,7 @@ $(function(){
     });
 });
 
-
-/* 싱코인 선물하기 팝업 */
+/*========== 싱코인 선물하기 팝업 ==========*/
 $(function(){
 	if($(".giftScPop").length <= 0) return;
 	const minusBtn = document.querySelector('.minus-gift-sc-btn');

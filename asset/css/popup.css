@@ -40,11 +40,11 @@
 .textarea-box-wrap + .modal-switch-area {margin: 20px 0 0;}
 .modal-switch-tit {font-size: 1rem; font-weight: 500; font-variation-settings: 'wght' 500;color: #000;}
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 421px) {
     .modal-wrap { width: 100%; margin: 0 24px; } 
 }
 @media screen and (min-width: 421px) {
-    .modal-wrap {font-size: clamp(16px, 4.267vw, 20px);} 
+    .modal-wrap { font-size: clamp(16px, 4.267vw, 20px);} 
     .modal-tit {font-size: clamp(18px, 4.8vw, 23px);} 
     .modal-sub-tit {font-size: clamp(14px, 3.733vw, 18px);} 
 

@@ -1,40 +1,12 @@
-$(function(){
-	// 공통 변수
-	// let html = document.querySelector("html");
-	// let header = document.querySelector("#header");
-	// let headerHeight = header.offsetHeight;
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Ajin Lee. (Weaverloft Corp.)
+ * 2. Production Date: 2024-07-30
+ * 3. Client: MEDIASCOPE Inc.
+ */
 
-	// // Scroll
-    // function htmlScroll() {
-    //     $(window).scroll(function () {
-    //         var sT = $(window).scrollTop();
-    //         if (sT >= headerHeight) {
-    //             $(html).addClass("scroll");
-    //         } else {
-    //             $(html).removeClass("scroll");
-    //         }
-    //     });
-    // }
-    // htmlScroll();
-
-	// $(window).resize(function(){
-	// 	if($(window).width() > 1100) {
-	// 		$('.nav-sub-menu').css("display","");
-	// 		$('.nav-list').removeClass("on");
-	// 	}
-	// });
-
-	// $(window).on('resize', function () {
-    //     windowWidth = $(window).width();
-    //     let sT = $(window).scrollTop();
-    //     if (sT >= headerHeight) {
-    //         $(html).addClass("scroll");
-    //     } else {
-    //         $(html).removeClass("scroll");
-    //     }
-    // });
-});
-
+/*========== Header 메인 로고 타이틀 명 삽입 ==========*/
 $(function(){
 	$(document).ready(function() {
 		var containerClass = $('#container').attr('class');
@@ -51,8 +23,7 @@ $(function(){
 	});
 });
 
-
-// 일반 num comma
+/*========== Header 싱코인 comma ==========*/
 $(function(){
 	if($('.num').length > 0){
 		$('.num').each(function(index,el){

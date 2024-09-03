@@ -1,6 +1,12 @@
-/* ------------------------------------------------------------------------
-	스크롤 활성화/비활성화 기능 240805
------------------------------------------------------------------------- */
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Ajin Lee. Sunhyeong Kim, Gyuri Son. (Weaverloft Corp.)
+ * 2. Production Date: 2024-07-30
+ * 3. Client: MEDIASCOPE Inc.
+ */
+
+/*========== 스크롤 활성화/비활성화 기능 ==========*/
 let scrollPosition = 0;
 function scrollDisable(){ // body 스크롤 비활성화
 	scrollPosition = window.pageYOffset; // 현재 스크롤 위치를 저장
@@ -18,11 +24,8 @@ function scrollAble(){ // body 스크롤 활성화
 	document.documentElement.style.removeProperty('overscroll-behavior-y');
 	document.documentElement.style.removeProperty('scroll-behavior');
 }
-/* //스크롤 활성화/비활성화 기능 끝 */
 
-/* ------------------------------------------------------------------------
-	Modal Popup Focus 240805
------------------------------------------------------------------------- */
+/*========== Modal Popup Focus ==========*/
 let beforeFocus; // 이전 포커스 저장
 // Modal Popup 열기 & 닫기
 function modalPopup(modal) {
@@ -93,11 +96,8 @@ $(document).on("keydown", function(e) {
 		}
 	}
 });
-/* //Modal Popup Focus 끝 */
 
-/* ------------------------------------------------------------------------
-	Bottom Sheet & Handle Bar 240805
------------------------------------------------------------------------- */
+/*========== Bottom Sheet & Handle Bar ==========*/
 // 전역 변수 선언
 let sheetOpen = false;
 let sheetInitialHeight = 0;
@@ -209,9 +209,7 @@ function stopDragging() {
 	}
 }
 
-/* ------------------------------------------------------------------------
-	Toast Popup 240805
------------------------------------------------------------------------- */
+/*========== Toast Popup ==========*/
 let toastTimer;
 let dragStartY;
 const DRAG_THRESHOLD = 50;
@@ -277,4 +275,3 @@ function closeToast(){
 		document.querySelector(".toast-popup").style.zIndex = "";
 	},300);
 }
-/* //Toast Popup 끝 */
