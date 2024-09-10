@@ -4,7 +4,7 @@
 <head>
 	<!-- meta -->
     <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
 	<meta name="format-detection" content="telephone=no, address=no, email=no">
 	<meta name="robots" content="noindex, nofollow">
 
@@ -44,87 +44,212 @@
 	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
 
 	<!-- FONTS -->
-	<link rel="preload" href="../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
 
 	<!-- FONTS -->
-	<link rel="preload" href="../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/mypage/my-membership.css">
 
 	<!-- JS | library -->
-	<script src="../asset/js/lazysizes.min.js"></script>
-	<script src="../asset/js/prefixfree.min.js"></script>
-	<script src="../asset/js/jquery-3.7.1.min.js"></script>
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
 
 	<!-- JS -->
-	<script src="../asset/js/basic.js"></script>
-	<script src="../asset/js/popup.js"></script>
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
 
     <title>SingIt</title>
 </head>
 <body>
-	<!--==================
+	<div id="wrap">
+		<!--==================
 		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
 		- PLAY 페이지 : play 클래스
 		- SING 페이지 : sing 클래스
 		- BATTLE 페이지 : battle 클래스
 		- MY 페이지 : my 클래스
 		- 서브 페이지 : sub 클래스 
-	======================-->
-    <div id="container" class="sing">
-        <!--========== MODAL POPUP ==========-->
-        <div class="modal-popup-group">
-
-		</div>
-
-		<!--========== HEADER ==========-->
-		<header id="header"></header>
-		<script>
-			$(function () {
-				$('#header').load("include/header.html", function () {
-					// 로드된 후에 실행될 코드
-					$.getScript("../asset/js/header.js");
-					// $.getScript("../asset/js/basic.js");
+        ======================-->
+		<div id="container" class="my sub">
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<script>
+				$(function () {
+					$('#header').load("../include/header.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/header.js");
+						// $.getScript("../../asset/js/basic.js");
+					});
 				});
-			});
-		</script>
-        <main id="main">
-			<!-- ! 페이지 섹션에 맞는 클래스 추가해서 사용 : 예) play-sec  -->
-            <section class="section">
-                <div class="inner" style="background-color: rgba(0, 0, 0, 0.5); height: 89vh;">
-                    <div class="section-tit-wrap" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; flex-flow: column;">
-						<h2 class="main-title skeleton">페이지 메인 타이틀</h2>
-						<div class="section-content">
-							<div style="text-align: center; color: #fff;">컨텐츠 영역 들어갑니다.</div>
+			</script>
+			<main id="main" class="sub">
+				<h2 class="main-title hidden">구매</h2>
+				<div class="tab-container purchase-tab-container scroll-tab-wrap">
+					<ul class="tab-menu scroll-tab">
+						<li class="slider"></li>
+						<li class="tab-link current" data-tab="tab-1"><a href="javascript:;"><span>이용권</span></a></li>
+						<li class="tab-link" data-tab="tab-2"><a href="javascript:;"><span>싱코인</span></a></li>
+					</ul>
+					<div class="tab-content-wrap scroll-tab-cont">
+						<div id="tab-1" class="tab-content membership-purchase current">
+							<section class="section membership-product-sec">
+								<h3 class="section-title hidden">이용권 상품구매</h3>
+								<div class="inner">
+									<div class="section-content">
+										<div class="membership-product-wrap">
+											<a href="javascript:;" class="membership-product membership-product-monthly" role="button" title="1개월 무제한 이용 구매하기">
+												<div class="membership-tag caption-txt1">인기 상품</div>
+												<div class="membership-txt content-txt3">
+													<div class="membership-title">VIP 이용권</div>
+													<div class="membership-price caption-txt1"><span class="semi-b-num num">4400</span>원</div>
+												</div>
+												<div class="membership-desc caption-txt1">1개월 무제한 이용</div>
+											</a>
+											<a href="javascript:;" class="membership-product membership-product-yearly" role="button" title="1년간 무제한 이용 구매하기">
+											<div class="membership-tag caption-txt1">추천 상품</div>
+											<div class="membership-txt content-txt3">
+												<div class="membership-title"><strong>VIP 플러스</strong> 이용권</div>
+												<div class="membership-price caption-txt1"><span class="semi-b-num num">44000</span>원</div>
+											</div>
+											<div class="membership-desc caption-txt1">1년간 무제한 이용</div>
+											</a>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="section membership-benefit-sec">
+								<div class="inner">
+									<h3 class="section-title content-txt2">VIP 회원에게 드리는 혜택 (미확정)</h3>
+									<div class="section-content">
+										<div class="membership-benefit-wrap">
+											<div class="membership-benefit-list benefit-list-1">
+												<div class="benefit-icon"></div>
+												광고 NO
+											</div>
+											<div class="membership-benefit-list benefit-list-2">
+												<div class="benefit-icon"></div>
+												내 노래 다운로드
+											</div>
+											<div class="membership-benefit-list benefit-list-3">
+												<div class="benefit-icon"></div>
+												고음질 반주
+											</div>
+											<div class="membership-benefit-list benefit-list-4">
+												<div class="benefit-icon"></div>
+												자유로운 1:1 메시지
+											</div>
+											<div class="membership-benefit-list benefit-list-5">
+												<div class="benefit-icon"></div>
+												스티커 무제한
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="section notice-sec membership-notice-sec">
+								<div class="inner">
+									<h3 class="section-title content-txt3">확인해주세요!</h3>
+									<div class="section-content">
+										<ul class="notice-wrap caption-txt1">
+											<li class="notice-list">회원님의 스토어 계정에 이용료가 부과됩니다.</li>
+											<li class="notice-list">월간/연간 이용권은 자동 갱신되며, 연장을 원하지 않을 경우, 이용권 갱신 최소 24시간 전에 해지해야 합니다.</li>
+											<li class="notice-list">월간/연간 이용권을 사용 중에, 구독 취소를 신청하실 경우, 사용 중이신 해당 월/연의 이용 기간이 모두 만료된 이후 자동으로 취소됩니다.</li>
+										</ul>
+									</div>
+								</div>
+							</section>
 						</div>
-                    </div>
-                </div>
-            </section>
-
-			<!-- Floating Button -->
-			<aside id="singit-box" class="content-txt2">
-				<a href="javascript:;" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
-			</aside>
-        </main>
-
-        <!--========== APP BAR : FOOTER ==========-->
-		<footer id="footer"></footer>
-        <script>
-			$(function () {
-				$('#footer').load("include/footer.html", function () {
-					// 로드된 후에 실행될 코드
-					$.getScript("../asset/js/footer.js");
-				});
-			});
-		</script>
-
-		<!--========== TOAST POPUP ==========-->
-		<div class="toast-popup-group">
-
+						<div id="tab-2" class="tab-content sc-purchase">
+							<section class="section current-sc-sec">
+								<h3 class="section-title hidden">현재 보유 중인 싱코인</h3>
+								<div class="section-content">
+									<div class="my-sc-box">
+										<p class="content-txt3">내 싱코인</p>
+										<div class="sc-amount">
+											<div class="sc-icon"></div>
+											<div class="sc-num"><span class="num semi-b-num">105506</span>개</div>
+											<!-- 보유중인 싱코인 .sc-num > span.num 에 입력됩니다. -->
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="section sc-product-sec">
+								<h3 class="section-title hidden">싱코인 상품구매</h3>
+								<div class="inner">
+									<div class="section-content">
+										<div class="sc-product-wrap">
+											<!--==================
+											* 싱코인 상품 (.sc-product-list)
+											- 상품 할인율이 .sc-product-discount > .percent 에 입력됩니다.
+											- 상품 할인율이 없을 경우 .sc-product-discount 미노출 부탁드립니다.
+											- 상품 가격이 .sc-product-btn > span.num 에 입력됩니다.
+											======================-->
+											<div class="sc-product-list sc-product-list-1">
+												<div class="sc-product-tit">
+													<div class="sc-product-txt">싱코인 <strong>100개</strong></div>
+												</div>
+												<a href="javascript:;" role="button" class="sc-product-btn content-txt3" title="싱코인 100개 구매"><span class="num">1500</span>원</a>
+											</div>
+											<div class="sc-product-list sc-product-list-2">
+												<div class="sc-product-tit">
+													<div class="sc-product-txt">싱코인 <strong>200개</strong></div>
+												</div>
+												<a href="javascript:;" role="button" class="sc-product-btn content-txt3" title="싱코인 200개 구매"><span class="num">3000</span>원</a>
+											</div>
+											<div class="sc-product-list sc-product-list-3">
+												<div class="sc-product-tit">
+													<div class="sc-product-txt">싱코인 <strong>300개</strong></div>
+													<div class="sc-product-discount semi-b-num caption-txt1"><span class="percent semi-b-num">2%</span> OFF</div>
+												</div>
+												<a href="javascript:;" role="button" class="sc-product-btn content-txt3" title="싱코인 300개 구매"><span class="num">4400</span>원</a>
+											</div>
+											<div class="sc-product-list sc-product-list-4">
+												<div class="sc-product-tit">
+													<div class="sc-product-txt">싱코인 <strong>700개</strong></div>
+													<div class="sc-product-discount semi-b-num caption-txt1"><span class="percent semi-b-num">6%</span> OFF</div>
+												</div>
+												<a href="javascript:;" role="button" class="sc-product-btn content-txt3" title="싱코인 700개 구매"><span class="num">9900</span>원</a>
+											</div>
+											<div class="sc-product-list sc-product-list-5">
+												<div class="sc-product-tit">
+													<div class="sc-product-txt">싱코인 <strong>1200개</strong></div>
+													<div class="sc-product-discount semi-b-num caption-txt1"><span class="percent semi-b-num">20%</span> OFF</div>
+												</div>
+												<a href="javascript:;" role="button" class="sc-product-btn content-txt3" title="싱코인 1200개 구매"><span class="num">15000</span>원</a>
+											</div>
+											<div class="sc-product-list sc-product-list-6">
+												<div class="sc-product-tit">
+													<div class="sc-product-txt">싱코인 <strong>2500개</strong></div>
+													<div class="sc-product-discount semi-b-num caption-txt1"><span class="percent semi-b-num">25%</span> OFF</div>
+												</div>
+												<a href="javascript:;" role="button" class="sc-product-btn content-txt3" title="싱코인 2500개 구매"><span class="num">30000</span>원</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="section notice-sec membership-notice-sec">
+								<div class="inner">
+									<h3 class="section-title content-txt3">확인해주세요!</h3>
+									<div class="section-content">
+										<ul class="notice-wrap caption-txt1">
+											<li class="notice-list">구매 후 7일 이내만 환불이 가능합니다.</li>
+											<li class="notice-list">부가세는 별도입니다.</li>
+										</ul>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</main>
 		</div>
-    </div>
+	</div>
 </body>
 </html>

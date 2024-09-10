@@ -80,16 +80,77 @@
 		<div id="container" class="my sub">
 			<!--========== MODAL POPUP ==========-->
 			<div class="modal-popup-group">
-				<div id="exPop03" class="modal alert exPop03">
+				<!--==================
+					* 1:1 문의 확인 버튼 클릭 시 노출되는 팝업
+					- 이메일 입력 오류 : modalPopup('#emailCheck')
+					- 문의내용 입력 오류: modalPopup('#contentCheck')
+					- 수집동의 미선택 : modalPopup('#agreeCheck')
+					- 등록 여부 확인 : modalPopup('#saveCheck')
+				======================-->
+				<div id="emailCheck" class="modal alert emailCheck">
 					<div class="modal-wrap">
 						<section class="modal-content">
 							<div class="modal-cont-wrap">
 								<div class="modal-tit-wrap">
-									<h3 class="modal-tit">저장되었습니다.</h3>
+									<h3 class="modal-tit">
+										이메일 주소가 잘못되었습니다.<br>
+										다시 확인해주시기 바랍니다.
+									</h3>
 								</div>
 							</div>
 							<div class="modal-btn-wrap">
-								<a href="javascript:;" onclick="modalPopupClose('#exPop03');" class="basic-btn red" tabindex="1">확인</a>
+								<a href="javascript:;" onclick="modalPopupClose('#emailCheck');" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div id="contentCheck" class="modal alert contentCheck">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">
+										질문 내용을 구체적으로<br> 작성해주시기 바랍니다.
+									</h3>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#contentCheck');" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div id="agreeCheck" class="modal alert agreeCheck">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">답변을 위한 이메일 수집항목에<br> 동의해주시기 바랍니다.</h3>
+								</div>
+								<div class="modal-txt-wrap">
+									<p class="modal-sub-tit">수집된 이메일 주소는 답변을 위한<br> 용도 외에는 사용되지 않습니다.</p>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#agreeCheck');" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div id="saveCheck" class="modal alert saveCheck">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-txt-wrap">
+									<p class="modal-sub-tit">문의주신 내용에 대한 답변은<br> 이메일을 통해 안내드리며 이메일 주소가 잘못되었을 경우 답변을 받으실 수 없습니다.</p>
+								</div>
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">질문을 등록하시겠습니까?</h3>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#saveCheck');" class="basic-btn gray" tabindex="1">취소</a>
+								<a href="javascript:;" onclick="modalPopupClose('#saveCheck'); toastPopup('requestComplete');" class="basic-btn red" tabindex="1">확인</a>
 							</div>
 						</section>
 					</div>
@@ -122,8 +183,8 @@
 							<div class="inner scroll-tab-cont">
 								<div class="tab-content-wrap">
 									<div class="btn-wrap">
-										<button type="button" class="basic-btn sel round" aria-label="title" onclick="openBottomSheet('#selected')" title="노래부르기">
-											<span class="selected-txt">노래부르기</span>
+										<button type="button" class="basic-btn sel round select-btn" aria-label="title" title="노래부르기">
+											<span class="selected-txt">노래 부르기</span>
 										</button>
 									</div>
 									<div id="tab-1" class="tab-content current">
@@ -175,7 +236,7 @@
 											<div class="input-area content-txt2">
 												<div class="input-box-wrap">
 													<div class="input-box text box">
-														<input type="text" placeholder="이메일">
+														<input type="text" class="email-input" placeholder="이메일">
 													</div>
 												</div>
 											</div>
@@ -183,18 +244,18 @@
 												<div class="textarea-box-wrap">
 													<div class="textarea-box text label-box">
 														<p class="input-label caption-txt1">문의 내용</p>
-														<textarea class="label-input" placeholder="문의 내용을 입력해 주세요."></textarea>
+														<textarea class="label-input content-textarea" placeholder="문의 내용을 입력해 주세요."></textarea>
 													</div>
 												</div>
 											</div>
 											<div class="basic-check-box">
-												<input type="checkbox" id="check-box" tabindex="-1">
-												<label for="check-box" tabindex="0">답변을 위해 이메일 정보를 수집하는 것에 동의합니다.</label>
+												<input type="checkbox" id="agree-check-box" tabindex="-1">
+												<label for="agree-check-box" tabindex="0">답변을 위해 이메일 정보를 수집하는 것에 동의합니다.</label>
 											</div>
 											<div class="btn-wrap bottom text">
 												<div class="inner">
 													<p class="bottom-txt content-txt3">문의하신 내용에 대한 답변은 이메일로 안내 드립니다.</p>
-													<button type="button" class="basic-btn red round" aria-label="title" onclick="modalPopup('#exPop03')">
+													<button type="button" class="basic-btn red round" aria-label="title" onclick="modalPopup('#saveCheck')">
 														<span>확인</span>
 													</button>
 												</div>
@@ -211,11 +272,23 @@
 			<!--========== TOAST POPUP ==========-->
 			<div class="toast-popup-group">
 				<!--==================
+					* Toast Popup
+					- toastPopup('클래스명')에 의해, 해당 되는 클래스명의 .toast-popup > p를 호출합니다.
+				======================-->
+				<div class="toast-popup border-radius">
+					<p class="toast-popup-txt requestComplete">
+						문의사항이 등록되었습니다.<br>
+						빠른 시간내에 답변드리도록 하겠습니다.
+					</p> <!-- toastPopup('saveComplete')에 의해 호출 -->
+				</div>
+
+				<!--==================
 					* Bottom Sheet
 					- openBottomSheet('#아이디값')에 의해, 해당 되는 아이디값의 .bottom-sheet-wrap를 호출합니다.
 					- sheet 크기가 커지지 못하는 경우, 클래스 sheet-stretch 대신 unable-stretch을 추가합니다.
 				======================-->
-				<div id="selected" class="bottom-sheet-wrap check faq">
+				<!-- faq Bottom Sheet -->
+				<div id="selectedFaq" class="bottom-sheet-wrap check faq">
 					<div class="bottom-sheet sheet-stretch"> 
 						<div class="handle-area">
 							<div class="handle"></div>
@@ -226,6 +299,27 @@
 									<li><a href="javascript:;" class="active">노래 부르기</a></li>
 									<li><a href="javascript:;">가입/계정관리</a></li>
 									<li><a href="javascript:;">결제/멤버쉽</a></li>
+									<li><a href="javascript:;">기타</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+
+				<!-- 1:1문의 Bottom Sheet -->
+				<div id="selectedInquiry" class="bottom-sheet-wrap check inquiry">
+					<div class="bottom-sheet sheet-stretch"> 
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<div class="sheet-cont-inner">
+								<ul class="sheet-check-list">
+									<li><a href="javascript:;" class="active">노래 부르기</a></li>
+									<li><a href="javascript:;">가입/계정관리</a></li>
+									<li><a href="javascript:;">결제/멤버쉽</a></li>
+									<li><a href="javascript:;">오류/버그신고</a></li>
 									<li><a href="javascript:;">기타</a></li>
 								</ul>
 							</div>

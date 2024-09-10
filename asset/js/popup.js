@@ -9,6 +9,7 @@
 /*========== 스크롤 활성화/비활성화 기능 ==========*/
 let scrollPosition = 0;
 function scrollDisable(){ // body 스크롤 비활성화
+	if($(".play.detail").length > 0) return;
 	scrollPosition = window.pageYOffset; // 현재 스크롤 위치를 저장
 	$('body').addClass('scroll-disable');
 	$('html, body').scrollTop(scrollPosition);
@@ -19,6 +20,7 @@ function scrollDisable(){ // body 스크롤 비활성화
 	document.documentElement.style.scrollBehavior = 'auto';
 }
 function scrollAble(){ // body 스크롤 활성화
+	if($(".play.detail").length > 0) return;
 	$('body').removeClass('scroll-disable').off('scroll touchmove mousewheel');
 	$('html, body').scrollTop(scrollPosition);
 	document.documentElement.style.removeProperty('overscroll-behavior-y');
@@ -140,7 +142,7 @@ function closeBottomSheet() {
 	scrollAble();
 	sheetOpen = false;
 	sheetCurrentHeight = sheetInitialHeight;
-
+	
 	/* Toast popup이 있는 경우(옵션) */
 	if($(".toast-popup").length > 0 && $(".toast-popup").hasClass('active')){
 		if(toastTimer){
@@ -148,7 +150,27 @@ function closeBottomSheet() {
 		}
 		closeToast();
 	}
+
+	/* Sing select(부르기 팝업) 단계 초기화(옵션) */
+	if($(".sing-select").length > 0 && $(".sing-select").hasClass('setting-step')){
+		setTimeout(function(){
+			$(".sing-select").removeClass("setting-step solo duet");
+			btmSheetReset();
+		}, 300)
+	}
 }
+
+function btmSheetReset(){
+	$('.bottom-sheet-wrap .bottom-sheet').css("height","");
+	// 20240905 콘솔오류로 인한 주석처리
+	// const sheet = document.querySelector('.bottom-sheet-wrap.open .bottom-sheet');
+	// sheetInitialHeight = sheet.offsetHeight;
+	sheetCurrentHeight = sheetInitialHeight;
+}
+
+$(window).on('resize', function() {
+	btmSheetReset();
+});
 
 $(function(){
 	$('.bottom-sheet-dimmed').on('click', function(e) {
@@ -158,7 +180,6 @@ $(function(){
 	});
 	$('.handle-area').on('mousedown touchstart', startDragging);
 });
-
 
 function startDragging(e) {
 	e.preventDefault();
@@ -234,6 +255,10 @@ function toastPopup(toast){
 			toastPop.style.zIndex = $(".bottom-sheet").css("z-index") + 1;
 		}
 	}
+	// bottom sheet 있는 경우(옵션)
+	if($(".requestComplete.on").length > 0){
+		toastPop.style.bottom = "45%";
+	}
 	
 	toastPop.classList.add('active');
 	toastTimer = setTimeout(function(){
@@ -275,3 +300,21 @@ function closeToast(){
 		document.querySelector(".toast-popup").style.zIndex = "";
 	},300);
 }
+
+/*========== Sing select Bottom Sheet (부르기 팝업) ==========*/
+$(function(){
+	// 솔로 or 듀엣 초대 버트 선택
+	$(".sing-solo-btn").on("click",function(){
+		$(".sing-select").addClass("setting-step solo");
+		btmSheetReset();
+	});
+	$(".sing-duet-btn").on("click",function(){
+		$(".sing-select").addClass("setting-step duet");
+		btmSheetReset();
+	});
+	// 팝업 내 뒤로가기 버튼
+	$(".sheet-cont-prev-btn").on("click",function(){
+		$(".sing-select").removeClass("setting-step solo duet");
+		btmSheetReset();
+	});
+});

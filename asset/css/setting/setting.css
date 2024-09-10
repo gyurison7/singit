@@ -56,6 +56,9 @@
 .textarea-area { margin: 0.75em 0 1em; } 
 .textarea-area .textarea-box-wrap .textarea-box { height: 11.25em; }
 .textarea-area .textarea-box-wrap .textarea-box textarea { min-height: 100%; color: #333; } 
+#saveCheck .modal-txt-wrap { margin-top: 0; }
+#saveCheck .modal-tit-wrap { margin-top: 16px; }
+.toast-popup.border-radius { border-radius: 2.71em; }
 
 /*========== 서비스 이용약관, 개인정보 처리방침 ==========*/
 .full-modal-cont.info .content { margin-top: 2.14em; color: #333; }

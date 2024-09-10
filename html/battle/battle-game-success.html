@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/sing/challenge.css">
+
+	<!-- JS | library -->
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
+
+	<!-- JS -->
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
+
+    <title>SingIt</title>
+</head>
+<body>
+	<div id="wrap">
+		<!--==================
+		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+		- PLAY 페이지 : play 클래스
+		- SING 페이지 : sing 클래스
+		- BATTLE 페이지 : battle 클래스
+		- MY 페이지 : my 클래스
+		- 서브 페이지 : sub 클래스 
+        ======================-->
+		<div id="container" class="battle sub">
+			<!--========== MODAL POPUP ==========-->
+            <div class="modal-popup-group">
+				
+            </div>
+
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+
+			<main id="main" class="sub">
+				
+			</main>
+			
+			<!--==================
+				* 해당 페이지는 팝업 형식으로 제작되었습니다. 
+				일반 페이지로도 사용 가능하니 참고 부탁드립니다.
+			======================-->
+			
+			<!--========== FULL PAGE POPUP ==========-->
+			<div class="full-popup-group">
+				<!-- 풀페이지 팝업 열기 : 클래스 open 추가 / 닫기 : open 클래스 제거 -->
+				<div id="s-challenge-popup" class="modal full s-challenge-popup open">
+					<div class="full-modal-wrap">
+						<!--==================
+							* 도전 성공여부에 따른 내 순위권 구분 (s-challenge-wrap 클래스에 해당 클래스 추가)
+							- [성공] : true 클래스 추가
+							- [실패] : false 클래스 추가
+							- 순위권 밖 : extra 클래스 추가
+						======================-->
+						<section class="full-modal-content s-challenge-wrap true">
+							<div class="full-modal-cont">
+								<h3 class="section-title hidden">왕좌의 게임 성공!! 싱코인 500개 받아가세요</h3>
+								<div class="header-sub">
+									<ul>
+										<li class="header-sub-tit"><i class="bg-icon left"></i><h6>2배 챌린지 성공!<br> <em class="point-txt">싱코인 200개</em> 받아가세요</h6><i class="bg-icon right"></i></li>
+										<li class="header-side header-close"><button type="button" aria-label="페이지 닫기" onclick="modalPopupClose('#s-challenge-popup');"><span class="hidden">페이지 닫기</span></button></li>
+									</ul>
+								</div>
+								<div class="cont-area-wrap s-challenge-cont">
+									<article class="cont-area graph">
+										<div class="inner">
+											<div class="profile-info">
+												<h4 class="profile-tit content-txt1">Small girl (feat. 도경수(D.O.))</h4>
+												<span class="profile-txt content-txt3">이영지</span>
+											</div>
+											<div class="graph-area">
+												<!--==================
+													* Score Ring Graph
+													- 각 부문의 점수는 circle.completed 내 속성 stroke-dasharray 값 앞부분에 인라인으로 기입합니다.
+													(ex: 음정 26점 일경우, .ring1 circle.completed 요소에 stroke-dasharray="26, 100")
+												======================-->
+												<div class="ring-graph-container">
+													<svg class="ring-graph" viewBox="0 0 35 35">
+														<!-- 1.음정 -->
+														<g class="ring ring1">
+															<circle class="background" cx="50%" cy="50%" r="15.915" stroke-width="2.35" />
+															<circle class="completed" cx="50%" cy="50%" r="15.915" stroke-width="2.35" stroke-dasharray="46, 100" />
+														</g>
+														<!-- 2.박자 -->
+														<g class="ring ring2">
+															<circle class="background" cx="50%" cy="50%" r="15.915" stroke-width="2.5" />
+															<circle class="completed" cx="50%" cy="50%" r="15.915" stroke-width="2.5" stroke-dasharray="50, 100" />
+														</g>
+														<!-- 3.음높이 -->
+														<g class="ring ring3">
+															<circle class="background" cx="50%" cy="50%" r="15.915" stroke-width="2.7" />
+															<circle class="completed" cx="50%" cy="50%" r="15.915" stroke-width="2.7" stroke-dasharray="70, 100" />
+														</g>
+														<!-- 4.성량 -->
+														<g class="ring ring4">
+															<circle class="background" cx="50%" cy="50%" r="15.915" stroke-width="4.2" />
+															<circle class="completed" cx="50%" cy="50%" r="15.915" stroke-width="4.2" stroke-dasharray="76, 100" />
+														</g>
+													</svg>
+													<div class="ring-graph-score">
+														<!-- 종합 점수 -->
+														<span class="semi-b-num">75.9</span>
+													</div>
+												</div>
+												<div class="graph-guide-wrap">
+													<div class="graph-guide guide01"><span class="guide-tit caption-txt1">음정</span><p class="graph-point caption-txt1"><strong class="content-txt1">46.0</strong>점</p></div>
+													<div class="graph-guide guide02"><span class="guide-tit caption-txt1">박자</span><p class="graph-point caption-txt1"><strong class="content-txt1">50.0</strong>점</p></div>
+													<div class="graph-guide guide03"><span class="guide-tit caption-txt1">음높이</span><p class="graph-point caption-txt1"><strong class="content-txt1">70.0</strong>점</p></div>
+													<div class="graph-guide guide04"><span class="guide-tit caption-txt1">성량</span><p class="graph-point caption-txt1"><strong class="content-txt1">76.0</strong>점</p></div>
+												</div>
+											</div>
+										</div>
+									</article>
+									<article class="cont-area rank">
+										<div class="inner">
+											<h4 class="hidden">순위</h4>
+											<div class="rank-top-area">
+												<div class="rank-tit-wrap">
+													<p class="rank-tit content-txt2">내 순위</p>
+													<div class="ranking-tit caption-txt1"><em class="point-txt rubik-txt num">1</em>&nbsp;/&nbsp;<span class="num">24573</span></div>
+												</div>
+												<div class="rank-list-wrap content-txt2">
+													<div class="profile-area">
+														<ul class="profile-list-wrap">
+															<li class="profile-list">
+																<div class="profile-wrap">
+																	<div class="rank-num-wrap content-txt2">
+																		<span class="num rubik-txt">1</span>
+																	</div>
+																	<a href="#none" class="profile-wrap-inner" title="프로필 보기">
+																		<!--==================
+																			* 랭킹 순위에 따른 왕관 표시 
+																			- 1등 : <figure class="profile-img"> gold 클래스 추가
+																			- 2등 : <figure class="profile-img"> silver 클래스 추가
+																			- 3등 : <figure class="profile-img"> copper 클래스 추가
+
+																			* 내 순위 표시 
+																			- <figure class="profile-img"> mine 클래스 추가
+																		======================-->
+																		<figure class="profile-img mine gold"><img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp01.png" alt="프로필 이미지"></figure>
+																		<div class="profile-info">
+																			<p class="profile-tit content-txt3">노래하는 아꾸</p>
+																		</div>
+																	</a>
+																	<div class="rank-score-wrap caption-txt1">
+																		<span class="point-num"><em class="point-txt rubik-txt num">75.9</em> 점</span>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+											<div class="rank-bottom-area content-txt2">
+												<div class="rank-tit-wrap">
+													<p class="rank-tit content-txt2">RANK</p>
+												</div>
+												<div class="rank-list-wrap">
+													<div class="profile-area">
+														<ul class="profile-list-wrap">
+															<!-- 내 순위 표시 클래스 mine 추가 -->
+															<li class="profile-list mine">
+																<div class="profile-wrap">
+																	<div class="rank-num-wrap content-txt2">
+																		<span class="num rubik-txt">1</span>
+																	</div>
+																	<a href="#none" class="profile-wrap-inner" title="프로필 보기">
+																		<!--==================
+																			* 랭킹 순위에 따른 왕관 표시 
+																			- 1등 : <figure class="profile-img"> gold 클래스 추가
+																			- 2등 : <figure class="profile-img"> silver 클래스 추가
+																			- 3등 : <figure class="profile-img"> copper 클래스 추가
+
+																			* 내 순위 표시 
+																			- <figure class="profile-img"> mine 클래스 추가
+																		======================-->
+																		<figure class="profile-img mine gold"><img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp01.png" alt="프로필 이미지"></figure>
+																		<div class="profile-info">
+																			<p class="profile-tit content-txt3">노래하는 아꾸</p>
+																		</div>
+																	</a>
+																	<div class="rank-score-wrap caption-txt1">
+																		<span class="point-num"><em class="point-txt rubik-txt num">99.9</em> 점</span>
+																	</div>
+																</div>
+															</li>
+															<li class="profile-list">
+																<div class="profile-wrap">
+																	<div class="rank-num-wrap content-txt2">
+																		<span class="num rubik-txt">2</span>
+																	</div>
+																	<a href="#none" class="profile-wrap-inner" title="프로필 보기">
+																		<!--==================
+																			* 랭킹 순위에 따른 왕관 표시 
+																			- 1등 : <figure class="profile-img"> gold 클래스 추가
+																			- 2등 : <figure class="profile-img"> silver 클래스 추가
+																			- 3등 : <figure class="profile-img"> copper 클래스 추가
+
+																			* 내 순위 표시 
+																			- <figure class="profile-img"> mine 클래스 추가
+																		======================-->
+																		<figure class="profile-img silver"></figure>
+																		<div class="profile-info">
+																			<p class="profile-tit content-txt3">다른사람2</p>
+																		</div>
+																	</a>
+																	<div class="rank-score-wrap caption-txt1">
+																		<span class="point-num"><em class="point-txt rubik-txt num">99.9</em> 점</span>
+																	</div>
+																</div>
+															</li>
+															<li class="profile-list">
+																<div class="profile-wrap">
+																	<div class="rank-num-wrap content-txt2">
+																		<span class="num rubik-txt">3</span>
+																	</div>
+																	<a href="#none" class="profile-wrap-inner" title="프로필 보기">
+																		<!--==================
+																			* 랭킹 순위에 따른 왕관 표시 
+																			- 1등 : <figure class="profile-img"> gold 클래스 추가
+																			- 2등 : <figure class="profile-img"> silver 클래스 추가
+																			- 3등 : <figure class="profile-img"> copper 클래스 추가
+
+																			* 내 순위 표시 
+																			- <figure class="profile-img"> mine 클래스 추가
+																		======================-->
+																		<figure class="profile-img copper"><img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp02.png" alt="프로필 이미지"></figure>
+																		<div class="profile-info">
+																			<p class="profile-tit content-txt3">달고달딘 밤냥이</p>
+																		</div>
+																	</a>
+																	<div class="rank-score-wrap caption-txt1">
+																		<span class="point-num"><em class="point-txt rubik-txt num">97.3</em> 점</span>
+																	</div>
+																</div>
+															</li>
+															<li class="profile-list">
+																<div class="profile-wrap">
+																	<div class="rank-num-wrap content-txt2">
+																		<span class="num rubik-txt">4</span>
+																	</div>
+																	<a href="#none" class="profile-wrap-inner" title="프로필 보기">
+																		<figure class="profile-img"><img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp03.png" alt="프로필 이미지"></figure>
+																		<div class="profile-info">
+																			<p class="profile-tit content-txt3">우우즈</p>
+																		</div>
+																	</a>
+																	<div class="rank-score-wrap caption-txt1">
+																		<span class="point-num"><em class="rubik-txt num">97.1</em> 점</span>
+																	</div>
+																</div>
+															</li>
+															<li class="profile-list">
+																<div class="profile-wrap">
+																	<div class="rank-num-wrap content-txt2">
+																		<span class="num rubik-txt">5</span>
+																	</div>
+																	<a href="#none" class="profile-wrap-inner" title="프로필 보기">
+																		<figure class="profile-img"><img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp04.png" alt="프로필 이미지"></figure>
+																		<div class="profile-info">
+																			<p class="profile-tit content-txt3">오렌지 태양</p>
+																		</div>
+																	</a>
+																	<div class="rank-score-wrap caption-txt1">
+																		<span class="point-num"><em class="rubik-txt num">96.0</em> 점</span>
+																	</div>
+																</div>
+															</li>
+															<li class="profile-list">
+																<div class="profile-wrap">
+																	<div class="rank-num-wrap content-txt2">
+																		<span class="num rubik-txt">6</span>
+																	</div>
+																	<a href="#none" class="profile-wrap-inner" title="프로필 보기">
+																		<figure class="profile-img"><img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp05.png" alt="프로필 이미지"></figure>
+																		<div class="profile-info">
+																			<p class="profile-tit content-txt3">무한굴레에잇</p>
+																		</div>
+																	</a>
+																	<div class="rank-score-wrap caption-txt1">
+																		<span class="point-num"><em class="rubik-txt num">89.0</em> 점</span>
+																	</div>
+																</div>
+															</li>
+															<li class="profile-list">
+																<div class="profile-wrap">
+																	<div class="rank-num-wrap content-txt2">
+																		<span class="num rubik-txt">7</span>
+																	</div>
+																	<a href="#none" class="profile-wrap-inner" title="프로필 보기">
+																		<figure class="profile-img"><img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp04.png" alt="프로필 이미지"></figure>
+																		<div class="profile-info">
+																			<p class="profile-tit content-txt3">기타치는 감자</p>
+																		</div>
+																	</a>
+																	<div class="rank-score-wrap caption-txt1">
+																		<span class="point-num"><em class="rubik-txt num">83.5</em> 점</span>
+																	</div>
+																</div>
+															</li>
+															<li class="profile-list">
+																<div class="profile-wrap">
+																	<div class="rank-num-wrap content-txt2">
+																		<span class="num rubik-txt">8</span>
+																	</div>
+																	<a href="#none" class="profile-wrap-inner" title="프로필 보기">
+																		<figure class="profile-img"><img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp05.png" alt="프로필 이미지"></figure>
+																		<div class="profile-info">
+																			<p class="profile-tit content-txt3">홍길동</p>
+																		</div>
+																	</a>
+																	<div class="rank-score-wrap caption-txt1">
+																		<span class="point-num"><em class="rubik-txt num">79.8</em> 점</span>
+																	</div>
+																</div>
+															</li>
+															<li class="profile-list">
+																<div class="profile-wrap">
+																	<div class="rank-num-wrap content-txt2">
+																		<span class="num rubik-txt">9</span>
+																	</div>
+																	<a href="#none" class="profile-wrap-inner" title="프로필 보기">
+																		<figure class="profile-img"><img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp06.png" alt="프로필 이미지"></figure>
+																		<div class="profile-info">
+																			<p class="profile-tit content-txt3">코노동노</p>
+																		</div>
+																	</a>
+																	<div class="rank-score-wrap caption-txt1">
+																		<span class="point-num"><em class="rubik-txt num">70.2</em> 점</span>
+																	</div>
+																</div>
+															</li>
+															<li class="profile-list">
+																<div class="profile-wrap">
+																	<div class="rank-num-wrap content-txt2">
+																		<span class="num rubik-txt">10</span>
+																	</div>
+																	<a href="#none" class="profile-wrap-inner" title="프로필 보기">
+																		<figure class="profile-img"><img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지"></figure>
+																		<div class="profile-info">
+																			<p class="profile-tit content-txt3">지으니</p>
+																		</div>
+																	</a>
+																	<div class="rank-score-wrap caption-txt1">
+																		<span class="point-num"><em class="rubik-txt num">68.4</em> 점</span>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</article>
+								</div>
+							</div>
+							<div class="btn-wrap bottom text">
+								<div class="inner">
+									<p class="bottom-txt content-txt3">왕좌의 게임이 완료되기 이전에 공개범위를 비공개로<br> 변경할 경우 싱코인 지급이 취소 될 수 있습니다.</p>
+									<button type="button" class="basic-btn red round" aria-label="title" onclick="location.href='#none'">
+										<span>저장하기</span>
+									</button>
+								</div>
+							</div>
+							<div class="btn-wrap bottom couple">
+								<div class="inner">
+									<button type="button" class="basic-btn round line" aria-label="title" onclick="location.href='#none'"><span>재도전</span></button>
+									<button type="button" class="basic-btn red round" aria-label="title" onclick="location.href='#none'"><span>다음</span></button>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+
+			<!--========== TOAST POPUP ==========-->
+			<div class="toast-popup-group">
+				<!--==================
+					* Bottom Sheet
+					- openBottomSheet('#아이디값')에 의해, 해당 되는 아이디값의 .bottom-sheet-wrap를 호출합니다.
+					- sheet 크기가 커지지 못하는 경우, 클래스 sheet-stretch 대신 unable-stretch을 추가합니다.
+				======================-->
+			</div>
+		</div>
+	</div>
+</body>
+</html>

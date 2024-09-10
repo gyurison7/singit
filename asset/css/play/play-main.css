@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Sunhyeong Kim. (Weaverloft Corp.)
+ * 2. Production Date: 2024-08-14
+ * 3. Client: MEDIASCOPE Inc.
+ */
+
+/* ------------------------------------------------------------------------ 
+PLAY MAIN
+------------------------------------------------------------------------ */
+/*========== .play-main-sec ==========*/
+.play-post-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.125em; font-size: 1rem; } 
+.play-post-wrap + .play-post-wrap { margin: 0.135em 0 0; } 
+.play-post-wrap .thumbnail-area { aspect-ratio: 1 / 1; font-size: inherit;cursor: pointer; } 
+.play-post-wrap .thumbnail-area.vertical { grid-row: span 2; aspect-ratio: 8 / 16; align-self: stretch; } 
+@media screen and (min-width: 421px){
+    .play-post-wrap { font-size: clamp(16px, 4.267vw, 20px); } 
+}

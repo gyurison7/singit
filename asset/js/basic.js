@@ -110,19 +110,6 @@ $(function(){
 	};
 });
 
-/*========== Song Type Tab ==========*/
-$(function(){
-	if ($(".tab-song-container").length > 0) {
-		$('ul.tab-song-menu li.tab-song-link a').click(function (e) {
-			e.preventDefault();
-			var tabSong = $(this).parent('li').attr('data-tab');
-			$(this).parent('li').siblings('li').removeClass('current');
-			$(this).parent('li').addClass('current');
-			$("#" + tabSong).addClass('current').siblings().removeClass('current');
-		});
-	};
-});
-
 /*========== Input number + comma ==========*/
 $(document).on('keyup', 'input[name=number]', function (event) {
 	if (event.keyCode === 65 || event.keyCode === 17) return; //Ctrl + A 시 전체선택 안됨 이슈 해결
@@ -348,17 +335,24 @@ $(function(){
 			const $searchDeleteBtn = $('.search-del-btn');
 			const $searchBtn = $('.search-btn');
 			const $searchTxt = $('.search-keyword-wrap');
-
-			// 초기화 함수
+	
+			function updateOverflow() {
+				if ($searchTxt.length > 0 && $searchTxt.hasClass('on')) {
+					$('html').css("overflow", "hidden");
+				} else {
+					$('html').css("overflow", "auto");
+				}
+			}
+	
 			function initializeSearch() {
 				$searchInput.val('');
 				$searchWrap.removeClass('on');
+				$searchTxt.removeClass('on');
+				updateOverflow();
 			}
-
-			// 페이지 로드 시 초기화
+	
 			initializeSearch();
-
-			// 1. 포커스 될 때 + 검색어 입력할 때 > 클래스 on 붙여주기
+	
 			$searchInput.on('focus keyup', function() {
 				if ($(this).val().length > 0) {
 					$searchWrap.addClass('on');
@@ -367,35 +361,48 @@ $(function(){
 					$searchWrap.removeClass('on');
 					$searchTxt.removeClass('on');
 				}
+				updateOverflow();
 			});
-
-			// 2. 검색버튼 클릭시 페이지 이동으로 클래스 on 제거
+	
 			$searchBtn.on('click', function() {
 				$searchWrap.removeClass('on');
 				$searchTxt.removeClass('on');
+				updateOverflow();
 			});
-
-			// 3. 검색어 지우기 버튼 클릭 시 클래스 on 제거, input에 검색어 삭제
+	
 			$searchDeleteBtn.on('click', function() {
-				initializeSearch();
+				$(this).closest('.search-input-wrap').find('.search-input').val('');
+				$(this).closest('.search-input-wrap').removeClass('on');
 				$searchTxt.removeClass('on');
+				updateOverflow();
 			});
-
-			// 4. 연관 검색어 
-			$(".keyword-list li").on("click",function(){
-				let keyword = $(this).children(".keyword").text();
-				$searchInput.val(keyword);
+	
+			// 연관 검색어와 추천 검색어 클릭 이벤트 통합
+			$(".keyword-list li, .recommend-keyword .keyword-list li").on("click touchend", function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				
+				let keyword = $(this).find(".keyword span").text();
+				
+				// setTimeout을 사용하여 비동기적으로 input 값을 설정
+				setTimeout(function() {
+					$searchInput.val(keyword).trigger('input');
+					$searchWrap.addClass('on');
+					$searchTxt.removeClass('on');
+					updateOverflow();
+				}, 0);
+	
+				return false;
 			});
-
-			// 5. 외부 영역 클릭 시 클래스 on 제거
-			$(document).on('mouseup', function(e) {
+	
+			$(document).on('mouseup touchend', function(e) {
 				if (!$searchWrap.is(e.target) && $searchWrap.has(e.target).length === 0) {
 					$searchWrap.removeClass('on');
 					$searchTxt.removeClass('on');
+					updateOverflow();
 				}
 			});
-
-			// 윈도우 리사이즈 시 초기화 (필요한 경우)
+	
 			$(window).on('resize', initializeSearch);
 		});
 	}
@@ -485,27 +492,12 @@ $(function(){
 		const $tabCont = $(".scroll-tab-cont");
 		let tabHt = $tab.outerHeight();
 		let tabTop = $tab.offset().top;
-		let headerResponsive = window.innerWidth * 0.04267 * 2.75 > 55 ? 55 : window.innerWidth * 0.04267 * 2.75;
-		let headerHt = headerResponsive < 44 ? 44 : headerResponsive;
-		if(window.innerWidth < 421){ headerHt = 44; } 
+		let headerHt = $("#header").innerHeight();
 		let innerWd = $(".scroll-tab-wrap").width();
 
-		tabFixed();
-
 		$(window).resize(function () {
-			// fixed 풀기
-			$tab.removeClass('fixed');
-			$tab.css({
-				top: '',
-				width: ''
-			});
-			$tabCont.css('paddingTop', '');
 			// 재설정
 			tabHt = $tab.outerHeight();
-			tabTop = $tab.offset().top;
-			headerResponsive = window.innerWidth * 0.04267 * 2.75 > 55 ? 55 : window.innerWidth * 0.04267 * 2.75;
-			headerHt = headerResponsive < 44 ? 44 : headerResponsive;
-			if(window.innerWidth < 421){ headerHt = 44; } 
 			innerWd = $(".scroll-tab-wrap").width();
 			
 			tabFixed();
@@ -516,6 +508,20 @@ $(function(){
 		});	
 
 		function tabFixed(){
+			// 0. 초기설정
+			headerHt = $("#header").innerHeight();
+			if($(".search #header").length > 0) headerHt += 1;
+			if(!$tab.hasClass('fixed')) tabTop = $tab.offset().top;
+			
+			// 1. 초기화
+			$tab.removeClass('fixed');
+			$tab.css({
+				top: '',
+				width: ''
+			});
+			$tabCont.css('paddingTop', '');
+
+			// 2. 조건
 			if ($(window).scrollTop() > tabTop - headerHt) {
 				$tab.addClass('fixed');
 				$tab.css({
@@ -523,13 +529,6 @@ $(function(){
 					width: innerWd+"px"
 				});
 				$tabCont.css('paddingTop',tabHt+"px");
-			} else {
-				$tab.removeClass('fixed');
-				$tab.css({
-					top: '',
-					width: ''
-				});
-				$tabCont.css('paddingTop', '');
 			}
 		}
 	}
@@ -542,7 +541,18 @@ $(function(){
 		e.preventDefault();
 		$(this).toggleClass("on");
 	});
-	
+	/* 북마크 */
+	$(".img-btn-wrap .img-btn.bookmark").on("click",function(e){
+		e.preventDefault();
+		$(this).toggleClass("on");
+	});
+	/* 팔로우 버튼 */
+	$(".follow-btn-wrap .follow-btn").on("click",function(){
+		$(this).parent(".follow-btn-wrap").addClass("following");
+	});
+	$(".follow-btn-wrap .following-btn").on("click",function(){
+		$(this).parent(".follow-btn-wrap").removeClass("following");
+	});
 	/* 공개 버튼 */
 	$(document).ready(function() {
 		$(".lock-btn").each(function() {
@@ -580,21 +590,6 @@ $(function(){
 			followBtn.children('span').text("팔로잉");
 		}
 	}
-
-	/* 북마크 */
-	$(".img-btn-wrap .img-btn.bookmark").on("click",function(e){
-		e.preventDefault();
-		$(this).toggleClass("on");
-	});
-
-	/* 팔로우 버튼 */
-	$(".follow-btn-wrap .follow-btn").on("click",function(){
-		$(this).parent(".follow-btn-wrap").addClass("following");
-	});
-	$(".follow-btn-wrap .following-btn").on("click",function(){
-		$(this).parent(".follow-btn-wrap").removeClass("following");
-	});
-
 	/* sorting 버튼 active */
 	$(".sorting-list > li").on("click",function(){
 		$(this).parent(".sorting-list").children("li").removeClass("active");
@@ -719,4 +714,58 @@ $(function(){
 			updateInput(currentSc);
 		}
 	});
+});
+
+/*========== Song Type Tab + Flowing Text ==========*/
+$(function(){
+	if ($(".tab-song-container").length > 0) {
+		$('ul.tab-song-menu li.tab-song-link a').click(function (e) {
+			e.preventDefault();
+			var tabSong = $(this).parent('li').attr('data-tab');
+			$(this).parent('li').siblings('li').removeClass('current');
+			$(this).parent('li').addClass('current');
+			$("#" + tabSong).addClass('current').siblings().removeClass('current');
+			handleFlowingText();
+		});
+	};
+
+	function handleFlowingText() {
+		if($('.profile-info').length <= 0) return;
+		$('.profile-info').each(function() {
+			adjustFlowingText($(this));
+		});
+	}
+
+	function adjustFlowingText($flowingWrap) {
+		var $flowingInner = $flowingWrap.find('.flowing-inner');
+		var $flowingSpan = $flowingWrap.find('.flowing:first');
+
+		// 현재의 부모 너비를 계산합니다
+		var currentParentWidth = $flowingWrap.width();
+		
+		// 원래 너비로 리셋하여 실제 텍스트 너비를 측정
+		$flowingSpan.css('width', 'auto');
+		var textWidth = $flowingSpan.width();
+
+		if (textWidth > currentParentWidth) {
+			$flowingInner.addClass('on');
+			if ($flowingInner.find('.flowing').length === 1) {
+				var $clonedFlowing = $flowingSpan.clone();
+				$flowingInner.append($clonedFlowing);
+			}
+			$flowingInner.width((textWidth * 1.2) * 2);
+			$flowingSpan.width(textWidth * 1.2);
+			$flowingInner.find('.flowing:last').width(textWidth * 1.2);
+		} else {
+			$flowingInner.find('.flowing:not(:first)').remove();
+			$flowingInner.removeClass('on').css('width', '100%');
+			$flowingSpan.css('width', '100%');
+		}
+	}
+
+	$(window).on('load', handleFlowingText);
+	$(window).on('resize', function() {
+		handleFlowingText();
+	});
+	handleFlowingText();
 });

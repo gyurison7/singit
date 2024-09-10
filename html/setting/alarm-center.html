@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/setting/alarm-popup.css">
+
+	<!-- JS | library -->
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
+
+	<!-- JS -->
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
+	<script src="../../asset/js/sub.js"></script>
+
+    <title>SingIt</title>
+</head>
+<body>
+	<div id="wrap">
+		<!--==================
+		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+		- PLAY 페이지 : play 클래스
+		- SING 페이지 : sing 클래스
+		- BATTLE 페이지 : battle 클래스
+		- MY 페이지 : my 클래스
+		- 서브 페이지 : sub 클래스 
+        ======================-->
+		<div id="container" class="my sub">
+			<h2 class="main-title hidden">알림</h2>
+
+			<!--========== MODAL POPUP ==========-->
+			<div class="modal-popup-group">
+				<div id="noCheckedAlarm" class="modal alert noCheckedAlarm">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">알림을 선택해주세요.</h3>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#noCheckedAlarm');" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div id="deleteAlarm" class="modal alert deleteAlarm">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">알림이 삭제되었습니다.</h3>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#deleteAlarm');" class="basic-btn red delete-alarm-check" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+
+			<!--==================
+				* 해당 페이지는 팝업 형식으로 제작되었습니다. 
+				일반 페이지로도 사용 가능하니 참고 부탁드립니다.
+			======================-->
+			
+			<!--========== FULL PAGE POPUP ==========-->
+			<div class="full-popup-group">
+				<!-- 풀페이지 팝업 열기 : 클래스 open 추가 / 닫기 : open 클래스 제거 -->
+				<div id="m-alarm-popup" class="modal full m-alarm-popup open">
+					<div class="full-modal-wrap">
+						<section class="full-modal-content">
+							<h3 class="section-title hidden">알림</h3>
+							<div class="header-sub">
+								<ul>
+									<li class="header-sub-tit"><h2 class="content-txt2">알림</h2></li>
+									<li class="header-side header-close"><button type="button" aria-label="페이지 닫기" onclick="modalPopupClose('#m-alarm-popup');"><span class="hidden">페이지 닫기</span></button></li>
+								</ul>
+							</div>
+							<div class="full-modal-cont">
+								<div class="tab-btn-container">
+									<ul class="tab-btn-menu">
+										<li class="tab-btn-link current" data-tab="tab-btn-1"><a href="javascript:;"><span>전체</span></a></li>
+										<li class="tab-btn-link" data-tab="tab-btn-2"><a href="javascript:;"><span>좋아요</span></a></li>
+										<li class="tab-btn-link" data-tab="tab-btn-3"><a href="javascript:;"><span>댓글</span></a></li>
+										<li class="tab-btn-link" data-tab="tab-btn-4"><a href="javascript:;"><span>팔로우</span></a></li>
+										<li class="tab-btn-link" data-tab="tab-btn-5"><a href="javascript:;"><span>선물</span></a></li>
+										<li class="tab-btn-link" data-tab="tab-btn-6"><a href="javascript:;"><span>이벤트/공지</span></a></li>
+										<li class="tab-btn-link" data-tab="tab-btn-7"><a href="javascript:;"><span>듀엣완성</span></a></li>
+									</ul>
+									<div class="alarm-header content-txt3">
+										<div class="alarm-count">
+											<div class="basic-check-box">
+												<input type="checkbox" id="alarm-check-box-all" tabindex="-1">
+												<label for="alarm-check-box-all" class="alarm-check-box-all" tabindex="0"><span>30</span>개의 알림이 있습니다.</label>
+											</div>
+										</div>
+										<div class="alarm-btn-wrap">
+											<button type="button" class="alarm-delete-btn hidden-btn content-txt3" aria-label="삭제">삭제</button>
+											<button type="button" class="alarm-read-btn hidden-btn content-txt3" aria-label="읽음">읽음</button>
+											<!-- 선택 클릭 시 체크박스 노출 -->
+											<button type="button" class="alarm-check-btn content-txt3" aria-label="선택">선택</button>
+										</div>
+									</div>
+									<!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+									<div class="tab-btn-cont-wrap inner alarm-area">
+										<div class="no-result">
+											<p class="content-txt3">아직 도착한 알림이 없습니다.</p>
+										</div>
+										<div class="alarm-cont-wrap">
+											<div id="tab-btn-1" class="tab-btn-cont current">
+												<ul class="alarm-list">
+													<!-- 읽음 표시 : 클래스 already-read 추가 / 체크박스 노출 : 클래스 on 추가 -->
+													<li class="alarm-item already-read" data-index="1">
+														<div class="alarm-top-area content-txt3">
+															<div class="basic-check-box">
+																<input type="checkbox" id="alarm-check-box1" class="alarm-check-box" tabindex="-1">
+																<label for="alarm-check-box1" class="alarm-check-box-label" tabindex="0">
+																	<span class="alarm-tit">좋아요</span>
+																</label>
+															</div>
+															<span class="alarm-date">2024.01.07</span>
+														</div>
+														<!-- 체크박스 노출 상태에서는 링크 이동이 되지 않습니다. -->
+														<a href="../play/play-solo.html" class="alarm-link" title="레코딩 영상 페이지로 이동">
+															<p class="alarm-cont content-txt2">김재중최고님이 김수경님의 레코딩에 좋아요를 눌렀어요.</p>
+															<div class="profile-area song">
+																<ul class="profile-list-wrap">
+																	<li class="profile-list">
+																		<div class="profile-wrap">
+																			<div class="profile-wrap-inner">
+																				<!-- 이미지 : Default -->
+																				<div class="thumbnail-area skeleton">
+																					<div class="thumbnail-wrap">
+																						<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="레코딩 영상 썸네일">
+																						<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="레코딩 영상 썸네일">
+																					</div>
+																				</div>
+																				<div class="profile-info">
+																					<p class="profile-tit content-txt2 skeleton">한 페이지가 될 수 있게 한 페이지가 될 수 있게 한 페이지가 될 수 있게 한 페이지가 될 수 있게</p>
+																					<span class="profile-txt content-txt3 skeleton">DAY6 (데이식스) DAY6 (데이식스) DAY6 (데이식스) DAY6 (데이식스) DAY6 (데이식스)</span>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</a>
+													</li>
+													<!-- 읽음 표시 : 클래스 already-read 추가 / 체크박스 노출 : 클래스 on 추가 -->
+													<li class="alarm-item" data-index="2">
+														<div class="alarm-top-area content-txt3">
+															<div class="basic-check-box">
+																<input type="checkbox" id="alarm-check-box2" class="alarm-check-box" tabindex="-1">
+																<label for="alarm-check-box2" class="alarm-check-box-label" tabindex="0">
+																	<span class="alarm-tit">댓글</span>
+																</label>
+															</div>
+															<span class="alarm-date">2024.01.07</span>
+														</div>
+														<!-- 체크박스 노출 상태에서는 링크 이동이 되지 않습니다. -->
+														<a href="../play/play-solo.html" class="alarm-link" title="레코딩 영상 페이지로 이동">
+															<p class="alarm-cont content-txt2">김재중최고님이 김수경님의 레코딩에 댓글을 작성했어요.</p>
+															<div class="profile-area song">
+																<ul class="profile-list-wrap">
+																	<li class="profile-list">
+																		<div class="profile-wrap">
+																			<div class="profile-wrap-inner">
+																				<!-- 이미지 : Default -->
+																				<div class="thumbnail-area skeleton">
+																					<div class="thumbnail-wrap">
+																						<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="레코딩 영상 썸네일">
+																						<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="레코딩 영상 썸네일">
+																					</div>
+																				</div>
+																				<div class="profile-info">
+																					<p class="profile-tit content-txt2 skeleton">Love wins all</p>
+																					<span class="profile-txt content-txt3 skeleton">아이유</span>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</a>
+													</li>
+													<!-- 읽음 표시 : 클래스 already-read 추가 / 체크박스 노출 : 클래스 on 추가 -->
+													<li class="alarm-item already-read">
+														<div class="alarm-top-area content-txt3">
+															<div class="basic-check-box">
+																<input type="checkbox" id="alarm-check-box3" class="alarm-check-box" tabindex="-1">
+																<label for="alarm-check-box3" class="alarm-check-box-label" tabindex="0">
+																	<span class="alarm-tit">팔로우</span>
+																</label>
+															</div>
+															<span class="alarm-date">2024.01.07</span>
+														</div>
+														<!-- 체크박스 노출 상태에서는 링크 이동이 되지 않습니다. -->
+														<a href="../mypage/my-follow.html" class="alarm-link" title="내 팔로우 페이지로 이동">
+															<p class="alarm-cont content-txt2">김재중최고님이 김수경님을 팔로우했어요.</p>
+														</a>
+													</li>
+													<!-- 읽음 표시 : 클래스 already-read 추가 / 체크박스 노출 : 클래스 on 추가 -->
+													<li class="alarm-item">
+														<div class="alarm-top-area content-txt3">
+															<div class="basic-check-box">
+																<input type="checkbox" id="alarm-check-box4" class="alarm-check-box" tabindex="-1">
+																<label for="alarm-check-box4" class="alarm-check-box-label" tabindex="0">
+																	<span class="alarm-tit">선물</span>
+																</label>
+															</div>
+															<span class="alarm-date">2024.01.07</span>
+														</div>
+														<!-- 체크박스 노출 상태에서는 링크 이동이 되지 않습니다. -->
+														<a href="../mypage/my-singcoin.html" class="alarm-link" title="싱코인 이용내역 페이지로 이동">
+															<p class="alarm-cont content-txt2">김재중최고님이 김수경님에게 싱코인 30을 선물했어요.</p>
+														</a>
+													</li>
+													<!-- 읽음 표시 : 클래스 already-read 추가 / 체크박스 노출 : 클래스 on 추가 -->
+													<li class="alarm-item">
+														<div class="alarm-top-area content-txt3">
+															<div class="basic-check-box">
+																<input type="checkbox" id="alarm-check-box5" class="alarm-check-box" tabindex="-1">
+																<label for="alarm-check-box5" class="alarm-check-box-label" tabindex="0">
+																	<span class="alarm-tit">이벤트/공지</span>
+																</label>
+															</div>
+															<span class="alarm-date">2024.01.07</span>
+														</div>
+														<!-- 체크박스 노출 상태에서는 링크 이동이 되지 않습니다. -->
+														<a href="./notice-detail.html" class="alarm-link" title="공지사항 상세 페이지로 이동">
+															<p class="alarm-cont content-txt2">[당첨자 발표] 이런 박스 봤나 Hoxy?</p>
+														</a>
+													</li>
+													<!-- 읽음 표시 : 클래스 already-read 추가 / 체크박스 노출 : 클래스 on 추가 -->
+													<li class="alarm-item">
+														<div class="alarm-top-area content-txt3">
+															<div class="basic-check-box">
+																<input type="checkbox" id="alarm-check-box6" class="alarm-check-box" tabindex="-1">
+																<label for="alarm-check-box6" class="alarm-check-box-label" tabindex="0">
+																	<span class="alarm-tit">듀엣완성</span>
+																</label>
+															</div>
+															<span class="alarm-date">2024.01.07</span>
+														</div>
+														<!-- 체크박스 노출 상태에서는 링크 이동이 되지 않습니다. -->
+														<a href="../play/play-duet.html" class="alarm-link" title="레코딩 영상 페이지로 이동">
+															<p class="alarm-cont content-txt2">김수경님의 영상에 듀엣영상이 만들어졌어요.</p>
+															<div class="profile-area song">
+																<ul class="profile-list-wrap">
+																	<li class="profile-list">
+																		<div class="profile-wrap">
+																			<div class="profile-wrap-inner">
+																				<!-- 이미지 : Duet -->
+																				<div class="thumbnail-area skeleton duet">
+																					<div class="thumbnail-wrap">
+																						<img class="fade-in lazyload duet-left" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="레코딩 영상 썸네일">
+																						<img class="fade-in lazyload duet-right" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="레코딩 영상 썸네일">
+																					</div>
+																				</div>
+																				<div class="profile-info">
+																					<p class="profile-tit content-txt2 skeleton">Love wins all</p>
+																					<span class="profile-txt content-txt3 skeleton">아이유</span>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</a>
+													</li>
+													<!-- 읽음 표시 : 클래스 already-read 추가 / 체크박스 노출 : 클래스 on 추가 -->
+													<li class="alarm-item">
+														<div class="alarm-top-area content-txt3">
+															<div class="basic-check-box">
+																<input type="checkbox" id="alarm-check-box7" class="alarm-check-box" tabindex="-1">
+																<label for="alarm-check-box7" class="alarm-check-box-label" tabindex="0">
+																	<span class="alarm-tit">좋아요</span>
+																</label>
+															</div>
+															<span class="alarm-date">2024.01.07</span>
+														</div>
+														<!-- 체크박스 노출 상태에서는 링크 이동이 되지 않습니다. -->
+														<a href="../play/play-solo.html" class="alarm-link" title="레코딩 영상 페이지로 이동">
+															<p class="alarm-cont content-txt2">김재중최고님이 김수경님의 레코딩에 좋아요를 눌렀어요.</p>
+															<div class="profile-area song">
+																<ul class="profile-list-wrap">
+																	<li class="profile-list">
+																		<div class="profile-wrap">
+																			<div class="profile-wrap-inner">
+																				<!-- 이미지 : 1:1 -->
+																				<div class="thumbnail-area skeleton">
+																					<div class="thumbnail-wrap">
+																						<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																						<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																					</div>
+																				</div>
+																				<div class="profile-info">
+																					<p class="profile-tit content-txt2 skeleton">Love wins all</p>
+																					<span class="profile-txt content-txt3 skeleton">아이유</span>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</a>
+													</li>
+													<!-- 읽음 표시 : 클래스 already-read 추가 / 체크박스 노출 : 클래스 on 추가 -->
+													<li class="alarm-item">
+														<div class="alarm-top-area content-txt3">
+															<div class="basic-check-box">
+																<input type="checkbox" id="alarm-check-box8" class="alarm-check-box" tabindex="-1">
+																<label for="alarm-check-box8" class="alarm-check-box-label" tabindex="0">
+																	<span class="alarm-tit">좋아요</span>
+																</label>
+															</div>
+															<span class="alarm-date">2024.01.07</span>
+														</div>
+														<!-- 체크박스 노출 상태에서는 링크 이동이 되지 않습니다. -->
+														<a href="../play/play-solo.html" class="alarm-link" title="레코딩 영상 페이지로 이동">
+															<p class="alarm-cont content-txt2">김재중최고님이 김수경님의 레코딩에 좋아요를 눌렀어요.</p>
+															<div class="profile-area song">
+																<ul class="profile-list-wrap">
+																	<li class="profile-list">
+																		<div class="profile-wrap">
+																			<div class="profile-wrap-inner">
+																				<!-- 이미지 : 음성만 녹음시 1:1 앨범커버 -->
+																				<div class="thumbnail-area skeleton album">
+																					<div class="thumbnail-wrap">
+																						<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-cover-01.jpg" srcset="../../asset/images/temp/img-cover-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																						<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-cover-01.jpg" srcset="../../asset/images/temp/img-cover-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																					</div>
+																				</div>
+																				<div class="profile-info">
+																					<p class="profile-tit content-txt2 skeleton">Love wins all</p>
+																					<span class="profile-txt content-txt3 skeleton">아이유</span>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</a>
+													</li>
+												</ul>
+											</div>
+											<div id="tab-btn-2" class="tab-btn-cont">
+												<ul class="alarm-list">
+													<!-- 읽음 표시 : 클래스 already-read 추가 / 체크박스 노출 : 클래스 on 추가 -->
+													<li class="alarm-item already-read">
+														<div class="alarm-top-area content-txt3">
+															<div class="basic-check-box">
+																<input type="checkbox" id="alarm-check-box9" class="alarm-check-box" tabindex="-1">
+																<label for="alarm-check-box9" class="alarm-check-box-label" tabindex="0">
+																	<span class="alarm-tit">좋아요</span>
+																</label>
+															</div>
+															<span class="alarm-date">2024.01.07</span>
+														</div>
+														<!-- 체크박스 노출 상태에서는 링크 이동이 되지 않습니다. -->
+														<a href="../play/play-solo.html" class="alarm-link" title="레코딩 영상 페이지로 이동">
+															<p class="alarm-cont content-txt2">김재중최고님이 김수경님의 레코딩에 좋아요를 눌렀어요.</p>
+															<div class="profile-area song">
+																<ul class="profile-list-wrap">
+																	<li class="profile-list">
+																		<div class="profile-wrap">
+																			<div class="profile-wrap-inner">
+																				<div class="thumbnail-area skeleton">
+																					<div class="thumbnail-wrap">
+																						<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="레코딩 영상 썸네일">
+																						<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="레코딩 영상 썸네일">
+																					</div>
+																				</div>
+																				<div class="profile-info">
+																					<p class="profile-tit content-txt2 skeleton">Love wins all</p>
+																					<span class="profile-txt content-txt3 skeleton">아이유</span>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</a>
+													</li>
+													<!-- 읽음 표시 : 클래스 already-read 추가 / 체크박스 노출 : 클래스 on 추가 -->
+													<li class="alarm-item">
+														<div class="alarm-top-area content-txt3">
+															<div class="basic-check-box">
+																<input type="checkbox" id="alarm-check-box10" class="alarm-check-box" tabindex="-1">
+																<label for="alarm-check-box10" class="alarm-check-box-label" tabindex="0">
+																	<span class="alarm-tit">좋아요</span>
+																</label>
+															</div>
+															<span class="alarm-date">2024.01.07</span>
+														</div>
+														<!-- 체크박스 노출 상태에서는 링크 이동이 되지 않습니다. -->
+														<a href="../play/play-solo.html" class="alarm-link" title="레코딩 영상 페이지로 이동">
+															<p class="alarm-cont content-txt2">김재중최고님이 김수경님의 레코딩에 좋아요를 눌렀어요.</p>
+															<div class="profile-area song">
+																<ul class="profile-list-wrap">
+																	<li class="profile-list">
+																		<div class="profile-wrap">
+																			<div class="profile-wrap-inner">
+																				<!-- 이미지 : 1:1 -->
+																				<div class="thumbnail-area skeleton">
+																					<div class="thumbnail-wrap">
+																						<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																						<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																					</div>
+																				</div>
+																				<div class="profile-info">
+																					<p class="profile-tit content-txt2 skeleton">Love wins all</p>
+																					<span class="profile-txt content-txt3 skeleton">아이유</span>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</a>
+													</li>
+													<!-- 읽음 표시 : 클래스 already-read 추가 / 체크박스 노출 : 클래스 on 추가 -->
+													<li class="alarm-item">
+														<div class="alarm-top-area content-txt3">
+															<div class="basic-check-box">
+																<input type="checkbox" id="alarm-check-box11" class="alarm-check-box" tabindex="-1">
+																<label for="alarm-check-box11" class="alarm-check-box-label" tabindex="0">
+																	<span class="alarm-tit">좋아요</span>
+																</label>
+															</div>
+															<span class="alarm-date">2024.01.07</span>
+														</div>
+														<!-- 체크박스 노출 상태에서는 링크 이동이 되지 않습니다. -->
+														<a href="../play/play-solo.html" class="alarm-link" title="레코딩 영상 페이지로 이동">
+															<p class="alarm-cont content-txt2">김재중최고님이 김수경님의 레코딩에 좋아요를 눌렀어요.</p>
+															<div class="profile-area song">
+																<ul class="profile-list-wrap">
+																	<li class="profile-list">
+																		<div class="profile-wrap">
+																			<div class="profile-wrap-inner">
+																				<!-- 이미지 : 음성만 녹음시 1:1 앨범커버 -->
+																				<div class="thumbnail-area skeleton album">
+																					<div class="thumbnail-wrap">
+																						<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-cover-01.jpg" srcset="../../asset/images/temp/img-cover-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																						<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-cover-01.jpg" srcset="../../asset/images/temp/img-cover-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																					</div>
+																				</div>
+																				<div class="profile-info">
+																					<p class="profile-tit content-txt2 skeleton">Love wins all</p>
+																					<span class="profile-txt content-txt3 skeleton">아이유</span>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</a>
+													</li>
+												</ul>
+											</div>
+											<div id="tab-btn-3" class="tab-btn-cont">
+												<ul class="alarm-list">
+													<!-- 읽음 표시 : 클래스 already-read 추가 / 체크박스 노출 : 클래스 on 추가 -->
+													<li class="alarm-item" data-index="2">
+														<div class="alarm-top-area content-txt3">
+															<div class="basic-check-box">
+																<input type="checkbox" id="alarm-check-box12" class="alarm-check-box" tabindex="-1">
+																<label for="alarm-check-box12" class="alarm-check-box-label" tabindex="0">
+																	<span class="alarm-tit">댓글</span>
+																</label>
+															</div>
+															<span class="alarm-date">2024.01.07</span>
+														</div>
+														<!-- 체크박스 노출 상태에서는 링크 이동이 되지 않습니다. -->
+														<a href="../play/play-solo.html" class="alarm-link" title="레코딩 영상 페이지로 이동">
+															<p class="alarm-cont content-txt2">김재중최고님이 김수경님의 레코딩에 댓글을 작성했어요.</p>
+															<div class="profile-area song">
+																<ul class="profile-list-wrap">
+																	<li class="profile-list">
+																		<div class="profile-wrap">
+																			<div class="profile-wrap-inner">
+																				<div class="thumbnail-area skeleton">
+																					<div class="thumbnail-wrap">
+																						<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="레코딩 영상 썸네일">
+																						<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="레코딩 영상 썸네일">
+																					</div>
+																				</div>
+																				<div class="profile-info">
+																					<p class="profile-tit content-txt2 skeleton">Love wins all</p>
+																					<span class="profile-txt content-txt3 skeleton">아이유</span>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</a>
+													</li>
+												</ul>
+											</div>
+											<div id="tab-btn-4" class="tab-btn-cont">
+												<ul class="alarm-list">
+													<!-- 읽음 표시 : 클래스 already-read 추가 / 체크박스 노출 : 클래스 on 추가 -->
+													<li class="alarm-item already-read">
+														<div class="alarm-top-area content-txt3">
+															<div class="basic-check-box">
+																<input type="checkbox" id="alarm-check-box13" class="alarm-check-box" tabindex="-1">
+																<label for="alarm-check-box13" class="alarm-check-box-label" tabindex="0">
+																	<span class="alarm-tit">팔로우</span>
+																</label>
+															</div>
+															<span class="alarm-date">2024.01.07</span>
+														</div>
+														<!-- 체크박스 노출 상태에서는 링크 이동이 되지 않습니다. -->
+														<a href="../mypage/my-follow.html" class="alarm-link" title="내 팔로우 페이지로 이동">
+															<p class="alarm-cont content-txt2">김재중최고님이 김수경님을 팔로우했어요.</p>
+														</a>
+													</li>
+												</ul>
+											</div>
+											<div id="tab-btn-5" class="tab-btn-cont">
+												<ul class="alarm-list">
+													<!-- 읽음 표시 : 클래스 already-read 추가 / 체크박스 노출 : 클래스 on 추가 -->
+													<li class="alarm-item">
+														<div class="alarm-top-area content-txt3">
+															<div class="basic-check-box">
+																<input type="checkbox" id="alarm-check-box14" class="alarm-check-box" tabindex="-1">
+																<label for="alarm-check-box14" class="alarm-check-box-label" tabindex="0">
+																	<span class="alarm-tit">선물</span>
+																</label>
+															</div>
+															<span class="alarm-date">2024.01.07</span>
+														</div>
+														<!-- 체크박스 노출 상태에서는 링크 이동이 되지 않습니다. -->
+														<a href="../mypage/my-singcoin.html" class="alarm-link" title="싱코인 이용내역 페이지로 이동">
+															<p class="alarm-cont content-txt2">김재중최고님이 김수경님에게 싱코인 30을 선물했어요.</p>
+														</a>
+													</li>
+												</ul>
+											</div>
+											<div id="tab-btn-6" class="tab-btn-cont">
+												<ul class="alarm-list">
+													<!-- 읽음 표시 : 클래스 already-read 추가 / 체크박스 노출 : 클래스 on 추가 -->
+													<li class="alarm-item">
+														<div class="alarm-top-area content-txt3">
+															<div class="basic-check-box">
+																<input type="checkbox" id="alarm-check-box15" class="alarm-check-box" tabindex="-1">
+																<label for="alarm-check-box15" class="alarm-check-box-label" tabindex="0">
+																	<span class="alarm-tit">이벤트/공지</span>
+																</label>
+															</div>
+															<span class="alarm-date">2024.01.07</span>
+														</div>
+														<!-- 체크박스 노출 상태에서는 링크 이동이 되지 않습니다. -->
+														<a href="./notice-detail.html" class="alarm-link" title="공지사항 상세 페이지로 이동">
+															<p class="alarm-cont content-txt2">[당첨자 발표] 이런 박스 봤나 Hoxy?</p>
+														</a>
+													</li>
+												</ul>
+											</div>
+											<div id="tab-btn-7" class="tab-btn-cont">
+												<ul class="alarm-list">
+													<!-- 읽음 표시 : 클래스 already-read 추가 / 체크박스 노출 : 클래스 on 추가 -->
+													<li class="alarm-item">
+														<div class="alarm-top-area content-txt3">
+															<div class="basic-check-box">
+																<input type="checkbox" id="alarm-check-box16" class="alarm-check-box" tabindex="-1">
+																<label for="alarm-check-box16" class="alarm-check-box-label" tabindex="0">
+																	<span class="alarm-tit">듀엣완성</span>
+																</label>
+															</div>
+															<span class="alarm-date">2024.01.07</span>
+														</div>
+														<!-- 체크박스 노출 상태에서는 링크 이동이 되지 않습니다. -->
+														<a href="../play/play-duet.html" class="alarm-link" title="레코딩 영상 페이지로 이동">
+															<p class="alarm-cont content-txt2">김수경님의 영상에 듀엣영상이 만들어졌어요.</p>
+															<div class="profile-area song">
+																<ul class="profile-list-wrap">
+																	<li class="profile-list">
+																		<div class="profile-wrap">
+																			<div class="profile-wrap-inner">
+																				<div class="thumbnail-area skeleton duet">
+																					<div class="thumbnail-wrap">
+																						<img class="fade-in lazyload duet-left" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="레코딩 영상 썸네일">
+																						<img class="fade-in lazyload duet-right" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="레코딩 영상 썸네일">
+																					</div>
+																				</div>
+																				<div class="profile-info">
+																					<p class="profile-tit content-txt2 skeleton">Love wins all</p>
+																					<span class="profile-txt content-txt3 skeleton">아이유</span>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

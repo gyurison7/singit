@@ -4,7 +4,7 @@
 <head>
 	<!-- meta -->
     <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
 	<meta name="format-detection" content="telephone=no, address=no, email=no">
 	<meta name="robots" content="noindex, nofollow">
 
@@ -44,87 +44,237 @@
 	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
 
 	<!-- FONTS -->
-	<link rel="preload" href="../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
 
 	<!-- FONTS -->
-	<link rel="preload" href="../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/mypage/my-membership.css">
 
 	<!-- JS | library -->
-	<script src="../asset/js/lazysizes.min.js"></script>
-	<script src="../asset/js/prefixfree.min.js"></script>
-	<script src="../asset/js/jquery-3.7.1.min.js"></script>
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
 
 	<!-- JS -->
-	<script src="../asset/js/basic.js"></script>
-	<script src="../asset/js/popup.js"></script>
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
 
     <title>SingIt</title>
 </head>
 <body>
-	<!--==================
+	<div id="wrap">
+		<!--==================
 		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
 		- PLAY 페이지 : play 클래스
 		- SING 페이지 : sing 클래스
 		- BATTLE 페이지 : battle 클래스
 		- MY 페이지 : my 클래스
 		- 서브 페이지 : sub 클래스 
-	======================-->
-    <div id="container" class="sing">
-        <!--========== MODAL POPUP ==========-->
-        <div class="modal-popup-group">
+        ======================-->
+		<div id="container" class="my sub">
+			<!--========== MODAL POPUP ==========-->
+            <div class="modal-popup-group">
+				<!-- 쿠폰 사용 여부 문의 팝업 -->
+				<div id="useAskCoupon" class="modal alert useAskCoupon">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">쿠폰을 사용하시겠습니까?</h3>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#useAskCoupon');" class="basic-btn gray" tabindex="1">취소</a>
+								<a href="javascript:;" onclick="modalPopupClose('#useAskCoupon'); modalPopup('#completeCoupon');" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+				<!-- 등록 불가능한 쿠폰 팝업 -->
+				<div id="incorrectCoupon" class="modal alert incorrectCoupon">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">쿠폰 코드를 확인해주세요.</h3>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#incorrectCoupon');" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+				<!-- 중복 불가능한 쿠폰 팝업 -->
+				<div id="duplicateCoupon" class="modal alert duplicateCoupon">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">이미 등록된 쿠폰입니다.</h3>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#duplicateCoupon');" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+				<!-- 이미 사용 완료된 쿠폰 팝업 -->
+				<div id="usedCoupon" class="modal alert usedCoupon">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">이미 사용된 쿠폰입니다.</h3>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#usedCoupon');" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+				<!-- 쿠폰 사용 완료 팝업 -->
+				<div id="completeCoupon" class="modal alert completeCoupon">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">쿠폰 사용 완료되었습니다.</h3>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#completeCoupon');" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+            </div>
 
-		</div>
-
-		<!--========== HEADER ==========-->
-		<header id="header"></header>
-		<script>
-			$(function () {
-				$('#header').load("include/header.html", function () {
-					// 로드된 후에 실행될 코드
-					$.getScript("../asset/js/header.js");
-					// $.getScript("../asset/js/basic.js");
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<script>
+				$(function () {
+					$('#header').load("../include/header.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/header.js");
+						// $.getScript("../../asset/js/basic.js");
+					});
 				});
-			});
-		</script>
-        <main id="main">
-			<!-- ! 페이지 섹션에 맞는 클래스 추가해서 사용 : 예) play-sec  -->
-            <section class="section">
-                <div class="inner" style="background-color: rgba(0, 0, 0, 0.5); height: 89vh;">
-                    <div class="section-tit-wrap" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; flex-flow: column;">
-						<h2 class="main-title skeleton">페이지 메인 타이틀</h2>
+			</script>
+			<main id="main" class="sub">
+				<h2 class="main-title hidden">쿠폰</h2>
+				<!--==================
+
+				* 쿠폰 등록/사용 관련 모달 팝업
+				1. 쿠폰 코드 입력 후 '쿠폰 등록'시,
+				(1) 등록 불가능한 쿠폰 일경우: modalPopup('#incorrectCoupon'); [#incorrectCoupon 팝업 실행]
+				(2) 중복 불가능한 쿠폰 일경우: modalPopup('#duplicateCoupon'); [#duplicateCoupon 팝업 실행]
+				(3) 이미 사용 완료된 쿠폰 일경우: modalPopup('#usedCoupon'); [#usedCoupon 팝업 실행]
+				
+				======================-->
+				<section class="section coupon-register-sec">
+					<div class="inner">
+						<h3 class="section-title hidden">쿠폰 등록</h3>
 						<div class="section-content">
-							<div style="text-align: center; color: #fff;">컨텐츠 영역 들어갑니다.</div>
+							<p class="content-txt1">다양한 쿠폰으로 싱잇을 즐겨보세요.</p>
+							<div class="input-area">
+								<div class="form-input-box">
+									<div class="input-box text box">
+										<input type="text" placeholder="쿠폰 코드를 입력해주세요.">
+									</div>
+									<div class="btn-wrap">
+										<button type="button" class="basic-btn black-line" aria-label="쿠폰 등록" onclick="modalPopup('#incorrectCoupon');"><span>쿠폰 등록</span></button>
+									</div>
+									<!-- ※ 현재는 예시로 '등록 불가능한 쿠폰' 팝업 노출 중입니다. -->
+								</div>
+							</div>
 						</div>
-                    </div>
-                </div>
-            </section>
+					</div>
+				</section>
+				<section class="section coupon-list-sec">
+					<div class="inner">
+						<h3 class="section-title hidden">쿠폰 목록</h3>
+						<div class="section-content">
+							<!--==================
+							* .coupon-num에 쿠폰 개수(.coupon-list)가 노출됩니다. (스크립트로 구현 완료)
 
-			<!-- Floating Button -->
-			<aside id="singit-box" class="content-txt2">
-				<a href="javascript:;" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
-			</aside>
-        </main>
+							* 쿠폰이 없는 케이스 (.coupon-empty)
+							- 쿠폰(.coupon-list)가 없을 경우 자동으로 노출됩니다.(css로 처리 완료)
 
-        <!--========== APP BAR : FOOTER ==========-->
-		<footer id="footer"></footer>
-        <script>
-			$(function () {
-				$('#footer').load("include/footer.html", function () {
-					// 로드된 후에 실행될 코드
-					$.getScript("../asset/js/footer.js");
-				});
-			});
-		</script>
-
-		<!--========== TOAST POPUP ==========-->
-		<div class="toast-popup-group">
-
+							* 쿠폰 (.coupon-list)
+							- .coupon-tit : 쿠폰 이름
+							- .coupon-code > .coupon-code-num : 쿠폰 코드 넘버
+							- .coupon-expire > .coupon-date : 만료 D-day
+							
+							* 쿠폰 등록/사용 관련 모달 팝업
+							2. '쿠폰 사용하기'시,
+							(1) 기본적으로 쿠폰 사용 여부 문의: modalPopup('#useAskCoupon'); [#useAskCoupon 팝업 실행]
+							(2) '쿠폰 사용 여부 문의 팝업(#useAskCoupon)'에서, '확인'으로 사용 완료시: modalPopup('#completeCoupon'); [#completeCoupon 팝업 실행]
+							
+							======================-->
+							<p class="content-txt3">사용 가능한 쿠폰<span class="coupon-num num">0</span>개</p>
+							<div class="coupon-wrap">
+								<div class="coupon-empty">
+									<p class="content-txt3">등록된 쿠폰이 없어요.<br>쿠폰 코드를 입력해주세요.</p>
+								</div>
+								<div class="coupon-list">
+									<div class="coupon-txt-area">
+										<div class="coupon-txt-wrap">
+											<div class="coupon-tit content-txt1">Singit Box 1곡 무료</div>
+											<div class="coupon-code content-txt3">쿠폰 코드 <span class="coupon-code-num">AB234</span></div>
+										</div>
+										<div class="coupon-expire caption-txt1"><p>사용 기한 <span class="coupon-date">D-30</span></p></div>
+									</div>
+									<div class="coupon-btn-area">
+										<a href="javascript:;" role="button" onclick="modalPopup('#useAskCoupon');" title="쿠폰 사용하기 버튼"><span class="caption-txt1">쿠폰 사용하기</span></a>
+										<!-- ※ 현재는 예시로 '기본적으로 쿠폰 사용 여부 문의' 팝업 노출 중입니다. -->
+									</div>
+								</div>
+								<div class="coupon-list">
+									<div class="coupon-txt-area">
+										<div class="coupon-txt-wrap">
+											<div class="coupon-tit content-txt1">쿠폰 이름은 이렇게 들어갑니다. 쿠폰 이름은 이렇게 들어갑니다. 쿠폰 이름은 이렇게 들어갑니다.</div>
+											<div class="coupon-code content-txt3">쿠폰 코드 <span class="coupon-code-num">AB234</span></div>
+										</div>
+										<div class="coupon-expire caption-txt1"><p>사용 기한 <span class="coupon-date">D-30</span></p></div>
+									</div>
+									<div class="coupon-btn-area">
+										<a href="javascript:;" role="button" onclick="modalPopup('#useAskCoupon');" title="쿠폰 사용하기 버튼"><span class="caption-txt1">쿠폰 사용하기</span></a>
+									</div>
+								</div>
+								<div class="coupon-list">
+									<div class="coupon-txt-area">
+										<div class="coupon-txt-wrap">
+											<div class="coupon-tit content-txt1">쿠폰 이름은 이렇게 들어갑니다.</div>
+											<div class="coupon-code content-txt3">쿠폰 코드 <span class="coupon-code-num">AB234</span></div>
+										</div>
+										<div class="coupon-expire caption-txt1"><p>사용 기한 <span class="coupon-date">D-1</span></p></div>
+									</div>
+									<div class="coupon-btn-area">
+										<a href="javascript:;" role="button" onclick="modalPopup('#useAskCoupon');" title="쿠폰 사용하기 버튼"><span class="caption-txt1">쿠폰 사용하기</span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- 기능 스크립트 부분 -->
+				<script>
+					/* .coupon-num에 쿠폰 개수(.coupon-list) 노출 */
+					$(function(){
+						const couponNum = $(".coupon-list-sec .coupon-list").length;
+						$(".coupon-list-sec .coupon-num").html(couponNum);
+					});
+				</script>
+			</main>
 		</div>
-    </div>
+	</div>
 </body>
 </html>

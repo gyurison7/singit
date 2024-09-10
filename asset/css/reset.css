@@ -47,5 +47,5 @@ input:disabled,select:disabled,textarea:disabled {background-color: #fff;}
 
 /* scrollbar */
 ::-webkit-scrollbar { width: 4px; height: 4px; } 
-::-webkit-scrollbar-thumb { height: 30%; background: #888; border-radius: 10px;} 
-::-webkit-scrollbar-track { background: #ddd; } 
+::-webkit-scrollbar-thumb { height: 30%; background: #dedede; border-radius: 10px;} 
+::-webkit-scrollbar-track { background: #f3f3f3; } 

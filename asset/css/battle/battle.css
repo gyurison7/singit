@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Ajin Lee. (Weaverloft Corp.)
+ * 2. Production Date: 2024-09-09
+ * 3. Client: MEDIASCOPE Inc.
+ */
+
+/* ------------------------------------------------------------------------ 
+ HOME battle-sec
+------------------------------------------------------------------------ */
+/*========== 공통 ==========*/
+.battle-sec .section-content { overflow: hidden; } 
+.battle-sec .sub-cont-tit-wrap { padding: 0 8px; } 
+.battle-sec .sub-cont-txt { font-weight: 400; font-variation-settings: 'wght' 400; } 
+.sub-cont-tit a { font-size: inherit; color: inherit; } 
+.white .sub-cont-tit span { background-image: url('../../images/common/icon-sub-tit-next-white.svg'); } 
+.battle-sec .no-result p { padding: 3.57em 10px; } 
+.sup-tit {display: inline-block; margin: 0 0.50em 0 0; font-weight: 400; font-variation-settings: 'wght' 400;color: #666;}
+
+/* Octagon Level Card */
+.octagon-flip-area { padding: 1.25em; font-size: 1rem; } 
+.octagon-flip { position: relative; width: 12.50em; height: 16.88em; aspect-ratio: 200 / 270; perspective: 1100px; font-size: inherit; } 
+.octagon-card { width: 100%; height: 100%; position: relative; transition: .4s; transform-style: preserve-3d; font-size: inherit; } 
+.octagon-card .front, .octagon-card .back { display: flex; flex-direction: column; align-items: center; position: absolute; width: 100%; height: 100%; padding: 1.56em 1em 1.25em 1em; backface-visibility: hidden; border-radius: 1em; box-shadow: 0 0.19em 1.25em rgba(252, 207, 207, 0.6); font-size: inherit; } 
+.octagon-card .front { background: linear-gradient(to bottom right, #FF5E4A, #F82A2E); } 
+.octagon-card .front .front-img { margin: 2.63em 0 0; font-size: inherit; } 
+.octagon-card .front img, .octagon-card .back img { background-color: transparent; } 
+.octagon-card .back { align-items: flex-start; background-color: #fff; transform: rotateY(180deg); } 
+.octagon-card .back .back-img { margin-top: auto; margin-left: auto; } 
+.octagon-flip .octagon-card.flipped { transform: rotateY(180deg); } 
+.card-tit { margin: 0.80em 0 0; font-weight: 700; font-variation-settings: 'wght' 700; color: #111; } 
+@media screen and (min-width: 421px){
+    .octagon-flip-area { font-size: clamp(16px, 4.267vw, 20px); } 
+}
+
+/* Status Level */
+.status-level span { display: inline-block; min-width: 78px; padding: 0.38em 0.92em; border-radius: 1em; font-size: 0.750rem; font-weight: 700; font-variation-settings: 'wght' 700; line-height: 1; text-align: center; text-transform: uppercase; } 
+.status-level span.white { border: 1px solid rgba(255, 255, 255, 0.4); color: #fff; } 
+.status-level span.red { border: 1px solid var(--main-point-color); color: var(--main-point-color); } 
+@media screen and (min-width: 421px){
+    .status-level span { font-size: clamp(12px, 3.2vw, 15px); } 
+}
+
+/*========== battle-main ==========*/
+.battle-main { padding: 2px 0 0; } 
+.battle-main .battle-main-banner { position: relative; padding: 0 0 1em; font-size: 1rem; } 
+.battle-main .battle-main-banner .swiper-wrapper { padding: 0 32px 0 0; } 
+.battle-main .battle-main-banner .main-banner { width: 85.333vw; max-width: 680px; } 
+.battle-main .battle-main-banner .main-banner a { position: relative; display: block; width: 100%; height: 100%; cursor: grab; } 
+.battle-main .battle-main-banner .main-banner figure { display: block; overflow: hidden; width: 100%; height: 100%; background-color: #f5f5f5; border-radius: 0.38em; font-size: 1rem; } 
+.battle-main .battle-main-banner .main-banner figure img { width: 100%; height: 100%; aspect-ratio: 320 / 120; border-radius: inherit; -webkit-border-radius: inherit; -moz-border-radius: inherit; -ms-border-radius: inherit; -o-border-radius: inherit; } 
+.battle-main .battle-main-banner .main-banner .main-banner-txt { position: absolute; top: 0; left: 0; z-index: 1; width: 100%; height: 100%; } 
+.battle-main .battle-main-banner .main-banner .main-banner-txt-inner { display: flex; flex-direction: column; justify-content: flex-end; padding: 1.11em 1.11em 1.11em 1.33em; width: 100%; height: 100%; font-size: inherit; font-weight: 400; font-variation-settings: 'wght' 400; color: #111; } 
+.battle-main .battle-main-banner .main-banner .main-banner-txt.white .main-banner-txt-inner { color: #fff; } 
+.battle-main .battle-main-banner .main-banner .main-banner-txt .main-banner-name { display: block; } 
+.battle-main .battle-main-banner .main-banner .main-banner-txt .main-banner-name strong { font-weight: 700; font-variation-settings: 'wght' 700; } 
+.battle-main .battle-main-banner .main-banner .main-banner-txt .main-banner-text { display: block; line-height: 1.2; } 
+@media screen and (min-width: 421px){
+    .battle-main .battle-main-banner, .battle-main .battle-main-banner .main-banner figure { font-size: clamp(16px, 4.267vw, 20px); } 
+}
+
+/*========== battle-game ==========*/

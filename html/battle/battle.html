@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS | library -->
+	<link rel="stylesheet" href="../../asset/css/swiper.min.css">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/battle/battle.css">
+
+	<!-- JS | library -->
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
+	<script src="../../asset/js/swiper.min.js"></script>
+
+	<!-- JS -->
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
+
+    <title>SingIt</title>
+</head>
+<body>
+	<div id="wrap">
+		<!--==================
+		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+		- PLAY 페이지 : play 클래스
+		- SING 페이지 : sing 클래스
+		- BATTLE 페이지 : battle 클래스
+		- MY 페이지 : my 클래스
+		- 서브 페이지 : sub 클래스 
+        ======================-->
+		<div id="container" class="battle">
+			<!--========== MODAL POPUP ==========-->
+			<div class="modal-popup-group">
+
+			</div>
+			
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<script>
+				$(function () {
+					$('#header').load("../include/header.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/header.js");
+					});
+				});
+			</script>
+			<main id="main">
+				<h2 class="main-title hidden">BATTLE HOME</h2>
+				<section class="section battle-sec">
+					<h3 class="section-title hidden">BATTLE HOME</h3>
+					<article class="section-content battle-main">
+						<h4 class="hidden"><span>BATTLE 메인 배너</span></h4>
+						<div class="inner">
+							<div class="swiper battle-main-banner">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide main-banner skeleton" role="group" aria-roledescription="슬라이드">
+										<a href="#none" aria-label="내가만든쿠키님 영상 올리고 커피받아야죠 - 배너 상세보기">
+											<figure>
+												<img class="fade-in lazyloaded" decoding="async" src="../../asset/images/temp/temp-banner01.jpg" alt="내가만든쿠키님 영상 올리고 커피받아야죠">
+											</figure>
+											<div class="main-banner-txt content-txt1">
+												<dl class="main-banner-txt-inner">
+													<dt class="main-banner-name"><strong>내가 만든 쿠키</strong> 님</dt>
+													<dd class="main-banner-text">영상 올리고 커피받아야죠</dd>
+												</dl>
+											</div>
+										</a>
+									</div>
+									<div class="swiper-slide main-banner skeleton" role="group" aria-roledescription="슬라이드">
+										<a href="#none" aria-label="George님, 영상 올리고 커피받아야죠 - 배너 상세보기">
+											<figure>
+												<img class="fade-in lazyloaded" decoding="async" src="../../asset/images/temp/temp-banner02.jpg" alt="George님, 영상 올리고 커피받아야죠">
+											</figure>
+											<!-- 흰색 텍스트 white 클래스 추가 -->
+											<div class="main-banner-txt white content-txt1">
+												<dl class="main-banner-txt-inner">
+													<dt class="main-banner-name"><strong>George</strong> 님</dt>
+													<dd class="main-banner-text">영상 올리고 커피받아야죠</dd>
+												</dl>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-pagination main-banner-pgn"></div>
+							</div>
+						</div>
+					</article>
+					<article class="section-content battle-game">
+						<h4 class="inner sub-cont-tit content-txt2"><a href="#none" title="왕좌의 게임 보기"><span><em class="sup-tit">9월</em>왕좌의 게임</span></a></h4>
+						<!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+						<div class="inner battle-game-cont">
+							<div class="no-result">
+								<p class="content-txt3">2배 챌린지 인기곡으로 도전할 수 있어요.<br> 아직은 인기곡이 없어요.</p>
+							</div>
+							<div class="swiper battle-game-slide">
+								<ul class="swiper-wrapper score-slide-wrap">
+									<li class="swiper-slide score-slide-list">
+										<a href="#none" class="score-slide">
+											<figure class="cover-img">
+												<img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp02.png" alt="등대 하현상">
+											</figure>
+											<div class="score-profile-wrap">
+												<div class="song-by-info">
+													<figure class="profile-img">
+														<!-- 이미지 확장자 추천 jpg -->
+														<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="싱싱카님 이미지">
+													</figure>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</article>
+
+					<article class="section-content" style="height: 50vh;">
+					</article>
+					<article class="section-content">
+						<h4 class="hidden"><span>BATTLE 메인 배너</span></h4>
+						<div class="inner">
+							<div class="octagon-flip-area">
+								<div class="octagon-flip">  
+									<div class="octagon-card">
+										<!-- 앞면 -->
+										<div class="front">
+											<div class="status-level">
+												<span class="white">level up!</span>
+											</div>
+											<figure class="front-img">
+												<img class="fade-in lazyloaded" decoding="async" src="../../asset/images/common/logo-v-white.svg" alt="alt값 필수">
+											</figure>
+										</div>
+										<!-- 뒷면 --> 
+										<div class="back">
+											<div class="status-level">
+												<span class="red">level up!</span>
+											</div>
+											<h6 class="card-tit">지금 레벨 테스트 해보세요!</h6>
+											<figure class="back-img">
+												<img class="fade-in lazyloaded" decoding="async" src="../../asset/images/sub/battle/level-img-default.svg" alt="alt값 필수">
+											</figure>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="process-container" style="width: 100%;">
+								<svg class="process-bar" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+									<g class="bar bar1" >
+										<rect class="background" x="0" y="0" rx="2.5" ry="2.5" width="100%" height="5" />
+										<rect class="completed" x="0" y="0" rx="2.5" ry="2.5" width="100%" height="5" />
+									</g>
+								</svg>
+							</div>
+							<!-- <script>
+								document.addEventListener('DOMContentLoaded', () => {
+									const completedRect = document.querySelector('.process-bar .completed');
+									const targetWidth = completedRect.getAttribute('width');
+									completedRect.setAttribute('width', '0');
+
+									let currentWidth = 0;
+									const step = targetWidth / 100; 
+
+									function animate() {
+										if (currentWidth < targetWidth) {
+											currentWidth += step;
+											completedRect.setAttribute('width', currentWidth);
+											requestAnimationFrame(animate); 
+										} else {
+											completedRect.setAttribute('width', targetWidth);
+										}
+									}
+									animate();
+								});
+							</script> -->
+						</div>
+					</article>
+
+					<article class="section-content" style="height: 50vh;">
+					</article>
+				</section>
+
+				<!-- Floating Button -->
+				<aside id="singit-box" class="content-txt2">
+                    <a href="javascript:;" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
+                </aside>
+			</main>
+			
+			<!--========== APP BAR : FOOTER ==========-->
+			<footer id="footer"></footer>
+			<script>
+				$(function () {
+					$('#footer').load("../include/footer.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/footer.js");
+					});
+				});
+			</script>
+
+			<!--========== FULL PAGE POPUP ==========-->
+			<div class="full-popup-group">
+
+			</div>
+
+			<!--========== TOAST POPUP ==========-->
+			<div class="toast-popup-group">
+				<!-- 부르기 팝업 -->
+				<!--==================
+					* 부르기 팝업
+					- .sing-with-cont가 노출 됩니다. 
+					- .sing-with-cont의 버튼 선택에 따라 .sing-solo-cont 혹은 .sing-duet-cont이 노출 됩니다.
+					  (1) .sing-solo-btn 클릭시, #sing-select에 클래스 setting-step solo가 붙습니다.
+					  (2) .sing-duet-btn 클릭시, #sing-select에 클래스 setting-step duet이 붙습니다.
+					- .sheet-cont-prev-btn(뒤로가기 버튼) 클릭시, 이전 화면인 .sing-with-cont 노출로 돌아갑니다.
+
+					* 듀엣 참여시, A파트 참여의 경우 .duet-join-A / B파트 참여의 경우 .duet-join-B
+				======================-->
+				<div id="sing-select" class="bottom-sheet-wrap sing-select"> <!-- openBottomSheet('#sing-select')에 의해 호출 -->
+					<div class="bottom-sheet unable-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<div class="sheet-tit-box">
+								<button type="button" class="sheet-cont-prev-btn" aria-label="뒤로가기"></button>
+								<div class="profile-info content-txt2">
+									<div class="flowing-wrap">
+										<p class="profile-tit flowing-inner">
+											<span class="flowing">Small girl Small girl Small girl (feat. 도경수(D.O.))</span>
+										</p>
+									</div>
+									<p class="artist-name content-txt3">이영지</p>
+								</div>
+							</div>
+							<div class="sheet-cont-inner">
+								<div class="sing-with-cont">
+									<a href="javascript:;" class="sing-solo-btn"><span>솔로 부르기</span></a>
+									<a href="javascript:;" class="sing-duet-btn"><span>듀엣 초대</span></a>
+								</div>
+								<div class="sing-setting-cont sing-solo-cont">
+									<div class="sing-setting-top">
+										<div class="sing-setting-key sing-setting-area">
+											<p class="caption-txt1">KEY</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-solo-w" name="setting-key-solo" value="w" tabindex="-1" checked>
+													<label for="setting-key-solo-w" tabindex="0">
+														<span class="content-txt3">여자</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-solo-m" name="setting-key-solo" value="m" tabindex="-1">
+													<label for="setting-key-solo-m" tabindex="0">
+														<span class="content-txt3">남자</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+										<div class="sing-setting-save sing-setting-area">
+											<p class="caption-txt1">저장 방법</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-solo-video" name="setting-save-solo" value="video" tabindex="-1" checked>
+													<label for="setting-save-solo-video" tabindex="0">
+														<span class="content-txt3">영상</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-solo-sound" name="setting-save-solo" value="sound" tabindex="-1">
+													<label for="setting-save-solo-sound" tabindex="0">
+														<span class="content-txt3">음성</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+									</div>
+									<div class="sing-setting-btm">
+										<a href="#" class="sing-challenge-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">2배 챌린지</span>
+												<div class="txt-bubble caption-txt1">GOAL <em>80점</em></div>
+											</div>
+										</a>
+										<a href="#" class="sing-solo-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">솔로 부르기</span>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div class="sing-setting-cont sing-duet-cont">
+									<div class="sing-setting-top">
+										<div class="sing-setting-key sing-setting-area">
+											<p class="caption-txt1">KEY</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-duet-w" name="setting-key-duet" value="w" tabindex="-1" checked>
+													<label for="setting-key-duet-w" tabindex="0">
+														<span class="content-txt3">여자</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-duet-m" name="setting-key-duet" value="m" tabindex="-1">
+													<label for="setting-key-duet-m" tabindex="0">
+														<span class="content-txt3">남자</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+										<div class="sing-setting-save sing-setting-area">
+											<p class="caption-txt1">저장 방법</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-duet-video" name="setting-save-duet" value="video" tabindex="-1" checked>
+													<label for="setting-save-duet-video" tabindex="0">
+														<span class="content-txt3">영상</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-duet-sound" name="setting-save-duet" value="sound" tabindex="-1">
+													<label for="setting-save-duet-sound" tabindex="0">
+														<span class="content-txt3">음성</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+									</div>
+									<div class="sing-setting-btm">
+										<a href="#" class="sing-duet-A-part-btn sing-duet-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">A 파트 부르기</span>
+											</div>
+										</a>
+										<a href="#" class="sing-duet-B-part-btn sing-duet-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">B 파트 부르기</span>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+				<!-- // 부르기 팝업 -->
+			</div>
+		</div>
+	</div>
+
+	<!-- JS : BATTLE HOME 페이지에만 적용 -->
+	<script src="../../asset/js/sub.js"></script>
+</body>
+</html>

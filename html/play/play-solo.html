@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/play/play-detail.css">
+	<link rel="stylesheet" href="../../asset/css/swiper.min.css">
+
+	<!-- JS | library -->
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
+	<script src="../../asset/js/swiper.min.js"></script>
+
+	<!-- JS -->
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
+	<script src="../../asset/js/sub.js"></script>
+	
+    <title>SingIt</title>
+</head>
+<body>
+	<div id="wrap">
+		<!--==================
+		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+		- PLAY 페이지 : play 클래스
+		- SING 페이지 : sing 클래스
+		- BATTLE 페이지 : battle 클래스
+		- MY 페이지 : my 클래스
+		- 서브 페이지 : sub 클래스 
+        ======================-->
+		<div id="container" class="play sub detail">
+			<!--========== MODAL POPUP ==========-->
+            <div class="modal-popup-group">
+				<!-- 싱코인 선물하기 팝업 -->
+				<div id="giftScPop" class="modal msg giftScPop">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">싱코인 선물하기</h3>
+								</div>
+								<div class="modal-txt-wrap">
+									<div class="gift-sc-cont">
+										<div class="gift-sc-box">
+											<button type="button" class="gift-sc-btn minus-gift-sc-btn" aria-label="선물할 싱코인 감소" onclick=""></button>
+											<input class="gift-sc-input medium-num" type="text" value="0">
+											<button type="button" class="gift-sc-btn plus-gift-sc-btn" aria-label="선물할 싱코인 감소" onclick=""></button>
+										</div>
+										<div class="gift-sc-box-bottom">
+											<div class="current-sc-wrap">
+												<p class="content-txt3">보유 코인 <strong><span class="current-sc num">1200</span>개</strong></p>
+											</div>
+											<div class="basic-check-box">
+												<input type="checkbox" id="gift-all-check-box" tabindex="-1">
+												<label for="gift-all-check-box" tabindex="0">모두 주기</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#giftScPop');" class="basic-btn gray" tabindex="1">취소</a>
+								<a href="javascript:;" onclick="modalPopupClose('#giftScPop');" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+				<!-- 게시물 삭제하기 팝업 -->
+				<div id="delPop" class="modal alert delPop">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">영상을 삭제하시겠습니까?</h3>
+								</div>
+								<div class="modal-txt-wrap">
+									<p class="modal-sub-tit">삭제된 영상은 복구하거나<br> 되돌릴 수 없습니다.</p>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#delPop');" class="basic-btn gray" tabindex="1">취소</a>
+								<a href="javascript:;" onclick="modalPopupClose('#delPop');" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+				<!-- 게시물 수정하기 팝업 -->
+				<div id="editPop" class="modal msg editPop">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">수정하기</h3>
+									<div class="modal-close-btn">
+										<a href="javascript:;" onclick="modalPopupClose('#editPop')" title="팝업창 닫기" tabindex="0">팝업창 닫기</a>
+									</div>
+								</div>
+								<div class="modal-txt-wrap">
+									<div class="textarea-box-wrap">
+										<div class="textarea-box text keyup" style="min-height: 180px;">
+											<textarea placeholder="내용을 입력해주세요." maxlength="200"></textarea>
+										</div>
+										<div class="write-typing">
+											<span class="typing-num">0</span>
+											<span>/</span>
+											<span class="typing-max-num">200</span>
+										</div>
+									</div>
+									<div class="modal-switch-area">
+										<p class="modal-switch-tit">공개여부</p>
+										<div class="switch-wrap">
+											<div class="basic-switch txt">
+												<input id="popup-checkbox-switch" type="checkbox" class="checkbox-switch" checked="">
+												<label for="popup-checkbox-switch">공개</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								 <a href="javascript:;" onclick="modalPopupClose('#editPop');" class="basic-btn gray" tabindex="1">취소</a>
+								<a href="javascript:;" onclick="modalPopupClose('#editPop');" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+				<!-- 댓글 > 더보기 메뉴 팝업 -->
+				<div id="commentMenuPop" class="modal bs commentMenuPop">
+					<div class="modal-wrap bottom-sheet-st">
+						<section class="modal-content">
+							<h3 class="hidden">댓글 더보기 메뉴 팝업</h3>
+							<div class="sheet-content">
+								<div class="sheet-cont-inner">
+									<div class="btn-wrap sheet-btn-wrap multi">
+										<button type="button" class="basic-btn white-line fix w100" aria-label="수정하기" onclick="modalPopupClose('#commentMenuPop'); modalPopup('#editPop')"><span>수정하기</span></button>
+										<button type="button" class="basic-btn white-line del w100" aria-label="삭제하기" onclick="modalPopupClose('#commentMenuPop'); modalPopup('#delPop')"><span>삭제하기</span></button>
+										<button type="button" class="basic-btn white-line warning red-txt w100" aria-label="신고하기" onclick="modalPopupClose('#commentMenuPop'); openBottomSheet('#warning')"><span>신고하기</span></button>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+            </div>
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<script>
+				$(function () {
+					$('#header').load("../include/header.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/header.js");
+						// $.getScript("../../asset/js/basic.js");
+					});
+				});
+			</script>
+
+			<!--==================
+			* .play-vid-box 
+			- .play-vid-wrap 내에 video를 감싸는 .play-vid 필수
+			- play solo 영상은 video 태그에 클래스 vid-solo가 필수입니다.
+			- video 태그의 playsinline 속성은 필수이며, autoplay는 선택사항입니다. (없을경우 iOS에서 썸네일 노출이 안됨)
+			- .vid-indicator-wrap는 기본적으로는 노출되지 않으며, 영상 터치시 5초(조정가능)동안 노출됩니다.
+			- .vid-indicator-wrap > .play-btn : 재생 버튼. / .vid-indicator-wrap > .pause-btn : 정지 버튼. 누를 시 .play-vid-box에 play 클래스가 토글 됩니다.
+			- .progress-bar-wrap는 영상의 재생진척도를 나타냅니다.
+			======================-->
+			<main id="main" class="sub">
+				<h2 class="main-title hidden">PLAY 솔로 영상</h2>
+				<section class="section play-solo-sec play-vid-sec">
+					<h3 class="section-title hidden">PLAY 영상</h3>
+					<div class="section-content">
+						<div class="play-vid-box show">
+							<div class="play-vid-wrap">
+								<!-- 컨텐츠가 들어가는 자리입니다. .play-vid 필수 -->
+								<div class="play-vid">
+									<video class="play-cont vid-solo" playsinline autoplay>
+										<source src="../../asset/images/temp/vid-temp03.mp4" type="video/mp4">
+									</video>
+								</div>
+								<div class="play-dimmed-layer"></div>
+							</div>
+							<div class="vid-indicator-wrap">
+								<button type="button" class="vid-play-btn play-btn" aria-label="재생하기" onclick=""></button>
+								<button type="button" class="vid-play-btn pause-btn" aria-label="정지하기" onclick=""></button>
+								<button type="button" class="full-vid-btn" aria-label="전체화면에서 보기" onclick=""></button>
+								<div class="vid-timeline-wrap caption-txt1">
+									<span class="current-time">00:00</span> / <span class="total-time">00:00</span>
+								</div>
+							</div>
+						</div>
+						<div class="progress-bar-wrap">
+							<input type="range" class="progress" min="0" max="100" value="0" step="0.1">
+						</div>
+						<div class="play-vid-cont">
+							<div class="inner content-txt2">
+								<h4 class="play-vid-title content-txt1 skeleton">제목이 길땐 이렇게 들어갑니다.제목이 길땐 이렇게 들어갑니다.제목이 길땐 이렇게 들어갑니다.제목이 길땐 이렇게 들어갑니다.</h4>
+								<div class="play-vid-singer content-txt3 skeleton">이영지</div>
+								<div class="play-vid-desc more-article content-txt3 skeleton">
+									<div class="more-article-wrap">
+										<p class="more-article-txt">
+										영상에 대한 설명이 들어갑니다.영상에 대한 설명이 들어갑니다.영상에 대한 설명이 들어갑니다.영상에 대한 설명이 들어갑니다.영상에 대한 설명이 들어갑니다.영상에 대한 설명이 들어갑니다.
+										</p>
+									</div>
+								</div>
+								<div class="play-vid-bottom content-txt3">
+									<div class="bottom-info-wrap">
+										<!-- 조회수 -->
+										<div class="info-views bottom-info"><div class="views-wrap">조회수 <span class="num">25</span></div></div>
+										<!-- 게시일 -->
+										<div class="info-date bottom-info">2024.08.05</div>
+									</div>
+									<button type="button" class="basic-btn line gift-btn" aria-label="선물하기" onclick="modalPopup('#giftScPop')"><span>선물하기</span></button>
+								</div>
+							</div>
+							<!-- 좋아요, 북마크 버튼은 클릭시 on 클래스가 토글로 붙습니다 -->
+							<div class="play-vid-btn-wrap btn-wrap">
+								<button type="button" class="basic-btn round black-line compact compact-like-btn" aria-label="title" onclick=""><span class="num">264</span></button>
+								<button type="button" class="basic-btn black-line round compact compact-bookmark-btn" aria-label="title" onclick=""><span class="num">251</span></button>
+								<button type="button" class="basic-btn black-line round compact compact-share-btn" aria-label="title" onclick=""><span>공유</span></button>
+								<button type="button" class="basic-btn black-line round red-txt compact compact-report-btn" aria-label="title" onclick="openBottomSheet('#warning')"><span>신고</span></button>
+							</div>
+							<button type="button" class="vid-menu-btn" aria-label="게시물 메뉴 버튼" onclick="openBottomSheet('#fix-download-popup')"></button>
+						</div>
+					</div>
+				</section>
+				<section class="section play-vid-comment-sec">
+					<h3 class="section-title hidden">PLAY 게시자 및 댓글</h3>
+					<div class="section-content inner">
+						<div class="profile-area">
+							<ul class="profile-list-wrap">
+								<li class="profile-list">
+									<div class="profile-wrap">
+										<a href="#none" class="profile-wrap-inner" title="프로필 보기">
+											<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지"></figure>
+											<div class="profile-info">
+												<p class="profile-tit content-txt3 skeleton">내가 만든쿠키 내가 만든쿠키 내가 만든쿠키 내가 만든쿠키 내가 만든쿠키 내가 만든쿠키</p>
+											</div>
+										</a>
+										<div class="btn-wrap profile-btn-wrap follow skeleton">
+											<button type="button" class="basic-btn small line pink on" aria-label="title" onclick="location.href='#none'"><span>팔로우</span></button>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<!--==================
+						* .comment-preview-box 
+						- 댓글이 있는 경우, .comment-preview-wrap가 노출 되며 댓글 하나를 불러옵니다.
+						- 댓글이 없는 경우, .comment-preview-wrap 대신 .no-comment-preview-wrap가 노출 됩니다.
+						- 영역 클릭시 댓글 bottom sheet(#comment)가 호출 됩니다. ( openBottomSheet('#comment') )
+						======================-->
+						<div class="comment-preview-box" onclick="openBottomSheet('#comment')">
+							<p class="content-txt3">댓글<span class="num">8</span></p>
+							<div class="comment-preview-wrap">
+								<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../../asset/images/temp/profile-temp01.png" alt="프로필 기본 이미지"></figure>
+								<div class="comment-preview content-txt3 skeleton">안녕하세요! 노래가 너무 좋은데요? 좋아요 누르고 갑니당 안녕하세요! 노래가 너무 좋은데요? 좋아요 누르고 갑니당 안녕하세요! 노래가 너무 좋은데요? 좋아요 누르고 갑니당</div>
+							</div>
+							<!-- 댓글이 없을경우 아래 부분이 대신 노출됩니다. -->
+							<!--
+							<div class="no-comment-preview-wrap">
+								<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../../asset/images/temp/profile-temp04.png" alt="프로필 기본 이미지"></figure>
+								<p class="caption-txt1">첫 번째로 이 영상에 댓글을 남겨보세요.</p>
+							</div>
+							-->
+						</div>
+					</div>
+				</section>
+				<section class="section vid-bottom-sec related-vid-sec">
+					<div class="section-content inner">
+						<h3 class="section-title content-txt2">관련 영상</h3>
+						<div class="related-vid-wrap related-vid-swiper swiper song-list">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide related-vid-list">
+									<a href="location.href='#none'" aria-label="관련 영상 이동">
+										<div class="thumbnail-area skeleton">
+											<div class="thumbnail-wrap">
+												<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/img-169-03.jpg" srcset="../../asset/images/temp/img-169-03.jpg 2x" alt="alt값 필수" title="선택적 제목">
+											</div>
+											<div class="img-btn-wrap bottom">
+												<div class="play"><span class="num">248</span></div>
+												<div class="time">02:50</div>
+											</div>
+										</div>
+										<div class="profile-info">
+											<p class="profile-tit content-txt3 skeleton" style="margin: 0;">Moonlight sunrise Moonlight sunrise Moonlight sunrise Moonlight sunrise</p>
+											<span class="profile-txt caption-txt1 skeleton">트와이스 트와이스 트와이스 트와이스 트와이스 트와이스</span>
+										</div>
+										<div class="song-by-info skeleton">
+											<figure class="profile-img">
+												<!-- 이미지 확장자 추천 jpg -->
+												<img class="fade-in lazyload duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+											</figure>
+											<p class="profile-name" style="margin: 0;">국희</p>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide related-vid-list">
+									<a href="location.href='#none'" aria-label="관련 영상 이동">
+										<div class="thumbnail-area skeleton">
+											<div class="thumbnail-wrap">
+												<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+											</div>
+											<div class="img-btn-wrap bottom">
+												<div class="play"><span class="num">248</span></div>
+												<div class="time">02:50</div>
+											</div>
+										</div>
+										<div class="profile-info">
+											<p class="profile-tit content-txt3 skeleton" style="margin: 0;">Moonlight sunrise</p>
+											<span class="profile-txt caption-txt1 skeleton">두아리파앙</span>
+										</div>
+										<div class="song-by-info skeleton">
+											<figure class="profile-img">
+												<!-- 이미지 확장자 추천 jpg -->
+												<img class="fade-in lazyload duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+											</figure>
+											<p class="profile-name" style="margin: 0;">쿠우</p>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide related-vid-list">
+									<a href="location.href='#none'" aria-label="관련 영상 이동">
+										<div class="thumbnail-area skeleton">
+											<div class="thumbnail-wrap">
+												<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="alt값 필수" title="선택적 제목">
+											</div>
+											<div class="img-btn-wrap bottom">
+												<div class="play"><span class="num">248</span></div>
+												<div class="time">02:50</div>
+											</div>
+										</div>
+										<div class="profile-info">
+											<p class="profile-tit content-txt3 skeleton" style="margin: 0;">Moonlight sunrise Moonlight sunrise Moonlight sunrise Moonlight sunrise</p>
+											<span class="profile-txt caption-txt1 skeleton">트와이스 트와이스 트와이스 트와이스 트와이스 트와이스</span>
+										</div>
+										<div class="song-by-info skeleton">
+											<figure class="profile-img">
+												<!-- 이미지 확장자 추천 jpg -->
+												<img class="fade-in lazyload duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+											</figure>
+											<p class="profile-name" style="margin: 0;">두아리파앙파앙파앙&달고달디단냥이냥이냥이</p>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide related-vid-list">
+									<a href="location.href='#none'" aria-label="관련 영상 이동">
+										<div class="thumbnail-area skeleton">
+											<div class="thumbnail-wrap">
+												<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="alt값 필수" title="선택적 제목">
+											</div>
+											<div class="img-btn-wrap bottom">
+												<div class="play"><span class="num">248</span></div>
+												<div class="time">02:50</div>
+											</div>
+										</div>
+										<div class="profile-info">
+											<p class="profile-tit content-txt3 skeleton" style="margin: 0;">Moonlight sunrise Moonlight sunrise Moonlight sunrise Moonlight sunrise</p>
+											<span class="profile-txt caption-txt1 skeleton">트와이스 트와이스 트와이스 트와이스 트와이스 트와이스</span>
+										</div>
+										<div class="song-by-info skeleton">
+											<figure class="profile-img">
+												<!-- 이미지 확장자 추천 jpg -->
+												<img class="fade-in lazyload duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+											</figure>
+											<p class="profile-name" style="margin: 0;">두아리파앙파앙파앙&달고달디단냥이냥이냥이</p>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide related-vid-list">
+									<a href="location.href='#none'" aria-label="관련 영상 이동">
+										<div class="thumbnail-area skeleton">
+											<div class="thumbnail-wrap">
+												<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="alt값 필수" title="선택적 제목">
+											</div>
+											<div class="img-btn-wrap bottom">
+												<div class="play"><span class="num">248</span></div>
+												<div class="time">02:50</div>
+											</div>
+										</div>
+										<div class="profile-info">
+											<p class="profile-tit content-txt3 skeleton" style="margin: 0;">Moonlight sunrise Moonlight sunrise Moonlight sunrise Moonlight sunrise</p>
+											<span class="profile-txt caption-txt1 skeleton">트와이스 트와이스 트와이스 트와이스 트와이스 트와이스</span>
+										</div>
+										<div class="song-by-info skeleton">
+											<figure class="profile-img">
+												<!-- 이미지 확장자 추천 jpg -->
+												<img class="fade-in lazyload duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+											</figure>
+											<p class="profile-name" style="margin: 0;">두아리파앙파앙파앙&달고달디단냥이냥이냥이</p>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="section vid-bottom-sec recommended-vid-sec">
+					<div class="section-content inner">
+						<h3 class="section-title content-txt2">추천 영상</h3>
+						<div class="profile-area song-list">
+							<ul class="profile-list-wrap">
+								<li class="profile-list">
+									<div class="profile-wrap">
+										<a href="#" class="profile-wrap-inner" aria-label="추천 영상 이동">
+											<div class="thumbnail-area skeleton duet">
+												<div class="thumbnail-wrap">
+													<img class="fade-in lazyload duet-left" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+													<img class="fade-in lazyload duet-right" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="alt값 필수" title="선택적 제목">
+												</div>
+												<div class="img-btn-wrap bottom">
+													<div class="play"><span class="num">248</span></div>
+													<div class="time">02:50</div>
+												</div>
+											</div>
+											<div class="profile-info">
+												<p class="profile-tit content-txt3 skeleton" style="margin: 0;">Moonlight sunrise Moonlight sunrise Moonlight sunrise Moonlight sunrise</p>
+												<span class="profile-txt caption-txt1 skeleton">트와이스 트와이스 트와이스 트와이스 트와이스 트와이스</span>
+											</div>
+											<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+											<div class="song-by-info skeleton duet">
+												<figure class="profile-img">
+													<!-- 이미지 확장자 추천 jpg -->
+													<img class="fade-in lazyload duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+													<img class="fade-in lazyload duet02" src="../../asset/images/temp/profile-temp01.png" alt="프로필 이미지">
+												</figure>
+												<p class="profile-name" style="margin: 0;">두아리파앙&달고달디단냥이</p>
+											</div>
+										</a>
+									</div>
+								</li>
+								<li class="profile-list">
+									<div class="profile-wrap">
+										<a href="#" class="profile-wrap-inner" aria-label="추천 영상 이동">
+											<div class="thumbnail-area skeleton"> 
+												<div class="thumbnail-wrap">
+													<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="Moonlight sunrise 트와이스">
+													<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="Moonlight sunrise 트와이스">
+												</div>
+												<div class="img-btn-wrap bottom">
+													<div class="play"><span class="num">248</span></div>
+													<div class="time">02:50</div>
+												</div>
+											</div>
+											<div class="profile-info">
+												<p class="profile-tit content-txt3 skeleton" style="margin: 0;">Moonlight sunrise Moonlight sunrise Moonlight sunrise Moonlight sunrise</p>
+												<span class="profile-txt caption-txt1 skeleton">트와이스 트와이스 트와이스 트와이스 트와이스 트와이스</span>
+											</div>
+											<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+											<div class="song-by-info skeleton">
+												<figure class="profile-img">
+													<!-- 이미지 확장자 추천 jpg -->
+													<img class="fade-in lazyload" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+												</figure>
+												<p class="profile-name" style="margin: 0;">두아리파앙</p>
+											</div>
+										</a>
+									</div>
+								</li>
+								<li class="profile-list">
+									<div class="profile-wrap">
+										<a href="#" class="profile-wrap-inner" aria-label="추천 영상 이동">
+											<div class="thumbnail-area skeleton duet"> 
+												<div class="thumbnail-wrap">
+													<img class="fade-in lazyload duet-left" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+													<img class="fade-in lazyload duet-right" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="alt값 필수" title="선택적 제목">
+												</div>
+												<div class="img-btn-wrap bottom">
+													<div class="play"><span class="num">248</span></div>
+													<div class="time">02:50</div>
+												</div>
+											</div>
+											<div class="profile-info">
+												<p class="profile-tit content-txt3 skeleton" style="margin: 0;">Moonlight sunrise Moonlight sunrise Moonlight sunrise Moonlight sunrise</p>
+												<span class="profile-txt caption-txt1 skeleton">트와이스 트와이스 트와이스 트와이스 트와이스 트와이스</span>
+											</div>
+											<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+											<div class="song-by-info skeleton duet">
+												<figure class="profile-img">
+													<!-- 이미지 확장자 추천 jpg -->
+													<img class="fade-in lazyload duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+													<img class="fade-in lazyload duet02" src="../../asset/images/temp/profile-temp01.png" alt="프로필 이미지">
+												</figure>
+												<p class="profile-name" style="margin: 0;">두아리파앙&달고달디단냥이</p>
+											</div>
+										</a>
+									</div>
+								</li>
+								<li class="profile-list">
+									<div class="profile-wrap">
+										<a href="#" class="profile-wrap-inner" aria-label="추천 영상 이동">
+											<div class="thumbnail-area skeleton"> 
+												<div class="thumbnail-wrap">
+													<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="Moonlight sunrise 트와이스">
+													<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="Moonlight sunrise 트와이스">
+												</div>
+												<div class="img-btn-wrap bottom">
+													<div class="play"><span class="num">248</span></div>
+													<div class="time">02:50</div>
+												</div>
+											</div>
+											<div class="profile-info">
+												<p class="profile-tit content-txt3 skeleton" style="margin: 0;">Moonlight sunrise Moonlight sunrise Moonlight sunrise Moonlight sunrise</p>
+												<span class="profile-txt caption-txt1 skeleton">트와이스 트와이스 트와이스 트와이스 트와이스 트와이스</span>
+											</div>
+											<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+											<div class="song-by-info skeleton">
+												<figure class="profile-img">
+													<!-- 이미지 확장자 추천 jpg -->
+													<img class="fade-in lazyload" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+												</figure>
+												<p class="profile-name" style="margin: 0;">달고달디단냥이</p>
+											</div>
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<div class="btn-wrap bottom play-bottom-btn-wrap">
+					<div class="inner">
+						<button type="button" class="basic-btn red round" aria-label="1위 도전" onclick="openBottomSheet('#sing-select')">
+							<span>1위 도전</span>
+						</button>
+					</div>
+				</div>
+			</main>
+			
+			<!--========== BOTTOM SHEET ==========-->
+			<div class="toast-popup-group">
+				<!-- 게시물 더보기 메뉴 -->
+				<div id="fix-download-popup" class="bottom-sheet-wrap view fix">
+					<div class="bottom-sheet unable-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<h4 class="sheet-tit hidden">수정하기</h4>
+							<div class="sheet-cont-inner">
+								<div class="btn-wrap sheet-btn-wrap multi">
+									<button type="button" class="basic-btn white-line fix w100" aria-label="수정하기" onclick="modalPopup('#editPop')"><span>수정하기</span></button>
+									<button type="button" class="basic-btn white-line del w100" aria-label="삭제하기" onclick="modalPopup('#delPop')"><span>삭제하기</span></button>
+									<button type="button" class="basic-btn white-line download w100" aria-label="다운로드" onclick=""><span>다운로드</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+				<!-- 신고 버튼 sheet -->
+				<div id="warning" class="bottom-sheet-wrap warning">
+					<div class="bottom-sheet sheet-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<h4 class="sheet-tit">신고</h4>
+							<div class="sheet-cont-inner">
+								<ul class="sheet-list">
+									<li><a href="#none">미성년자 안전</a></li>
+									<li><a href="#none">위험한 행동 및 도전</a></li>
+									<li><a href="#none">자살, 자해 및 섭식 장애</a></li>
+									<li><a href="#none">성인 노출 및 성행위</a></li>
+									<li><a href="#none">괴롭힘 및 희롱</a></li>
+									<li><a href="#none">혐오적 행동</a></li>
+									<li><a href="#none">폭력적 극단주의</a></li>
+									<li><a href="#none">스팸 및 허위 참여</a></li>
+									<li><a href="#none">유해한 허위 정보</a></li>
+									<li><a href="#none">불법 행위 및 규제 품목</a></li>
+									<li><a href="#none">폭력적이고 노골적인 콘텐츠</a></li>
+									<li><a href="#none">지적 재산 침해</a></li>
+									<li><a href="#none">기타</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+				<!-- 신고 sheet > 구체적 사유 -->
+				<div id="warning-reason" class="bottom-sheet-wrap warning reason">
+					<div class="bottom-sheet sheet-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<h4 class="sheet-tit">구체적 사유</h4>
+							<div class="sheet-cont-inner">
+								<ul class="sheet-list">
+									<li><a href="#none">미성년자의 노출 또는 성행위</a></li>
+									<li><a href="#none">미성년자의 대한 학대 또는 범죄</a></li>
+									<li><a href="#none">미성년자의 위험한 행동</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+				<!-- 댓글 sheet -->
+				<!--==================
+					* .comment-list
+					- 댓글 단 유저의 프로필 사진은 .profile-area 에 img 태그로 들어갑니다.
+					- 원댓글: .comment-list.comment-tree1 / 대댓글: .comment-list.comment-tree2
+					
+					* .comment-list .content-area
+					- .user : 유저 닉네임,
+					- .comment-txt > p : 댓글 내용 노출.
+					
+					* .comment-list .bottom-info-wrap 내
+					(1) .info-date : 댓글 발행 날짜,
+					(2) .like-btn > .like-num : 좋아요 수,
+					(3) .view-reply-btn > .reply-num : 답글 수 노출.
+					
+					* 좋아요 버튼(.like-btn)
+					- on 클래스가 toggle로 추가/삭제
+					- .like-num의 수가 변동됩니다.
+					
+					* 답글쓰기 버튼(.reply-btn)
+					- .input-txt-box에 reply 클래스 토글
+					- 누른 답글쓰기 버튼의 댓글 기반으로 작성자의 닉네임을 .input-txt-popup p.input-popup-cont > span 으로 가져옵니다.
+					
+					* 답글 보기 버튼(.view-reply-btn)
+					- .view-reply-btn에 on 클래스 토글
+					- 대댓글 영역(.comment-reply-wrap) slideUp/slideDown 실행
+					- 만약 답글이 없을 경우 .view-reply-btn은 노출되지 않습니다.
+					
+					* 댓글 메뉴 버튼(.comment-menu-btn)
+					- 댓글 메뉴 팝업(#commentMenu)이 노출됩니다. ( modalPopup('#commentMenuPop') 실행 )
+
+					* 댓글이 없는 경우, .no-comment-case가 노출됩니다.(css 처리)
+				======================-->
+				<!-- 댓글 bottom sheet - openBottomSheet('#comment')에 의해 호출 -->
+				<div id="comment" class="bottom-sheet-wrap comment">
+					<div class="bottom-sheet sheet-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content content-txt1">
+							<h4 class="sheet-tit">댓글<span class="comment-num">6</span></h4> <!-- 댓글 총 개수는 .commnet-num에 들어갑니다. -->
+							<div class="sheet-cont-inner">
+								<div class="comment-box">
+									<div class="comment-wrap">
+										<!-- 원댓글: .comment-list.comment-tree1 -->
+										<div class="comment-list comment-tree1">
+											<div class="profile-area">
+												<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/profile-temp01.png" alt="유저 프로필 이미지">
+											</div>
+											<div class="content-area">
+												<div class="comment-content-wrap">
+													<div class="user">내가만든쿠키</div>
+													<div class="comment-txt"><p>덕분에 노래 잘 감상하고 갑니다 :)<br>
+													혹시 신청곡도 받으시나요?! ㅎㅎ</p></div>
+													<div class="bottom-info-wrap">
+														<div class="info-date bottom-info">1일전</div>
+														<a href="javascript:;" class="like-btn bottom-info on" role="button"><div class="like-wrap"><span class="like-num num">2225</span></div></a>
+														<a href="javascript:;" class="reply-btn bottom-info" role="button">답글쓰기</a>
+														<a href="javascript:;" class="view-reply-btn bottom-info" role="button">답글 <span class="reply-num num">1</span>개</a>
+													</div>
+													<button type="button" class="comment-menu-btn" aria-label="댓글 메뉴 버튼" onclick="modalPopup('#commentMenuPop')"><span class="hidden">댓글 메뉴</span></button>
+												</div>
+												<!-- 대댓글 모음 영역 -->
+												<div class="comment-reply-wrap">
+													<!-- 대댓글: .comment-list.comment-tree2 -->
+													<div class="comment-list comment-tree2">
+														<div class="profile-area">
+															<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/profile-temp-zzang.png" alt="유저 프로필 이미지">
+														</div>
+														<div class="content-area">
+															<div class="comment-content-wrap">
+																<div class="user">싱싱카</div>
+																<div class="comment-txt"><p>ㅎㅎ 감사합니다. 신청곡 남겨주시면 한번 불러볼게요!</p></div>
+																<div class="bottom-info-wrap">
+																	<div class="info-date bottom-info">16시간 전</div>
+																	<a href="javascript:;" class="like-btn bottom-info" role="button"><div class="like-wrap"><span class="like-num num">25</span></div></a>
+																</div>
+																<button type="button" class="comment-menu-btn" aria-label="댓글 메뉴 버튼" onclick="modalPopup('#commentMenuPop')"><span class="hidden">댓글 메뉴</span></button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="comment-list comment-tree1">
+											<div class="profile-area">
+												<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/img-11-01.jpg" alt="유저 프로필 이미지">
+											</div>
+											<div class="content-area">
+												<div class="comment-content-wrap">
+													<div class="user">너를위해구웠지</div>
+													<div class="comment-txt"><p>테스트 중입니다. 대댓글이 없는 댓글입니다.</p></div>
+													<div class="bottom-info-wrap">
+														<div class="info-date bottom-info">2일전</div>
+														<a href="javascript:;" class="like-btn bottom-info" role="button"><div class="like-wrap"><span class="like-num num">5</span></div></a>
+														<a href="javascript:;" class="reply-btn bottom-info" role="button">답글쓰기</a>
+													</div>
+													<button type="button" class="comment-menu-btn" aria-label="댓글 메뉴 버튼" onclick="modalPopup('#commentMenuPop')"><span class="hidden">댓글 메뉴</span></button>
+												</div>
+												<!-- 대댓글 모음 영역 -->
+												<div class="comment-reply-wrap">
+												</div>
+											</div>
+										</div>
+										<div class="comment-list comment-tree1">
+											<div class="profile-area">
+												<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/profile-temp03.png" alt="유저 프로필 이미지">
+											</div>
+											<div class="content-area">
+												<div class="comment-content-wrap">
+													<div class="user">다시만든쿠키</div>
+													<div class="comment-txt"><p>덕분에 노래 잘 감상하고 갑니다 :)<br>
+													혹시 신청곡도 받으시나요?! ㅎㅎ</p></div>
+													<div class="bottom-info-wrap">
+														<div class="info-date bottom-info">3일전</div>
+														<a href="javascript:;" class="like-btn bottom-info" role="button"><div class="like-wrap"><span class="like-num num">25</span></div></a>
+														<a href="javascript:;" class="reply-btn bottom-info" role="button">답글쓰기</a>
+														<a href="javascript:;" class="view-reply-btn bottom-info on" role="button">답글 <span class="reply-num num">2</span>개</a>
+														<!-- 예시로 .view-reply-btn에 의도적으로 on클래스를 붙였습니다. default는 on 클래스가 없어야 합니다. -->
+													</div>
+													<button type="button" class="comment-menu-btn" aria-label="댓글 메뉴 버튼" onclick="modalPopup('#commentMenuPop')"><span class="hidden">댓글 메뉴</span></button>
+												</div>
+												<!-- 대댓글 모음 영역 -->
+												<div class="comment-reply-wrap">
+													<!-- 대댓글: .comment-list.comment-tree2 -->
+													<div class="comment-list comment-tree2">
+														<div class="profile-area">
+															<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/profile-temp-zzang.png" alt="유저 프로필 이미지">
+														</div>
+														<div class="content-area">
+															<div class="comment-content-wrap">
+																<div class="user">싱싱카</div>
+																<div class="comment-txt"><p>ㅎㅎ 감사합니다. 신청곡 남겨주시면 한번 불러볼게요!</p></div>
+																<div class="bottom-info-wrap">
+																	<div class="info-date bottom-info">16시간 전</div>
+																	<a href="javascript:;" class="like-btn bottom-info" role="button"><div class="like-wrap"><span class="like-num num">25</span></div></a>
+																</div>
+																<button type="button" class="comment-menu-btn" aria-label="댓글 메뉴 버튼" onclick="modalPopup('#commentMenuPop')"><span class="hidden">댓글 메뉴</span></button>
+															</div>
+														</div>
+													</div>
+													<div class="comment-list comment-tree2">
+														<div class="profile-area">
+															<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/profile-temp-zzang.png" alt="유저 프로필 이미지">
+														</div>
+														<div class="content-area">
+															<div class="comment-content-wrap">
+																<div class="user">싱싱카</div>
+																<div class="comment-txt"><p><strong class="reply-tag">@다시만든쿠키</strong>ㅎㅎ 감사합니다. 신청곡 남겨주시면 한번 불러볼게요!</p></div>
+																<div class="bottom-info-wrap">
+																	<div class="info-date bottom-info">16시간 전</div>
+																	<a href="javascript:;" class="like-btn bottom-info" role="button"><div class="like-wrap"><span class="like-num num">25</span></div></a>
+																</div>
+																<button type="button" class="comment-menu-btn" aria-label="댓글 메뉴 버튼" onclick="modalPopup('#commentMenuPop')"><span class="hidden">댓글 메뉴</span></button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 댓글이 없는 경우 -->
+									<div class="no-comment-case">
+										<p>첫 번째로 이 영상에 댓글을 남겨보세요.</p>
+									</div>
+								</div>
+								
+								<!-- 댓글 입력 박스 -->
+								<div class="input-txt-box">
+									<div class="input-txt-wrap">
+										<input class="comment-input" type="text" placeholder="댓글을 입력해주세요.">
+										<button type="button" class="input-txt-send-btn" aria-label="댓글 작성" onclick=""></button>
+									</div>
+									<div class="input-txt-popup">
+										<div class="input-txt-popup-wrap">
+											<p class="input-popup-cont"><span></span>님에게 답글 남기는 중</p>
+											<button type="button" class="input-popup-cancel-btn" aria-label="답글 취소" onclick=""><span>취소</span></button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+				<!--==================
+					* 부르기 팝업
+					- .sing-with-cont가 노출 됩니다. 
+					- .sing-with-cont의 버튼 선택에 따라 .sing-solo-cont 혹은 .sing-duet-cont이 노출 됩니다.
+					  (1) .sing-solo-btn 클릭시, #sing-select에 클래스 setting-step solo가 붙습니다.
+					  (2) .sing-duet-btn 클릭시, #sing-select에 클래스 setting-step duet이 붙습니다.
+					- .sheet-cont-prev-btn(뒤로가기 버튼) 클릭시, 이전 화면인 .sing-with-cont 노출로 돌아갑니다.
+				======================-->
+				<div id="sing-select" class="bottom-sheet-wrap sing-select">
+					<div class="bottom-sheet unable-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<div class="sheet-tit-box">
+								<button type="button" class="sheet-cont-prev-btn" aria-label="뒤로가기"></button>
+								<div class="profile-info content-txt2">
+									<div class="flowing-wrap">
+										<p class="profile-tit flowing-inner">
+											<span class="flowing">Small girl Small girl Small girl (feat. 도경수(D.O.))</span>
+										</p>
+									</div>
+									<p class="artist-name content-txt3">이영지</p>
+								</div>
+							</div>
+							<div class="sheet-cont-inner">
+								<div class="sing-with-cont">
+									<a href="javascript:;" class="sing-solo-btn"><span>솔로 부르기</span></a>
+									<a href="javascript:;" class="sing-duet-btn"><span>듀엣 초대</span></a>
+								</div>
+								<div class="sing-setting-cont sing-solo-cont">
+									<div class="sing-setting-top">
+										<div class="sing-setting-key sing-setting-area">
+											<p class="caption-txt1">KEY</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-solo-w" name="setting-key-solo" value="w" tabindex="-1" checked>
+													<label for="setting-key-solo-w" tabindex="0">
+														<span class="content-txt3">여자</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-solo-m" name="setting-key-solo" value="m" tabindex="-1">
+													<label for="setting-key-solo-m" tabindex="0">
+														<span class="content-txt3">남자</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+										<div class="sing-setting-save sing-setting-area">
+											<p class="caption-txt1">저장 방법</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-solo-video" name="setting-save-solo" value="video" tabindex="-1" checked>
+													<label for="setting-save-solo-video" tabindex="0">
+														<span class="content-txt3">영상</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-solo-sound" name="setting-save-solo" value="sound" tabindex="-1">
+													<label for="setting-save-solo-sound" tabindex="0">
+														<span class="content-txt3">음성</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+									</div>
+									<div class="sing-setting-btm">
+										<a href="#" class="sing-challenge-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">2배 챌린지</span>
+												<div class="txt-bubble caption-txt1">GOAL <em>80점</em></div>
+											</div>
+										</a>
+										<a href="#" class="sing-solo-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">솔로 부르기</span>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div class="sing-setting-cont sing-duet-cont">
+									<div class="sing-setting-top">
+										<div class="sing-setting-key sing-setting-area">
+											<p class="caption-txt1">KEY</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-duet-w" name="setting-key-duet" value="w" tabindex="-1" checked>
+													<label for="setting-key-duet-w" tabindex="0">
+														<span class="content-txt3">여자</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-duet-m" name="setting-key-duet" value="m" tabindex="-1">
+													<label for="setting-key-duet-m" tabindex="0">
+														<span class="content-txt3">남자</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+										<div class="sing-setting-save sing-setting-area">
+											<p class="caption-txt1">저장 방법</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-duet-video" name="setting-save-duet" value="video" tabindex="-1" checked>
+													<label for="setting-save-duet-video" tabindex="0">
+														<span class="content-txt3">영상</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-duet-sound" name="setting-save-duet" value="sound" tabindex="-1">
+													<label for="setting-save-duet-sound" tabindex="0">
+														<span class="content-txt3">음성</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+									</div>
+									<div class="sing-setting-btm">
+										<a href="#" class="sing-duet-A-part-btn sing-duet-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">A 파트 부르기</span>
+											</div>
+										</a>
+										<a href="#" class="sing-duet-B-part-btn sing-duet-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">B 파트 부르기</span>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

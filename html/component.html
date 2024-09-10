@@ -101,6 +101,86 @@ box-orient: vertical;
   right: 0;
   background: white;
 }
+/* Octagon Level Card */
+.octagon-flip-area { padding: 1.25em; font-size: 1rem; } 
+.octagon-flip { position: relative; width: 12.50em; height: 16.88em; aspect-ratio: 200 / 270; perspective: 1100px; font-size: inherit; } 
+.octagon-card { width: 100%; height: 100%; position: relative; transition: .4s; transform-style: preserve-3d; font-size: inherit; } 
+.octagon-card .front, .octagon-card .back { display: flex; flex-direction: column; align-items: center; position: absolute; width: 100%; height: 100%; padding: 1.56em 1em 1.25em 1em; backface-visibility: hidden; border-radius: 1em; box-shadow: 0 0.19em 1.25em rgba(252, 207, 207, 0.6); font-size: inherit; } 
+.octagon-card .front { background: linear-gradient(to bottom right, #FF5E4A, #F82A2E); } 
+.octagon-card .front .front-img { margin: 2.63em 0 0; font-size: inherit; } 
+.octagon-card .front img, .octagon-card .back img { background-color: transparent; } 
+.octagon-card .back { align-items: flex-start; background-color: #fff; transform: rotateY(180deg); } 
+.octagon-card .back .back-img { margin-top: auto; margin-left: auto; } 
+.octagon-flip .octagon-card.flipped { transform: rotateY(180deg); } 
+.card-tit { margin: 0.80em 0 0; font-weight: 700; font-variation-settings: 'wght' 700; color: #111; } 
+@media screen and (min-width: 421px){
+    .octagon-flip-area { font-size: clamp(16px, 4.267vw, 20px); } 
+}
+
+/* Status Level */
+.status-level span { display: inline-block; min-width: 78px; padding: 0.38em 0.92em; border-radius: 1em; font-size: 0.750rem; font-weight: 700; font-variation-settings: 'wght' 700; line-height: 1; text-align: center; text-transform: uppercase; } 
+.status-level span.white { border: 1px solid rgba(255, 255, 255, 0.4); color: #fff; } 
+.status-level span.red { border: 1px solid var(--main-point-color); color: var(--main-point-color); } 
+@media screen and (min-width: 421px){
+    .status-level span { font-size: clamp(12px, 3.2vw, 15px); } 
+}
+/* .html5-progress-bar {
+	padding: 15px 15px;
+	border-radius: 3px;
+	background-color: #fff;
+	box-shadow:  0px 1px 2px 0px rgba(0, 0, 0, .2);
+}
+.html5-progress-bar progress {
+	background-color: #f3f3f3;
+	border: 0;
+	width: 80%;
+	height: 18px;
+	border-radius: 9px;
+}
+.html5-progress-bar progress::-webkit-progress-bar {
+	background-color: #f3f3f3;
+	border-radius: 9px;
+}
+.html5-progress-bar progress::-webkit-progress-value {
+	background: #cdeb8e;
+	background: -moz-linear-gradient(top,  #cdeb8e 0%, #a5c956 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cdeb8e), color-stop(100%,#a5c956));
+	background: -webkit-linear-gradient(top,  #cdeb8e 0%,#a5c956 100%);
+	background: -o-linear-gradient(top,  #cdeb8e 0%,#a5c956 100%);
+	background: -ms-linear-gradient(top,  #cdeb8e 0%,#a5c956 100%);
+	background: linear-gradient(to bottom,  #cdeb8e 0%,#a5c956 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdeb8e', endColorstr='#a5c956',GradientType=0 );
+	border-radius: 9px;
+}
+.html5-progress-bar progress::-moz-progress-bar {
+	background: #cdeb8e;
+	background: -moz-linear-gradient(top,  #cdeb8e 0%, #a5c956 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cdeb8e), color-stop(100%,#a5c956));
+	background: -webkit-linear-gradient(top,  #cdeb8e 0%,#a5c956 100%);
+	background: -o-linear-gradient(top,  #cdeb8e 0%,#a5c956 100%);
+	background: -ms-linear-gradient(top,  #cdeb8e 0%,#a5c956 100%);
+	background: linear-gradient(to bottom,  #cdeb8e 0%,#a5c956 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdeb8e', endColorstr='#a5c956',GradientType=0 );
+	border-radius: 9px;
+}
+.html5-progress-bar .progress-value {
+	padding: 0px 5px;
+	line-height: 20px;
+	margin-left: 5px;
+	font-size: .8em;
+	color: #555;
+	height: 18px;
+	float: right;
+}
+#progress-bar-container {
+    width: 100%;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 20px 0;
+} */
+
+
 	</style>
 </head>
 
@@ -700,7 +780,19 @@ box-orient: vertical;
 					<div style="width: 420px;">
 						<p style="font-variation-settings: 'wght' 700;">7. 선물하기 버튼 + 싱코인 선물하기 팝업</p>
 						<br>
-						<button type="button" class="basic-btn round line black-line gift-btn" aria-label="선물하기" onclick="modalPopup('#giftScPop')"><span>선물하기</span></button>
+						<div class="btn-wrap"><button type="button" class="basic-btn round line black-line gift-btn" aria-label="선물하기" onclick="modalPopup('#giftScPop')"><span>선물하기</span></button></div>
+					</div>
+                    <br>
+					<div style="width: 420px;">
+						<p style="font-variation-settings: 'wght' 700;">8. 노래 신청 버튼 + 노래 신청 팝업</p>
+						<br>
+						<div class="btn-wrap let-sing"><button type="button" onclick="modalPopup('#requestPop')" class="sing-request-btn content-txt3"><span>Let’s sing~! 원하는 노래를 신청보세요!</span></button></div>
+					</div>
+                    <br>
+					<div style="width: 420px;">
+						<p style="font-variation-settings: 'wght' 700;">9. 더보기(Bottom Sheet Style) 팝업</p>
+						<br>
+                        <a style="max-width: 86px; font-size: 15px;" href="javascript:;" onclick="modalPopup('#viewMorePop')" class="basic-btn round line"><span>팝업 열기</span></a>
 					</div>
 				</div>
 
@@ -880,6 +972,64 @@ box-orient: vertical;
 							</section>
 						</div>
 					</div>
+
+					<!-- 노래 신청하기 팝업 (#requestPop) -->
+					<div id="requestPop" class="modal msg requestPop">
+						<div class="modal-wrap">
+							<section class="modal-content">
+								<div class="modal-cont-wrap">
+									<div class="modal-tit-wrap">
+										<h3 class="modal-tit">노래 신청</h3>
+									</div>
+									<div class="modal-txt-wrap">
+										<div class="input-box-wrap content-txt2">
+											<div class="input-box line text label-box">
+												<p class="input-label caption-txt1 on">아티스트</p>
+												<input class="label-input" type="text" placeholder="아티스트 이름을 입력해주세요.">
+												<span class="line-focus on"></span>
+											</div>
+											<div class="error-wrap">
+												<p class="error">에러메세지는 이렇게 뜹니다.</p>
+											</div>
+										</div>
+										<div class="input-box-wrap content-txt2">
+											<div class="input-box line text label-box">
+												<p class="input-label caption-txt1 on">노래제목</p>
+												<input class="label-input" type="text" placeholder="노래제목을 입력해주세요.">
+												<span class="line-focus on"></span>
+											</div>
+											<div class="error-wrap">
+												<p class="error">에러메세지는 이렇게 뜹니다.</p>
+											</div>
+										</div>
+										<p class="modal-sub-tit">신청하신 곡은 담당자 확인 후<br>빠른 시일에 추가될 수 있도록 하겠습니다.</p>
+									</div>
+								</div>
+								<div class="modal-btn-wrap">
+									 <a href="javascript:;" onclick="modalPopupClose('#requestPop');" class="basic-btn gray" tabindex="1">취소</a>
+									<a href="javascript:;" onclick="modalPopupClose('#requestPop'); toastPopup('requestComplete')" class="basic-btn red" tabindex="1">확인</a>
+								</div>
+							</section>
+						</div>
+					</div>
+
+                    <!-- 더보기 바텀시트 스타일 팝업 (#viewMorePop) / bs 클래스 필요 -->
+                    <div id="viewMorePop" class="modal bs viewMorePop">
+						<div class="modal-wrap bottom-sheet-st">
+							<section class="modal-content">
+                                <h3 class="hidden">더보기 팝업</h3>
+								<div class="sheet-content">
+                                    <div class="sheet-cont-inner">
+                                        <div class="btn-wrap sheet-btn-wrap multi">
+                                            <button type="button" class="basic-btn white-line fix w100" aria-label="수정하기" onclick="modalPopup('#editPop')"><span>수정하기</span></button>
+                                            <button type="button" class="basic-btn white-line del w100" aria-label="삭제하기" onclick="modalPopup('#delPop')"><span>삭제하기</span></button>
+                                            <button type="button" class="basic-btn white-line download w100" aria-label="다운로드" onclick=""><span>다운로드</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+							</section>
+						</div>
+					</div>
 				</div>
 			</section>
 			<br>
@@ -887,17 +1037,17 @@ box-orient: vertical;
 				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px;font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;07. Bottom Sheet & Toast Popup & Full Page Popup</p>
 				<div style="display: flex; gap: 20px; padding: 0 20px;">
 					<div style="width: 340px;">
-						<p style="font-variation-settings: 'wght' 700;">1. Bottom Sheet : 더보기 (닫힘만)</p>
+						<p style="font-variation-settings: 'wght' 700;">1-1. Bottom Sheet : 더보기 (닫힘만)</p>
 						<br>
 						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="openBottomSheet('#view')"><span>Bottom Sheet 열기</span></button>
 					</div>
 					<div style="width: 340px;">
-						<p style="font-variation-settings: 'wght' 700;">2. Bottom Sheet : 더보기 수정/삭제</p>
+						<p style="font-variation-settings: 'wght' 700;">1-2. Bottom Sheet : 더보기 수정/삭제</p>
 						<br>
 						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="openBottomSheet('#view-fix')"><span>Bottom Sheet 열기</span></button>
 					</div>
 					<div style="width: 340px;">
-						<p style="font-variation-settings: 'wght' 700;">3. Bottom Sheet : 신고</p>
+						<p style="font-variation-settings: 'wght' 700;">1-3. Bottom Sheet : 신고</p>
 						<br>
 						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="openBottomSheet('#warning')"><span>Bottom Sheet 열기</span></button>
 					</div>
@@ -905,30 +1055,48 @@ box-orient: vertical;
 				<br><br><br>
 				<div style="display: flex; gap: 20px; padding: 0 20px;">
 					<div style="width: 340px;">
-						<p style="font-variation-settings: 'wght' 700;">4. Bottom Sheet : 구체적 사유</p>
+						<p style="font-variation-settings: 'wght' 700;">1-4. Bottom Sheet : 구체적 사유</p>
 						<br>
 						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="openBottomSheet('#warning-reason')"><span>Bottom Sheet 열기</span></button>
 					</div>
 					<div style="width: 340px;">
-						<p style="font-variation-settings: 'wght' 700;">5. Bottom Sheet : 댓글</p>
+						<p style="font-variation-settings: 'wght' 700;">1-5. Bottom Sheet : 댓글</p>
 						<br>
 						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="openBottomSheet('#comment')"><span>Bottom Sheet 열기</span></button>
 					</div>
 					<div style="width: 340px;">
-						<p style="font-variation-settings: 'wght' 700;">6. Bottom Sheet : Selected</p>
+						<p style="font-variation-settings: 'wght' 700;">1-6. Bottom Sheet : Selected</p>
 						<br>
 						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="openBottomSheet('#selected')"><span>Bottom Sheet 열기</span></button>
 					</div>
 				</div>
 				<br><br><br>
+				<div style="display: flex; gap: 20px; padding: 0 20px;">
+					<div style="width: 340px;">
+						<p style="font-variation-settings: 'wght' 700;">1-7. Bottom Sheet : 부르기 팝업</p>
+						<br>
+						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="openBottomSheet('#sing-select')"><span>Bottom Sheet 열기</span></button>
+					</div>
+					<div style="width: 340px;">
+						<p style="font-variation-settings: 'wght' 700;">1-8. Bottom Sheet : 부르기 - 듀엣 A파트 참여 팝업</p>
+						<br>
+						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="openBottomSheet('#sing-duet-join-A')"><span>Bottom Sheet 열기</span></button>
+					</div>
+					<div style="width: 340px;">
+						<p style="font-variation-settings: 'wght' 700;">1-9. Bottom Sheet : 부르기 - 듀엣 B파트 참여 팝업</p>
+						<br>
+						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="openBottomSheet('#sing-duet-join-B')"><span>Bottom Sheet 열기</span></button>
+					</div>
+				</div>
+				<br><br><br>
 				<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 0 20px;">
 					<div style="width: 340px;">
-						<p style="font-variation-settings: 'wght' 700;">2. Bottom Sheet : Toast Popup</p>
+						<p style="font-variation-settings: 'wght' 700;">2-1. Toast Popup</p>
 						<br>
 						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="toastPopup('toast01')"><span>Toast Popup 열기</span></button>
 					</div>
 					<div style="width: 340px;">
-						<p style="font-variation-settings: 'wght' 700;">3. Bottom Sheet : Full Page Popup</p>
+						<p style="font-variation-settings: 'wght' 700;">2-2. Bottom Sheet : Full Page Popup</p>
 						<br>
 						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="modalPopup('#full01')"><span>Full Page Popup 열기</span></button>
 					</div>
@@ -939,7 +1107,8 @@ box-orient: vertical;
 					- toastPopup('클래스명')에 의해, 해당 되는 클래스명의 .toast-popup > p를 호출합니다.
 				======================-->
 				<div class="toast-popup">
-					<p class="toast-popup-txt toast01">링크를 복사하였습니다.</p> <!-- toastPopup(toast01')에 의해 호출 -->
+					<p class="toast-popup-txt toast01">링크를 복사하였습니다.</p> <!-- toastPopup('toast01')에 의해 호출 -->
+					<p class="toast-popup-txt requestComplete">노래 신청이 완료되었습니다.</p> <!-- toastPopup('requestComplete')에 의해 호출 -->
 				</div>
 
 				<!--==================
@@ -1305,61 +1474,527 @@ box-orient: vertical;
 					</div>
 				</div>
 
-			</section>
-			<br>
-			<br>
-			<br>
-			<section class="component-sec"> <!-- css는 페이지 상단에 있습니다. -->
-				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px;font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;08. Score Ring Graph</p>
-				<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 0 20px;">
-					<div class="graph-area">
-						<!--==================
-							* Score Ring Graph
-							- 각 부문의 점수는 circle.completed 내 속성 stroke-dasharray 값 앞부분에 인라인으로 기입합니다.
-							(ex: 음정 26점 일경우, .ring1 circle.completed 요소에 stroke-dasharray="26, 100")
-						======================-->
-						<div class="ring-graph-container">
-							<svg class="ring-graph" viewBox="0 0 35 35">
-								<!-- 1.음정 -->
-								<g class="ring ring1">
-									<circle class="background" cx="50%" cy="50%" r="15.915" stroke-width="2.1" />
-									<circle class="completed" cx="50%" cy="50%" r="15.915" stroke-width="2.1" stroke-dasharray="46, 100" />
-								</g>
-								<!-- 2.박자 -->
-								<g class="ring ring2">
-									<circle class="background" cx="50%" cy="50%" r="15.915" stroke-width="2.56" />
-									<circle class="completed" cx="50%" cy="50%" r="15.915" stroke-width="2.56" stroke-dasharray="50, 100" />
-								</g>
-								<!-- 3.음높이 -->
-								<g class="ring ring3">
-									<circle class="background" cx="50%" cy="50%" r="15.915" stroke-width="3.281" />
-									<circle class="completed" cx="50%" cy="50%" r="15.915" stroke-width="3.281" stroke-dasharray="70, 100" />
-								</g>
-								<!-- 4.성량 -->
-								<g class="ring ring4">
-									<circle class="background" cx="50%" cy="50%" r="15.915" stroke-width="4.565" />
-									<circle class="completed" cx="50%" cy="50%" r="15.915" stroke-width="4.565" stroke-dasharray="76, 100" />
-								</g>
-							</svg>
-							<div class="ring-graph-score">
-								<!-- 종합 점수 -->
-								<span class="semi-b-num">75.9</span>
+				<!--==================
+					* 부르기 팝업
+					- .sing-with-cont가 노출 됩니다. 
+					- .sing-with-cont의 버튼 선택에 따라 .sing-solo-cont 혹은 .sing-duet-cont이 노출 됩니다.
+					  (1) .sing-solo-btn 클릭시, #sing-select에 클래스 setting-step solo가 붙습니다.
+					  (2) .sing-duet-btn 클릭시, #sing-select에 클래스 setting-step duet이 붙습니다.
+					- .sheet-cont-prev-btn(뒤로가기 버튼) 클릭시, 이전 화면인 .sing-with-cont 노출로 돌아갑니다.
+
+					* 듀엣 참여시, A파트 참여의 경우 .duet-join-A / B파트 참여의 경우 .duet-join-B
+				======================-->
+				<div id="sing-select" class="bottom-sheet-wrap sing-select"> <!-- openBottomSheet('#sing-select')에 의해 호출 -->
+					<div class="bottom-sheet unable-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<div class="sheet-tit-box">
+								<button type="button" class="sheet-cont-prev-btn" aria-label="뒤로가기"></button>
+								<div class="profile-info content-txt2">
+									<div class="flowing-wrap">
+										<p class="profile-tit flowing-inner">
+											<span class="flowing">Small girl Small girl Small girl (feat. 도경수(D.O.))</span>
+										</p>
+									</div>
+									<p class="artist-name content-txt3">이영지</p>
+								</div>
+							</div>
+							<div class="sheet-cont-inner">
+								<div class="sing-with-cont">
+									<a href="javascript:;" class="sing-solo-btn"><span>솔로 부르기</span></a>
+									<a href="javascript:;" class="sing-duet-btn"><span>듀엣 초대</span></a>
+								</div>
+								<div class="sing-setting-cont sing-solo-cont">
+									<div class="sing-setting-top">
+										<div class="sing-setting-key sing-setting-area">
+											<p class="caption-txt1">KEY</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-solo-w" name="setting-key-solo" value="w" tabindex="-1" checked>
+													<label for="setting-key-solo-w" tabindex="0">
+														<span class="content-txt3">여자</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-solo-m" name="setting-key-solo" value="m" tabindex="-1">
+													<label for="setting-key-solo-m" tabindex="0">
+														<span class="content-txt3">남자</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+										<div class="sing-setting-save sing-setting-area">
+											<p class="caption-txt1">저장 방법</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-solo-video" name="setting-save-solo" value="video" tabindex="-1" checked>
+													<label for="setting-save-solo-video" tabindex="0">
+														<span class="content-txt3">영상</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-solo-sound" name="setting-save-solo" value="sound" tabindex="-1">
+													<label for="setting-save-solo-sound" tabindex="0">
+														<span class="content-txt3">음성</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+									</div>
+									<div class="sing-setting-btm">
+										<a href="#" class="sing-challenge-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">2배 챌린지</span>
+												<div class="txt-bubble caption-txt1">GOAL <em>80점</em></div>
+											</div>
+										</a>
+										<a href="#" class="sing-solo-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">솔로 부르기</span>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div class="sing-setting-cont sing-duet-cont">
+									<div class="sing-setting-top">
+										<div class="sing-setting-key sing-setting-area">
+											<p class="caption-txt1">KEY</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-duet-w" name="setting-key-duet" value="w" tabindex="-1" checked>
+													<label for="setting-key-duet-w" tabindex="0">
+														<span class="content-txt3">여자</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-duet-m" name="setting-key-duet" value="m" tabindex="-1">
+													<label for="setting-key-duet-m" tabindex="0">
+														<span class="content-txt3">남자</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+										<div class="sing-setting-save sing-setting-area">
+											<p class="caption-txt1">저장 방법</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-duet-video" name="setting-save-duet" value="video" tabindex="-1" checked>
+													<label for="setting-save-duet-video" tabindex="0">
+														<span class="content-txt3">영상</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-duet-sound" name="setting-save-duet" value="sound" tabindex="-1">
+													<label for="setting-save-duet-sound" tabindex="0">
+														<span class="content-txt3">음성</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+									</div>
+									<div class="sing-setting-btm">
+										<a href="#" class="sing-duet-A-part-btn sing-duet-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">A 파트 부르기</span>
+											</div>
+										</a>
+										<a href="#" class="sing-duet-B-part-btn sing-duet-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">B 파트 부르기</span>
+											</div>
+										</a>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="graph-guide-wrap">
-							<div class="graph-guide guide01"><span class="guide-tit caption-txt1">음정</span><p class="graph-point caption-txt1"><strong class="content-txt1">46</strong>점</p></div>
-							<div class="graph-guide guide02"><span class="guide-tit caption-txt1">박자</span><p class="graph-point caption-txt1"><strong class="content-txt1">50</strong>점</p></div>
-							<div class="graph-guide guide03"><span class="guide-tit caption-txt1">음높이</span><p class="graph-point caption-txt1"><strong class="content-txt1">70</strong>점</p></div>
-							<div class="graph-guide guide04"><span class="guide-tit caption-txt1">성량</span><p class="graph-point caption-txt1"><strong class="content-txt1">76</strong>점</p></div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+
+				<!-- 듀엣 A파트 참여 팝업 -->
+				<!-- openBottomSheet('#sing-duet-join-A')에 의해 호출 -->
+				<div id="sing-duet-join-A" class="bottom-sheet-wrap sing-select sing-duet-join duet-join-A"> 
+					<div class="bottom-sheet unable-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<div class="sheet-tit-box">
+								<button type="button" class="sheet-cont-prev-btn" aria-label="뒤로가기"></button>
+								<div class="profile-info content-txt2">
+									<div class="flowing-wrap">
+										<p class="profile-tit flowing-inner">
+											<span class="flowing">Small girl Small girl Small girl (feat. 도경수(D.O.))</span>
+										</p>
+									</div>
+									<p class="artist-name content-txt3">이영지</p>
+								</div>
+							</div>
+							<div class="sheet-cont-inner">
+								<div class="sing-setting-cont sing-duet-join-cont">
+									<div class="sing-setting-top">
+										<div class="profile-area">
+											<div class="profile-list-wrap">
+												<div class="profile-list">
+													<div class="profile-wrap">
+														<div class="profile-wrap-inner">
+															<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../asset/images/common/profile-default-img.svg" alt="프로필 이미지"></figure>
+															<div class="profile-info">
+																<div class="info-top">
+																	<p class="profile-tit skeleton">닉네임이 길어진다면 이런식이겠죠 닉네임이 길어진다면 이런식이겠죠</p><span>님과</span>
+																</div>
+																<p class="info-btm">듀엣하기</p>
+															</div>
+														</div>
+														<button type="button" class="basic-btn small line pink" aria-label="프로필 보기" onclick="location.href='#none'"><span>프로필 보기</span></button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="option-setting-area">
+											<div class="option-setting-key">
+												<span class="option-item content-txt3">KEY</span>
+												<em class="option-setting">남자</em>
+											</div>
+											<div class="option-setting-save">
+												<span class="option-item content-txt3">저장 방법</span>
+												<em class="option-setting">영상</em>
+											</div>
+										</div>
+									</div>
+									<div class="sing-setting-btm">
+										<a href="#" class="sing-duet-A-part-btn sing-duet-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">A 파트 부르기</span>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+
+				<!-- 듀엣 B파트 참여 팝업 -->
+				<!-- openBottomSheet('#sing-duet-join-B')에 의해 호출 -->
+				<div id="sing-duet-join-B" class="bottom-sheet-wrap sing-select sing-duet-join duet-join-B"> 
+					<div class="bottom-sheet unable-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<div class="sheet-tit-box">
+								<button type="button" class="sheet-cont-prev-btn" aria-label="뒤로가기"></button>
+								<div class="profile-info content-txt2">
+									<div class="flowing-wrap">
+										<p class="profile-tit flowing-inner">
+											<span class="flowing">Small girl Small girl Small girl (feat. 도경수(D.O.))</span>
+										</p>
+									</div>
+									<p class="artist-name content-txt3">이영지</p>
+								</div>
+							</div>
+							<div class="sheet-cont-inner">
+								<div class="sing-setting-cont sing-duet-join-cont">
+									<div class="sing-setting-top">
+										<div class="profile-area">
+											<div class="profile-list-wrap">
+												<div class="profile-list">
+													<div class="profile-wrap">
+														<div class="profile-wrap-inner">
+															<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../asset/images/common/profile-default-img.svg" alt="프로필 이미지"></figure>
+															<div class="profile-info">
+																<div class="info-top">
+																	<p class="profile-tit skeleton">닉네임이 길어진다면 이런식이겠죠 닉네임이 길어진다면 이런식이겠죠</p><span>님과</span>
+																</div>
+																<p class="info-btm">듀엣하기</p>
+															</div>
+														</div>
+														<button type="button" class="basic-btn small line pink" aria-label="프로필 보기" onclick="location.href='#none'"><span>프로필 보기</span></button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="option-setting-area">
+											<div class="option-setting-key">
+												<span class="option-item content-txt3">KEY</span>
+												<em class="option-setting">남자</em>
+											</div>
+											<div class="option-setting-save">
+												<span class="option-item content-txt3">저장 방법</span>
+												<em class="option-setting">영상</em>
+											</div>
+										</div>
+									</div>
+									<div class="sing-setting-btm">
+										<a href="#" class="sing-duet-B-part-btn sing-duet-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">B 파트 부르기</span>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+
+			</section>
+			<br>
+			<section class="component-sec">
+				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px;font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;08. Score Graph & Progress Bar</p>
+				<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 0 20px;">
+					<div style="width: 375px;">
+						<p style="font-variation-settings: 'wght' 700;">1. Score Graph : ring</p>
+						<div class="graph-area">
+							<!--==================
+								* Score Ring Graph
+								- 각 부문의 점수는 circle.completed 내 속성 stroke-dasharray 값 앞부분에 인라인으로 기입합니다.
+								(ex: 음정 26점 일경우, .ring1 circle.completed 요소에 stroke-dasharray="26, 100")
+							======================-->
+							<div class="ring-graph-container">
+								<svg class="ring-graph" viewBox="0 0 35 35">
+									<!-- 1.음정 -->
+									<g class="ring ring1">
+										<circle class="background" cx="50%" cy="50%" r="15.915" stroke-width="2.1" />
+										<circle class="completed" cx="50%" cy="50%" r="15.915" stroke-width="2.1" stroke-dasharray="46, 100" />
+									</g>
+									<!-- 2.박자 -->
+									<g class="ring ring2">
+										<circle class="background" cx="50%" cy="50%" r="15.915" stroke-width="2.56" />
+										<circle class="completed" cx="50%" cy="50%" r="15.915" stroke-width="2.56" stroke-dasharray="50, 100" />
+									</g>
+									<!-- 3.음높이 -->
+									<g class="ring ring3">
+										<circle class="background" cx="50%" cy="50%" r="15.915" stroke-width="3.281" />
+										<circle class="completed" cx="50%" cy="50%" r="15.915" stroke-width="3.281" stroke-dasharray="70, 100" />
+									</g>
+									<!-- 4.성량 -->
+									<g class="ring ring4">
+										<circle class="background" cx="50%" cy="50%" r="15.915" stroke-width="4.565" />
+										<circle class="completed" cx="50%" cy="50%" r="15.915" stroke-width="4.565" stroke-dasharray="76, 100" />
+									</g>
+								</svg>
+								<div class="ring-graph-score">
+									<!-- 종합 점수 -->
+									<span class="semi-b-num">75.9</span>
+								</div>
+							</div>
+							<div class="graph-guide-wrap">
+								<div class="graph-guide guide01"><span class="guide-tit caption-txt1">음정</span><p class="graph-point caption-txt1"><strong class="content-txt1">46</strong>점</p></div>
+								<div class="graph-guide guide02"><span class="guide-tit caption-txt1">박자</span><p class="graph-point caption-txt1"><strong class="content-txt1">50</strong>점</p></div>
+								<div class="graph-guide guide03"><span class="guide-tit caption-txt1">음높이</span><p class="graph-point caption-txt1"><strong class="content-txt1">70</strong>점</p></div>
+								<div class="graph-guide guide04"><span class="guide-tit caption-txt1">성량</span><p class="graph-point caption-txt1"><strong class="content-txt1">76</strong>점</p></div>
+							</div>
+						</div>
+					</div>
+					<div style="width: 375px;">
+						<p style="font-variation-settings: 'wght' 700;">2. Progress Bar : Download</p>
+						<div class="process-container download">
+							<div class="process-bar">
+								<div class="background"></div>
+								<div id="download-bar" class="completed download"></div>
+							</div>
+						</div>
+						<br>
+						<div class="btn-wrap">
+							<a href="http://codeloft.kr/mediascope_singit/asset/images/common/icon-singit-box-red.svg" download="" id="download-button" class="basic-btn round line"><span>파일다운로드</span></a>
+						</div>
+					</div>
+					<script>
+						$(function(){
+							document.getElementById('download-button').addEventListener('click', (event) => {
+								event.preventDefault(); // Prevent the default anchor click behavior
+								const url = event.currentTarget.href;
+								const downloadBar = document.getElementById('download-bar');
+
+								fetch(url)
+									.then(response => {
+										if (!response.ok) throw new Error('Network response was not ok');
+										const contentLength = response.headers.get('content-length');
+										if (!contentLength) {
+											console.error('Content-Length response header unavailable');
+											return response.blob();
+										}
+
+										const total = parseInt(contentLength, 10);
+										let loaded = 0;
+
+										const reader = response.body.getReader();
+										const chunks = [];
+
+										function read() {
+											reader.read().then(({ done, value }) => {
+												if (done) {
+													const blob = new Blob(chunks);
+													const downloadUrl = window.URL.createObjectURL(blob);
+													const a = document.createElement('a');
+													a.href = downloadUrl;
+													a.download = 'downloaded-file.svg'; 
+													document.body.appendChild(a);
+													a.click();
+													a.remove();
+													window.URL.revokeObjectURL(downloadUrl); 
+
+													console.log('Download complete');
+													return;
+												}
+
+												loaded += value.length;
+												const percentage = (loaded / total) * 100;
+												downloadBar.style.width = percentage + '%';
+
+												chunks.push(value);
+												read();
+											}).catch(error => {
+												console.error('Download failed:', error);
+											});
+										}
+
+										read();
+									})
+									.catch(error => {
+										console.error('Download failed:', error);
+									});
+							});
+						});
+					</script>
+					<div style="width: 375px;">
+						<p style="font-variation-settings: 'wght' 700;">3. Progress Bar : Default</p>
+						<div class="process-container default" style="width: 100%;">
+							<div class="process-bar">
+								<div class="background"></div>
+								<div class="completed"></div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div style="width: 375px;">
+						<p style="font-variation-settings: 'wght' 700;">4. Progress Bar : Score</p>
+						<div class="process-container" style="width: 100%;">
+							<svg class="process-bar" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+								<g class="bar bar1" >
+									<rect class="background" x="0" y="0" rx="2.5" ry="2.5" width="100%" height="5" />
+									<rect class="completed" x="0" y="0" rx="2.5" ry="2.5" width="46" height="5" />
+								</g>
+							</svg>
+						</div>
+					</div>
+					<script>
+						document.addEventListener('DOMContentLoaded', () => {
+							const completedRect = document.querySelector('.process-bar .completed');
+							const targetWidth = completedRect.getAttribute('width');
+							completedRect.setAttribute('width', '0');
+
+							let currentWidth = 0;
+							const step = targetWidth / 100; 
+
+							function animate() {
+								if (currentWidth < targetWidth) {
+									currentWidth += step;
+									completedRect.setAttribute('width', currentWidth);
+									requestAnimationFrame(animate); 
+								} else {
+									completedRect.setAttribute('width', targetWidth);
+								}
+							}
+							animate();
+						});
+					</script>
 				</div>
 			</section>
 			<br>
-			<br>
+			<section class="component-sec"> 
+				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px;font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;09. 옥타곤 레벨</p>
+				<div style="display: flex; flex-wrap: wrap; gap: 40px; padding: 0 20px;">
+					<div style="width: 375px;">
+						<p style="font-variation-settings: 'wght' 700;">1. 옥타곤레벨업 : CARD</p>
+						<div class="octagon-flip-area">
+							<div class="octagon-flip">  
+								<div class="octagon-card">
+									<!-- 앞면 -->
+									<div class="front">
+										<div class="status-level">
+											<span class="white">level up!</span>
+										</div>
+										<figure class="front-img">
+											<img class="fade-in lazyloaded" decoding="async" src="../asset/images/common/logo-v-white.svg" alt="alt값 필수">
+										</figure>
+									</div>
+									<!-- 뒷면 --> 
+									<div class="back">
+										<div class="status-level">
+											<span class="red">level up!</span>
+										</div>
+										<h6 class="card-tit">지금 레벨 테스트 해보세요!</h6>
+										<figure class="back-img">
+											<img class="fade-in lazyloaded" decoding="async" src="../asset/images/sub/battle/level-img-default.svg" alt="alt값 필수">
+										</figure>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- <div style="width: 375px;">
+						<p style="font-variation-settings: 'wght' 700;">2. 옥타곤레벨업 : CARD</p>
+						<div class="demo-wrapper html5-progress-bar">
+							<div class="progress-bar-wrapper">
+								<progress id="progressbar" value="90" max="100"></progress>
+								<span class="progress-value"></span>
+							</div>
+						</div>
+					</div>
+					<script>
+						$(document).ready(function() {
+							if(!Modernizr.meter){
+							} else {
+								var progressbar = $('#progressbar'),
+									max = progressbar.attr('max'),
+									time = (1000/max)*5,
+									value = progressbar.val();
+					
+								var loading = function() {
+									value += 1;
+									addValue = progressbar.val(value);
+					
+									$('.progress-value').html(value + '%');
+					
+									if (value == max) {
+										clearInterval(animate);
+									}
+								};
+					
+								var animate = setInterval(function() {
+									loading();
+								}, time);
+							};
+						});
+					</script> -->
+				</div>
+			</section>
+			<script>
+				document.addEventListener("DOMContentLoaded", function() {
+					const flipCard = document.querySelector('.octagon-flip .octagon-card');
+					
+					const observer = new IntersectionObserver((entries) => {
+						entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							flipCard.classList.add('flipped');
+							observer.unobserve(entry.target);
+						}
+						});
+					}, { threshold: 1.0 });
+					
+					observer.observe(flipCard);
+				});
+			</script>
 			<br>
 			<section class="component-sec">
-				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px;font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;09. Contents</p>
+				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px;font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;10. Contents</p>
 				<div style="display: flex; flex-wrap: wrap; gap: 40px; padding: 0 20px;">
 					<div class="">
 						<p style="font-variation-settings: 'wght' 700;">1. 이미지 : lazyload</p>
@@ -1535,6 +2170,71 @@ box-orient: vertical;
 								</li>
 							</ul>
 						</div>
+						<br>
+						<div class="profile-area grade">
+							<ul class="profile-list-wrap">
+								<li class="profile-list">
+									<div class="profile-wrap">
+										<a href="http://codeloft.kr/mediascope_singit/html/sing/sing.html" class="profile-wrap-inner" title="최신 업데이트 보기">
+											<figure class="profile-img skeleton">
+												<img class="fade-in lazyload" src="../asset/images/temp/song-temp01.png" alt="Small girl (feat. 도경수 (D.O.)) 이영지">
+											</figure>
+											<div class="profile-info">
+												<p class="profile-tit content-txt2 skeleton">Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.))</p>
+												<span class="profile-txt content-txt3 skeleton">이영지</span>
+											</div>
+										</a>
+										<div class="img-btn-wrap top">
+											<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+											<button type="button" class="img-btn bookmark" aria-label="북마크 저장"><i></i></button>
+										</div>
+										<div class="profile-bottom content-txt2">
+											<div class="sing-grade-area">
+												<div class="sing-grade-wrap">
+													<span class="grade-tit content-txt3">레벨</span>
+													<!--==================
+														* 레벨 단계 : grade-status 한테 클래스 추가
+														- 1레벨 : grade1
+														- 2레벨 : grade2
+														- 3레벨 : grade3
+														- 4레벨 : grade4
+														- 5레벨 : grade5
+													======================-->
+													<ul class="grade-status content-txt2 grade1">
+														<li class="grade"><span>1레벨</span></li>
+														<li class="grade"><span>2레벨</span></li>
+														<li class="grade"><span>3레벨</span></li>
+														<li class="grade"><span>4레벨</span></li>
+														<li class="grade"><span>5레벨</span></li>
+													</ul>
+												</div>
+												<div class="sing-grade-wrap">
+													<span class="grade-tit content-txt3">템포</span>
+													<!--==================
+														* 템포 단계 : grade-status 한테 클래스 추가
+														- 1템포 : grade1
+														- 2템포 : grade2
+														- 3템포 : grade3
+														- 4템포 : grade4
+														- 5템포 : grade5
+													======================-->
+													<ul class="grade-status content-txt2 grade1">
+														<li class="grade"><span>1템포</span></li>
+														<li class="grade"><span>2템포</span></li>
+														<li class="grade"><span>3템포</span></li>
+														<li class="grade"><span>4템포</span></li>
+														<li class="grade"><span>5템포</span></li>
+													</ul>
+												</div>
+											</div>
+											<div class="btn-wrap profile-btn-wrap">
+												<button type="button" class="basic-btn small line pink sing" aria-label="부르기" onclick="toastPopup('toast01')"><span>부르기</span></button>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
 					</div>
 					<div style="width: 750px;">
 						<br>
@@ -1635,8 +2335,114 @@ box-orient: vertical;
 							</div>
 						</div>
 					</div>
+					<div style="width: 375px;">
+						<p style="font-variation-settings: 'wght' 700;">5. 공통 레이아웃</p>
+						<article class="section-content sing-songlist">
+							<h4 class="inner sub-cont-tit content-txt2"><a href="#none" title="최근 부른곡 보기"><span>최근 부른곡</span></a></h4>
+							<div class="sing-songlist-cont">
+								<!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+								<div class="profile-area">
+									<div class="no-result">
+										<p class="content-txt3">최근 부른 노래를 보여드려요.<br> 아직 부른 노래가 없어요.</p>
+									</div>
+									<ul class="profile-list-wrap">
+										<li class="profile-list">
+											<a href="#none" class="profile-wrap" title="최근 부른곡 보기">
+												<div class="profile-wrap-inner">
+													<figure class="profile-img"><img class="fade-in lazyloaded" src="../asset/images/temp/song-temp02.png" alt="Ditto 뉴진스"></figure>
+													<div class="profile-info">
+														<p class="profile-tit content-txt3">Ditto</p>
+														<span class="profile-txt content-txt3">뉴진스</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="profile-list">
+											<a href="#none" class="profile-wrap" title="최근 부른곡 보기">
+												<div class="profile-wrap-inner">
+													<figure class="profile-img"><img class="fade-in lazyloaded" src="../asset/images/temp/song-temp03.png" alt="행복했던 날들이었다 DAY6(데이식스)"></figure>
+													<div class="profile-info">
+														<p class="profile-tit content-txt3">행복했던 날들이었다</p>
+														<span class="profile-txt content-txt3">DAY6(데이식스)</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="profile-list">
+											<a href="#none" class="profile-wrap" title="최근 부른곡 보기">
+												<div class="profile-wrap-inner">
+													<figure class="profile-img"><img class="fade-in lazyloaded" src="../asset/images/temp/song-temp04.png" alt="Sticky KISS OF LIFE"></figure>
+													<div class="profile-info">
+														<p class="profile-tit content-txt3">Sticky</p>
+														<span class="profile-txt content-txt3">KISS OF LIFE</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="profile-list">
+											<a href="#none" class="profile-wrap" title="최근 부른곡 보기">
+												<div class="profile-wrap-inner">
+													<figure class="profile-img"><img class="fade-in lazyloaded" src="../asset/images/temp/song-temp05.png" alt="등대 하현상"></figure>
+													<div class="profile-info">
+														<p class="profile-tit content-txt3">등대</p>
+														<span class="profile-txt content-txt3">하현상</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="profile-list">
+											<a href="#none" class="profile-wrap" title="최근 부른곡 보기">
+												<div class="profile-wrap-inner">
+													<figure class="profile-img"><img class="fade-in lazyloaded" src="../asset/images/temp/song-temp06.png" alt="Ditto 뉴진스"></figure>
+													<div class="profile-info">
+														<p class="profile-tit content-txt3">Ditto</p>
+														<span class="profile-txt content-txt3">뉴진스</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="profile-list">
+											<a href="#none" class="profile-wrap" title="최근 부른곡 보기">
+												<div class="profile-wrap-inner">
+													<figure class="profile-img"><img class="fade-in lazyloaded" src="../asset/images/temp/song-temp04.png" alt="Sticky KISS OF LIFE"></figure>
+													<div class="profile-info">
+														<p class="profile-tit content-txt3">Sticky</p>
+														<span class="profile-txt content-txt3">KISS OF LIFE</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<!-- 마지막 요소에 last 클래스 추가 -->
+										<li class="profile-list last">
+											<a href="#none" class="profile-wrap" title="최근 부른곡 보기">
+												<div class="profile-wrap-inner">
+													<figure class="profile-img"><img class="fade-in lazyloaded" src="../asset/images/temp/song-temp02.png" alt="Ditto 뉴진스"></figure>
+													<div class="profile-info">
+														<p class="profile-tit content-txt3">Ditto</p>
+														<span class="profile-txt content-txt3">뉴진스</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<!-- 마지막 요소에 last 클래스 추가 -->
+										<li class="profile-list last">
+											<a href="#none" class="profile-wrap" title="최근 부른곡 보기">
+												<div class="profile-wrap-inner">
+													<figure class="profile-img"><img class="fade-in lazyloaded" src="../asset/images/temp/song-temp07.png" alt="한 페이지가 될 수 있게 DAY6 (데이식스)"></figure>
+													<div class="profile-info">
+														<p class="profile-tit content-txt3">한 페이지가 될 수 있게 한 페이지가 될 수 있게 한 페이지가 될 수 있게 한 페이지가 될 수 있게</p>
+														<span class="profile-txt content-txt3">DAY6 (데이식스) DAY6 (데이식스) DAY6 (데이식스) DAY6 (데이식스) DAY6 (데이식스)</span>
+													</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</article>
+					</div>
 					<div style="width: 550px;">
-						<p style="font-variation-settings: 'wght' 700;">5. 기타 요소</p>
+						<p style="font-variation-settings: 'wght' 700;">6. 기타 요소</p>
 						<div class="bottom-info-wrap">
 							<!-- 게시일 -->
 							<div class="info-date bottom-info">16시간 전</div>

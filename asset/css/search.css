@@ -1,0 +1,103 @@
+@charset "utf-8";
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Ajin Lee. (Weaverloft Corp.)
+ * 2. Production Date: 2024-08-28
+ * 3. Client: MEDIASCOPE Inc.
+ */
+
+/*========== Search 공통 ==========*/
+/* 추천 검색어 */
+.search-sec .recommend-keyword-wrap {margin-top: -1px;}
+.search-sec .recommend-keyword-inner {display: flex;align-items: stretch; padding-left: 16px; border-top: 1px solid var(--basic-line-color); border-bottom: 1px solid var(--basic-line-color);}
+.search-sec .recommend-keyword-wrap .recommend-keyword-tit {min-width: 5.45em; padding: 1.14em 1.14em 1.14em 0; font-weight: 500; font-variation-settings: 'wght' 500;color: #111;}
+.search-sec .recommend-keyword-wrap .recommend-keyword {overflow: hidden;overflow-x: auto;white-space: nowrap;align-self: stretch;}
+.search-sec .recommend-keyword .keyword-list {display: flex;align-items: center; gap: 0 1em;height: 100%;}
+.search-sec .recommend-keyword .keyword-list li {display: flex; justify-content: center;align-items: center;}
+.search-sec .recommend-keyword .keyword-list li:last-child {padding-right: 16px;}
+.search-sec .recommend-keyword .keyword-list .keyword {display: flex;align-items: center;justify-content: center; padding: 0.5em 0;font-size: 0.875rem;font-weight: 400; font-variation-settings: 'wght' 400;color: #888;line-height: 1;}
+/* 필터 */
+.search-sec .recommend-keyword-wrap .filter-list {display: flex;gap: 0 1em;height: 100%;}
+.search-sec .recommend-keyword .filter-list .filter:last-child {padding-right: 16px;}
+.search-sec .recommend-keyword-wrap .filter-list .filter {display: flex;align-items: center;justify-content: center;height: 100%; font-size: 0.875rem;font-weight: 400; font-variation-settings: 'wght' 400;color: #888;}
+.search-sec .recommend-keyword-wrap .filter-list .filter .basic-check-box {padding: 0.8em 0;}
+.search-sec .recommend-keyword-wrap .filter-list li.active .filter {font-weight: 500; font-variation-settings: 'wght' 500;color: var(--main-point-color);}
+
+.search-sec .profile-img::before {display: none;}
+.search-sec .no-result p {padding: 3.57em 10px;}
+.key {color: var(--main-point-color) !important;}
+@media screen and (min-width: 421px){
+    .search-sec .recommend-keyword-wrap .keyword-list .keyword, .search-sec .recommend-keyword-wrap .filter-list .filter { font-size: clamp(14px, 3.733vw, 18px); } 
+}
+@media screen and (max-width: 499px) {
+    .search-sec .recommend-keyword-wrap .recommend-keyword::-webkit-scrollbar {display: none;}
+    .search-sec .recommend-keyword-wrap .recommend-keyword::-webkit-scrollbar-thumb {display: none;}
+    .search-sec .recommend-keyword-wrap .recommend-keyword::-webkit-scrollbar-track {display: none;}
+}
+
+/*========== Search ==========*/
+.search-sec .search-cont-top {padding: 1.50em 0;}
+.search-sec .section-content.search-popular {padding: 1.50em 0;}
+.search-sec .search-popular .profile-area.grade {padding: 1em 0 0;}
+
+/*========== Search-result ==========*/
+.search-sec.search-result-sec .section-content.search-popular {padding: 0;}
+.search-result-sec .tab-menu {margin-top: -1px;}
+.search-result-sec .tab-menu li.tab-link {width: calc(100% / 4);}
+.search-result-sec .tab-menu li.slider {width: calc((100% - 32px) / 4);}
+.search-result-sec .search-result-list .section-content { margin-bottom: 1.50em; font-size: 1rem;}
+.search-result-sec .search-result-list .section-content > .inner {padding: 0 0 1.50em;border-bottom: 1px solid #F4F4F4;font-size: 1rem;}
+/* 전체 - 노래 search-sing-cont */
+.search-result-sec .search-result-list .section-content.search-sing-cont {padding-top: 1.25em;}
+.search-result-sec .search-result-list .search-sing-cont .profile-area {margin: 1em 0 0;}
+.search-result-sec .search-result-list .search-sing-cont .profile-area .let-sing {display: none;}
+.search-result-sec .search-result-list .search-sing-cont .profile-area.no-result .let-sing {display: block;}
+.search-result-sec .search-result-list .search-sing-cont .profile-area.no-result .profile-list-wrap {display: none;}
+.search-result-sec .search-result-list .search-sing-cont .profile-area .profile-list-wrap .profile-list  {display: block;}
+.search-result-sec .search-result-list .search-sing-cont .profile-area .profile-list-wrap .profile-list:nth-child(n+4) {display: none;}
+.search-result-sec .search-sing-cont .profile-tit {font-weight: 500; font-variation-settings: 'wght' 500;}
+/* 전체 - 레코딩 search-record-cont */
+.profile-wrap-inner.song-record-list {gap: 0.75em; width: 100%;}
+.search-result-sec .search-record-cont .profile-area.song {padding: 1em 0 0;}
+.search-result-sec .search-result-list .search-record-cont .profile-area .profile-list-wrap {gap: 1.250em;}
+.search-result-sec .search-result-list .search-record-cont .profile-area .profile-list-wrap .profile-list  {display: block;}
+.search-result-sec .search-result-list .search-record-cont .profile-area .profile-list-wrap .profile-list:nth-child(n+4) {display: none;}
+.search-result-sec .search-result-list .search-record-cont .profile-area .profile-list-wrap .profile-list  {display: block;}
+.search-result-sec .search-result-list .search-record-cont .profile-area.song .profile-wrap .profile-wrap-inner {width: 100%;}
+.search-result-sec .profile-wrap-inner.song-record-list .thumbnail-area {width: 6em; height: 6em;font-size: 1rem;}
+.search-result-sec .profile-wrap-inner.song-record-list .thumbnail-area .img-btn-wrap.bottom {bottom: 0.5em;padding: 0 0.4em;font-size: 0.63rem;}
+.search-result-sec .profile-wrap-inner.song-record-list .thumbnail-area .img-btn-wrap.bottom .play span {padding: 0 0 0 1.6em;background-size: 1.4em auto;}
+.search-sec.search-result-sec .search-record-cont .profile-area.song .profile-info {align-self: stretch; margin-top: 0.38em; width: calc(100% - 6.750em);}
+.search-result-sec .search-record-cont .profile-area.song .profile-txt {margin: 0.14em 0 0;}
+.search-result-sec .search-record-cont .profile-area.song .song-by-info {position: relative;top: -0.25em; margin-top: auto;}
+.search-result-sec .search-record-cont .profile-area.song .song-by-info .profile-img {width: 1.125em; min-width: 1.125em; height: 1.125em; background-color: transparent;}
+.search-result-sec .search-record-cont .profile-area.song .song-by-info.duet .profile-img {width: 1.820em;}
+.search-result-sec .search-record-cont .profile-area.song .song-by-info .profile-img img {width: 1.125em; min-width: 1.125em; height: 1.125em; background-color: var(--basic-line-color);}
+.search-result-sec .search-record-cont .profile-area.song .song-by-info.duet .profile-img img.duet02 {margin: 0 0 0 -0.45em;}
+.search-result-sec .search-record-cont .profile-area.song .song-by-info .profile-name {overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+/* 전체 - 유저 search-user-cont */
+.search-user-cont .profile-area {margin: 1em 0 0;}
+
+@media screen and (min-width: 421px){
+    .search-result-sec .scroll-tab-cont .section-content, .search-result-sec .search-result-list .section-content > .inner {font-size: clamp(16px, 4.267vw, 20px);} 
+    .search-result-sec .profile-wrap-inner.song-record-list .thumbnail-area {font-size: clamp(16px, 4.267vw, 20px);} 
+}
+
+/* 노래 search-song-list */
+.search-song-list .recommend-keyword-wrap {margin-top: 0;}
+.search-song-list .recommend-keyword-wrap .recommend-keyword-inner {border-top: none;}
+.search-song-list .song-list-cont {min-height: 80vh;}
+.search-song-list .song-list-cont .sorting-tit-wrap {padding: 1.50em 0;}
+.search-song-list .song-list-cont .sorting-tit-wrap .sorting-tit {font-weight: 500; font-variation-settings: 'wght' 500;}
+.search-song-list .song-list-cont .profile-list-wrap {gap: 1.250em;}
+.search-song-list .song-list-cont .profile-area.no-result {position: relative; min-height: 57vh; min-height: 57dvh;}
+.search-song-list .song-list-cont .let-sing {display: none;}
+.search-song-list .song-list-cont .profile-area.no-result .let-sing {display: block;position: absolute; bottom: 0; left: 0; width: 100%;}
+.search-song-list .song-list-cont .profile-area.no-result .no-result p {padding: 10.71em 10px;}
+
+/* 레코딩 */
+.search-record-list .record-list-cont .sorting-tit-wrap {padding: 1.50em 0;}
+.search-record-cont .profile-area.song .profile-wrap .profile-wrap-inner {width: 100%;}
+.search-result-sec .search-record-cont.record-list-cont .profile-area.song {padding: 0;}
+.search-result-sec .search-record-cont.record-list-cont .profile-list-wrap {gap: 1.250em;}

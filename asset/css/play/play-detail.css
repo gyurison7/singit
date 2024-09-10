@@ -1,0 +1,179 @@
+@charset "utf-8";/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Sunhyeong Kim. (Weaverloft Corp.)
+ * 2. Production Date: 2024-08-19
+ * 3. Client: MEDIASCOPE Inc.
+ */
+
+/* ------------------------------------------------------------------------ 
+PLAY SOLO
+------------------------------------------------------------------------ */
+.play.detail .header-sub ul li.header-back button { background-image: url('../../images/common/icon-gnb-prev-white.svg'); } 
+/*========== .play-vid-sec ==========*/
+/* .play-vid-box 공통 */
+.play-vid-sec .play-vid-box { position: fixed; top: 0; left: 50%; transform: translateX(-50%); display: flex; justify-content: center; background-color: #000; width: 100%; max-width: 750px; overflow: hidden; z-index: 51; } 
+.play-vid-sec .play-vid-wrap { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; display: flex; } 
+.play-vid-sec .play-vid-wrap.horizontal { width: auto; max-width: 100%; height: 100%; } 
+.play-vid-sec.play-duet-ex .play-vid-wrap.horizontal { width: 100% !important; } 
+.play-vid-sec .play-vid-wrap .play-dimmed-layer { position: absolute; top: 0; left: 0; display: block; width: 100%; height: 100%; background: linear-gradient(0deg,rgba(0,0,0,0.3), rgba(0,0,0,0)); transition: opacity 400ms; pointer-events: none; } 
+.play-vid-sec .play-vid-box:not(.show) .play-vid-wrap .play-dimmed-layer, .play-vid-sec.full .play-vid-wrap .play-dimmed-layer { opacity: 0; }
+.play-vid-sec .play-vid-wrap .play-vid { width: 100%; height: 100%;pointer-events: none; } 
+.play-vid-sec .play-vid-wrap .play-vid .play-cont { width: 100%; height: 100%; object-fit: cover; object-position: center; } 
+/* .vid-indicator-wrap 공통 */
+.play-vid-sec .vid-indicator-wrap .vid-play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); display: block; width: 3.625em; aspect-ratio: 1 / 1; font-size: 1rem; background-image: url("../../images/common/icon-vid-play-btn.svg"); background-position: center; background-repeat: no-repeat; background-size: contain; } 
+.play-vid-sec .play-vid-box .vid-indicator-wrap .pause-btn { display: none; background-image: url("../../images/common/icon-vid-pause-btn.svg"); } 
+.play-vid-sec .play-vid-box.play .vid-indicator-wrap .play-btn { display: none; } 
+.play-vid-sec .play-vid-box.play .vid-indicator-wrap .pause-btn { display: block; } 
+.play-vid-sec .vid-indicator-wrap .full-vid-btn { position: absolute; bottom: 0.75em; right: 1em; display: block; width: 1.5em; aspect-ratio: 1 / 1; font-size: 1rem; background-image: url("../../images/common/icon-fullpage.svg"); background-position: center; background-repeat: no-repeat; background-size: contain; } 
+.play-vid-sec .vid-indicator-wrap .vid-timeline-wrap { position: absolute; bottom: 1.16667em; left: 1em; color: rgba(255, 255, 255, 0.6); } 
+.play-vid-sec .vid-indicator-wrap .vid-timeline-wrap .current-time { color: rgba(255, 255, 255, 1); } 
+/* .progress-bar-wrap 공통 */
+.play-vid-sec .progress-bar-wrap { position: fixed; top: 0; left: 50%; width: 100%; max-width: 750px; line-height: 0; transform: translate(-50%, -100%); z-index: 53; } 
+.play-vid-sec .progress { width: 100%; height: 2px; background-color: #666; outline: none; -webkit-appearance: none; accent-color: var(--main-point-color); } 
+.play-vid-sec .progress-bar-wrap .progress::-webkit-slider-thumb { -webkit-appearance: none; height: 0; width: 0; border-radius: 50%; background: var(--main-point-color); cursor: pointer; transition: 300ms; -webkit-transition: 300ms; -moz-transition: 300ms; -ms-transition: 300ms; -o-transition: 300ms; } 
+.play-vid-sec .progress-bar-wrap .progress::-moz-range-thumb { height: 0; width: 0; border-radius: 50%; background: var(--main-point-color); cursor: pointer; transition: 300ms; -webkit-transition: 300ms; -moz-transition: 300ms; -ms-transition: 300ms; -o-transition: 300ms; } 
+.play-vid-sec .progress-bar-wrap.hover .progress::-webkit-slider-thumb { height: 10px; width: 10px; } 
+.play-vid-sec .progress-bar-wrap.hover .progress::-moz-range-thumb { height: 10px; width: 10px; } 
+/* full 스크린시 */
+.play-vid-sec.full .play-vid-box {height: 100% !important; z-index: 52; } 
+.play-vid-sec.full .play-vid-wrap {height: auto;max-height: 100%;max-width: 100%; } 
+.play-vid-sec.full:not(.full-ht-over) .play-vid-wrap { width: 100% !important; } 
+.play-vid-sec.full.full-ht-over .play-vid-wrap {height: 100%; } 
+.play-vid-sec.play-duet-sec.full .play-vid-wrap { aspect-ratio: 1 / 1; } 
+.play-vid-sec.play-duet-ex-2-1.full .play-vid-wrap { aspect-ratio: 2 / 1; } 
+.play-vid-sec.play-duet-ex-8-3.full .play-vid-wrap { aspect-ratio: 8 / 3; } 
+.play-vid-sec.full .vid-indicator-wrap .vid-timeline-wrap { bottom: 45px; left: 16px; } 
+.play-vid-sec.full .vid-indicator-wrap .full-vid-btn { right: 16px; bottom: 45px; } 
+.play-vid-sec.full .progress-bar-wrap { top: auto !important; bottom: 24px; width: calc(100% - 32px); max-width: 718px; transition: opacity 400ms; } 
+.play-vid-sec.full .play-vid-box:not(.show) + .progress-bar-wrap { opacity: 0; pointer-events: none;}
+
+@media screen and (min-width: 421px){
+ .play-vid-sec .vid-indicator-wrap .vid-play-btn { font-size: clamp(16px, 4.267vw, 20px); } 
+ .play-vid-sec .vid-indicator-wrap .full-vid-btn { font-size: clamp(16px, 4.267vw, 20px); } 
+ }
+
+/* .play-vid-cont 공통 */
+.play-vid-sec .play-vid-cont { position: relative; } 
+.play-vid-sec .play-vid-cont .inner { padding-top: 1.25em; } 
+.play-vid-sec .play-vid-cont .play-vid-title { margin: 0 2.444em 0 0; line-height: 1.333; color: #111; font-weight: 700; font-variation-settings: 'wght' 700; word-break:keep-all; } 
+.play-vid-sec .play-vid-cont .play-vid-singer { display: inline-block; margin: 0.5714em 0 1.14286em; color: #888888; font-weight: 400; font-variation-settings: 'wght' 400; } 
+.play-vid-sec .play-vid-cont .play-vid-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75em; margin-top: 1.714em; } 
+.play-vid-sec .play-vid-cont .play-vid-bottom .bottom-info-wrap { font-size: inherit; } 
+.play-vid-sec .play-vid-cont .bottom-info-wrap .info-views .views-wrap { padding-left: 0; background: none; font-weight: 400; font-variation-settings: 'wght' 400; } 
+.play-vid-sec .play-vid-cont .play-vid-bottom .gift-btn.only-icon { display: none; } 
+.play-vid-sec .play-vid-cont .play-vid-btn-wrap { margin-top: 1.125em; margin-bottom: 1.25em; padding-left: 16px; padding-right: 16px; } 
+.play-vid-sec .play-vid-cont .play-vid-btn-wrap .basic-btn.compact span { padding-left: 1.2857em; background-repeat: no-repeat; background-position: left center; background-size: contain; transition: 300ms; } 
+
+.play-vid-sec .play-vid-cont .play-vid-btn-wrap .compact-like-btn span { background-image: url("../../images/sub/play/icon-like-btn.svg"); } 
+.play-vid-sec .play-vid-cont .play-vid-btn-wrap .compact-bookmark-btn span { background-image: url("../../images/sub/play/icon-bookmark-btn.svg"); } 
+.play-vid-sec .play-vid-cont .play-vid-btn-wrap .compact-share-btn span { background-image: url("../../images/sub/play/icon-share-btn.svg"); } 
+.play-vid-sec .play-vid-cont .play-vid-btn-wrap .compact-report-btn span { background-image: url("../../images/common/icon-warning.svg"); } 
+.play-vid-sec .play-vid-cont .play-vid-btn-wrap .compact-like-btn.on span { background-image: url("../../images/sub/play/icon-like-btn-on.svg"); } 
+.play-vid-sec .play-vid-cont .play-vid-btn-wrap .compact-bookmark-btn.on span { background-image: url("../../images/sub/play/icon-bookmark-btn-on.svg"); } 
+.play-vid-sec .play-vid-cont .play-vid-btn-wrap .basic-btn.compact.on span { color: #333;}
+.play-vid-sec .play-vid-cont .vid-menu-btn { position: absolute; top: 1.25em; right: 0; width: 2.5em; aspect-ratio: 1 / 1; font-size: 1rem; background-image: url('../../images/common/icon-menu-three-dot.svg'); background-position: center; background-repeat: no-repeat; background-size: 66.7% 66.7%; } 
+
+@media screen and (min-width: 421px){
+ .play-vid-sec .play-vid-cont .vid-menu-btn { font-size: clamp(16px, 4.267vw, 20px); } 
+ }
+
+/*========== .play-vid-comment-sec ==========*/
+/* .profile-area */
+.play-vid-comment-sec { padding-top: 1em; font-size: 1rem; border-top: 1px solid #EBEBEB; } 
+.play-vid-comment-sec .profile-area .profile-img { width: 2em; height: 2em; min-width: auto; } 
+.play-vid-comment-sec .profile-area .profile-list .profile-wrap { justify-content: flex-start; gap: 0.375em; } 
+.play-vid-comment-sec .profile-area .profile-wrap-inner { gap: 0.5em; width: auto; max-width: calc(100% - 4em); } 
+.play-vid-comment-sec .profile-area .profile-info { width: calc(100% - 2.5em); } 
+.play-vid-comment-sec .profile-area .profile-btn-wrap:has(.pink) { min-width: 3.625em; } 
+.play-vid-comment-sec .profile-area .profile-btn-wrap .basic-btn { min-width: auto; padding: 0; } 
+.play-vid-comment-sec .profile-area .profile-btn-wrap .basic-btn span { font-size: 0.750rem; line-height: 1; padding: 0.41667em 0; } 
+
+@media screen and (min-width: 421px){
+ .play-vid-comment-sec { font-size: clamp(16px, 4.267vw, 20px); } 
+ .play-vid-comment-sec .profile-area .profile-btn-wrap .basic-btn span { font-size: clamp(12px, 3.2vw, 15px); } 
+ }
+
+/* .comment-preview-box */
+.play-vid-comment-sec .comment-preview-box { margin-top: 1.25em; padding: 1em 1.25em 1.25em 1em; font-size: 1rem; border-radius: 0.5em; background-color: #F5F5F5; cursor: pointer; transition: 300ms; } 
+.play-vid-comment-sec .comment-preview-box > p { margin-bottom: 0.5714em; color: #333; font-weight: 700; font-variation-settings: 'wght' 700; } 
+.play-vid-comment-sec .comment-preview-box > p span { margin-left: 0.4286em; font-weight: 500; font-variation-settings: 'wght' 500; } 
+.play-vid-comment-sec .comment-preview-box .comment-preview-wrap { display: flex; align-items: center; gap: 0.5em; font-size: 1rem; } 
+.play-vid-comment-sec .comment-preview-box .profile-img { flex-shrink: 0; width: 1.875em; height: 1.875em; min-width: auto; font-size: inherit; } 
+.play-vid-comment-sec .comment-preview-box .comment-preview-wrap .comment-preview { color: #666; font-weight: 400; font-variation-settings: 'wght' 400; display: -webkit-box; word-break: keep-all; -webkit-box-orient: vertical; text-overflow: ellipsis; overflow: hidden; -webkit-line-clamp: 2; } 
+.play-vid-comment-sec .comment-preview-box .no-comment-preview-wrap { display: flex; align-items: center; gap: 0.5em; font-size: 1rem; } 
+.play-vid-comment-sec .comment-preview-box .no-comment-preview-wrap p { flex-grow: 1; padding: 0.5em 1.0833em; color: #333; font-weight: 400; font-variation-settings: 'wght' 400; border-radius: 1.25em; background-color: #ddd; } 
+
+@media screen and (min-width: 421px){
+ .play-vid-comment-sec .comment-preview-box { font-size: clamp(16px, 4.267vw, 20px); } 
+ .play-vid-comment-sec .comment-preview-box .comment-preview-wrap, .play-vid-comment-sec .comment-preview-box .no-comment-preview-wrap { font-size: clamp(16px, 4.267vw, 20px); } 
+ }
+
+@media (hover:hover){
+ .play-vid-comment-sec .comment-preview-box:hover { background-color: #efefef; } 
+ }
+
+
+/*========== .vid-bottom-sec(관련 영상, 추천 영상 공통) ==========*/
+.vid-bottom-sec { margin-top: 2.25em; font-size: 1rem; overflow: hidden; } 
+.vid-bottom-sec .section-title { margin-bottom: 0.75em; } 
+
+@media screen and (min-width: 421px){
+ .vid-bottom-sec { font-size: clamp(16px, 4.267vw, 20px); } 
+ }
+
+/*========== .related-vid-sec (관련 영상) ==========*/
+.related-vid-sec .related-vid-list { cursor: pointer; } 
+.related-vid-sec .related-vid-list .thumbnail-area { width: 100%; aspect-ratio: 3 / 4; } 
+.related-vid-sec .related-vid-list .thumbnail-area:not(.duet) .thumbnail-wrap img { width: 100%; } 
+.related-vid-sec .related-vid-list .profile-info { gap: 1px; width: 100%; margin-top: 0.5em; margin: 0.5em 0 0 0; } 
+.related-vid-sec .related-vid-list .song-by-info { margin-top: 1em; } 
+.related-vid-sec .related-vid-list .song-by-info .profile-img::before { display: none; } 
+.related-vid-sec .related-vid-list .song-by-info .profile-name { overflow: hidden; flex-grow: 1; line-height: 1; white-space: nowrap; text-overflow: ellipsis; } 
+
+@media screen and (min-width: 421px){
+ .vid-bottom-sec { font-size: clamp(16px, 4.267vw, 20px); } 
+ }
+
+/*========== .play-bottom-btn-wrap ==========*/
+.play-bottom-btn-wrap .basic-btn span { display: inline-block; padding-left: 1.5em; line-height: 1.25; background-image: url("../../images/sub/play/icon-mic-btn.svg"); background-position: left center; background-repeat: no-repeat; background-size: 1.25em auto; } 
+
+/* ------------------------------------------------------------------------ 
+PLAY DUET
+------------------------------------------------------------------------ */
+/*========== .play-duet-sec ==========*/
+.play-duet-sec .play-vid-cont .play-vid-bottom { margin-bottom: 1.4286em; } 
+.play-duet-sec .profile-list { display: flex; align-items: center; width: 100%; } 
+.play-duet-sec .profile-list .profile-wrap { width: calc(100% - 6em); flex-grow: 1; gap: 0.5em; justify-content: flex-start; } 
+.play-duet-sec .profile-list .profile-part { position: relative; flex-shrink: 0; margin-right: 0.7143em; color: #333; font-weight: 700; font-variation-settings: 'wght' 700; } 
+.play-duet-sec .profile-list .profile-part::before { content:'A';}
+.play-duet-sec .profile-list:last-of-type .profile-part::before { content:'B';}
+.play-duet-sec .profile-list .gift-btn { flex-shrink: 0; margin-left: 0.7143em; } 
+.play-duet-sec .profile-list .profile-wrap-inner { max-width: calc(100% - 4.9em); gap: 0.5em; width: auto; } 
+.play-duet-sec .profile-list .profile-img { width: 2em; height: 2em; min-width: auto; } 
+.play-duet-sec .profile-list .profile-info { max-width: calc(100% - 2.5em); width: auto; } 
+.play-duet-sec .profile-list-wrap { gap: 0.625em; } 
+.play-duet-sec .profile-area .profile-btn-wrap:has(.pink) { min-width: 3.625em; } 
+.play-duet-sec .profile-area .profile-btn-wrap .basic-btn { min-width: auto; padding: 0; } 
+.play-duet-sec .profile-area .profile-btn-wrap .basic-btn span { font-size: 0.750rem; line-height: 1; padding: 0.41667em 0; } 
+.play-duet-sec + .play-vid-comment-sec .comment-preview-box { margin-top: 0; } 
+
+@media screen and (min-width: 421px){
+ .play-duet-sec .profile-area .profile-btn-wrap .basic-btn span { font-size: clamp(12px, 3.2vw, 15px); } 
+ }
+
+/*========== .duet-related-vid-sec ==========*/
+.duet-related-vid-sec .related-vid-list .thumbnail-area { aspect-ratio: 1 / 1; } 
+
+/* ------------------------------------------------------------------------ 
+PLAY DUET INVITE (듀엣 파트 초대)
+------------------------------------------------------------------------ */
+/*========== .play-duet-sec ==========*/
+.play-duet-sec.play-duet-invite .play-vid-wrap .play-vid { width: 50%; } 
+.play-duet-sec.play-duet-invite-B .play-vid-wrap .play-vid.empty-part { order: 2; } 
+.play-duet-sec.play-duet-invite-B .play-vid-wrap .play-vid:not(.empty-part) { order: 1; } 
+.play-duet-sec .profile-list.empty-part .profile-info .profile-tit { color: #888; } 
+.play-duet-sec.play-duet-invite-B .profile-list.empty-part { order: 2; } 
+.play-duet-sec.play-duet-invite-B .profile-list:not(.empty-part) { order: 1; } 
+.play-duet-sec.play-duet-invite-B .profile-list:last-of-type .profile-part::before { content:'A';}
+.play-duet-sec.play-duet-invite-B .profile-list:first-of-type .profile-part::before { content:'B';}

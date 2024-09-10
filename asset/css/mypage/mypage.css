@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Ajin Lee. (Weaverloft Corp.)
+ * 2. Production Date: 2024-08-08
+ * 3. Client: MEDIASCOPE Inc.
+ */
+
+/* ------------------------------------------------------------------------ 
+my-follow
+------------------------------------------------------------------------ */
+/*========== my-follow-sec ==========*/
+/* tab */
+.my-follow-sec .tab-menu li.tab-link { width: calc(100% / 2); } 
+.my-follow-sec .tab-menu li.slider { width: calc((100% - 32px) / 2); } 
+
+/* profile */
+.my-follow-sec .profile-wrap .profile-wrap-inner { width: calc(100% - 7.13em); } 
+
+/* ------------------------------------------------------------------------ 
+my-profile-sec
+------------------------------------------------------------------------ */
+/*========== my-profile-sec ==========*/
+.profile-reg-img-wrap { display: flex; align-items: center; justify-content: center; margin: 0 0 2.75em; font-size: 1rem; } 
+.profile-reg-img-wrap a { position: relative; width: 5em; height: 5em; font-size: inherit; } 
+.profile-reg-img-wrap a::after { content: ''; position: absolute; right: 0; bottom: 0; width: 1.75em; height: 1.75em; border-radius: 50%; border: 2px solid #fff; background-image: url('../../images/sub/mypage/icon-camera.svg'); background-position: center center; background-repeat: no-repeat; background-size: 1em auto; background-color: #E8E8E8; } 
+.profile-reg-img-wrap a figure { overflow: hidden; width: 100%; height: 100%; border-radius: 50%; background-color: #f5f5f5; } 
+.profile-reg-img-wrap a figure img { aspect-ratio: 1/1; } 
+.profile-reg-area { padding: 32px 10px; } 
+.profile-reg-info-wrap .textarea-area { margin: 1.50em 0 0; font-size: 1rem; } 
+@media screen and (min-width: 421px){
+    .profile-reg-img-wrap { font-size: clamp(16px, 4.267vw, 20px); } 
+    .profile-reg-info-wrap .textarea-area { font-size: clamp(16px, 4.267vw, 20px); } 
+}
+
+/* ------------------------------------------------------------------------ 
+my-video-sec
+------------------------------------------------------------------------ */
+/*========== my-video-sec ==========*/
+.my-video-sec .tab-btn-menu { border-bottom: none; padding: 1.43em 0 0; } 
+.my-video-sec .sorting-tit-wrap { padding: 1.50em 0 1.25em; } 
+
+.my-video-sec .profile-area.song .profile-list-wrap { gap: 1em; } 
+.my-video-sec .profile-area.song .profile-list { flex-direction: column; align-items: flex-start; gap: 0; width: 100%; border: 1px solid var(--basic-line-color); border-radius: 6px; } 
+.my-video-sec .profile-area.song .profile-wrap .profile-wrap-inner { justify-content: space-between; width: 100%; padding: 0.750em; } 
+.my-video-sec .btn-wrap.fixed { position: absolute; z-index: 2; top: 0.75em; right: 0.75em; } 
+.my-video-sec .bottom-info-wrap { display: flex; justify-content: space-between; width: 100%; padding: 0.50em 0.750em; border-top: 1px solid var(--basic-line-color); font-size: 1rem; } 
+.my-video-sec .profile-area.song .profile-img { width: 5.25em; height: 5.25em; } 
+.my-video-sec .profile-area.song .profile-info { width: calc(100% - 6.25em); } 
+.my-video-sec .profile-area.song .profile-info .status-label { max-width: 55px; } 
+.my-video-sec .bottom-info-wrap .left-side { display: flex; width: calc(100% - 4.8em); font-size: 0.75rem; } 
+.my-video-sec .bottom-info-wrap .right-side { font-size: 0.75rem; } 
+.my-video-sec .profile-area.song .profile-tit { margin: 0.36em 0 0; } 
+
+@media screen and (min-width: 421px){
+    .my-video-sec .profile-area.song .profile-wrap { font-size: clamp(16px, 4.267vw, 20px); } 
+    .my-video-sec .bottom-info-wrap { font-size: clamp(16px, 4.267vw, 20px); } 
+    .my-video-sec .bottom-info-wrap .left-side { font-size: clamp(12px, 3.2vw, 15px); } 
+    .my-video-sec .bottom-info-wrap .right-side { font-size: clamp(12px, 3.2vw, 15px); } 
+}
+@media screen and (max-width: 319px){
+    .my-video-sec .bottom-info-wrap .left-side { font-size: 11px; } 
+    .my-video-sec .bottom-info-wrap .right-side { font-size: 11px; } 
+}
+
+/* ------------------------------------------------------------------------ 
+my-songlist-sec
+------------------------------------------------------------------------ */
+/*========== my-songlist-sec ==========*/
+.my-songlist-sec .profile-list-wrap { gap: 1.25em;}

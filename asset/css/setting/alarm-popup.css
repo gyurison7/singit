@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Gyuri Son. (Weaverloft Corp.)
+ * 2. Production Date: 2024-09-03
+ * 3. Client: MEDIASCOPE Inc.
+ */
+
+#m-alarm-popup .tab-btn-menu { position: sticky; top: 0; z-index: 12; overflow-x: auto;  padding: 1.71em 16px 0; background-color: #fff; }
+#m-alarm-popup .tab-btn-menu::-webkit-scrollbar { display: none; }
+#m-alarm-popup .tab-btn-menu .tab-btn-link { white-space: nowrap; }
+#m-alarm-popup .alarm-header { display: flex; justify-content: space-between; position: sticky; z-index: 12; padding: 1.57em 16px 0.86em; background-color: #fff; }
+#m-alarm-popup .alarm-header .alarm-count { display: flex; color: #666; }
+#m-alarm-popup .alarm-header .alarm-count .basic-check-box .alarm-check-box-all { color: #666; }
+#m-alarm-popup .alarm-header .alarm-count .basic-check-box .alarm-check-box-all::before { display: none; margin-right: 0.86em; }
+#m-alarm-popup .alarm-header.on .alarm-count .basic-check-box .alarm-check-box-all::before { display: inline-block; }
+#m-alarm-popup .alarm-header .alarm-btn-wrap { display: flex; align-items: center; }
+#m-alarm-popup .alarm-header .alarm-btn-wrap button { display: flex; align-items: center; font-weight: 700; font-variation-settings: "wght" 700; }
+#m-alarm-popup .alarm-header .alarm-btn-wrap .hidden-btn { visibility: hidden; opacity: 0; } 
+#m-alarm-popup .alarm-header .alarm-btn-wrap .hidden-btn::after { display: block; width: 1px; height: 0.71em; margin-inline: 8px; background-color: #C3C3C3; content: ''; } 
+#m-alarm-popup .alarm-header.on .alarm-btn-wrap .hidden-btn { visibility: visible; opacity: 1; }
+#m-alarm-popup .alarm-list .alarm-item { padding-block: 1.13em; border-top: 1px solid var(--basic-line-color);}
+#m-alarm-popup .alarm-list .alarm-item.already-read { opacity: 0.6; }
+#m-alarm-popup .alarm-list .alarm-item .alarm-top-area { display: flex; justify-content: space-between; align-items: center; }
+#m-alarm-popup .alarm-list .alarm-item .alarm-top-area .basic-check-box { flex: 1; }
+#m-alarm-popup .alarm-list .alarm-item .alarm-check-box-label { display: flex; align-items: center; pointer-events: none; }
+#m-alarm-popup .alarm-list .alarm-item .alarm-check-box-label::before { display: none; margin-right: 0.86em; transform: translateY(0); }
+#m-alarm-popup .alarm-list .alarm-item.on .alarm-check-box-label { pointer-events: auto; }
+#m-alarm-popup .alarm-list .alarm-item.on .alarm-check-box-label::before { display: inline-block; }
+#m-alarm-popup .alarm-list .alarm-item .alarm-tit { color: #111; font-weight: 700; font-variation-settings: "wght" 700; }
+#m-alarm-popup .alarm-list .alarm-item .alarm-date { color: #888; font-weight: 400; font-variation-settings: "wght" 400; }
+#m-alarm-popup .alarm-list .alarm-item .alarm-link { padding-top: 0.75em; }
+#m-alarm-popup .alarm-list .alarm-item.on .alarm-link { margin-left: 1.75em; }
+#m-alarm-popup .alarm-list .alarm-item .alarm-cont { color: #333; font-weight: 400; font-variation-settings: "wght" 400; word-break: keep-all; }
+#m-alarm-popup .alarm-list .alarm-item .profile-area { padding-top: 0.75em; }
+#m-alarm-popup .alarm-list .alarm-item .profile-area .profile-wrap-inner { width: 100%; gap: 0.88em; }
+#m-alarm-popup .alarm-list .alarm-item .profile-area .thumbnail-area { width: 4em; height: 4em; aspect-ratio: 1; }
+#m-alarm-popup .alarm-list .alarm-item .profile-area .profile-info { width: calc(100% - 4.88em); }
+
+/*========== MODAL POPUP ==========*/
+#deleteAlarm, #noCheckedAlarm { z-index: 156; }

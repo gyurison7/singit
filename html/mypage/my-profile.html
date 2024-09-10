@@ -4,7 +4,7 @@
 <head>
 	<!-- meta -->
     <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
 	<meta name="format-detection" content="telephone=no, address=no, email=no">
 	<meta name="robots" content="noindex, nofollow">
 
@@ -47,13 +47,9 @@
 	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
 	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
 
-	<!-- FONTS -->
-	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
-
 	<!-- CSS -->
 	<link rel="stylesheet" href="../../asset/css/common.css">
-	<link rel="stylesheet" href="../../asset/css/mypage/my-profile.css">
+	<link rel="stylesheet" href="../../asset/css/mypage/mypage.css">
 
 	<!-- JS | library -->
 	<script src="../../asset/js/lazysizes.min.js"></script>
@@ -116,8 +112,8 @@
 					<div class="section-content inner">
 						<div class="profile-reg-area">
 							<div class="profile-reg-img-wrap">
-								<a href="javascript:;" title="프로필 이미지 수정하기" onclick="modalPopup('#regPop01')">
-									<figure><img src="../../asset/images/temp/profile-temp-zzang.png" alt="예시 이미지"></figure>
+								<a href="javascript:;" title="프로필 이미지 수정하기">
+									<figure><img class="fade-in lazyload" src="../../asset/images/temp/profile-temp-zzang.png" alt="예시 이미지"></figure>
 								</a>	
 							</div>
 							<div class="profile-reg-info-wrap">
@@ -147,7 +143,7 @@
 						<div class="btn-wrap bottom">
 							<div class="inner">
 								<button type="button" class="basic-btn red round" aria-label="title" onclick="modalPopup('#regPop01');">
-									<span>확인</span>
+									<span>저장</span>
 								</button>
 							</div>
 						</div>

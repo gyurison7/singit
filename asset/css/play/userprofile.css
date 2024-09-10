@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Sunhyeong Kim. (Weaverloft Corp.)
+ * 2. Production Date: 2024-08-13
+ * 3. Client: MEDIASCOPE Inc.
+ */
+
+/* ------------------------------------------------------------------------ 
+userprofile
+------------------------------------------------------------------------ */
+/*========== .user-profile-sec ==========*/
+/* .profile-wrap */
+.user-profile-sec .profile-wrap { margin: 1.25em 0 1.6875em; font-size: 1rem; line-height: 1.37; } 
+.user-profile-sec .profile-wrap .profile-wrap-inner { width: 100%; gap: 1.25em; } 
+.user-profile-sec .profile-img { flex-shrink: 0; width: 4em; height: 4em; } 
+.user-profile-sec .profile-info { flex-grow: 1; width: auto; } 
+.user-profile-sec .profile-info .profile-tit-wrap { display: flex; align-items: center; gap: 0.222em; margin-bottom: 0.5em; } 
+.user-profile-sec .profile-info .profile-tit-wrap .profile-tit {font-weight: 700; font-variation-settings: 'wght' 700; word-break: normal; white-space: normal; text-overflow: initial; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; } 
+.user-profile-sec .profile-info .profile-tit-wrap .status-label { display: flex; align-items: center; flex-shrink: 0; } 
+.user-profile-sec .profile-info .bottom-info-wrap { font-size: 0.875rem; line-height: 1.42; } 
+
+/* .introduction */
+.user-profile-sec .introduction { margin-bottom: 1.714em; } 
+.user-profile-sec .follow-btn-wrap { margin-bottom: 1.4286em; font-size: 0.875rem;}
+.user-profile-sec .follow-btn-wrap .basic-btn { font-size: inherit;}
+
+@media screen and (min-width: 421px){
+    .user-profile-sec .profile-wrap { font-size: clamp(16px, 4.267vw, 20px); } 
+    .user-profile-sec .profile-info .bottom-info-wrap { font-size: clamp(14px, 3.733vw, 18px); } 
+    .user-profile-sec .follow-btn-wrap {font-size: clamp(14px, 3.733vw, 18px);} 
+}
+
+/*========== .user-post-sec ==========*/
+/* .user-post-area */
+.user-post-sec { font-size: 1rem; border-top: 0.3125em solid #F5F5F5;}
+.user-post-sec .sorting-tit-wrap { justify-content: flex-end; padding: 1.25em 0;}
+.user-post-sec .user-post-area .no-result { display: none;}
+.user-post-sec .user-post-area:not(:has(.post-list)) .no-result { display: block;}
+.user-post-sec .user-post-area .post-list-wrap { display: flex; gap: 0.5em; flex-flow: wrap; font-size: 1rem;}
+.user-post-sec .user-post-area .post-list { width: calc((100% - 1em) / 3); aspect-ratio: 1 / 1; cursor: pointer; font-size: inherit;}
+
+@media screen and (min-width: 421px){
+    .user-post-sec { font-size: clamp(16px, 4.267vw, 20px); } 
+    .user-post-sec .user-post-area .post-list-wrap { font-size: clamp(16px, 4.267vw, 20px); } 
+}

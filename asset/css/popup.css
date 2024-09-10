@@ -72,7 +72,7 @@
 .giftScPop .gift-sc-box .gift-sc-btn.plus-gift-sc-btn { background-image: url('../images/common/icon-increase.svg'); }
 .giftScPop .gift-sc-box .gift-sc-input { width: calc(100% - (2.3636em * 2)); font-size: inherit; text-align: center;}
 .giftScPop .gift-sc-box-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;}
-.giftScPop .gift-sc-box-bottom .current-sc-wrap p { padding-left: 2em; background-image: url('../images/common/icon-singcoin.svg'); background-repeat: no-repeat; background-position: left center; background-size: 1.714em auto; font-weight: 400; font-variation-settings: 'wght' 400; color: #666;}
+.giftScPop .gift-sc-box-bottom .current-sc-wrap p { padding-left: 1.7em; background-image: url('../images/common/icon-singcoin.svg'); background-repeat: no-repeat; background-position: left center; background-size: 1.375em auto; font-weight: 400; font-variation-settings: 'wght' 400; color: #666;}
 .giftScPop .gift-sc-box-bottom .current-sc-wrap p strong { font-weight: 700; font-variation-settings: 'wght' 700; color: #333; }
 .giftScPop.modal.msg .modal-txt-wrap .basic-check-box { margin: 0;}
 .giftScPop .basic-check-box input[type="checkbox"] + label { color: #333;}
@@ -80,3 +80,13 @@
 @media screen and (min-width: 421px){
     .giftScPop .gift-sc-cont {font-size: clamp(22px, 5.867vw, 28px);} 
 }
+
+/*========== 노래 신청하기 팝업 (.requestPop) ==========*/
+.requestPop .modal-tit { text-align: center;}
+.requestPop .input-box-wrap { padding-top: 0.9375em;}
+.requestPop .input-box-wrap:last-of-type { margin-top: 20px;}
+.requestPop .modal-sub-tit { margin-top: 20px; text-align: center;}
+
+/*========== 더보기 Bottom Sheet 팝업 (.bs) ==========*/
+.bs .bottom-sheet-st {position: fixed;bottom: 0;left: 50%;z-index: 152;max-width: 750px;width: 100%;max-height: 90vh;margin: 0;background-color: #fff;border-radius: 20px 20px 0 0;box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);transition: transform 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease-out;transform: translate(-50%, 110%);}
+.bs.open .bottom-sheet-st {transform: translate(-50%,0);}
