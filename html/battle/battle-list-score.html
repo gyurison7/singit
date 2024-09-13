@@ -84,33 +84,32 @@
 			<!--========== FULL PAGE POPUP ==========-->
 			<div class="full-popup-group">
 				<!-- 풀페이지 팝업 열기 : 클래스 open 추가 / 닫기 : open 클래스 제거 -->
-				<div id="battle-game-score-popup" class="modal full battle-game-score-popup open">
+				<div id="battle-challenge-score-popup" class="modal full battle-game-score-popup battle-challenge-score-popup open">
 					<div class="full-modal-wrap">
                         <!--==================
-							* 왕좌의 게임 순위보기 내 순위 있음/없음 구분
+							* 2배 챌린지 순위보기 내 순위 있음/없음 구분
 							- [순위 있음] : true 클래스 추가
 							- [순위 없음] : false 클래스 추가
 						======================-->
-						<section class="full-modal-content false">
-                            <h3 class="section-title hidden">왕좌의 게임</h3>
+						<section class="full-modal-content battle-challenge-sec true">
+                            <h3 class="section-title hidden">2배 챌린지</h3>
                             <div class="header-sub">
                                 <ul>
-                                    <li class="header-sub-tit"><h2 class="content-txt2">왕좌의 게임</h2></li>
-                                    <li class="header-side header-close"><button type="button" aria-label="페이지 닫기" onclick="modalPopupClose('#battle-game-score-popup');"><span class="hidden">페이지 닫기</span></button></li>
+                                    <li class="header-sub-tit"><h2 class="content-txt2">2배 챌린지</h2></li>
+                                    <li class="header-side header-close"><button type="button" aria-label="페이지 닫기" onclick="modalPopupClose('#battle-challenge-score-popup');"><span class="hidden">페이지 닫기</span></button></li>
                                 </ul>
                             </div>
 							<div class="full-modal-cont">
 								<div class="section-header battle-game">
                                     <div class="section-title-wrap">
                                         <h3 class="section-title">
-                                            이번 달 왕좌의 게임<br>
-                                            1위는 누구?
+                                            도전에 성공할수록<br>
+                                			난이도는 UP!
                                         </h3>
-                                        <p class="sub-title content-txt2">1위가 되는 순간 싱코인 500개 바로 지급!</p>
+                                        <p class="sub-title content-txt2">목표점수 달성하고 싱코인 2배 획득!</p>
                                     </div>
                                     <div class="section-notice">
-                                        <p class="caption-txt1">왕좌의 게임이 완료되기 이전에 공개범위를 비공개로 변경할 경우 싱코인 지급이 취소 될 수 있습니다.</p>
-                                        <p class="caption-txt1">왕좌의 게임이 완료되기 이전에 공개범위를 비공개로 변경할 경우 싱코인 지급이 취소 될 수 있습니다.</p>
+                                        <p class="caption-txt1">목표 점수와 동일하거나 높은 경우 싱코인이 바로 지급 됩니다.</p>
                                     </div>
                                 </div>
 								<div class="cont-area-wrap">
@@ -607,7 +606,7 @@
 					<div class="bottom-sheet-dimmed"></div>
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 </body>

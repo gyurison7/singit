@@ -10,7 +10,7 @@
 /* ------------------------------------------------------------------------ 
  왕좌의 게임 목록
 ------------------------------------------------------------------------ */
-.section-header.battle-game { padding-top: 1em; }
+.section-header.battle-game { position: fixed; top: 2.75em; left: 50%; width: calc(100% - 32px); max-width: 718px; padding-top: 1em; transform: translateX(-50%); }
 .section-header.battle-game .section-title-wrap { width: 100%;  padding: 1.75em 1.69em 1.63em;; border-radius: 6px; background-image: url("../../images/sub/battle/battle-game-bg.png"); background-repeat: no-repeat; background-position: center; background-size: cover; color: #fff; }
 .section-header.battle-game .section-title-wrap .section-title { font-size: 1.25rem; line-height: 1.40; }
 .section-header.battle-game .section-title-wrap .sub-title { padding-top: 0.88em; }
@@ -18,8 +18,10 @@
 .section-header.battle-game .section-notice p { display: flex; padding-left: 0.83em; word-break: keep-all; font-weight: 400; font-variation-settings: "wght" 400; }
 .section-header.battle-game .section-notice p::before { display: block; width: 4px; height: 4px; margin: 0.5em 0.5em 0 -0.83em; border-radius: 50%; background-color: #888; content: ''; flex-shrink: 0; }
 
-.battle-game-list-sec .section-content::before { display: block; position: absolute; left: 50%; width: 100%; max-width: 750px; height: 0.31em; background-color: var(--sub-bg-color-f5); content: ''; transform: translateX(-50%); }
-.battle-game-list-sec .section-content .sorting-tit-wrap { padding: 1.81em 0 0.25em; }
+.battle-game-list-sec .section-header.battle-game::after { display: block; position: absolute; left: 50%; width: calc(100% + 32px); max-width: 750px; height: 0.31em; background-color: var(--sub-bg-color-f5); content: ''; transform: translateX(-50%); }
+.battle-game-list-sec .section-content { position: relative; top: 0.31em; z-index: 1; padding: 0 16px; background-color: #fff; }
+.battle-game-list-sec .section-content .sorting-tit-wrap { position: sticky; top: 2.75em; z-index: 13; padding: 1.5em 0; background-color: #fff; }
+.battle-game-list-sec .section-content .battle-game-item:first-child { padding-top: 0; }
 .battle-game-list-sec .section-content .battle-game-item { padding-block: 1.25em 0.94em; border-bottom: 1px solid var(--basic-line-color); }
 .battle-game-list-sec .section-content .thumbnail-area { width: 6.13em; height: 8.19em; }
 .battle-game-list-sec .section-content .thumbnail-area::after { display: none; }
@@ -45,7 +47,6 @@
 /* ------------------------------------------------------------------------ 
  왕좌의 게임 순위보기
 ------------------------------------------------------------------------ */
-.battle-game-score-popup .section-header.battle-game { position: fixed; width: calc(100% - 32px); }
 .battle-game-score-popup .section-header.battle-game .section-notice { padding-bottom: 1.88em; }
 .battle-game-score-popup .cont-area-wrap { position: relative; z-index: 1; overflow: visible; background-color: #fff;}
 .battle-game-score-popup .profile-info.top { align-items: center; position: sticky; top: 0; z-index: 2; width: 100%; padding-block: 1em 0.88em; border-radius: 1.25em 1.25em 0 0; border-bottom: 1px solid var(--basic-line-color); background-color: #fff; }
@@ -67,6 +68,8 @@
 .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .score-wrap { display: flex; justify-content: center; align-items: center; padding-top: 0.83em; }
 .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .score-wrap span { padding: 0.16em 1.5em; border-radius: 1.42em; background-color: var(--sub-bg-point-color); color: #666; white-space: nowrap; }
 .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .score-wrap span em { color: #111; }
+.battle-game-score-popup .cont-area.rank { position: relative; }
+.battle-game-score-popup .cont-area.rank::before { display: block; position: absolute; top: -0.31em; left: 50%; width: 100%; max-width: 750px; height: 0.31em; background-color: var(--sub-bg-color-f5); content: ''; transform: translateX(-50%); }
 
 /* 왕좌의 게임 순위보기 내 순위 있음/없음 구분 */
 .battle-game-score-popup .full-modal-content.true .cont-area.rank .rank-top-area.rank { display: block; }
@@ -77,15 +80,15 @@
 /* ------------------------------------------------------------------------ 
  2배 챌린지 목록
 ------------------------------------------------------------------------ */
-.battle-game-list-sec.battle-challenge-sec .section-header.battle-game .section-title-wrap { background-image: url("../../images/sub/battle/battle-challenge-bg.png"); }
-.battle-game-list-sec.battle-challenge-sec .section-header.battle-game .section-title-wrap { color: #111; }
-.battle-game-list-sec.battle-challenge-sec .section-header.battle-game .section-notice { padding-bottom: 1.38em; }
-.battle-game-list-sec.battle-challenge-sec .section-content .battle-game-item { padding-bottom: 1.31em; }
-.battle-game-list-sec.battle-challenge-sec .section-content .thumbnail-area { width: 6.25em; height: 6.25em; }
-.battle-game-list-sec.battle-challenge-sec .section-content .profile-area.grade .profile-right { width: calc(100% - 7.25em); }
-.battle-game-list-sec.battle-challenge-sec .section-content .profile-area.grade .profile-bottom { width: calc(100% - 7.25em); bottom: -2px; }
-.battle-game-list-sec.battle-challenge-sec .section-content .profile-area.grade .profile-bottom .score-wrap { padding-block: 0.236em; }
-.battle-game-list-sec.battle-challenge-sec .section-content .battle-game-item.no-challenge .score-label span { background-color: #ddd; color: #111; }
+.battle-challenge-sec .section-header.battle-game .section-title-wrap { background-image: url("../../images/sub/battle/battle-challenge-bg.png"); }
+.battle-challenge-sec .section-header.battle-game .section-title-wrap { color: #111; }
+.battle-challenge-sec .section-header.battle-game .section-notice { padding-bottom: 1.38em; }
+.battle-challenge-sec .section-content .battle-game-item { padding-bottom: 1.31em; }
+.battle-challenge-sec .section-content .thumbnail-area { width: 6.25em; height: 6.25em; }
+.battle-challenge-sec .section-content .profile-area.grade .profile-right { width: calc(100% - 7.25em); }
+.battle-challenge-sec .section-content .profile-area.grade .profile-bottom { width: calc(100% - 7.25em); bottom: -2px; }
+.battle-challenge-sec .section-content .profile-area.grade .profile-bottom .score-wrap { padding-block: 0.236em; }
+.battle-challenge-sec .section-content .battle-game-item.no-challenge .score-label span { background-color: #ddd; color: #111; }
 
 /* ------------------------------------------------------------------------ 
  배틀 챌린지 시작 Battle-challenge-popup
@@ -99,4 +102,59 @@
 @media screen and (min-width: 421px){
     .battle-challenge-popup .ring-graph-container .ring-graph-score .semi-b-num { font-size: clamp(40px, 11.765vw, 43px); } 
     .battle-challenge-popup .status-label.level.round { font-size: clamp(12px, 3.2vw, 15px); } 
+}
+
+/* ------------------------------------------------------------------------ 
+2배 챌린지 상세 Popup
+------------------------------------------------------------------------ */
+/*========== Process Bar : Challenge Type ==========*/
+.process-container.challenge { overflow: initial; position: relative; width: 100%; height: 1.25em; font-size: 1rem; } 
+.process-container.challenge .process-bar { position: relative; width: 100%; height: 100%; background-color: #f5f5f5; border-radius: 0.38em; font-size: inherit; } 
+.process-container.challenge .completed-area { position: absolute; width: 100%; height: 100%; font-size: inherit; } 
+.process-container.challenge .completed-area .completed { display: block; height: 100%; width: 0; font-size: inherit; } 
+.process-container.challenge .completed-area .completed.current-score { background-color: #FFB62C; border-radius: 0.38em 0 0 0.38em; transition: width ease-out 300ms;} 
+.process-container.challenge .completed-area .completed.next-goal { position: absolute; top: 0; left: 0; background-color: #FDE1AC; transition: width ease-out 50ms, border 300ms; } 
+.process-container.challenge .completed-area .completed.next-goal.on { border-right: 1px dashed #888;} 
+.process-container.challenge .process-bar .target-line { position: absolute; top: 50%; transform: translateY(-50%); z-index: 1; width: 2px; height: 1.63em; background-color: #FF7D2C;  } 
+.process-container.challenge .process-bar .target-line .target-tooltip { opacity: 0; visibility: hidden; position: relative; display: block; position: absolute; bottom: 2.86em; left: 50%; transform: translateX(-50%); min-width: 7.80em; background-color: #fff; padding: 0.50em 0.64em; border-radius: 0.64em; border: 1px solid #EEEEEE; border-radius: 5px; font-weight: 700; font-variation-settings: 'wght' 700; color: #FF7D2C; transition: opacity 300ms; transition-delay: 300ms; line-height: 1;} 
+.process-container.challenge .process-bar .target-line.on .target-tooltip { opacity: 1; visibility: visible; } 
+.process-container.challenge.false .process-bar .target-line .target-tooltip {color: #666;}
+.process-container.challenge .process-bar .target-line .target-tooltip::before {content: "";position: absolute;top: 100%;left: 50%;z-index: 1;margin-top: -1px;margin-left: -0.46em;border-width: 0.57em;border-style: solid;border-color: #fff transparent transparent transparent;font-size: inherit;}
+.process-container.challenge .process-bar .target-line .target-tooltip::after {content: "";position: absolute;top: 100%;left: 50%;margin-left: -0.43em;border-width: 0.57em;border-style: solid;border-color: #eee transparent transparent transparent;font-size: inherit;}
+.process-container.challenge .process-bar .next-goal .next-goal-tooltip { opacity: 0; visibility: hidden; display: block; position: absolute; bottom: -2.71em; left: 100%; transform: translateX(-50%); min-width: 3.72em; padding: 1em 0 0; background-image: url('../../images/sub/battle/icon-tooltip-arrow-gray.svg'); background-position: top center; background-repeat: no-repeat; background-size: 0.72em auto; font-weight: 500; font-variation-settings: 'wght' 500; color: #888; transition: opacity 300ms; transition-delay: 300ms; line-height: 1; text-align: center; } 
+.process-container.challenge .process-bar .next-goal.on .next-goal-tooltip { opacity: 1; visibility: visible; } 
+@media screen and (min-width: 421px){
+    .process-container.challenge { font-size: clamp(16px, 4.267vw, 20px); } 
+}
+@media screen and (min-width: 610px){
+    .process-container.challenge .process-bar .target-line .target-tooltip::before {margin-top: -1.7px;margin-left: -0.43em;}
+}
+
+/*========== 도전 성공 ==========*/
+.battle-challenge-popup .s-challenge-wrap.battle-true .btn-wrap.text {display: flex; justify-content: center; gap: 0;}
+.modal.battle-challenge-popup .s-challenge-wrap.battle-true .full-modal-cont {padding: 0;}
+.modal.battle-challenge-popup .s-challenge-wrap.battle-true .s-challenge-cont {padding: 0 0 7.60em;}
+.modal.battle-challenge-popup .s-challenge-wrap.battle-true .batting-tit {padding: 1.50em 0 1em;text-align: center;}
+.s-challenge-cont .cont-area.graph.process {padding-bottom: 0;}
+.s-challenge-cont .cont-area.graph.batting { border-radius: 1.06em; }
+.graph-area.process-challenge-area {display: block; padding: 2.14em 0 2.86em; font-size: 1rem;}
+.battle-challenge-popup .graph-area.process-challenge-area .graph-area-tit {padding: 0 0 1.11em; margin: 0; font-weight: 700; font-variation-settings: 'wght' 700; color: #111;}
+.process-challenge-area .process-challenge-bottom {margin: 3.44em 0 0;}
+.process-challenge-area .challenge-score-wrap { border: 1px solid var(--basic-line-color); border-radius: 0.63em; font-size: inherit;}
+.process-challenge-area .challenge-score-wrap .challenge-score-top { display: flex; justify-content: center; padding: 1.125em 0; font-size: inherit;}
+.current-scored { display: flex; align-items: center; justify-content: center; max-width: 260px; width: calc(100% - 11.30em); font-size: inherit;}
+.current-scored .c-score {font-weight: 500; font-variation-settings: 'wght' 500; color: #888;}
+.current-scored .c-score strong {display: inline-block; margin-right: 6px; font-size: 2rem;}
+.goal-scored {min-width: 10.05em; margin-right: 1.25em; font-size: inherit;}
+.goal-scored li {display: flex; justify-content: space-between; align-items: center; font-weight: 400; font-variation-settings: 'wght' 400;}
+.goal-scored li + li {margin-top: 4px;}
+.goal-scored .c-score-tit {color: #666;}
+.goal-scored .c-score {color: #888;}
+.goal-scored .c-score strong {display: inline-block; margin-right: 2px;font-weight: 700; font-variation-settings: 'wght' 700;color: #333;}
+.process-challenge-area .challenge-score-wrap .challenge-score-bottom .graph-guide-wrap {padding: 0.875em 0; background-color: #fff;border-top: 1px solid var(--basic-line-color);border-radius: 0 0 0.63em 0.63em;}
+.process-challenge-area .challenge-score-wrap .challenge-score-bottom .graph-guide-wrap .graph-guide .guide-tit {padding: 0;}
+.process-challenge-area .challenge-score-wrap .challenge-score-bottom .graph-guide-wrap .graph-guide .guide-tit::before {display: none;}
+@media screen and (min-width: 421px){
+    .graph-area.process-challenge-area { font-size: clamp(16px, 4.267vw, 20px); } 
+    .current-scored .c-score strong { font-size: clamp(32px, 9.412vw, 36px); } 
 }

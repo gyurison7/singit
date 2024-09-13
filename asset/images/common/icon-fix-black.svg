@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffc3c3;
+        opacity: 0;
+      }
+
+      .cls-2 {
+        fill: #333;
+      }
+    </style>
+  </defs>
+  <g id="ico-edit" transform="translate(-0.322 -0.322)">
+    <rect id="사각형_16337" data-name="사각형 16337" class="cls-1" width="16" height="16" transform="translate(0.322 0.322)"/>
+    <path id="pen" class="cls-2" d="M11.493,8.19a.182.182,0,0,1,0,.257L6.025,13.891H3V10.866L8.445,5.4a.182.182,0,0,1,.257,0ZM13.534,4.7,12.19,3.358a1.215,1.215,0,0,0-1.718,0L9.336,4.494a.182.182,0,0,0,0,.257l2.8,2.8a.182.182,0,0,0,.257,0l1.136-1.136a1.215,1.215,0,0,0,0-1.718Z" transform="translate(-0.123 -0.125)"/>
+  </g>
+</svg>

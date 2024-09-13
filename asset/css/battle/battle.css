@@ -126,5 +126,47 @@
     .battle-level-cont .battle-level-slide .profile-area.song .profile-list.challenge .profile-img::after { font-size: clamp(10px, 2.667vw, 13px); } 
 }
 
+/* ------------------------------------------------------------------------ 
+2배 챌린지 상세 Popup
+------------------------------------------------------------------------ */
+/*========== Process Bar : Challenge Type ==========*/
+.process-container.challenge { overflow: initial; position: relative; width: 100%; height: 1.25em; font-size: 1rem; } 
+.process-container.challenge .process-bar { position: relative; width: 100%; height: 100%; background-color: #f5f5f5; border-radius: 0.38em; font-size: inherit; } 
+.process-container.challenge .completed-area { position: absolute; width: 100%; height: 100%; font-size: inherit; } 
+.process-container.challenge .completed-area .completed { display: block; height: 100%; width: 0; font-size: inherit; } 
+.process-container.challenge .completed-area .completed.current-score { background-color: #FFB62C; border-radius: 0.38em 0 0 0.38em; transition: width ease-out 300ms;} 
+.process-container.challenge .completed-area .completed.next-goal { position: absolute; top: 0; left: 0; background-color: #FDE1AC; transition: width ease-out 50ms, border 300ms; } 
+.process-container.challenge .completed-area .completed.next-goal.on { border-right: 1px dashed #888;} 
+.process-container.challenge .process-bar .target-line { position: absolute; top: 50%; transform: translateY(-50%); z-index: 1; width: 2px; height: 1.63em; background-color: #FF7D2C;  } 
+.process-container.challenge .process-bar .target-line .target-tooltip { opacity: 0; visibility: hidden; position: relative; display: block; position: absolute; bottom: 2.86em; left: 50%; transform: translateX(-50%); min-width: 7.80em; background-color: #fff; padding: 0.50em 0.64em; border-radius: 0.64em; border: 1px solid #EEEEEE; border-radius: 5px; font-weight: 700; font-variation-settings: 'wght' 700; color: #FF7D2C; transition: opacity 300ms; transition-delay: 300ms; line-height: 1;} 
+.process-container.challenge .process-bar .target-line.on .target-tooltip { opacity: 1; visibility: visible; } 
+.process-container.challenge .process-bar .target-line .target-tooltip::before {content: "";position: absolute;top: 100%;left: 50%;z-index: 1;margin-top: -0.135em;margin-left: -0.43em;border-width: 0.50em;border-style: solid;border-color: #fff transparent transparent transparent;font-size: inherit;}
+.process-container.challenge .process-bar .target-line .target-tooltip::after {content: "";position: absolute;top: 100%;left: 50%;margin-left: -0.43em;border-width: 0.57em;border-style: solid;border-color: #eee transparent transparent transparent;font-size: inherit;}
+.process-container.challenge .process-bar .next-goal .next-goal-tooltip { opacity: 0; visibility: hidden; display: block; position: absolute; bottom: -2.71em; left: 100%; transform: translateX(-50%); min-width: 3.72em; padding: 1em 0 0; background-image: url('../../images/sub/battle/icon-tooltip-arrow-gray.svg'); background-position: top center; background-repeat: no-repeat; background-size: 0.72em auto; font-weight: 500; font-variation-settings: 'wght' 500; color: #888; transition: opacity 300ms; transition-delay: 300ms; line-height: 1; text-align: center; } 
+.process-container.challenge .process-bar .next-goal.on .next-goal-tooltip { opacity: 1; visibility: visible; } 
+@media screen and (min-width: 421px){
+    .process-container.challenge { font-size: clamp(16px, 4.267vw, 20px); } 
+}
 
-
+/*========== 도전 성공 ==========*/
+.s-challenge-cont .cont-area.graph.process {padding-bottom: 0;}
+.graph-area.process-challenge-area {display: block; padding: 2.14em 0 2.86em; font-size: 1rem;}
+.battle-challenge-popup .graph-area.process-challenge-area .graph-area-tit {padding: 0 0 1.11em; margin: 0; font-weight: 700; font-variation-settings: 'wght' 700; color: #111;}
+.process-challenge-area .process-challenge-bottom {margin: 4.14em 0 0; font-size: inherit;}
+.process-challenge-area .challenge-score-wrap { border: 1px solid var(--basic-line-color); border-radius: 0.63em; font-size: inherit;}
+.process-challenge-area .challenge-score-wrap .challenge-score-top { display: flex; padding: 1.25em 0; font-size: inherit;}
+.current-scored { display: flex; align-items: center; justify-content: center; width: calc(100% - 11.25em); font-size: inherit;}
+.current-scored .c-score {font-weight: 500; font-variation-settings: 'wght' 500; color: #888;}
+.current-scored .c-score strong {display: inline-block; margin-right: 4px; font-size: 2rem;}
+.goal-scored {min-width: 180px; margin-right: 1.25em; font-size: inherit;}
+.goal-scored li {display: flex; justify-content: space-between; align-items: center; font-weight: 400; font-variation-settings: 'wght' 400;}
+.goal-scored .c-score-tit {color: #666;}
+.goal-scored .c-score {color: #888;}
+.goal-scored .c-score strong {display: inline-block; margin-right: 2px;font-weight: 700; font-variation-settings: 'wght' 700;color: #333;}
+.process-challenge-area .challenge-score-wrap .challenge-score-bottom .graph-guide-wrap {padding: 0.938em 0; background-color: #fff;border-top: 1px solid var(--basic-line-color);border-radius: 0 0 0.63em 0.63em;}
+.process-challenge-area .challenge-score-wrap .challenge-score-bottom .graph-guide-wrap .graph-guide .guide-tit {padding: 0;}
+.process-challenge-area .challenge-score-wrap .challenge-score-bottom .graph-guide-wrap .graph-guide .guide-tit::before {display: none;}
+@media screen and (min-width: 421px){
+    .graph-area.process-challenge-area { font-size: clamp(16px, 4.267vw, 20px); } 
+    .current-scored .c-score strong { font-size: clamp(32px, 9.412vw, 36px); } 
+}

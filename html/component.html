@@ -124,62 +124,6 @@ box-orient: vertical;
 @media screen and (min-width: 421px){
     .status-level span { font-size: clamp(12px, 3.2vw, 15px); } 
 }
-/* .html5-progress-bar {
-	padding: 15px 15px;
-	border-radius: 3px;
-	background-color: #fff;
-	box-shadow:  0px 1px 2px 0px rgba(0, 0, 0, .2);
-}
-.html5-progress-bar progress {
-	background-color: #f3f3f3;
-	border: 0;
-	width: 80%;
-	height: 18px;
-	border-radius: 9px;
-}
-.html5-progress-bar progress::-webkit-progress-bar {
-	background-color: #f3f3f3;
-	border-radius: 9px;
-}
-.html5-progress-bar progress::-webkit-progress-value {
-	background: #cdeb8e;
-	background: -moz-linear-gradient(top,  #cdeb8e 0%, #a5c956 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cdeb8e), color-stop(100%,#a5c956));
-	background: -webkit-linear-gradient(top,  #cdeb8e 0%,#a5c956 100%);
-	background: -o-linear-gradient(top,  #cdeb8e 0%,#a5c956 100%);
-	background: -ms-linear-gradient(top,  #cdeb8e 0%,#a5c956 100%);
-	background: linear-gradient(to bottom,  #cdeb8e 0%,#a5c956 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdeb8e', endColorstr='#a5c956',GradientType=0 );
-	border-radius: 9px;
-}
-.html5-progress-bar progress::-moz-progress-bar {
-	background: #cdeb8e;
-	background: -moz-linear-gradient(top,  #cdeb8e 0%, #a5c956 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cdeb8e), color-stop(100%,#a5c956));
-	background: -webkit-linear-gradient(top,  #cdeb8e 0%,#a5c956 100%);
-	background: -o-linear-gradient(top,  #cdeb8e 0%,#a5c956 100%);
-	background: -ms-linear-gradient(top,  #cdeb8e 0%,#a5c956 100%);
-	background: linear-gradient(to bottom,  #cdeb8e 0%,#a5c956 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdeb8e', endColorstr='#a5c956',GradientType=0 );
-	border-radius: 9px;
-}
-.html5-progress-bar .progress-value {
-	padding: 0px 5px;
-	line-height: 20px;
-	margin-left: 5px;
-	font-size: .8em;
-	color: #555;
-	height: 18px;
-	float: right;
-}
-#progress-bar-container {
-    width: 100%;
-    background-color: #f3f3f3;
-    border-radius: 5px;
-    overflow: hidden;
-    margin: 20px 0;
-} */
-
 
 	</style>
 </head>
@@ -1483,6 +1427,8 @@ box-orient: vertical;
 					- .sheet-cont-prev-btn(뒤로가기 버튼) 클릭시, 이전 화면인 .sing-with-cont 노출로 돌아갑니다.
 
 					* 듀엣 참여시, A파트 참여의 경우 .duet-join-A / B파트 참여의 경우 .duet-join-B
+
+					* #sing-select에 클래스 sing-battle-game이 붙는 경우 "왕좌의 게임 부르기" 팝업이 노출 됩니다.
 				======================-->
 				<div id="sing-select" class="bottom-sheet-wrap sing-select"> <!-- openBottomSheet('#sing-select')에 의해 호출 -->
 					<div class="bottom-sheet unable-stretch">
@@ -1534,7 +1480,7 @@ box-orient: vertical;
 														<span class="content-txt3">영상</span>
 													</label>
 												</div>
-												<div class="setting-radio-box">
+												<div class="setting-radio-box disabled">
 													<input type="radio" id="setting-save-solo-sound" name="setting-save-solo" value="sound" tabindex="-1">
 													<label for="setting-save-solo-sound" tabindex="0">
 														<span class="content-txt3">음성</span>
@@ -1548,6 +1494,11 @@ box-orient: vertical;
 											<div class="btn-txt content-txt3">
 												<span class="content-txt3">2배 챌린지</span>
 												<div class="txt-bubble caption-txt1">GOAL <em>80점</em></div>
+											</div>
+										</a>
+										<a href="#" class="sing-challenge-btn sing-battle-game-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">왕좌의 게임 부르기</span>
 											</div>
 										</a>
 										<a href="#" class="sing-solo-part-btn sing-btm-btn basic-btn round line">
@@ -1865,16 +1816,45 @@ box-orient: vertical;
 					</script>
 					<div style="width: 375px;">
 						<p style="font-variation-settings: 'wght' 700;">3. Progress Bar : Default</p>
-						<div class="process-container default" style="width: 100%;">
+						<!-- <div class="process-container default">
 							<div class="process-bar">
 								<div class="background"></div>
 								<div class="completed"></div>
 							</div>
+						</div> -->
+						<div class="process-container challenge">
+							<div class="process-bar">
+								<div class="background"></div>
+								<div id="challenge-bar" class="completed challenge"></div>
+							</div>
 						</div>
+						<script>
+							$(document).ready(function() {
+								if ($(".process-container.challenge").length > 0) {
+									const $completedBar = $('.process-container.challenge .process-bar .completed');
+									const targetWidth = parseFloat($completedBar.data('width'));
+									$completedBar.css('width', '0%');
+
+									let currentWidth = 0;
+									const step = targetWidth / 100;
+
+									function animateProcessBar() {
+										if (currentWidth < targetWidth) {
+											currentWidth += step;
+											$completedBar.css('width', `${currentWidth}%`);
+											requestAnimationFrame(animateProcessBar);
+										} else {
+											$completedBar.css('width', `${targetWidth}%`);
+										}
+									}
+									animateProcessBar();
+								}
+							});
+						</script>
 					</div>
 					<br>
-					<div style="width: 375px;">
-						<p style="font-variation-settings: 'wght' 700;">4. Progress Bar : Score</p>
+					<!-- <div style="width: 375px;">
+						<p style="font-variation-settings: 'wght' 700;">4. Progress Bar : Score(SVG)</p>
 						<div class="process-container" style="width: 100%;">
 							<svg class="process-bar" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
 								<g class="bar bar1" >
@@ -1886,25 +1866,58 @@ box-orient: vertical;
 					</div>
 					<script>
 						document.addEventListener('DOMContentLoaded', () => {
-							const completedRect = document.querySelector('.process-bar .completed');
-							const targetWidth = completedRect.getAttribute('width');
-							completedRect.setAttribute('width', '0');
+							const progressBar = document.querySelector('.process-bar');
+							const completedRect = progressBar.querySelector('.completed');
+							const targetWidth = parseFloat(completedRect.dataset.width);
+							completedRect.style.width = '0%';
 
-							let currentWidth = 0;
-							const step = targetWidth / 100; 
+							let animated = false;
+
+							const observer = new IntersectionObserver((entries) => {
+								entries.forEach(entry => {
+									if (entry.isIntersecting && !animated) {
+										animate();
+										animated = true;
+									}
+								});
+							}, { threshold: 0.1 }); 
+
+							observer.observe(progressBar);
 
 							function animate() {
-								if (currentWidth < targetWidth) {
-									currentWidth += step;
-									completedRect.setAttribute('width', currentWidth);
-									requestAnimationFrame(animate); 
-								} else {
-									completedRect.setAttribute('width', targetWidth);
+								let currentWidth = 0;
+								const step = targetWidth / 100;
+
+								function step() {
+									if (currentWidth < targetWidth) {
+										currentWidth += step;
+										completedRect.style.width = `${currentWidth}%`;
+										requestAnimationFrame(step);
+									} else {
+										completedRect.style.width = `${targetWidth}%`;
+									}
 								}
+
+								requestAnimationFrame(step);
 							}
-							animate();
 						});
-					</script>
+					</script> -->
+					<!-- <div style="width: 375px;">
+						<p style="font-variation-settings: 'wght' 700;">5. Progress Bar : Score Customizing</p>
+						<div class="process-container">
+							<div class="process-bar" data-width="46%"></div>
+						</div>
+					</div>
+					<script>
+						document.addEventListener('DOMContentLoaded', () => {
+							const completedBar = document.querySelector('.process-bar');
+							const targetWidth = completedBar.getAttribute('data-width'); // data-width 값 가져오기
+							// data-width 속성에 설정된 값으로 너비를 애니메이션
+							setTimeout(() => {
+								completedBar.style.width = targetWidth; 
+							}, 0);
+						});
+					</script> -->
 				</div>
 			</section>
 			<br>
@@ -2319,6 +2332,8 @@ box-orient: vertical;
 						<div class="status-label">
 							<span class="free">루키</span>
 						</div>
+                        <div class="status-label level">LV.01</div>
+                        <div class="status-label level round"><em class="label-tit">목표</em><em>LV.1</em></div>
 						<br>
 						<div class="status-label round">
 							<span class="red">솔로</span>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffafaf;
+        opacity: 0;
+      }
+
+      .cls-2 {
+        fill: #333;
+      }
+    </style>
+  </defs>
+  <g id="그룹_31934" data-name="그룹 31934" transform="translate(-86 -183)">
+    <rect id="사각형_16798" data-name="사각형 16798" class="cls-1" width="24" height="24" transform="translate(86 183)"/>
+    <path id="선_769" data-name="선 769" class="cls-2" d="M17,1H0A1,1,0,0,1-1,0,1,1,0,0,1,0-1H17a1,1,0,0,1,1,1A1,1,0,0,1,17,1Z" transform="translate(89.5 195.5)"/>
+  </g>
+</svg>

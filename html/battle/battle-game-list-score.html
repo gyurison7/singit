@@ -100,7 +100,7 @@
                                 </ul>
                             </div>
 							<div class="full-modal-cont">
-								<div class="section-header battle-game inner">
+								<div class="section-header battle-game">
                                     <div class="section-title-wrap">
                                         <h3 class="section-title">
                                             이번 달 왕좌의 게임<br>
@@ -449,7 +449,7 @@
 							</div>
 							<div class="btn-wrap bottom play-bottom-btn-wrap">
 								<div class="inner">
-									<button type="button" class="basic-btn red round" aria-label="도전하기" onclick="location.href='#none'">
+									<button type="button" class="basic-btn red round sing-challenge-battle-game" aria-label="도전하기" onclick="openBottomSheet('#sing-select')">
 										<span>도전하기</span>
 									</button>
 								</div>
@@ -462,11 +462,152 @@
 			<!--========== TOAST POPUP ==========-->
 			<div class="toast-popup-group">
 				<!--==================
-					* Bottom Sheet
-					- openBottomSheet('#아이디값')에 의해, 해당 되는 아이디값의 .bottom-sheet-wrap를 호출합니다.
-					- sheet 크기가 커지지 못하는 경우, 클래스 sheet-stretch 대신 unable-stretch을 추가합니다.
+					* 부르기 팝업
+					- .sing-with-cont가 노출 됩니다. 
+					- .sing-with-cont의 버튼 선택에 따라 .sing-solo-cont 혹은 .sing-duet-cont이 노출 됩니다.
+					  (1) .sing-solo-btn 클릭시, #sing-select에 클래스 setting-step solo가 붙습니다.
+					  (2) .sing-duet-btn 클릭시, #sing-select에 클래스 setting-step duet이 붙습니다.
+					- .sheet-cont-prev-btn(뒤로가기 버튼) 클릭시, 이전 화면인 .sing-with-cont 노출로 돌아갑니다.
+
+					* 듀엣 참여시, A파트 참여의 경우 .duet-join-A / B파트 참여의 경우 .duet-join-B
+
+					* #sing-select에 클래스 sing-battle-game이 붙는 경우 "왕좌의 게임 부르기" 팝업이 노출 됩니다.
 				======================-->
+				<div id="sing-select" class="bottom-sheet-wrap sing-select setting-step solo sing-battle-game"> <!-- openBottomSheet('#sing-select')에 의해 호출 -->
+					<div class="bottom-sheet unable-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<div class="sheet-tit-box">
+								<button type="button" class="sheet-cont-prev-btn" aria-label="뒤로가기"></button>
+								<div class="profile-info content-txt2">
+									<div class="flowing-wrap">
+										<p class="profile-tit flowing-inner">
+											<span class="flowing">Small girl Small girl Small girl (feat. 도경수(D.O.))</span>
+										</p>
+									</div>
+									<p class="artist-name content-txt3">이영지</p>
+								</div>
+							</div>
+							<div class="sheet-cont-inner">
+								<div class="sing-with-cont">
+									<a href="javascript:;" class="sing-solo-btn"><span>솔로 부르기</span></a>
+									<a href="javascript:;" class="sing-duet-btn"><span>듀엣 초대</span></a>
+								</div>
+								<div class="sing-setting-cont sing-solo-cont">
+									<div class="sing-setting-top">
+										<div class="sing-setting-key sing-setting-area">
+											<p class="caption-txt1">KEY</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-solo-w" name="setting-key-solo" value="w" tabindex="-1" checked>
+													<label for="setting-key-solo-w" tabindex="0">
+														<span class="content-txt3">여자</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-solo-m" name="setting-key-solo" value="m" tabindex="-1">
+													<label for="setting-key-solo-m" tabindex="0">
+														<span class="content-txt3">남자</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+										<div class="sing-setting-save sing-setting-area">
+											<p class="caption-txt1">저장 방법</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-solo-video" name="setting-save-solo" value="video" tabindex="-1" checked>
+													<label for="setting-save-solo-video" tabindex="0">
+														<span class="content-txt3">영상</span>
+													</label>
+												</div>
+												<div class="setting-radio-box disabled">
+													<input type="radio" id="setting-save-solo-sound" name="setting-save-solo" value="sound" tabindex="-1" disabled>
+													<label for="setting-save-solo-sound" tabindex="0">
+														<span class="content-txt3">음성</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+									</div>
+									<div class="sing-setting-btm">
+										<a href="#" class="sing-challenge-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">2배 챌린지</span>
+												<div class="txt-bubble caption-txt1">GOAL <em>80점</em></div>
+											</div>
+										</a>
+										<a href="#" class="sing-challenge-btn sing-battle-game-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">왕좌의 게임 부르기</span>
+											</div>
+										</a>
+										<a href="#" class="sing-solo-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">솔로 부르기</span>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div class="sing-setting-cont sing-duet-cont">
+									<div class="sing-setting-top">
+										<div class="sing-setting-key sing-setting-area">
+											<p class="caption-txt1">KEY</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-duet-w" name="setting-key-duet" value="w" tabindex="-1" checked>
+													<label for="setting-key-duet-w" tabindex="0">
+														<span class="content-txt3">여자</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-duet-m" name="setting-key-duet" value="m" tabindex="-1">
+													<label for="setting-key-duet-m" tabindex="0">
+														<span class="content-txt3">남자</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+										<div class="sing-setting-save sing-setting-area">
+											<p class="caption-txt1">저장 방법</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-duet-video" name="setting-save-duet" value="video" tabindex="-1" checked>
+													<label for="setting-save-duet-video" tabindex="0">
+														<span class="content-txt3">영상</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-duet-sound" name="setting-save-duet" value="sound" tabindex="-1">
+													<label for="setting-save-duet-sound" tabindex="0">
+														<span class="content-txt3">음성</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+									</div>
+									<div class="sing-setting-btm">
+										<a href="#" class="sing-duet-A-part-btn sing-duet-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">A 파트 부르기</span>
+											</div>
+										</a>
+										<a href="#" class="sing-duet-B-part-btn sing-duet-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">B 파트 부르기</span>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
 			</div>
+
 		</div>
 	</div>
 </body>

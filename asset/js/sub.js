@@ -1070,11 +1070,13 @@ $(function(){
         });
 	}
 });
-/*========== Battle 왕좌의 게임 순위보기 ==========*/
+
+/*========== Battle 왕좌의 게임 section-header 고정 ==========*/
 $(function() {
     function fixSectionHeader() {
         var height = $(".section-header").innerHeight();
         $(".battle-game-score-popup .cont-area-wrap").css("margin-top", height);
+        $(".battle-game-list-sec .section-content").css("margin-top", height);
     }
     fixSectionHeader();
 
@@ -1082,6 +1084,85 @@ $(function() {
         fixSectionHeader();
     });
 });
+
+/*========== Battle 2배 챌린지 Progress Bar ==========*/
+$(document).ready(function () {
+    if ($(".process-container.challenge").length > 0) {
+        const $container = $('.process-container.challenge');
+        const $currentScoreBar = $('#challenge-bar');
+        const $nextGoalBar = $('#next-goal-bar');
+        const $targetLine = $('.process-container.challenge .target-line');
+        const $targetTooltip = $('.target-tooltip p');
+
+        const currentScore = parseFloat($currentScoreBar.data('current'));
+        const nextScore = parseFloat($currentScoreBar.data('next'));
+        const targetScore = parseFloat($targetLine.data('target'));
+        const totalWidth = 100;
+
+        const currentWidth = (currentScore / totalWidth) * 100;
+        const nextWidth = (nextScore / totalWidth) * 100;
+        const targetPosition = (targetScore / totalWidth) * 100;
+
+        $targetLine.css('left', targetPosition + '%');
+
+        const isTargetAchieved = currentScore >= targetScore;
+
+        if (isTargetAchieved) {
+            $container.addClass('pass');
+            $targetTooltip.text('목표 점수 달성 !');
+        } else {
+            $container.addClass('false');
+            $targetTooltip.text('목표 달성 실패 !');
+        }
+
+        $currentScoreBar.css('width', '0%');
+        let currentAnimationWidth = 0;
+        const step = currentWidth / 100;
+
+        function animateCurrentScore() {
+            if (currentAnimationWidth < currentWidth) {
+                currentAnimationWidth += step;
+                $currentScoreBar.css('width', currentAnimationWidth + '%');
+
+                if (currentAnimationWidth >= targetPosition) {
+                    $targetLine.addClass('on');
+                }
+
+                requestAnimationFrame(animateCurrentScore);
+            } else {
+                $currentScoreBar.css('width', currentWidth + '%');
+                $targetLine.addClass('on');
+                if (isTargetAchieved) {
+                    setTimeout(animateNextGoal, 500);
+                }
+            }
+        }
+
+        function animateNextGoal() {
+            $nextGoalBar.css({
+                'width': '0%',
+                'left': currentWidth + '%'
+            });
+            let nextAnimationWidth = 0;
+            const nextStep = (nextWidth - currentWidth) / 100;
+
+            function animateNextSegment() {
+                if (nextAnimationWidth < (nextWidth - currentWidth)) {
+                    nextAnimationWidth += nextStep;
+                    $nextGoalBar.css('width', nextAnimationWidth + '%');
+                    requestAnimationFrame(animateNextSegment);
+                } else {
+                    $nextGoalBar.css('width', (nextWidth - currentWidth) + '%');
+                    $nextGoalBar.addClass('on');
+                    $container.addClass('on');
+                }
+            }
+            animateNextSegment();
+        }
+        animateCurrentScore();
+    }
+});
+
 
 /* ------------------------------------------------------------------------  
     SETTING

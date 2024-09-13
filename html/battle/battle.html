@@ -134,97 +134,374 @@
 						</div>
 					</article>
 					<article class="section-content battle-game">
-						<h4 class="inner sub-cont-tit content-txt2"><a href="#none" title="왕좌의 게임 보기"><span><em class="sup-tit">9월</em>왕좌의 게임</span></a></h4>
-						<!-- 컨텐츠 없을때 클래스 no-result 추가 -->
-						<div class="inner battle-game-cont">
-							<div class="no-result">
-								<p class="content-txt3">2배 챌린지 인기곡으로 도전할 수 있어요.<br> 아직은 인기곡이 없어요.</p>
-							</div>
-							<div class="swiper battle-game-slide">
-								<ul class="swiper-wrapper score-slide-wrap">
-									<li class="swiper-slide score-slide-list">
-										<a href="#none" class="score-slide">
-											<figure class="cover-img">
-												<img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp02.png" alt="등대 하현상">
-											</figure>
-											<div class="score-profile-wrap">
-												<div class="song-by-info">
-													<figure class="profile-img">
-														<!-- 이미지 확장자 추천 jpg -->
-														<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="싱싱카님 이미지">
-													</figure>
-												</div>
-											</div>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</div>
+                        <div class="inner">
+                            <h4 class="sub-cont-tit content-txt2"><a href="http://codeloft.kr/mediascope_singit/html/battle/battle-game-list.html" title="왕좌의 게임 보기"><span><em class="sup-tit">9월</em>왕좌의 게임</span></a></h4>
+                            <!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+                            <div class="battle-game-cont">
+                                <div class="no-result">
+                                    <p class="content-txt3">이달의 왕좌의 게임을 볼 수 있어요.<br> 아직은 왕좌의 게임이 없어요.</p>
+                                </div>
+                                <div class="swiper battle-game-slide">
+                                    <ul class="swiper-wrapper score-slide-wrap">
+                                        <!-- 1위 도전일 경우 클래스 challenge 추가 -->
+                                        <li class="swiper-slide score-slide-list">
+                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-game-list-score.html" class="score-slide">
+                                                <figure class="cover-img">
+                                                    <img class="fade-in lazyloaded" src="../../asset/images/temp/temp-cover01.jpg" alt="등대 하현상">
+                                                </figure>
+                                                <div class="score-profile-wrap">
+                                                    <div class="score-profile-inner">
+                                                        <div class="song-by-info">
+                                                            <figure class="profile-img skeleton">
+                                                                <img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp-zzang.png" alt="싱싱카님 이미지">
+                                                            </figure>
+                                                            <div class="profile-name-wrap">
+                                                                <p class="profile-name content-txt3 skeleton">싱싱카</p>
+                                                                <div class="profile-score caption-txt1 skeleton"><strong class="content-txt1 semi-b-num">99.9</strong> 점</div>
+                                                            </div>
+                                                            <div class="btn-wrap challenge-btn">
+                                                                <div class="basic-btn small line pink skeleton"><span>1위 도전</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="profile-info caption-txt1">
+                                                            <p class="profile-tit skeleton">등대</p>
+                                                            <span class="profile-txt skeleton">하현상</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <!-- 1위 도전일 경우 클래스 challenge 추가 -->
+                                        <li class="swiper-slide score-slide-list">
+                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-game-list-score01.html" class="score-slide">
+                                                <figure class="cover-img">
+                                                    <img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp03.png" alt="New Jeans New Jeans">
+                                                </figure>
+                                                <div class="score-profile-wrap">
+                                                    <div class="score-profile-inner">
+                                                        <div class="song-by-info">
+                                                            <figure class="profile-img skeleton">
+                                                                <!-- 이미지 확장자 추천 jpg -->
+                                                                <img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp01.png" alt="노래하는 아꾸님 이미지">
+                                                            </figure>
+                                                            <div class="profile-name-wrap">
+                                                                <p class="profile-name content-txt3 skeleton">노래하는 아꾸</p>
+                                                                <div class="profile-score caption-txt1 skeleton"><strong class="content-txt1 semi-b-num">99.9</strong> 점</div>
+                                                            </div>
+                                                            <div class="btn-wrap challenge-btn">
+                                                                <div class="basic-btn small line pink skeleton"><span>1위 도전</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="profile-info caption-txt1">
+                                                            <p class="profile-tit skeleton">New Jeans</p>
+                                                            <span class="profile-txt skeleton">New Jeans</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <!-- 1위 도전일 경우 클래스 challenge 추가 -->
+                                        <li class="swiper-slide score-slide-list challenge">
+                                            <a href="javascript:void(0);" onclick="openBottomSheet('#sing-select')" class="score-slide">
+                                                <figure class="cover-img">
+                                                    <img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp05.png" alt="뜨거운 여름밤은 가고 남은 잔나비">
+                                                </figure>
+                                                <div class="score-profile-wrap">
+                                                    <div class="score-profile-inner">
+                                                        <div class="song-by-info">
+                                                            <figure class="profile-img skeleton">
+                                                                <img class="fade-in lazyloaded" src="../../asset/images/common/profile-default-img.svg" alt="노래하는 댕댕이님 이미지">
+                                                            </figure>
+                                                            <div class="profile-name-wrap">
+                                                                <p class="profile-name content-txt3 skeleton">노래하는 댕댕이</p>
+                                                                <div class="profile-score caption-txt1 skeleton"><strong class="content-txt1 semi-b-num">99.9</strong> 점</div>
+                                                            </div>
+                                                            <div class="btn-wrap challenge-btn">
+                                                                <div class="basic-btn small line pink skeleton"><span>1위 도전</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="profile-info caption-txt1">
+                                                            <p class="profile-tit skeleton">뜨거운 여름밤은 가고 남은</p>
+                                                            <span class="profile-txt skeleton">잔나비</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <!-- 1위 도전일 경우 클래스 challenge 추가 -->
+                                        <li class="swiper-slide score-slide-list">
+                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-game-list-score.html" class="score-slide">
+                                                <figure class="cover-img">
+                                                    <img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp07.png" alt="뜨거운 여름밤은 가고 남은 잔나비">
+                                                </figure>
+                                                <div class="score-profile-wrap">
+                                                    <div class="score-profile-inner">
+                                                        <div class="song-by-info">
+                                                            <figure class="profile-img skeleton">
+                                                                <img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp03.png" alt="두아리파앙님 이미지">
+                                                            </figure>
+                                                            <div class="profile-name-wrap">
+                                                                <p class="profile-name content-txt3 skeleton">두아리파앙</p>
+                                                                <div class="profile-score caption-txt1 skeleton"><strong class="content-txt1 semi-b-num">99.9</strong> 점</div>
+                                                            </div>
+                                                            <div class="btn-wrap challenge-btn">
+                                                                <div class="basic-btn small line pink skeleton"><span>1위 도전</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="profile-info caption-txt1">
+                                                            <p class="profile-tit skeleton">뜨거운 여름밤은 가고 남은</p>
+                                                            <span class="profile-txt skeleton">잔나비</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
 					</article>
-
-					<article class="section-content" style="height: 50vh;">
+                    <article class="section-content battle-challenge">
+                        <div class="inner">
+                            <h4 class="sub-cont-tit content-txt2"><a href="http://codeloft.kr/mediascope_singit/html/battle/battle-list.html" title="2배 챌린지 인기곡 보기"><span>2배 챌린지 인기곡</span></a></h4>
+                            <!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+                            <div class="battle-challenge-cont">
+                                <div class="no-result">
+                                    <p class="content-txt3">2배 챌린지 인기곡으로 도전할 수 있어요.<br>아직은 인기곡이 없어요.</p>
+                                </div>
+                                <div class="swiper profile-area song battle-challenge-slide">
+                                    <ul class="swiper-wrapper profile-list-wrap">
+                                        <li class="swiper-slide profile-list">
+                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-list-score01.html" class="profile-wrap">
+                                                <div class="profile-wrap-inner conts">
+                                                    <figure class="profile-img skeleton">
+                                                        <img class="fade-in lazyloaded" src="../../asset/images/temp/img-11-01.jpg" alt="사랑은 늘 도망가 임영웅">
+                                                    </figure>
+                                                    <div class="profile-info">
+                                                        <p class="profile-tit caption-txt1 skeleton">사랑은 늘 도망가</p>
+                                                        <span class="profile-txt caption-txt1 skeleton">임영웅</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="swiper-slide profile-list">
+                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-list-score.html" class="profile-wrap">
+                                                <div class="profile-wrap-inner conts">
+                                                    <figure class="profile-img skeleton">
+                                                        <img class="fade-in lazyloaded" src="../../asset/images/temp/img-169-04.jpg" alt="청혼하지 않을 이유를 못 찾았어 임영웅">
+                                                    </figure>
+                                                    <div class="profile-info">
+                                                        <p class="profile-tit caption-txt1 skeleton">청혼하지 않을 이유를 못 찾았어</p>
+                                                        <span class="profile-txt caption-txt1 skeleton">임영웅</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="swiper-slide profile-list">
+                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-list-score.html" class="profile-wrap">
+                                                <div class="profile-wrap-inner conts">
+                                                    <figure class="profile-img skeleton">
+                                                        <img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp03.png" alt="Ditto 뉴진스">
+                                                    </figure>
+                                                    <div class="profile-info">
+                                                        <p class="profile-tit caption-txt1 skeleton">Ditto</p>
+                                                        <span class="profile-txt caption-txt1 skeleton">뉴진스</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="swiper-slide profile-list">
+                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-list-score.html" class="profile-wrap">
+                                                <div class="profile-wrap-inner conts">
+                                                    <figure class="profile-img skeleton">
+                                                        <img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp05.png" alt="Impossible 라이즈">
+                                                    </figure>
+                                                    <div class="profile-info">
+                                                        <p class="profile-tit caption-txt1 skeleton">Impossible</p>
+                                                        <span class="profile-txt caption-txt1 skeleton">라이즈</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="swiper-slide profile-list">
+                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-list-score.html" class="profile-wrap">
+                                                <div class="profile-wrap-inner conts">
+                                                    <figure class="profile-img skeleton">
+                                                        <img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp02.png" alt="Cold hands Chan">
+                                                    </figure>
+                                                    <div class="profile-info">
+                                                        <p class="profile-tit caption-txt1 skeleton">Cold hands</p>
+                                                        <span class="profile-txt caption-txt1 skeleton">Chan</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
 					</article>
-					<article class="section-content">
-						<h4 class="hidden"><span>BATTLE 메인 배너</span></h4>
-						<div class="inner">
-							<div class="octagon-flip-area">
-								<div class="octagon-flip">  
-									<div class="octagon-card">
-										<!-- 앞면 -->
-										<div class="front">
-											<div class="status-level">
-												<span class="white">level up!</span>
-											</div>
-											<figure class="front-img">
-												<img class="fade-in lazyloaded" decoding="async" src="../../asset/images/common/logo-v-white.svg" alt="alt값 필수">
-											</figure>
-										</div>
-										<!-- 뒷면 --> 
-										<div class="back">
-											<div class="status-level">
-												<span class="red">level up!</span>
-											</div>
-											<h6 class="card-tit">지금 레벨 테스트 해보세요!</h6>
-											<figure class="back-img">
-												<img class="fade-in lazyloaded" decoding="async" src="../../asset/images/sub/battle/level-img-default.svg" alt="alt값 필수">
-											</figure>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="process-container" style="width: 100%;">
-								<svg class="process-bar" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
-									<g class="bar bar1" >
-										<rect class="background" x="0" y="0" rx="2.5" ry="2.5" width="100%" height="5" />
-										<rect class="completed" x="0" y="0" rx="2.5" ry="2.5" width="100%" height="5" />
-									</g>
-								</svg>
-							</div>
-							<!-- <script>
-								document.addEventListener('DOMContentLoaded', () => {
-									const completedRect = document.querySelector('.process-bar .completed');
-									const targetWidth = completedRect.getAttribute('width');
-									completedRect.setAttribute('width', '0');
-
-									let currentWidth = 0;
-									const step = targetWidth / 100; 
-
-									function animate() {
-										if (currentWidth < targetWidth) {
-											currentWidth += step;
-											completedRect.setAttribute('width', currentWidth);
-											requestAnimationFrame(animate); 
-										} else {
-											completedRect.setAttribute('width', targetWidth);
-										}
-									}
-									animate();
-								});
-							</script> -->
-						</div>
-					</article>
-
-					<article class="section-content" style="height: 50vh;">
+					<article class="section-content battle-level">
+                        <div class="inner">
+                            <h4 class="sub-cont-tit content-txt2"><a href="http://codeloft.kr/mediascope_singit/html/battle/battle-level.html" title="옥타브 레벨업 보기"><span>옥타브 레벨업 <em class="status-label level">LV.01</em></span></a></h4>
+                             <!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+                             <div class="song-update-cont battle-level-cont">
+                                <div class="no-result">
+                                    <p class="content-txt3">옥타브 레벨업에 도전해보세요.<br> 아직 도전곡이 없어요.</p>
+                                </div>
+                                <div class="swiper battle-level-slide">
+                                    <div class="swiper-wrapper battle-level-wrapper">
+                                        <div class="swiper-slide battle-level-list">
+                                            <div class="profile-area song">
+                                                <ul class="profile-list-wrap">
+                                                    <!-- 도전 성공했을 경우 클래스 challenge 추가 -->
+                                                    <li class="profile-list challenge">
+                                                        <div class="profile-wrap">
+                                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-level-challenge.html" class="profile-wrap-inner" title="최신 업데이트 곡 보기">
+                                                                <figure class="profile-img skeleton"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp01.png" alt="Teddy bear 스테이씨"></figure>
+                                                                <div class="profile-info">
+                                                                    <p class="profile-tit content-txt3 skeleton">Teddy bear</p>
+                                                                    <span class="profile-txt caption-txt1 skeleton">스테이씨</span>
+                                                                </div>
+                                                            </a>
+                                                            <div class="btn-wrap profile-btn-wrap">
+                                                                <button type="button" class="basic-btn xsmall pink line" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="profile-list">
+                                                        <div class="profile-wrap">
+                                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-level-challenge.html" class="profile-wrap-inner" title="최신 업데이트 곡 보기">
+                                                                <figure class="profile-img skeleton"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp02.png" alt="Cold hands Chan"></figure>
+                                                                <div class="profile-info">
+                                                                    <p class="profile-tit content-txt3 skeleton">Cold hands</p>
+                                                                    <span class="profile-txt caption-txt1 skeleton">Chan</span>
+                                                                </div>
+                                                            </a>
+                                                            <div class="btn-wrap profile-btn-wrap">
+                                                                <button type="button" class="basic-btn xsmall pink line" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="profile-list">
+                                                        <div class="profile-wrap">
+                                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-level-challenge.html" class="profile-wrap-inner" title="최신 업데이트 곡 보기">
+                                                                <figure class="profile-img skeleton"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp03.png" alt="Sticky KISS OF LIFE"></figure>
+                                                                <div class="profile-info">
+                                                                    <p class="profile-tit content-txt3 skeleton">Sticky</p>
+                                                                    <span class="profile-txt caption-txt1 skeleton">KISS OF LIFE</span>
+                                                                </div>
+                                                            </a>
+                                                            <div class="btn-wrap profile-btn-wrap">
+                                                                <button type="button" class="basic-btn xsmall pink line" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide battle-level-list">
+                                            <div class="profile-area song">
+                                                <ul class="profile-list-wrap">
+                                                    <li class="profile-list">
+                                                        <div class="profile-wrap">
+                                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-level-challenge.html" class="profile-wrap-inner" title="최신 업데이트 곡 보기">
+                                                                <figure class="profile-img skeleton"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp04.png" alt="Ditto 뉴진스"></figure>
+                                                                <div class="profile-info">
+                                                                    <p class="profile-tit content-txt3 skeleton">Ditto</p>
+                                                                    <span class="profile-txt caption-txt1 skeleton">뉴진스</span>
+                                                                </div>
+                                                            </a>
+                                                            <div class="btn-wrap profile-btn-wrap">
+                                                                <button type="button" class="basic-btn xsmall pink line" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="profile-list">
+                                                        <div class="profile-wrap">
+                                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-level-challenge.html" class="profile-wrap-inner" title="최신 업데이트 곡 보기">
+                                                                <figure class="profile-img skeleton"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp01.png" alt="Teddy bear 스테이씨"></figure>
+                                                                <div class="profile-info">
+                                                                    <p class="profile-tit content-txt3 skeleton">Teddy bear</p>
+                                                                    <span class="profile-txt caption-txt1 skeleton">스테이씨</span>
+                                                                </div>
+                                                            </a>
+                                                            <div class="btn-wrap profile-btn-wrap">
+                                                                <button type="button" class="basic-btn xsmall pink line" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="profile-list">
+                                                        <div class="profile-wrap">
+                                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-level-challenge.html" class="profile-wrap-inner" title="최신 업데이트 곡 보기">
+                                                                <figure class="profile-img skeleton"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp02.png" alt="Cold hands Chan"></figure>
+                                                                <div class="profile-info">
+                                                                    <p class="profile-tit content-txt3 skeleton">Cold hands</p>
+                                                                    <span class="profile-txt caption-txt1 skeleton">Chan</span>
+                                                                </div>
+                                                            </a>
+                                                            <div class="btn-wrap profile-btn-wrap">
+                                                                <button type="button" class="basic-btn xsmall pink line" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide battle-level-list">
+                                            <div class="profile-area song">
+                                                <ul class="profile-list-wrap">
+                                                    <li class="profile-list">
+                                                        <div class="profile-wrap">
+                                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-level-challenge.html" class="profile-wrap-inner" title="최신 업데이트 곡 보기">
+                                                                <figure class="profile-img skeleton"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp02.png" alt="Cold hands Chan"></figure>
+                                                                <div class="profile-info">
+                                                                    <p class="profile-tit content-txt3 skeleton">Cold hands</p>
+                                                                    <span class="profile-txt caption-txt1 skeleton">Chan</span>
+                                                                </div>
+                                                            </a>
+                                                            <div class="btn-wrap profile-btn-wrap">
+                                                                <button type="button" class="basic-btn xsmall pink line" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="profile-list">
+                                                        <div class="profile-wrap">
+                                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-level-challenge.html" class="profile-wrap-inner" title="최신 업데이트 곡 보기">
+                                                                <figure class="profile-img skeleton"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp04.png" alt="Ditto 뉴진스"></figure>
+                                                                <div class="profile-info">
+                                                                    <p class="profile-tit content-txt3 skeleton">Ditto</p>
+                                                                    <span class="profile-txt caption-txt1 skeleton">뉴진스</span>
+                                                                </div>
+                                                            </a>
+                                                            <div class="btn-wrap profile-btn-wrap">
+                                                                <button type="button" class="basic-btn xsmall pink line" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="profile-list">
+                                                        <div class="profile-wrap">
+                                                            <a href="http://codeloft.kr/mediascope_singit/html/battle/battle-level-challenge.html" class="profile-wrap-inner" title="최신 업데이트 곡 보기">
+                                                                <figure class="profile-img skeleton"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp01.png" alt="Teddy bear 스테이씨"></figure>
+                                                                <div class="profile-info">
+                                                                    <p class="profile-tit content-txt3 skeleton">Teddy bear</p>
+                                                                    <span class="profile-txt caption-txt1 skeleton">스테이씨</span>
+                                                                </div>
+                                                            </a>
+                                                            <div class="btn-wrap profile-btn-wrap">
+                                                                <button type="button" class="basic-btn xsmall pink line" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination battle-level-pgn" id="battle-level-pgn"></div>
+                                </div>
+                            </div>
+                        </div>
+                           
 					</article>
 				</section>
 

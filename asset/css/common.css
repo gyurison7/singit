@@ -461,10 +461,10 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 .list-style > li.circle::before { content: ''; position: absolute; top: 6px; left: 0; width: 4px; height: 4px; background-color: #888; border-radius: 50%; } 
 
 /*========== Bottom Sheet & Handle Bar ==========*/
-.bottom-sheet { position: fixed; bottom: 0; left: 50%; z-index: 152; max-width: 750px; width: 100%; max-height: 90vh; background-color: #fff; border-radius: 20px 20px 0 0; box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-out, height 0.3s ease-out; transform: translate(-50%, 110%); } 
-.handle-area { z-index: 153; position: absolute; top: -22px; left: 0; width: 100%; padding: 10px 0 40px; cursor: grab; box-sizing: border-box; } 
+.bottom-sheet { position: fixed; bottom: 0; left: 50%; z-index: 202; max-width: 750px; width: 100%; max-height: 90vh; background-color: #fff; border-radius: 20px 20px 0 0; box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-out, height 0.3s ease-out; transform: translate(-50%, 110%); } 
+.handle-area { z-index: 203; position: absolute; top: -22px; left: 0; width: 100%; padding: 10px 0 40px; cursor: grab; box-sizing: border-box; } 
 .handle { width: 60px; height: 4px; background-color: #ddd; border-radius: 60px; margin: 0 auto; } 
-.bottom-sheet-dimmed { opacity: 0; visibility: hidden; position: fixed; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100vh; height: 100dvh; background-color: rgba(0, 0, 0, 0.5); transition: 300ms; z-index:150; } 
+.bottom-sheet-dimmed { opacity: 0; visibility: hidden; position: fixed; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100vh; height: 100dvh; background-color: rgba(0, 0, 0, 0.5); transition: 300ms; z-index: 200; } 
 .sheet-content { display: flex; flex-direction: column; max-height: 100%; padding: 1.50em 1.50em 1.25em; } 
 .sheet-content .sheet-tit { padding: 0 0 1.33em; font-size: 1.125rem; font-weight: 500; font-variation-settings: 'wght' 500; color: #111; text-align: center; } 
 .sheet-content .sheet-btn-wrap { display: flex; flex-wrap: wrap; gap: 0.63em 1em; } 
@@ -512,17 +512,17 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 .comment.bottom-sheet-wrap:has(.comment-list) .no-comment-case { display: none; } 
 .comment .reply-tag { color:#1879DD; margin-right: 0.5em;}
 .input-txt-box { position: absolute; bottom: 0; left: 0; display: flex; justify-content: center; align-items: center; width: 100%; height: 3.75em; font-size: 1rem; background-color: #fff; } 
-.input-txt-box::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #fff; z-index: 154; } 
-.input-txt-box .input-txt-wrap { display: flex; justify-content: space-between; align-items: center; gap: 0.2857em; width: calc(100% - 3.428em); height: 2.857em; margin: 0 auto; padding: 0 0.2857em 0 1.143em; font-size: 0.875rem; line-height: 1.42; background-color: #eee; border-radius: 1.429em; z-index: 154; } 
+.input-txt-box::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #fff; z-index: 204; } 
+.input-txt-box .input-txt-wrap { display: flex; justify-content: space-between; align-items: center; gap: 0.2857em; width: calc(100% - 3.428em); height: 2.857em; margin: 0 auto; padding: 0 0.2857em 0 1.143em; font-size: 0.875rem; line-height: 1.42; background-color: #eee; border-radius: 1.429em; z-index: 204; } 
 .input-txt-box .input-txt-wrap input { flex-grow: 1; background-color: transparent; font-size: inherit; color: #111; } 
 .input-txt-box .input-txt-wrap input::placeholder { color: #666; } 
 .input-txt-box .input-txt-wrap .input-txt-send-btn { width: 2.286em; aspect-ratio: 1 / 1; background-color: #888888; background-image: url("../images/common/icon-send-arrow.svg"); background-position: center; background-repeat: no-repeat; background-size: 1.428em 1.428em; font-size: inherit; border-radius: 50%; transition: background-color 300ms; } 
 .input-txt-box.typing .input-txt-wrap .input-txt-send-btn { background-color: var(--main-point-color); } 
-.input-txt-box .input-txt-popup { position: absolute; top: 0; left: 0; width: 100%; padding: 0 2em; font-size: 0.750rem; line-height: 1.5; background-color: #FFECED; transition: transform 300ms; transform: translateY(100%); z-index: 153; } 
+.input-txt-box .input-txt-popup { position: absolute; top: 0; left: 0; width: 100%; padding: 0 2em; font-size: 0.750rem; line-height: 1.5; background-color: #FFECED; transition: transform 300ms; transform: translateY(100%); z-index: 203; } 
 .input-txt-box .input-txt-popup .input-txt-popup-wrap { display: flex; justify-content: space-between; align-items: center; gap: 0.75em; width: 100%; } 
 .input-txt-box .input-txt-popup .input-txt-popup-wrap .input-popup-cont { margin: 0 !important; padding: 0.6667em 0; font-size: inherit; color: #666; font-weight: 400; font-variation-settings: 'wght' 400; } 
 .input-txt-box .input-txt-popup .input-popup-cancel-btn { flex-shrink: 0; padding: 0.6667em 0; font-size: inherit; color: #666; font-weight: 700; font-variation-settings: 'wght' 700; } 
-.input-txt-box.reply .input-txt-popup { transform: translateY(-100%); -webkit-transform: translateY(-100%); -moz-transform: translateY(-100%); -ms-transform: translateY(-100%); -o-transform: translateY(-100%); } 
+.input-txt-box.reply .input-txt-popup { transform: translateY(calc(-100% + 1px));} 
 
 
 @media (hover: hover){
@@ -548,7 +548,7 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 .bottom-sheet-wrap.check .sheet-check-list li a.active::after { visibility: visible; opacity: 1; } 
 
 /*========== Toast Popup ==========*/
-.toast-popup { z-index: 151; position: fixed; opacity: 0; bottom: 0; left: 50%; transform: translate(-50%,calc(100% + 18px)); width: 100%; max-width: 327px; padding: 1.07em; background: #333; border-radius: 1.71em; font-size: 0.875rem; font-weight:400; font-variation-settings: 'wght' 400; color: #fff; box-shadow: 3px 4px 11px 0px #00000040; transition: 300ms; } 
+.toast-popup { z-index: 201; position: fixed; opacity: 0; bottom: 0; left: 50%; transform: translate(-50%,calc(100% + 18px)); width: 100%; max-width: 327px; padding: 1.07em; background: #333; border-radius: 1.71em; font-size: 0.875rem; font-weight:400; font-variation-settings: 'wght' 400; color: #fff; box-shadow: 3px 4px 11px 0px #00000040; transition: 300ms; } 
 /* Active 상태 */
 .toast-popup.active { opacity: 1; transform: translate(-50%,-18px); } 
 .toast-popup > p { display: none; text-align: center; word-break: keep-all; } 
@@ -657,7 +657,7 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 .process-container.default {overflow: hidden; height: 0.50em; border-radius: 0.25em;}
 .process-container.default .process-bar {position: relative; width: 100%; height: 100%;}
 .process-container.default .process-bar .background {position: absolute; top: 0; left: 0; width: 100%; height: 100%;background-color: #f5f5f5;}
-.process-container.default .process-bar .completed {position: absolute; top: 0; left: 0;width: 100%; height: 100%;background-color: var(--main-point-color); animation: progressBar 1s ease-in-out forwards;}
+.process-container.default .process-bar .completed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--main-point-color); animation: progressBar 300ms ease forwards; -webkit-animation: progressBar 300ms ease forwards; }
 @keyframes progressBar { 
     0% { width: 0; } 
     100% {width: 100%;}
@@ -667,13 +667,12 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 .process-container .process-bar .bar rect { fill: none; } 
 .process-container .process-bar .bar1 .background { fill: #F5F5F5;}
 .process-container .process-bar .bar1 .completed { fill: var(--graph-color-red);} 
-/* Challenge Type */
 
 /* Download Type */
 .process-container.download { overflow: hidden; height: 0.50em; border-radius: 0.63em;}
 .process-container.download .process-bar {position: relative; width: 100%; height: 100%;}
 .process-container.download .process-bar .background {position: absolute; top: 0; left: 0; width: 100%; height: 100%;background-color: #f5f5f5;}
-.process-container.download .process-bar .completed.download {position: absolute; top: 0; left: 0;z-index: 1; width: 0; height: 100%; transition: width 0.2s ease-in-out; background-color: var(--main-point-color);}
+.process-container.download .process-bar .completed.download { position: absolute; top: 0; left: 0; z-index: 1; width: 0; height: 100%; transition: width 300ms ease; background-color: var(--main-point-color); }
 @media screen and (min-width: 421px){
     .process-container { font-size: clamp(16px, 4.267vw, 20px); } 
 }
@@ -724,6 +723,8 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 .sing-select .sing-setting-cont .sing-setting-top .sing-setting-area .setting-radio-box input { display: none;}
 .sing-select .sing-setting-cont .sing-setting-top .sing-setting-area .setting-radio-box input:checked + label { background-color: #FED4D5;}
 .sing-select .sing-setting-cont .sing-setting-top .sing-setting-area .setting-radio-box input:checked + label span { padding-left: 1.429em; color: var(--main-point-color); font-weight: 700; font-variation-settings: 'wght' 700; background-image: url("../images/common/icon-check-red.svg"); background-position: left center; background-repeat: no-repeat; background-size: 1.142em 1.142em; line-height: 1;}
+.sing-select .sing-setting-cont .sing-setting-top .sing-setting-area .setting-radio-box.disabled, .sing-select .sing-setting-cont .sing-setting-top .sing-setting-area .setting-radio-box.setting-radio-box:has(input[disabled]), .sing-select .sing-setting-cont .sing-setting-top .sing-setting-area .setting-radio-box.setting-radio-box.setting-radio-box.setting-radio-box:has(input[readonly]) { opacity: 0.8; pointer-events: none; cursor: default; }
+.sing-select .sing-setting-cont .sing-setting-top .sing-setting-area .setting-radio-box.disabled label span, .sing-select .sing-setting-cont .sing-setting-top .sing-setting-area .setting-radio-box.setting-radio-box:has(input[disabled]) label span, .sing-select .sing-setting-cont .sing-setting-top .sing-setting-area .setting-radio-box.setting-radio-box.setting-radio-box.setting-radio-box:has(input[readonly]) label span { color: #bbb; }
 .sing-select .sing-setting-cont .sing-setting-btm { margin-top: 1.875em; font-size: inherit;}
 .sing-select .sing-setting-cont .sing-setting-btm .sing-btm-btn { display: flex; justify-content: center; align-items: center; width: 100%; margin-bottom: 0.5em; padding: 0.567em 1em; font-size: inherit; }
 .sing-select .sing-setting-cont .sing-setting-btm .sing-btm-btn:last-of-type { margin-bottom: 0;}
@@ -734,6 +735,12 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 .sing-select .sing-setting-cont .sing-setting-btm .sing-challenge-btn { background-color: #FFEFE0; border-color: #FF8207;}
 .sing-select .sing-setting-cont .sing-setting-btm .sing-challenge-btn.sing-btm-btn .btn-txt > span { color: #FF8207; background-image: url("../images/common/icon-price.svg");}
 .sing-select .sing-setting-cont .sing-setting-btm .sing-solo-part-btn.sing-btm-btn .btn-txt > span { background-image: url("../images/common/icon-mic-red.svg");}
+
+/*========== Sing Battle Game Bottom sheet (왕좌의 게임 부르기 팝업) ==========*/
+.sing-select .sing-setting-cont .sing-setting-btm .sing-battle-game-btn { display: none; }
+.sing-select.sing-battle-game .sing-setting-cont .sing-setting-btm .sing-challenge-btn:not(.sing-battle-game-btn) { display: none; }
+.sing-select.sing-battle-game .sing-setting-cont .sing-setting-btm .sing-solo-part-btn { display: none; }
+.sing-select.sing-battle-game .sing-setting-cont .sing-setting-btm .sing-battle-game-btn { display: block; margin-bottom: 0; }
 
 /*========== Sing Duet Join Bottom sheet (듀엣 참여 부르기 팝업) ==========*/
 .sing-duet-join.sing-select .sing-setting-cont .sing-setting-top { flex-direction: column; gap: 0.875em;}
@@ -768,8 +775,8 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 .play-vid-box.play .vid-indicator-wrap .play-btn { display: none; } 
 .play-vid-box.play .vid-indicator-wrap .pause-btn { display: block; } 
 .vid-indicator-wrap .full-vid-btn { position: absolute; bottom: 0.75em; right: 1em; display: block; width: 1.5em; aspect-ratio: 1 / 1; font-size: 1rem; background-image: url("../images/common/icon-fullpage.svg"); background-position: center; background-repeat: no-repeat; background-size: contain; } 
-.vid-indicator-wrap .vid-timeline-wrap { position: absolute; bottom: 1.16667em; left: 1em; color: rgba(255, 255, 255, 0.6); } 
-.vid-indicator-wrap .vid-timeline-wrap .current-time { color: rgba(255, 255, 255, 1); } 
+.vid-timeline-wrap { position: absolute; bottom: 1.16667em; left: 1em; color: rgba(255, 255, 255, 0.6); } 
+.vid-timeline-wrap .current-time { color: rgba(255, 255, 255, 1); } 
 /* .progress-bar-wrap 공통 */
 .progress-bar-wrap { position: fixed; top: 0; left: 50%; width: 100%; max-width: 750px; line-height: 0; transform: translate(-50%, -100%); z-index: 53; } 
 .progress { width: 100%; height: 2px; background-color: #666; outline: none; -webkit-appearance: none; accent-color: var(--main-point-color); } 
