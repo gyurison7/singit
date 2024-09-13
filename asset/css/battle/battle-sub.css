@@ -2,12 +2,101 @@
 /* Info
  ========================================================================== */
 /**
- * 1. Writer: Ajin Lee. (Weaverloft Corp.)
+ * 1. Writer: Ajin Lee. Gyuri Son (Weaverloft Corp.)
  * 2. Production Date: 2024-09-10
  * 3. Client: MEDIASCOPE Inc.
  */
 
 /* ------------------------------------------------------------------------ 
-
+ 왕좌의 게임 목록
 ------------------------------------------------------------------------ */
-/*==========  ==========*/
+.section-header.battle-game { padding-top: 1em; }
+.section-header.battle-game .section-title-wrap { width: 100%;  padding: 1.75em 1.69em 1.63em;; border-radius: 6px; background-image: url("../../images/sub/battle/battle-game-bg.png"); background-repeat: no-repeat; background-position: center; background-size: cover; color: #fff; }
+.section-header.battle-game .section-title-wrap .section-title { font-size: 1.25rem; line-height: 1.40; }
+.section-header.battle-game .section-title-wrap .sub-title { padding-top: 0.88em; }
+.section-header.battle-game .section-notice { display: flex; flex-direction: column; gap: 0.63em; padding-block: 1.13em 1.25em; color: #888; }
+.section-header.battle-game .section-notice p { display: flex; padding-left: 0.83em; word-break: keep-all; font-weight: 400; font-variation-settings: "wght" 400; }
+.section-header.battle-game .section-notice p::before { display: block; width: 4px; height: 4px; margin: 0.5em 0.5em 0 -0.83em; border-radius: 50%; background-color: #888; content: ''; flex-shrink: 0; }
+
+.battle-game-list-sec .section-content::before { display: block; position: absolute; left: 50%; width: 100%; max-width: 750px; height: 0.31em; background-color: var(--sub-bg-color-f5); content: ''; transform: translateX(-50%); }
+.battle-game-list-sec .section-content .sorting-tit-wrap { padding: 1.81em 0 0.25em; }
+.battle-game-list-sec .section-content .battle-game-item { padding-block: 1.25em 0.94em; border-bottom: 1px solid var(--basic-line-color); }
+.battle-game-list-sec .section-content .thumbnail-area { width: 6.13em; height: 8.19em; }
+.battle-game-list-sec .section-content .thumbnail-area::after { display: none; }
+.battle-game-list-sec .section-content .battle-game-item.no-user .thumbnail-area { width: 6.13em; height: 6.13em; }
+.battle-game-list-sec .section-content .thumbnail-area .img-btn-wrap.center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.battle-game-list-sec .section-content .thumbnail-area .img-btn-wrap .img-btn { width: 2.67em; height: 2.67em; background-image: url("../../images/sub/battle/icon-play.svg"); background-repeat: no-repeat; background-position: center; background-size: cover; }
+.battle-game-list-sec .section-content .profile-area.grade .profile-right { width: calc(100% - 7.13em); }
+.battle-game-list-sec .section-content .profile-area.grade .profile-info { width: 100%; margin-top: 0; }
+.battle-game-list-sec .section-content .profile-area.grade .profile-info a { width: 100%; }
+.battle-game-list-sec .section-content .profile-area.grade .profile-tit { width: 100%; }
+.battle-game-list-sec .section-content .profile-area.grade .profile-txt { display: block; width: 100%; }
+.battle-game-list-sec .section-content .profile-area.grade .profile-bottom { display: flex; flex-direction: column; align-items: flex-start; width: calc(100% - 7.13em); bottom: 0; }
+.battle-game-list-sec .section-content .profile-area.grade .profile-bottom .song-by-info a { display: flex; align-items: center; gap: 0.33em; width: 100%; color: #888; }
+.battle-game-list-sec .section-content .profile-area.grade .profile-bottom .profile-img { overflow: initial; width: 1.58em; height: 1.58em; min-width: 19px; font-size: inherit; background-color: transparent; }
+.battle-game-list-sec .section-content .profile-area.grade .profile-bottom .profile-name { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.battle-game-list-sec .section-content .profile-area.grade .profile-bottom .score-btn-wrap { display: flex; justify-content: space-between; align-items: center; width: 100%; padding-top: 0.38em; }
+.battle-game-list-sec .section-content .profile-area.grade .profile-bottom .score-label span { display: block; padding: 0em 0.5em; border-radius: 2px; background-color: var(--sub-bg-point-color); color: var(--main-point-color);}
+.battle-game-list-sec .section-content .profile-area.grade .profile-bottom .score-wrap { display: flex; align-items: center; padding-block: 0.372em; }
+.battle-game-list-sec .section-content .profile-area.grade .profile-bottom .rank-score-wrap { padding-left: 0.5em; }
+.battle-game-list-sec .section-content .profile-area.grade .profile-bottom .btn-wrap { display: flex; position: absolute; bottom: 0; right: 0; }
+.battle-game-list-sec .section-content .profile-area.grade .profile-bottom .btn-wrap a { padding: 0.65em 1.979em; }
+
+/* ------------------------------------------------------------------------ 
+ 왕좌의 게임 순위보기
+------------------------------------------------------------------------ */
+.battle-game-score-popup .section-header.battle-game { position: fixed; width: calc(100% - 32px); }
+.battle-game-score-popup .section-header.battle-game .section-notice { padding-bottom: 1.88em; }
+.battle-game-score-popup .cont-area-wrap { position: relative; z-index: 1; overflow: visible; background-color: #fff;}
+.battle-game-score-popup .profile-info.top { align-items: center; position: sticky; top: 0; z-index: 2; width: 100%; padding-block: 1em 0.88em; border-radius: 1.25em 1.25em 0 0; border-bottom: 1px solid var(--basic-line-color); background-color: #fff; }
+.battle-game-score-popup .cont-area.graph { padding-block: 0 1.38em; }
+.battle-game-score-popup .rank-area { padding-top: 3.19em; }
+.battle-game-score-popup .cont-area.rank .rank-top-area.no-rank .rank-list-wrap p { padding-block: 2.15em; text-align: center; }
+.battle-game-score-popup .battle-game-rank-list { display: flex; justify-content: center; align-items: center; gap: 1.53em; }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item { display: flex; flex-direction: column; align-items: center; }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .profile-img-wrap { position: relative; }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .profile-img { width: 5.25em; height: 5.25em; }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item.first .icon-wrap { position: absolute; top: -1.75em; left: 50%; width: 2.75em; height: 2.19em; z-index: 1; background-image: url("../../images/sub/battle/icon-first.svg"); background-repeat: no-repeat; background-position: center; background-size: cover; transform: translateX(-50%); }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item.first .profile-img { width: 7.5em; height: 7.5em; }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .rank-wrap { position: absolute; bottom: 0; left: 0; }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .rank-wrap span { display: flex; justify-content: center; align-items: center; width: 1.58em; height: 1.58em; border-radius: 50%; color: #fff; }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item.first .rank-wrap span { width: 1.78em; height: 1.78em; background-color: #FCCA36; }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item.second .rank-wrap span { background-color: #B2B2B2; }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item.third .rank-wrap span { background-color: #C07136; }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .profile-title { padding-top: 1em; }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .score-wrap { display: flex; justify-content: center; align-items: center; padding-top: 0.83em; }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .score-wrap span { padding: 0.16em 1.5em; border-radius: 1.42em; background-color: var(--sub-bg-point-color); color: #666; white-space: nowrap; }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .score-wrap span em { color: #111; }
+
+/* 왕좌의 게임 순위보기 내 순위 있음/없음 구분 */
+.battle-game-score-popup .full-modal-content.true .cont-area.rank .rank-top-area.rank { display: block; }
+.battle-game-score-popup .full-modal-content.true .cont-area.rank .rank-top-area.no-rank { display: none; }
+.battle-game-score-popup .full-modal-content.false .cont-area.rank .rank-top-area.rank { display: none; }
+.battle-game-score-popup .full-modal-content.false .cont-area.rank .rank-top-area.no-rank { display: block; }
+
+/* ------------------------------------------------------------------------ 
+ 2배 챌린지 목록
+------------------------------------------------------------------------ */
+.battle-game-list-sec.battle-challenge-sec .section-header.battle-game .section-title-wrap { background-image: url("../../images/sub/battle/battle-challenge-bg.png"); }
+.battle-game-list-sec.battle-challenge-sec .section-header.battle-game .section-title-wrap { color: #111; }
+.battle-game-list-sec.battle-challenge-sec .section-header.battle-game .section-notice { padding-bottom: 1.38em; }
+.battle-game-list-sec.battle-challenge-sec .section-content .battle-game-item { padding-bottom: 1.31em; }
+.battle-game-list-sec.battle-challenge-sec .section-content .thumbnail-area { width: 6.25em; height: 6.25em; }
+.battle-game-list-sec.battle-challenge-sec .section-content .profile-area.grade .profile-right { width: calc(100% - 7.25em); }
+.battle-game-list-sec.battle-challenge-sec .section-content .profile-area.grade .profile-bottom { width: calc(100% - 7.25em); bottom: -2px; }
+.battle-game-list-sec.battle-challenge-sec .section-content .profile-area.grade .profile-bottom .score-wrap { padding-block: 0.236em; }
+.battle-game-list-sec.battle-challenge-sec .section-content .battle-game-item.no-challenge .score-label span { background-color: #ddd; color: #111; }
+
+/* ------------------------------------------------------------------------ 
+ 배틀 챌린지 시작 Battle-challenge-popup
+------------------------------------------------------------------------ */
+.battle-challenge-popup .s-challenge-wrap .btn-wrap.text { display: block; } 
+.battle-challenge-popup .ring-graph-container { width: 9.5em; margin: 2.25em 0 1.50em; } 
+.battle-challenge-popup .ring-graph-container .ring-graph-score { text-align: center; } 
+.battle-challenge-popup .ring-graph-container .ring-graph-score .semi-b-num { font-size: 2.50rem; } 
+.battle-challenge-popup .status-label.level.round { margin: 0 0 0.13em; padding: 0.34em 0.83em; min-width: 60px; border-radius: 0.83em; font-size: 0.750rem; font-weight: 500; font-variation-settings: 'wght' 500; background-color: var(--sub-bg-point-color); color: var(--main-point-color); } 
+.battle-challenge-popup .graph-area .graph-area-tit { margin: 0 0 2em; } 
+@media screen and (min-width: 421px){
+    .battle-challenge-popup .ring-graph-container .ring-graph-score .semi-b-num { font-size: clamp(40px, 11.765vw, 43px); } 
+    .battle-challenge-popup .status-label.level.round { font-size: clamp(12px, 3.2vw, 15px); } 
+}

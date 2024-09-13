@@ -11,7 +11,7 @@
 ------------------------------------------------------------------------ */
 /*========== PLAY 상세페이지 ==========*/
 $(function(){
-    if($(".play-vid").length <= 0) return;
+    if($(".play-vid").length <= 0 || $(".play-vid-sec").length <= 0) return;
 
     /*== 스크롤 시 영상 높이 셋팅 ==*/
     let vidRatio = 375/520; // Default aspect ratio
@@ -156,12 +156,11 @@ $(function(){
     });
 });
 
-/*== 영상 관련 기능 ==*/
+/*== 영상 관련 공통 기능 ==*/
 document.addEventListener('DOMContentLoaded', function() {
     if($(".play-vid").length <= 0) return;
 
     let video = document.querySelector('.play-cont:not(img)');
-
     const progress = document.querySelector('.progress');
     const currentTime = document.querySelector('.current-time');
     const totalTime = document.querySelector('.total-time');
@@ -233,9 +232,20 @@ document.addEventListener('DOMContentLoaded', function() {
         progress.value = video.currentTime;
         currentTime.textContent = formatTime(video.currentTime);
         totalTime.textContent = formatTime(video.duration);
-        var gradient_value = 100 / progress.attributes.max.value;
-        progress.style.background = 'linear-gradient(to right, #FF2B2F 0%, #FF2B2F '+ gradient_value * progress.value +'%, #666 ' + gradient_value *  progress.value + '%, #666 100%)';
-    });
+		updateProgressBar(progress);
+
+		if($(".recording-time-list").length > 0){
+			// 현재 시간에 가장 가까운 recording-time-list 선택
+			const currentSeconds = Math.floor(video.currentTime);
+			const closestTime = timePoints.reduce((prev, curr) => 
+				Math.abs(curr - currentSeconds) < Math.abs(prev - currentSeconds) ? curr : prev
+			);
+			const index = timePoints.indexOf(closestTime);
+			
+			$(".recording-time-list").removeClass("select");
+			$(".recording-time-list").eq(index).addClass("select");
+		}
+	});
 
     // 재생이 끝난 후 처리
     video.addEventListener('ended', function() {
@@ -250,10 +260,12 @@ document.addEventListener('DOMContentLoaded', function() {
     progress.addEventListener('input', (event) => {
         video.currentTime = progress.value;
         var gradient_value = 100 / event.target.attributes.max.value;
+		var timeBg = event.target.style.background;
         event.target.style.background = 'linear-gradient(to right, #FF2B2F 0%, #FF2B2F '+ gradient_value * event.target.value +'%, #666 ' + gradient_value *  event.target.value + '%, #666 100%)';
-    });
+		if($(".recording-cont-box").length > 0) event.target.style.background = 'linear-gradient(to right, #FF2B2F 0%, #FF2B2F '+ gradient_value * event.target.value +'%, #fff ' + gradient_value *  event.target.value + '%, #fff 100%)';
+	});
 
-    /*=== progress bar 터치 효과 ===*/
+    /*=== progress bar 터치 hover 효과 ===*/
     let progressTouchTimer;
     $(document).on("mousedown mouseover touchstart", function(e) {
         if ($(e.target).closest('.progress-bar-wrap').length > 0) {
@@ -268,7 +280,45 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 시간을 mm:ss 형식으로 포맷팅하는 함수
+	/*=== 부르기 업로드 커버이미지 설정 페이지 ===*/
+	if($(".recording-cont-box").length > 0){
+		// timePoints를 동적으로 생성
+		const generateTimePoints = (start, interval, count) => 
+			Array.from({length: count}, (_, i) => start + i * interval);
+		
+		const timePoints = generateTimePoints(10, 20, 5); // 10초 시작, 20초 간격, 5개 포인트
+
+		$(".recording-time-list").on("click", function() {
+			const index = $(this).index();
+			const selectedTime = timePoints[index];
+
+			// 비디오 시간 이동
+			video.currentTime = selectedTime;
+
+			// progress bar 업데이트
+			progress.value = selectedTime;
+			updateProgressBar(progress);
+
+			// 현재 시간 표시 업데이트
+			currentTime.textContent = formatTime(selectedTime);
+
+			// 선택된 항목 스타일 변경
+			$(".recording-time-list").removeClass("select");
+			$(this).addClass("select");
+		});
+
+		
+	}
+
+	// progress bar 업데이트 함수
+	function updateProgressBar(progressBar) {
+		const gradientValue = 100 / progressBar.max;
+		const percentage = gradientValue * progressBar.value;
+		progressBar.style.background = `linear-gradient(to right, #FF2B2F 0%, #FF2B2F ${percentage}%, #666 ${percentage}%, #666 100%)`;
+		if($(".recording-cont-box").length > 0) progressBar.style.background = `linear-gradient(to right, #FF2B2F 0%, #FF2B2F ${percentage}%, #fff ${percentage}%, #fff 100%)`;
+	}
+
+	// 시간을 mm:ss 형식으로 포맷팅하는 함수
     function formatTime(time) {
         const minutes = Math.floor(time / 60);
         const seconds = Math.floor(time % 60);
@@ -505,7 +555,7 @@ $(function(){
 			});
 
             // focus시 slide 이동 추가
-            $(".sing-main-banner .swiper-slide a").off('focus').on('focus', function(){
+            $(".song-update-swiper .swiper-slide a").off('focus').on('focus', function(){
                 var swiperSlide = $(this).closest(".swiper-slide");
                 if(!$(swiperSlide).hasClass("swiper-slide-active")){
                     var focusIdx = $(swiperSlide).index();
@@ -513,22 +563,22 @@ $(function(){
                 }
             });
             // 키보드 네비게이션 추가
-            $(".sing-main-banner").off('keydown').on('keydown', function(e) {
+            $(".song-update-swiper").off('keydown').on('keydown', function(e) {
                 if (e.keyCode === 9) { // Tab 키
                     if (!e.shiftKey && $(e.target).closest('.swiper-slide-active').length) {
                         // 마지막 슬라이드에서 Tab 키를 누르면 페이지네이션으로 이동
                         e.preventDefault();
-                        $('.main-banner-pgn .swiper-pagination-bullet:first').focus();
+                        $('.song-update-pgn .swiper-pagination-bullet:first').focus();
                     }
                 }
             });
 
             // 페이지네이션에서 Shift+Tab으로 마지막 슬라이드로 돌아가기
-            $('.main-banner-pgn').off('keydown').on('keydown', function(e) {
+            $('.song-update-pgn').off('keydown').on('keydown', function(e) {
                 if (e.keyCode === 9 && e.shiftKey) { // Shift + Tab
                     if ($(e.target).is('.swiper-pagination-bullet:first')) {
                         e.preventDefault();
-                        $('.sing-main-banner .swiper-slide:last a').focus();
+                        $('.song-update-swiper .swiper-slide:last a').focus();
                     }
                 }
             });
@@ -548,7 +598,7 @@ $(function(){
 			rootMargin: '0px',
 			threshold: 0.5 
 		});
-		observer.observe(document.querySelector(".sing-main"));
+		observer.observe(document.querySelector(".sing-update"));
 
         var resizeTimerUpdate = null;
         $(window).resize(function(){
@@ -560,6 +610,148 @@ $(function(){
         });
 	}
 });
+
+/*========== Sing Recording 부르기 업로드 커버이미지 설정 ==========*/
+$(function(){
+	if($(".recording-cont-box").length <= 0) return;
+	let relatedVidSwiper = new Swiper(".recording-time-swiper", {
+        keyboard: {
+            enabled: true,
+        },
+        slidesPerView: 4.3,
+        spaceBetween: 12,
+        simulateTouch: true,
+        grabCursor: true,
+		breakpoints: {
+          421: {
+			slidesPerView: 3.5,
+            spaceBetween: 8,
+          }
+        },
+    });
+});
+
+
+let cropperContainer;
+let cropperImage;
+let cropperFrame;
+let isCropDragging = false;
+let cropStartX, cropStartY, cropInitialX, cropInitialY;
+
+document.addEventListener('DOMContentLoaded', function() {
+	if($(".cropper-image").length > 0) {
+		cropperContainer = document.querySelector('.cropper-container');
+		cropperImage = document.querySelector('.cropper-image');
+		cropperFrame = document.querySelector('.cropper-frame');
+
+		// 듀엣 업로드 높이에 맞게 frame 재조정
+		if($(".recording-cover-crop-sec.duet").length > 0){
+			if($(window).height() - 55 - 40 < $(".recording-cover-crop-sec.duet").width() / 347 * 616.89){
+				$(".cropper-frame").height($(window).height() - 55 - 40);
+				$(".cropper-frame").width(($(window).height() - 55 - 40) / 616.89 * 347);
+				$(".cropper-frame").css({
+					"bottom":"30px",
+					"top":"auto",
+					"transform":"translate(-50%, 0)"
+				})
+			}
+		}
+
+		cropperImage.addEventListener('mousedown', onDragStart);
+		cropperImage.addEventListener('touchstart', onDragStart);
+		document.addEventListener('mousemove', onDragMove);
+		document.addEventListener('touchmove', onDragMove, { passive: false });
+		document.addEventListener('mouseup', onDragEnd);
+		document.addEventListener('touchend', onDragEnd);
+		document.addEventListener('keydown', onKeyDown);
+
+		// Center the image initially
+		cropperImage.onload = () => {
+			const frameRect = cropperFrame.getBoundingClientRect();
+			const imageRect = cropperImage.getBoundingClientRect();
+			
+			cropInitialX = (frameRect.width - imageRect.width) / 2;
+			cropInitialY = (frameRect.height - imageRect.height) / 2;
+			
+			updateImagePosition(cropInitialX, cropInitialY);
+		};
+
+		if (cropperImage.complete) {
+			cropperImage.onload();
+		}
+	}
+});
+
+function onDragStart(e) {
+	isCropDragging = true;
+	if (e.type === 'mousedown') {
+		cropStartX = e.clientX - cropInitialX;
+		cropStartY = e.clientY - cropInitialY;
+	} else if (e.type === 'touchstart') {
+		cropStartX = e.touches[0].clientX - cropInitialX;
+		cropStartY = e.touches[0].clientY - cropInitialY;
+	}
+}
+
+function onDragEnd() {
+	isCropDragging = false;
+}
+
+function onDragMove(e) {
+	if (!isCropDragging) return;
+	e.preventDefault();
+	let clientX, clientY;
+	if (e.type === 'mousemove') {
+		clientX = e.clientX;
+		clientY = e.clientY;
+	} else if (e.type === 'touchmove') {
+		clientX = e.touches[0].clientX;
+		clientY = e.touches[0].clientY;
+	}
+	const x = clientX - cropStartX;
+	const y = clientY - cropStartY;
+	updateImagePosition(x, y);
+}
+
+function updateImagePosition(x, y) {
+	const frameRect = cropperFrame.getBoundingClientRect();
+	const imageRect = cropperImage.getBoundingClientRect();
+
+	// Calculate bounds
+	const minX = frameRect.width - imageRect.width;
+	const minY = frameRect.height - imageRect.height;
+	const maxX = 0;
+	const maxY = 0;
+
+	// Constrain movement within bounds
+	x = Math.min(Math.max(x, minX), maxX);
+	y = Math.min(Math.max(y, minY), maxY);
+
+	// Adjust for the frame's position relative to the container
+	const frameOffsetX = frameRect.left - cropperContainer.getBoundingClientRect().left;
+	const frameOffsetY = frameRect.top - cropperContainer.getBoundingClientRect().top;
+
+	cropInitialX = x;
+	cropInitialY = y;
+	cropperImage.style.transform = `translate(${x + frameOffsetX}px, ${y + frameOffsetY}px)`;
+}
+
+function onKeyDown(e) {
+	const step = 10;
+	let x = cropInitialX;
+	let y = cropInitialY;
+
+	switch(e.key) {
+		case 'ArrowUp': y += step; break;
+		case 'ArrowDown': y -= step; break;
+		case 'ArrowLeft': x += step; break;
+		case 'ArrowRight': x -= step; break;
+		default: return;
+	}
+
+	updateImagePosition(x, y);
+}
+	
 
 /* ------------------------------------------------------------------------  
     BATTLE
@@ -658,9 +850,9 @@ $(function(){
 		let observer = new IntersectionObserver((entries) => {
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
-					singMainSwiper.autoplay.start();
+					battleMainSwiper.autoplay.start();
 				} else {
-					singMainSwiper.autoplay.stop();
+					battleMainSwiper.autoplay.stop();
 				}
 			});
 		}, {
@@ -683,16 +875,16 @@ $(function(){
 
 /*========== Battle 메인 왕좌의 게임 ==========*/
 $(function(){
-	if ($(".mypage-sec .myhome-bookmark").length > 0) {
-        let myhomeBookmarkSwiper = undefined;
+	if ($(".battle-sec .battle-game").length > 0) {
+        let battleMainGameSwiper = undefined;
 		
-		function myhomeBookmarkSlider(){
-			if (myhomeBookmarkSwiper != undefined){ 
-				myhomeBookmarkSwiper.destroy();
-				myhomeBookmarkSwiper = undefined;
+		function battleMainGameSlider(){
+			if (battleMainGameSwiper != undefined){ 
+				battleMainGameSwiper.destroy();
+				battleMainGameSwiper = undefined;
 			}
 
-			myhomeBookmarkSwiper = new Swiper(".myhome-bookmark .myhome-bookmark-slide", {
+			battleMainGameSwiper = new Swiper(".battle-game .battle-game-slide", {
                 keyboard: {
                     enabled: true,
                 },
@@ -711,26 +903,185 @@ $(function(){
 			});
 
             // focus시 slide 이동 추가
-            $(".myhome-bookmark-slide .swiper-slide a").off('focus').on('focus', function(){
+            $(".battle-game-slide .swiper-slide a").off('focus').on('focus', function(){
                 var swiperSlide = $(this).closest(".swiper-slide");
                 if(!$(swiperSlide).hasClass("swiper-slide-active")){
                     var focusIdx = $(swiperSlide).index();
-                    myhomeBookmarkSwiper.slideTo(focusIdx,0,false);
+                    battleMainGameSwiper.slideTo(focusIdx,0,false);
                 }
             });
-		} myhomeBookmarkSlider();
+		} battleMainGameSlider();
 
         var resizeTimerUpdate = null;
         $(window).resize(function(){
             clearTimeout(resizeTimerUpdate);
             resizeTimerUpdate = setTimeout(resizeNewUpdate, 300);
             function resizeNewUpdate() {
-                myhomeBookmarkSlider();
+                battleMainGameSlider();
             }
         });
 	}
 });
 
+/*========== Battle 2배 챌린지 인기곡 ==========*/
+$(function(){
+	if ($(".battle-sec .battle-challenge").length > 0) {
+        let battleMainChallengeSwiper = undefined;
+		
+		function battleMainChallengeSlider(){
+			if (battleMainChallengeSwiper != undefined){ 
+				battleMainChallengeSwiper.destroy();
+				battleMainChallengeSwiper = undefined;
+			}
+
+			battleMainChallengeSwiper = new Swiper(".battle-challenge .battle-challenge-slide", {
+                keyboard: {
+                    enabled: true,
+                },
+                watchOverflow: true,
+                allowSlideNext: true,
+                slidesPerView: "auto",
+                simulateTouch: true,
+                grabCursor: true,
+                spaceBetween: 8,
+                a11y: {
+                    enabled: true,
+                    prevSlideMessage: '이전 슬라이드',
+                    nextSlideMessage: '다음 슬라이드',
+                    paginationBulletMessage: '{{index}}번째 슬라이드로 이동',
+                },
+			});
+
+            // focus시 slide 이동 추가
+            $(".battle-challenge-slide .swiper-slide a").off('focus').on('focus', function(){
+                var swiperSlide = $(this).closest(".swiper-slide");
+                if(!$(swiperSlide).hasClass("swiper-slide-active")){
+                    var focusIdx = $(swiperSlide).index();
+                    battleMainChallengeSwiper.slideTo(focusIdx,0,false);
+                }
+            });
+		} battleMainChallengeSlider();
+
+        var resizeTimerUpdate = null;
+        $(window).resize(function(){
+            clearTimeout(resizeTimerUpdate);
+            resizeTimerUpdate = setTimeout(resizeNewUpdate, 300);
+            function resizeNewUpdate() {
+                battleMainChallengeSlider();
+            }
+        });
+	}
+});
+
+/*========== Battle 옥타브 레벨업 ==========*/
+$(function(){
+	if ($(".battle-level").length > 0) {
+        let battleMainLevel = undefined;
+		
+		function battleMainLevelSwiper(){
+			if (battleMainLevel != undefined){ 
+				battleMainLevel.destroy();
+				battleMainLevel = undefined;
+			}
+
+			battleMainLevel = new Swiper(".battle-level .battle-level-slide", {
+                keyboard: {
+					enabled: true,
+				},
+				watchOverflow: true,
+				allowSlideNext: true,
+				slidesPerView: 1, 
+				centeredSlides: false, 
+				slideToClickedSlide: true, 
+				spaceBetween: 24,
+				simulateTouch: true, 
+				grabCursor: true, 
+				pagination: {
+					el: '#battle-level-pgn',
+					clickable: true,
+				},
+				speed: 800,
+				autoplay: {
+					delay: 4000,
+					disableOnInteraction: false,
+					stopOnLastSlide: false
+				},
+				a11y: {
+					enabled: true,
+					prevSlideMessage: '이전 슬라이드',
+					nextSlideMessage: '다음 슬라이드',
+					paginationBulletMessage: '{{index}}번째 슬라이드로 이동',
+				},
+			});
+
+            // focus시 slide 이동 추가
+            $(".battle-level-slide .swiper-slide a").off('focus').on('focus', function(){
+                var swiperSlide = $(this).closest(".swiper-slide");
+                if(!$(swiperSlide).hasClass("swiper-slide-active")){
+                    var focusIdx = $(swiperSlide).index();
+                    battleMainLevel.slideTo(focusIdx,0,false);
+                }
+            });
+            // 키보드 네비게이션 추가
+            $(".battle-level-slide").off('keydown').on('keydown', function(e) {
+                if (e.keyCode === 9) { // Tab 키
+                    if (!e.shiftKey && $(e.target).closest('.swiper-slide-active').length) {
+                        // 마지막 슬라이드에서 Tab 키를 누르면 페이지네이션으로 이동
+                        e.preventDefault();
+                        $('.battle-level-pgn .swiper-pagination-bullet:first').focus();
+                    }
+                }
+            });
+
+            // 페이지네이션에서 Shift+Tab으로 마지막 슬라이드로 돌아가기
+            $('.battle-level-pgn').off('keydown').on('keydown', function(e) {
+                if (e.keyCode === 9 && e.shiftKey) { // Shift + Tab
+                    if ($(e.target).is('.swiper-pagination-bullet:first')) {
+                        e.preventDefault();
+                        $('.battle-level-slide .swiper-slide:last a').focus();
+                    }
+                }
+            });
+		} battleMainLevelSwiper();
+
+		/* Intersection Observer 설정 */
+		let observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					battleMainLevel.autoplay.start();
+				} else {
+					battleMainLevel.autoplay.stop();
+				}
+			});
+		}, {
+			root: null, 
+			rootMargin: '0px',
+			threshold: 0.5 
+		});
+		observer.observe(document.querySelector(".battle-level"));
+
+        var resizeTimerUpdate = null;
+        $(window).resize(function(){
+            clearTimeout(resizeTimerUpdate);
+            resizeTimerUpdate = setTimeout(resizeNewUpdate, 300);
+            function resizeNewUpdate() {
+                battleMainLevelSwiper();
+            }
+        });
+	}
+});
+/*========== Battle 왕좌의 게임 순위보기 ==========*/
+$(function() {
+    function fixSectionHeader() {
+        var height = $(".section-header").innerHeight();
+        $(".battle-game-score-popup .cont-area-wrap").css("margin-top", height);
+    }
+    fixSectionHeader();
+
+    $(window).resize(function() {
+        fixSectionHeader();
+    });
+});
 
 /* ------------------------------------------------------------------------  
     SETTING
@@ -826,8 +1177,12 @@ $(function() {
 
     // 읽음 버튼
     $(".alarm-read-btn").click(function() {
-        if($(".alarm-check-box:checked").length > 0) {
-            $(".alarm-check-box:checked").closest(".alarm-item").addClass("already-read");
+        var chckedBox = $(".alarm-check-box:checked");
+        if(chckedBox.length > 0) {
+            chckedBox.each(function() {
+                var index = $(this).closest(".alarm-item").data("index");
+                $(`.alarm-item[data-index=${index}]`).addClass("already-read");
+            });
         } else {
             modalPopup("#noCheckedAlarm");
         }

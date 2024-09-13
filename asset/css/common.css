@@ -213,6 +213,8 @@ Common
 .basic-btn.sing-duet-part-btn.sing-duet-A-part-btn:hover { background-color: rgba(13,190,128,0.1);}
 .basic-btn.sing-duet-part-btn.sing-duet-B-part-btn:hover { background-color: rgba(74,152,232,0.1);}
 
+.play-bottom-btn-wrap .basic-btn span { display: inline-block; padding-left: 1.5em; line-height: 1.25; background-image: url("../images/sub/play/icon-mic-btn.svg"); background-position: left center; background-repeat: no-repeat; background-size: 1.25em auto; } 
+
 @media screen and (min-width: 421px){
     .btn-wrap { font-size: clamp(16px, 4.267vw, 18px); } 
     .basic-btn { font-size: clamp(16px, 4.267vw, 18px); } 
@@ -560,9 +562,15 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 .status-label.round span.red { border: 1px solid var( --main-point-color); color: var(--main-point-color); } 
 .status-label.round span.blue { border: 1px solid #4A98E8; color: #4A98E8; } 
 
+.status-label.level {display: inline-block;min-width: 42px; padding: 0.22em 0.29em;border-radius: 0.29em;background-color: var(--main-point-color); font-size: 0.875rem; font-weight: 500; font-variation-settings: 'wght' 500; color: #fff;text-align: center;line-height: 1;}
+.status-label.level.round {padding: 0.395em 1em;min-width: 94px;border-radius: 0.86em;font-weight: 700; font-variation-settings: 'wght' 700;}
+.status-label.level.round .label-tit {display: inline-block;position: relative;padding: 0 0.57em 0 0; margin: 0 0.57em 0 0;}
+.status-label.level.round .label-tit::after {content: '';position: absolute; top: 50%; right: 0; transform: translate(0, -50%); background-color: #ddd;width: 1px; height: 9px;}
+
 @media screen and (min-width: 421px){
     .toast-popup {width: calc(100% - 32px);}
     .status-label span { font-size: clamp(12px, 3.2vw, 15px); } 
+    .status-label.level { font-size: clamp(14px, 3.733vw, 18px); } 
 }
 
 /*========== Porfile info ==========*/
@@ -751,4 +759,26 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
     .sing-select .sheet-cont-inner { font-size: clamp(16px, 4.267vw, 20px); } 
 	.sing-select .sheet-tit-box .sheet-cont-prev, .sing-select .sheet-tit-box .sheet-cont-prev-btn { font-size: clamp(16px, 4.267vw, 20px); } 
     .sing-duet-join .sing-setting-cont .profile-area .profile-wrap .basic-btn { font-size: clamp(12px, 3.2vw, 15px); } 
+}
+
+/*========== 영상 인디케이터 공통 ==========*/
+/* .vid-indicator-wrap 공통 */
+.vid-indicator-wrap .vid-play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); display: block; width: 3.625em; aspect-ratio: 1 / 1; font-size: 1rem; background-image: url("../images/common/icon-vid-play-btn.svg"); background-position: center; background-repeat: no-repeat; background-size: contain; } 
+.play-vid-box .vid-indicator-wrap .pause-btn { display: none; background-image: url("../images/common/icon-vid-pause-btn.svg"); } 
+.play-vid-box.play .vid-indicator-wrap .play-btn { display: none; } 
+.play-vid-box.play .vid-indicator-wrap .pause-btn { display: block; } 
+.vid-indicator-wrap .full-vid-btn { position: absolute; bottom: 0.75em; right: 1em; display: block; width: 1.5em; aspect-ratio: 1 / 1; font-size: 1rem; background-image: url("../images/common/icon-fullpage.svg"); background-position: center; background-repeat: no-repeat; background-size: contain; } 
+.vid-indicator-wrap .vid-timeline-wrap { position: absolute; bottom: 1.16667em; left: 1em; color: rgba(255, 255, 255, 0.6); } 
+.vid-indicator-wrap .vid-timeline-wrap .current-time { color: rgba(255, 255, 255, 1); } 
+/* .progress-bar-wrap 공통 */
+.progress-bar-wrap { position: fixed; top: 0; left: 50%; width: 100%; max-width: 750px; line-height: 0; transform: translate(-50%, -100%); z-index: 53; } 
+.progress { width: 100%; height: 2px; background-color: #666; outline: none; -webkit-appearance: none; accent-color: var(--main-point-color); } 
+.progress-bar-wrap .progress::-webkit-slider-thumb { -webkit-appearance: none; height: 0; width: 0; border-radius: 50%; background: var(--main-point-color); cursor: pointer; transition: 300ms; -webkit-transition: 300ms; -moz-transition: 300ms; -ms-transition: 300ms; -o-transition: 300ms; } 
+.progress-bar-wrap .progress::-moz-range-thumb { height: 0; width: 0; border-radius: 50%; background: var(--main-point-color); cursor: pointer; transition: 300ms; -webkit-transition: 300ms; -moz-transition: 300ms; -ms-transition: 300ms; -o-transition: 300ms; } 
+.progress-bar-wrap.hover .progress::-webkit-slider-thumb { height: 10px; width: 10px; } 
+.progress-bar-wrap.hover .progress::-moz-range-thumb { height: 10px; width: 10px; } 
+
+@media screen and (min-width: 421px){
+    .vid-indicator-wrap .vid-play-btn { font-size: clamp(16px, 4.267vw, 20px); } 
+    .vid-indicator-wrap .full-vid-btn { font-size: clamp(16px, 4.267vw, 20px); } 
 }

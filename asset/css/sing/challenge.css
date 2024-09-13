@@ -1,0 +1,75 @@
+@charset "utf-8";
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Ajin Lee. (Weaverloft Corp.)
+ * 2. Production Date: 2024-08-13
+ * 3. Client: MEDIASCOPE Inc.
+ */
+
+/* ------------------------------------------------------------------------ 
+s-challenge-popup
+------------------------------------------------------------------------ */
+/*========== s-challenge-popup ==========*/
+/* Cont-area.Graph - Title */
+.s-challenge-wrap .header-sub { height: initial; background-image: url('../../images/sub/sing/s-challenge-bg.jpg'); background-repeat: no-repeat; background-position: center center; background-size: 100% auto; border-bottom: none; } 
+.s-challenge-wrap .header-sub ul { padding: 1.50em 0 3.5em; } 
+.s-challenge-wrap .header-sub ul li.header-side { top: 0; transform: translate(0, 0); height: auto; } 
+.s-challenge-wrap .header-sub ul li button { height: 2.50em; } 
+.s-challenge-wrap .header-sub-tit { position: relative; font-weight: 700; font-variation-settings: 'wght' 700; color: #111; text-align: center; } 
+.s-challenge-wrap.true .header-sub-tit .bg-icon { display: inline-block; opacity: 0.7; position: absolute; bottom: 0; width: 2em; height: 2em; background-repeat: no-repeat; background-position: center center; background-size: 100% auto; font-size: inherit; } 
+.s-challenge-wrap.true .header-sub-tit .bg-icon.left { left: -2.8em; background-image: url('../../images/sub/sing/icon-sparkling-left.svg'); } 
+.s-challenge-wrap.true .header-sub-tit .bg-icon.right { right: -2.8em; background-image: url('../../images/sub/sing/icon-sparkling-right.svg'); } 
+/* Cont-area.Graph - Graph Title */
+.s-challenge-cont { margin: -1.88em 0 0; font-size: 1rem; } 
+.s-challenge-cont .cont-area.graph .profile-info { gap: 3px 0; width: 100%; padding: 0.938em 0; border-bottom: 1px solid var(--basic-line-color); font-size: inherit; } 
+.s-challenge-cont .cont-area.graph .profile-tit { width: 100%; text-overflow: initial; white-space: inherit; overflow: initial; text-align: center; } 
+.s-challenge-cont .cont-area.graph .profile-txt { text-align: center; } 
+/* Cont-area.Graph - Graph */
+.s-challenge-cont .cont-area.graph { padding-top: 0; } 
+
+@media screen and (min-width: 421px){
+    .s-challenge-cont { font-size: clamp(16px, 4.267vw, 20px); } 
+}
+
+/* Cont-area.Rank - Title */
+.rank-tit-wrap { display: flex; align-items: center; gap: 0 8px; } 
+.rank-tit-wrap .rank-tit { font-weight: 700; font-variation-settings: 'wght' 700; color: #111; } 
+.rank-tit-wrap .ranking-tit { font-weight: 400; font-variation-settings: 'wght' 400; color: #888; } 
+.rank-tit-wrap .ranking-tit em { font-weight: 700; font-variation-settings: 'wght' 700; font-family: 'Pretendard Variable'; } 
+
+/* Cont-area.Rank - List */
+.rank-bottom-area { margin: 1.50em 0 0; } 
+.rank-list-wrap { border-radius: 0.63em; margin: 0.50em 0 0; } 
+.rank-top-area .rank-list-wrap { background-color: #FFF7F7; border: 2px solid #FFBABC; border-radius: 0.63em; margin: 0.50em 0 0; } 
+.rank-bottom-area .rank-list-wrap { background-color: #fff; border: 1px solid #EBEBEB; border-radius: 0.50em; margin: 1.13em 0 0; } 
+.rank-list-wrap .profile-list-wrap { gap: 0; } 
+.rank-top-area .rank-list-wrap .profile-list-wrap { padding: 7px 0; } 
+.rank-list-wrap .profile-img { overflow: visible; width: 2.63em; height: 2.63em; min-width: 42px; } 
+.rank-list-wrap .profile-img img { overflow: hidden; border-radius:50%; aspect-ratio: 1 / 1; } 
+.rank-num-wrap { width: 2.88em; text-align: center; font-weight: 500; font-variation-settings: 'wght' 500; } 
+.rank-list-wrap .profile-area { padding: 0; } 
+.rank-list-wrap .profile-list { padding: 0.75em 0; font-size: 1rem; } 
+.rank-bottom-area .rank-list-wrap .profile-list:first-child { border-radius: 0.50em 0.50em 0 0; } 
+.rank-bottom-area .rank-list-wrap .profile-list:last-child { border-radius: 0 0 0.50em 0.50em; } 
+.rank-bottom-area .rank-list-wrap .profile-list.mine { background-color: #FFF7F7; } 
+
+.rank-list-wrap .profile-list .profile-wrap { gap: 0.38em; justify-content: flex-start; } 
+.rank-list-wrap .profile-list .profile-wrap .profile-wrap-inner { width: calc(100% - 8.38em); } 
+.rank-list-wrap .profile-list .profile-wrap .profile-info { width: calc(100% - 3.13em); } 
+.rank-list-wrap .rank-score-wrap { width: 4.68em; min-width: 52px; margin: 0 0 0 0.25em; font-weight: 500; font-variation-settings: 'wght' 500; color: #666; text-align: right; } 
+.rank-list-wrap .rank-score-wrap .point-num em { font-size: 1.25rem; font-weight: 500; font-variation-settings: 'wght' 500; } 
+.rank-list-wrap .rank-score-wrap .point-num em:not(.point-txt) { color: #111; } 
+
+/* Cont-area.Rank - 성공&실패 순위권 */
+.s-challenge-wrap.true .btn-wrap.couple { display: none; } 
+.s-challenge-wrap.true .btn-wrap.text { display: block; } 
+.s-challenge-wrap.false .btn-wrap.couple { display: flex; } 
+.s-challenge-wrap.false .btn-wrap.text { display: none; } 
+.rank-bottom-area .rank-list-wrap .extra-list { display: flex; justify-content: center; align-items: center; height: 3.13em; } 
+.rank-bottom-area .rank-list-wrap .extra-list span { display: inline-block; width: 2em; height: 2em; background-image: url('../../images/common/icon-dot-btn.svg'); background-repeat: no-repeat; background-position: center center; background-size: 100% auto; font-size: inherit; } 
+/* .s-challenge-wrap.true extra */
+@media screen and (min-width: 421px){
+    .rank-list-wrap .profile-list { font-size: clamp(16px, 4.267vw, 20px); } 
+    .rank-list-wrap .rank-score-wrap .point-num em { font-size: clamp(20px, 5.333vw, 26px); } 
+}

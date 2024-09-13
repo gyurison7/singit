@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/battle/battle-sub.css">
+
+	<!-- JS | library -->
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
+
+	<!-- JS -->
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
+	<script src="../../asset/js/sub.js"></script>
+
+    <title>SingIt</title>
+</head>
+<body>
+	<div class="wrap">
+		<!--==================
+			* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+			- PLAY 페이지 : play 클래스
+			- SING 페이지 : sing 클래스
+			- BATTLE 페이지 : battle 클래스
+			- MY 페이지 : my 클래스
+			- 서브 페이지 : sub 클래스 
+		======================-->
+		<div id="container" class="battle sub">
+			<!--========== MODAL POPUP ==========-->
+			<div class="modal-popup-group">
+			</div>
+
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<script>
+				$(function () {
+					$('#header').load("../include/header.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/header.js");
+					});
+				});
+			</script>
+			<main id="main" class="sub">
+				<h2 class="main-title hidden">왕좌의 게임</h2>
+                <section class="battle-game-list-sec">
+                    <div class="inner">
+                        <div class="section-header battle-game">
+                            <div class="section-title-wrap">
+                                <h3 class="section-title">
+                                    이번 달 왕좌의 게임<br>
+                                    1위는 누구?
+                                </h3>
+                                <p class="sub-title content-txt2">1위가 되는 순간 싱코인 500개 바로 지급!</p>
+                            </div>
+                            <div class="section-notice">
+                                <p class="caption-txt1">왕좌의 게임이 완료되기 이전에 공개범위를 비공개로 변경할 경우 싱코인 지급이 취소 될 수 있습니다.</p>
+                                <p class="caption-txt1">왕좌의 게임이 완료되기 이전에 공개범위를 비공개로 변경할 경우 싱코인 지급이 취소 될 수 있습니다.</p>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="sorting-tit-wrap">
+                                <ul class="sorting-list">
+                                    <li class="content-txt3 active"><a href="javascript:;" title="점수순">점수순</a></li>
+                                    <li class="content-txt3"><a href="javascript:;" title="최신순">최신순</a></li>
+                                </ul>
+                            </div>
+                            <ul class="battle-game-list">
+                                <li class="battle-game-item">
+                                    <div class="profile-area grade">
+                                        <ul class="profile-list-wrap">
+                                            <li class="profile-list">
+                                                <div class="profile-wrap">
+                                                    <div class="profile-wrap-inner">
+                                                        <div class="thumbnail-area skeleton">
+                                                            <div class="img-btn-wrap center">
+                                                                <button type="button" class="img-btn"></button>
+                                                            </div>
+                                                            <div class="thumbnail-wrap">
+                                                                <img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/img-169-03.jpg" srcset="../../asset/images/temp/img-169-03.jpg 2x" alt="레코딩 영상 썸네일">
+                                                            </div>
+                                                        </div>
+                                                        <div class="profile-right">
+                                                            <div class="profile-info">
+                                                                <a href="#" title="노래 상세화면으로 이동">
+                                                                    <p class="profile-tit content-txt2 skeleton">Love wins all</p>
+                                                                    <span class="profile-txt content-txt3 skeleton">아이유</span>
+                                                                </a>
+                                                            </div>
+                                                            <div class="profile-bottom">
+                                                                <div class="song-by-info skeleton">
+                                                                    <a href="#" title="유저 상세 화면으로 이동">
+                                                                        <figure class="profile-img">
+                                                                            <!-- 이미지 확장자 추천 jpg -->
+                                                                            <img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+                                                                        </figure>
+                                                                        <p class="profile-name" style="margin: 0;">두아리파앙 두아리파앙 두아리파앙 두아리파앙 두아리파앙 두아리파앙</p>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="score-btn-wrap">
+                                                                    <div class="score-wrap">
+                                                                        <div class="score-label">
+                                                                            <span class="caption-txt1">SCORE</span>
+                                                                        </div>
+                                                                        <div class="rank-score-wrap caption-txt1">
+                                                                            <span class="point-num"><em class="rubik-txt num content-txt2">98.9</em> 점</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="btn-wrap">
+                                                                        <a href="#" class="basic-btn red round small" title="도전하기">도전하기</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="battle-game-item">
+                                    <div class="profile-area grade">
+                                        <ul class="profile-list-wrap">
+                                            <li class="profile-list">
+                                                <div class="profile-wrap">
+                                                    <div class="profile-wrap-inner">
+                                                        <div class="thumbnail-area skeleton">
+                                                            <div class="img-btn-wrap center">
+                                                                <button type="button" class="img-btn"></button>
+                                                            </div>
+                                                            <div class="thumbnail-wrap">
+                                                                <img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/img-169-03.jpg" srcset="../../asset/images/temp/img-169-03.jpg 2x" alt="레코딩 영상 썸네일">
+                                                            </div>
+                                                        </div>
+                                                        <div class="profile-right">
+                                                            <div class="profile-info">
+                                                                <a href="#" title="노래 상세화면으로 이동">
+                                                                    <p class="profile-tit content-txt2 skeleton">곡제목은 최대 두줄까지만 보여집니다. 두줄을 넘어가면 말줄임 처리입니다.</p>
+                                                                    <span class="profile-txt content-txt3 skeleton">가수명은 최대 한줄까지만 보여집니다. 가수명은 최대 한줄까지만 보여집니다.</span>
+                                                                </a>
+                                                            </div>
+                                                            <div class="profile-bottom">
+                                                                <div class="song-by-info skeleton">
+                                                                    <a href="#" title="유저 상세 화면으로 이동">
+                                                                        <figure class="profile-img">
+                                                                            <!-- 이미지 확장자 추천 jpg -->
+                                                                            <img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+                                                                        </figure>
+                                                                        <p class="profile-name" style="margin: 0;">두아리파앙</p>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="score-btn-wrap">
+                                                                    <div class="score-wrap">
+                                                                        <div class="score-label">
+                                                                            <span class="caption-txt1">SCORE</span>
+                                                                        </div>
+                                                                        <div class="rank-score-wrap caption-txt1">
+                                                                            <span class="point-num"><em class="rubik-txt num content-txt2">100</em> 점</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="btn-wrap">
+                                                                        <a href="#" class="basic-btn red round small" title="도전하기">도전하기</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- 도전한 유저가 없는 경우 해당 노래의 커버 이미지 노출 : 클래스 no-user 추가 -->
+                                <li class="battle-game-item no-user">
+                                    <div class="profile-area grade">
+                                        <ul class="profile-list-wrap">
+                                            <li class="profile-list">
+                                                <div class="profile-wrap">
+                                                    <div class="profile-wrap-inner">
+                                                        <div class="thumbnail-area skeleton">
+                                                            <div class="thumbnail-wrap">
+                                                                <img class="fade-in lazyload" src="../../asset/images/temp/song-temp01.png" alt="Small girl (feat. 도경수 (D.O.)) 이영지">
+                                                            </div>
+                                                        </div>
+                                                        <div class="profile-right">
+                                                            <div class="profile-info">
+                                                                <a href="#" title="노래 상세화면으로 이동">
+                                                                    <p class="profile-tit content-txt2 skeleton">Small girl (feat. 도경수 (D.O.))</p>
+                                                                    <span class="profile-txt content-txt3 skeleton">이영지</span>
+                                                                </a>
+                                                            </div>
+                                                            <div class="profile-bottom">
+                                                                <div class="btn-wrap">
+                                                                    <a href="#" class="basic-btn red round small" title="도전하기">도전하기</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- 도전한 유저가 없는 경우 해당 노래의 커버 이미지 노출 : 클래스 no-user 추가 -->
+                                <li class="battle-game-item no-user">
+                                    <div class="profile-area grade">
+                                        <ul class="profile-list-wrap">
+                                            <li class="profile-list">
+                                                <div class="profile-wrap">
+                                                    <div class="profile-wrap-inner">
+                                                        <div class="thumbnail-area skeleton album">
+                                                            <div class="thumbnail-wrap">
+                                                                <img class="fade-in lazyload" src="../../asset/images/temp/song-temp01.png" alt="Small girl (feat. 도경수 (D.O.)) 이영지">
+                                                            </div>
+                                                        </div>
+                                                        <div class="profile-right">
+                                                            <div class="profile-info">
+                                                                <a href="#" title="노래 상세화면으로 이동">
+                                                                    <p class="profile-tit content-txt2 skeleton">Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.))</p>
+                                                                    <span class="profile-txt content-txt3 skeleton">이영지 이영지 이영지 이영지 이영지 이영지 이영지</span>
+                                                                </a>
+                                                            </div>
+                                                            <div class="profile-bottom">
+                                                                <div class="btn-wrap">
+                                                                    <a href="#" class="basic-btn red round small" title="도전하기">도전하기</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="battle-game-item">
+                                    <div class="profile-area grade">
+                                        <ul class="profile-list-wrap">
+                                            <li class="profile-list">
+                                                <div class="profile-wrap">
+                                                    <div class="profile-wrap-inner">
+                                                        <div class="thumbnail-area skeleton">
+                                                            <div class="img-btn-wrap center">
+                                                                <button type="button" class="img-btn"></button>
+                                                            </div>
+                                                            <div class="thumbnail-wrap">
+                                                                <img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/img-169-03.jpg" srcset="../../asset/images/temp/img-169-03.jpg 2x" alt="레코딩 영상 썸네일">
+                                                            </div>
+                                                        </div>
+                                                        <div class="profile-right">
+                                                            <div class="profile-info">
+                                                                <a href="#" title="노래 상세화면으로 이동">
+                                                                    <p class="profile-tit content-txt2 skeleton">사건의 지평선</p>
+                                                                    <span class="profile-txt content-txt3 skeleton">윤하</span>
+                                                                </a>
+                                                            </div>
+                                                            <div class="profile-bottom">
+                                                                <div class="song-by-info skeleton">
+                                                                    <a href="#" title="유저 상세 화면으로 이동">
+                                                                        <figure class="profile-img">
+                                                                            <!-- 이미지 확장자 추천 jpg -->
+                                                                            <img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+                                                                        </figure>
+                                                                        <p class="profile-name" style="margin: 0;">두아리파앙</p>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="score-btn-wrap">
+                                                                    <div class="score-wrap">
+                                                                        <div class="score-label">
+                                                                            <span class="caption-txt1">SCORE</span>
+                                                                        </div>
+                                                                        <div class="rank-score-wrap caption-txt1">
+                                                                            <span class="point-num"><em class="rubik-txt num content-txt2">78.6</em> 점</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="btn-wrap">
+                                                                        <a href="#" class="basic-btn red round small" title="도전하기">도전하기</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+				
+			</main>
+
+			<!--========== FULL PAGE POPUP ==========-->
+            <div class="full-popup-group">
+			</div>
+			
+		</div>
+	</div>
+</body>
+</html>

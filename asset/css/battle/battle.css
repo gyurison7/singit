@@ -11,13 +11,14 @@
  HOME battle-sec
 ------------------------------------------------------------------------ */
 /*========== 공통 ==========*/
-.battle-sec .section-content { overflow: hidden; } 
+.battle-sec .section-content { overflow: hidden; margin: 2.50em 0; font-size: 1rem; } 
 .battle-sec .sub-cont-tit-wrap { padding: 0 8px; } 
 .battle-sec .sub-cont-txt { font-weight: 400; font-variation-settings: 'wght' 400; } 
 .sub-cont-tit a { font-size: inherit; color: inherit; } 
 .white .sub-cont-tit span { background-image: url('../../images/common/icon-sub-tit-next-white.svg'); } 
 .battle-sec .no-result p { padding: 3.57em 10px; } 
-.sup-tit {display: inline-block; margin: 0 0.50em 0 0; font-weight: 400; font-variation-settings: 'wght' 400;color: #666;}
+.sup-tit { display: inline-block; margin: 0 0.50em 0 0; font-weight: 400; font-variation-settings: 'wght' 400; color: #666; } 
+.battle-sec .sub-cont-tit { margin-bottom: 1em; } 
 
 /* Octagon Level Card */
 .octagon-flip-area { padding: 1.25em; font-size: 1rem; } 
@@ -32,6 +33,7 @@
 .octagon-flip .octagon-card.flipped { transform: rotateY(180deg); } 
 .card-tit { margin: 0.80em 0 0; font-weight: 700; font-variation-settings: 'wght' 700; color: #111; } 
 @media screen and (min-width: 421px){
+    .battle-sec .section-content { font-size: clamp(16px, 4.267vw, 20px); } 
     .octagon-flip-area { font-size: clamp(16px, 4.267vw, 20px); } 
 }
 
@@ -44,7 +46,7 @@
 }
 
 /*========== battle-main ==========*/
-.battle-main { padding: 2px 0 0; } 
+.battle-sec .battle-main { padding: 2px 0 0; margin: 0; } 
 .battle-main .battle-main-banner { position: relative; padding: 0 0 1em; font-size: 1rem; } 
 .battle-main .battle-main-banner .swiper-wrapper { padding: 0 32px 0 0; } 
 .battle-main .battle-main-banner .main-banner { width: 85.333vw; max-width: 680px; } 
@@ -62,3 +64,67 @@
 }
 
 /*========== battle-game ==========*/
+.battle-game-cont .no-result { display: none; } 
+.battle-game-cont.no-result .no-result { display: block; } 
+.battle-game-cont.no-result .battle-game-slide { display: none; } 
+.battle-game .battle-game-slide { font-size: 1rem; } 
+.score-slide-wrap { display: flex; align-items: stretch; font-size: inherit; } 
+.score-slide-wrap .score-slide-list { width: 10em; align-self: stretch; height: auto; border: 1px solid var(--basic-line-color); border-radius: 0.38em; } 
+.score-slide-wrap .score-slide-list .score-slide { overflow: hidden; position: relative; display: flex; flex-direction: column; justify-content: flex-end; width: 100%; height: 100%; border-radius: 0.38em; font-size: inherit; } 
+.score-slide-wrap .score-slide-list .cover-img { border-radius: inherit; } 
+.score-slide-wrap .score-slide-list .cover-img img { position: absolute; top: 0; left: 50%; transform: translate(-50%, 0); width: auto; max-width: none; min-width: 101%; height: 96%; } 
+.score-slide-wrap .score-slide-list .score-profile-wrap { display: flex; flex: 1; align-items: stretch; background-color: #fff; } 
+.score-slide-wrap .score-slide-list .score-profile-wrap .score-profile-inner { display: flex; flex-direction: column; position: relative; z-index: 1; padding: 0.75em; min-height: 140px; margin: 4.38em 0 0; background-color: #fff; font-size: inherit; flex-grow: 1; } 
+.score-slide-wrap .score-slide-list .score-profile-wrap .profile-info { gap: 0.50em; width: 100%; margin-top: auto; padding: 1em 0 0; border-top: 1px solid var(--basic-line-color); line-height: 1; } 
+.score-slide-wrap .score-slide-list .song-by-info { margin: -3.33em 0 0.31em; flex-direction: column; color: #111; } 
+.score-slide-wrap .score-slide-list .song-by-info .profile-img { width: 3.63em; height: 3.63em; border: 0.25em solid #fff; } 
+.score-slide-wrap .score-slide-list .song-by-info .profile-img::before { display: none; } 
+.score-slide-wrap .score-slide-list .challenge-btn { display: none; margin: 0.5em 0 0; } 
+.score-slide-wrap .score-slide-list .profile-name-wrap { flex-grow: 1; } 
+.score-slide-wrap .score-slide-list.challenge .profile-name-wrap { display: none; } 
+.score-slide-wrap .score-slide-list .profile-name-wrap .profile-name { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; white-space: normal; -webkit-line-clamp: 2; text-overflow: ellipsis; } 
+.score-slide-wrap .score-slide-list .profile-name-wrap .profile-name { text-align: center; } 
+.score-slide-wrap .score-slide-list .profile-name-wrap .profile-score { margin: 0.17em 0 0; text-align: center; } 
+.score-slide-wrap .score-slide-list.challenge .challenge-btn { display: block; } 
+.score-slide-wrap .score-slide-list .challenge-btn .basic-btn.small { min-width: 84px; font-size: 0.875rem; } 
+.score-slide-wrap .score-slide-list .challenge-btn .basic-btn.small span { padding: 0.43em 0; } 
+@media screen and (min-width: 421px){
+    .battle-game .battle-game-slide { font-size: clamp(16px, 4.267vw, 20px); } 
+}
+
+/*========== battle-challenge ==========*/
+.battle-challenge-cont .no-result { display: none; } 
+.battle-challenge-cont.no-result .no-result { display: block; } 
+.battle-challenge-cont.no-result .battle-challenge-slide { display: none; } 
+.battle-challenge .battle-challenge-cont .battle-challenge-slide .profile-wrap .profile-wrap-inner { flex-direction: column; align-items: flex-start; gap: 0.31em; width: 100%; } 
+.battle-challenge .battle-challenge-cont .battle-challenge-slide .profile-list-wrap { flex-direction: row; gap: initial; } 
+.battle-challenge .battle-challenge-cont .battle-challenge-slide .profile-list { width: 6.25em; } 
+.battle-challenge .battle-challenge-cont .battle-challenge-slide .profile-img { width: 100%; height: 100%; aspect-ratio: 1 / 1; } 
+.battle-challenge .battle-challenge-cont .battle-challenge-slide .profile-info { width: 100%; } 
+.battle-challenge .battle-challenge-cont .battle-challenge-slide .profile-tit { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; white-space: normal; -webkit-line-clamp: 2; text-overflow: ellipsis; } 
+
+/*========== battle-level ==========*/
+.battle-sec .battle-level .sub-cont-tit { margin-bottom: 1.5em; } 
+.battle-level .status-label { margin: 0 0 0 6px; } 
+.battle-level-cont { position: relative; } 
+.battle-level-cont .no-result { display: none; } 
+.battle-level-cont.no-result .no-result { display: block; } 
+.battle-level-cont.no-result .battle-level-slide { display: none; } 
+.battle-level-cont .battle-level-slide { width: 80vw; max-width: 600px; margin: 1em 0 0; padding: 0 0 2.25em; font-size: 1rem; } 
+.battle-level-cont .battle-level-slide .profile-list-wrap { gap: 1.25em; } 
+.battle-level-cont .battle-level-slide .profile-list { position: relative; } 
+.battle-level-cont .battle-level-slide .profile-list::before { content: ''; position: absolute; bottom: -0.63em; left: 0; width: 100%; height: 1px; background-color: #eee; } 
+.battle-level-cont .battle-level-slide .profile-area.song .profile-wrap .profile-wrap-inner { gap: 0.63em; } 
+.battle-level-cont .battle-level-slide .profile-area.song .profile-info { width: calc(100% - 4.13em); } 
+.battle-level-cont .battle-level-slide .profile-area.song .profile-img { position: relative; width: 3.50em; height: 3.50em; border-radius: 0.25em; } 
+.battle-level-cont .battle-level-slide .profile-area.song .profile-list .profile-img::before { display: none; } 
+.battle-level-cont .battle-level-slide .profile-area.song .profile-list.challenge .profile-img::before { content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('../../images/sub/battle/icon-checked-round.svg'); background-position-x: center; background-position-y: 0.63em; background-repeat: no-repeat; background-size: 1.25em auto; background-color: rgba(0, 0, 0, 0.4); } 
+.battle-level-cont .battle-level-slide .profile-area.song .profile-list.challenge .profile-img::after { content: '도전 성공'; display: block; z-index: 1; position: absolute; bottom: 0.80em; left: 0; width: 100%; font-size: 0.63rem; font-weight: 700; font-variation-settings: 'wght' 700; text-align: center; color: #fff; font-family: inherit } 
+.battle-level-cont .battle-level-slide .profile-area.song .profile-txt { margin: 0.10em 0 0; } 
+@media screen and (min-width: 421px){
+    .battle-level-cont .battle-level-slide { font-size: clamp(16px, 4.267vw, 20px); } 
+    .battle-level-cont .battle-level-slide .profile-area.song .profile-list.challenge .profile-img::after { font-size: clamp(10px, 2.667vw, 13px); } 
+}
+
+
+
