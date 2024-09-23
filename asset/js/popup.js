@@ -152,7 +152,7 @@ function closeBottomSheet() {
 	}
 
 	/* Sing select(부르기 팝업) 단계 초기화(옵션) */
-	if($(".sing-select").length > 0 && $(".sing-select").hasClass('setting-step')){
+	if($(".sing-select").length > 0 && $(".sing-select").hasClass('setting-step') && !(($(".sing-select").hasClass('sing-battle-game')) || ($(".sing-select").hasClass('sing-battle-challenge')))){
 		setTimeout(function(){
 			$(".sing-select").removeClass("setting-step solo duet");
 			btmSheetReset();
@@ -162,9 +162,10 @@ function closeBottomSheet() {
 
 function btmSheetReset(){
 	$('.bottom-sheet-wrap .bottom-sheet').css("height","");
-	// 20240905 콘솔오류로 인한 주석처리
-	// const sheet = document.querySelector('.bottom-sheet-wrap.open .bottom-sheet');
-	// sheetInitialHeight = sheet.offsetHeight;
+	if($(".bottom-sheet-wrap.open .bottom-sheet").length > 0){
+		const sheet = document.querySelector('.bottom-sheet-wrap.open .bottom-sheet');
+		sheetInitialHeight = sheet.offsetHeight;
+	}
 	sheetCurrentHeight = sheetInitialHeight;
 }
 
@@ -316,5 +317,67 @@ $(function(){
 	$(".sheet-cont-prev-btn").on("click",function(){
 		$(".sing-select").removeClass("setting-step solo duet");
 		btmSheetReset();
+	});
+});
+
+/*========== Download Popup Progress bar (다운로드 팝업 progress bar) ==========*/
+$(function(){
+	if($("#download-button").length <= 0) return;
+	document.getElementById('download-button').addEventListener('click', (event) => {
+		event.preventDefault();
+		modalPopupClose('#downloadPop');
+		modalPopup('#downloadProgressPop');
+		
+		const url = event.currentTarget.href;
+		const downloadBar = document.getElementById('download-bar');
+
+		fetch(url)
+			.then(response => {
+				if (!response.ok) throw new Error('Network response was not ok');
+				const contentLength = response.headers.get('content-length');
+				if (!contentLength) {
+					console.error('Content-Length response header unavailable');
+					return response.blob();
+				}
+
+				const total = parseInt(contentLength, 10);
+				let loaded = 0;
+
+				const reader = response.body.getReader();
+				const chunks = [];
+
+				function read() {
+					reader.read().then(({ done, value }) => {
+						if (done) {
+							const blob = new Blob(chunks);
+							const downloadUrl = window.URL.createObjectURL(blob);
+							const a = document.createElement('a');
+							a.href = downloadUrl;
+							a.download = 'downloaded-file.svg'; 
+							document.body.appendChild(a);
+							a.click();
+							a.remove();
+							window.URL.revokeObjectURL(downloadUrl); 
+
+							console.log('Download complete');
+							return;
+						}
+
+						loaded += value.length;
+						const percentage = (loaded / total) * 100;
+						downloadBar.style.width = percentage + '%';
+
+						chunks.push(value);
+						read();
+					}).catch(error => {
+						console.error('Download failed:', error);
+					});
+				}
+
+				read();
+			})
+			.catch(error => {
+				console.error('Download failed:', error);
+			});
 	});
 });

@@ -100,7 +100,7 @@
                                 </ul>
                             </div>
 							<div class="full-modal-cont">
-								<div class="section-header battle-game">
+								<div class="section-header battle-game inner">
                                     <div class="section-title-wrap">
                                         <h3 class="section-title">
                                             도전에 성공할수록<br>
@@ -413,7 +413,7 @@
 																</div>
 															</li>
                                                             <li class="extra-list"><span title="10위 이후 순위권 중략"></span></li>
-                                                            <li class="profile-list mine">
+                                                            <li class="profile-list">
 																<div class="profile-wrap">
 																	<div class="rank-num-wrap content-txt2">
 																		<span class="num rubik-txt">268</span>
@@ -471,15 +471,15 @@
 					* 듀엣 참여시, A파트 참여의 경우 .duet-join-A / B파트 참여의 경우 .duet-join-B
 
 					* #sing-select에 클래스 sing-battle-game이 붙는 경우 "왕좌의 게임 부르기" 팝업이 노출 됩니다.
+					* #sing-select에 클래스 sing-battle-challenge가 붙는 경우 "2배 챌린지 부르기" 팝업이 노출 됩니다.
 				======================-->
-				<div id="sing-select" class="bottom-sheet-wrap sing-select setting-step solo sing-battle-game"> <!-- openBottomSheet('#sing-select')에 의해 호출 -->
+				<div id="sing-select" class="bottom-sheet-wrap sing-select setting-step solo sing-battle-challenge"> <!-- openBottomSheet('#sing-select')에 의해 호출 -->
 					<div class="bottom-sheet unable-stretch">
 						<div class="handle-area">
 							<div class="handle"></div>
 						</div>
 						<div class="sheet-content">
 							<div class="sheet-tit-box">
-								<button type="button" class="sheet-cont-prev-btn" aria-label="뒤로가기"></button>
 								<div class="profile-info content-txt2">
 									<div class="flowing-wrap">
 										<p class="profile-tit flowing-inner">
@@ -522,7 +522,7 @@
 														<span class="content-txt3">영상</span>
 													</label>
 												</div>
-												<div class="setting-radio-box disabled">
+												<div class="setting-radio-box">
 													<input type="radio" id="setting-save-solo-sound" name="setting-save-solo" value="sound" tabindex="-1">
 													<label for="setting-save-solo-sound" tabindex="0">
 														<span class="content-txt3">음성</span>
@@ -541,6 +541,11 @@
 										<a href="#" class="sing-challenge-btn sing-battle-game-btn sing-btm-btn basic-btn round line">
 											<div class="btn-txt content-txt3">
 												<span class="content-txt3">왕좌의 게임 부르기</span>
+											</div>
+										</a>
+										<a href="#" class="sing-challenge-btn sing-battle-challenge-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">2배 챌린지 부르기</span>
 											</div>
 										</a>
 										<a href="#" class="sing-solo-part-btn sing-btm-btn basic-btn round line">

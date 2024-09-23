@@ -756,22 +756,41 @@ function onKeyDown(e) {
 /* ------------------------------------------------------------------------  
     BATTLE
 ------------------------------------------------------------------------ */
-/*========== Battle 공통 옥타곤 Level Card ==========*/
+/*========== Battle 공통 옥타곤 Level Card : Scroll ==========*/
 $(document).ready(function() {
-    if ($(".octagon-flip").length > 0) {
-        const $flipCard = $('.octagon-flip .octagon-card');
+    if ($(".scroll-flip").length > 0) {
+        const $flipCardScroll = $('.scroll-flip .octagon-card');
         function checkPosition() {
-            const elementTop = $flipCard.offset().top; 
+            const elementTop = $flipCardScroll.offset().top; 
             const scrollTop = $(window).scrollTop(); 
-            const triggerPosition = scrollTop + 220;
+            const triggerPosition = scrollTop + 240;
 
             if (elementTop <= triggerPosition) {
-                $flipCard.addClass('flipped');
+                $flipCardScroll.addClass('flipped');
                 $(window).off('scroll', checkPosition);
             }
         }
         $(window).on('scroll', checkPosition);
         checkPosition();
+    }
+});
+/*========== Battle 공통 옥타곤 Level Card : 진입시 ==========*/
+$(document).ready(function() {
+    if ($(".dom-flip").length > 0) {
+        const $flipCard = $('.dom-flip .octagon-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        $flipCard.addClass('flipped');
+                        observer.unobserve(entry.target);
+                    }, 1100);
+                }
+            });
+        }, { threshold: 1.0 });
+        
+        observer.observe($flipCard[0]);
     }
 });
 
@@ -1073,15 +1092,28 @@ $(function(){
 
 /*========== Battle 왕좌의 게임 section-header 고정 ==========*/
 $(function() {
-    function fixSectionHeader() {
-        var height = $(".section-header").innerHeight();
-        $(".battle-game-score-popup .cont-area-wrap").css("margin-top", height);
-        $(".battle-game-list-sec .section-content").css("margin-top", height);
+    function checkHeight() {
+        var sectionHeaderHeight = $(".section-header").innerHeight();
+        var sectionContentHeight =  $(".section-content").innerHeight();
+        var contAreaHeight =  $(".cont-area-wrap").innerHeight();
+
+        // 헤더 고정 기준 높이 계산
+        var fixedHeader = sectionContentHeight > window.innerHeight * 0.835 || contAreaHeight > window.innerHeight * 0.881;
+        
+        if(fixedHeader) {
+            $(".section-header").addClass("fixed");
+            $(".battle-game-list-sec .section-content").css("margin-top", sectionHeaderHeight);
+            $(".battle-game-score-popup .cont-area-wrap").css("margin-top", sectionHeaderHeight);
+        } else {
+            $(".section-header").removeClass("fixed");
+            $(".battle-game-list-sec .section-content").css("margin-top", 0);
+            $(".battle-game-score-popup .cont-area-wrap").css("margin-top", 0);
+        }
     }
-    fixSectionHeader();
+    checkHeight();
 
     $(window).resize(function() {
-        fixSectionHeader();
+        checkHeight();
     });
 });
 
@@ -1163,6 +1195,38 @@ $(document).ready(function () {
     }
 });
 
+/*========== Battle 옥타브 레벨 곡 Progress Bar ==========*/
+$(document).ready(function() {
+    if ($(".process-container.default").length > 0) {
+        const $defaultBars = $('.process-container.default');
+        let activatedBars = 0;
+
+        function checkBarPosition() {
+            const scrollTop = $(window).scrollTop();
+            const triggerPosition = scrollTop + 350;
+
+            $defaultBars.each(function() {
+                const $bar = $(this);
+                if (!$bar.hasClass('on')) {
+                    const barTop = $bar.offset().top;
+
+                    if (barTop <= triggerPosition) {
+                        if ($bar.hasClass('active')) {
+                            $bar.addClass('on');
+                            activatedBars++;
+                        }
+                    }
+                }
+            });
+
+            if (activatedBars === $defaultBars.length) {
+                $(window).off('scroll', checkBarPosition);
+            }
+        }
+        $(window).on('scroll', checkBarPosition);
+        checkBarPosition(); 
+    }
+});
 
 /* ------------------------------------------------------------------------  
     SETTING

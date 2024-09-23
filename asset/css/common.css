@@ -81,6 +81,11 @@
     --graph-color-blue: #6FB6FF; 
 } 
 
+:root .dark { 
+    --basic-line-color: #3B3A3C;
+    --sub-bg-color-f5: #3B3A3C; 
+} 
+
 /* ------------------------------------------------------------------------ 
  Base
 ------------------------------------------------------------------------ */
@@ -315,6 +320,13 @@ p.error { padding-left: 1.50em; background-image: url("../images/common/icon-inf
     p.error { font-size: clamp(12px, 3.2vw, 15px); } 
 }
 
+/* Pin Code */
+.pin-code { display: flex; justify-content: center; gap: 0.5em; margin-top: 1.5em; font-size: inherit;}
+.pin-code input { width: 2.3334em; aspect-ratio: 1 / 1; border-radius: 0.4445em; font-size: 1.125rem; -webkit-border-radius: 0.4445em; -moz-border-radius: 0.4445em; -ms-border-radius: 0.4445em; -o-border-radius: 0.4445em; background-color: #3B3A3C; text-align: center; color: #fff; }
+.pin-code input:focus { outline:none;}
+.pin-code input::-webkit-outer-spin-button,
+.pin-code input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0;}
+
 /*========== Custom Design - Textarea ==========*/
 .textarea-box-wrap { position: relative; } 
 .textarea-box { border: 1px solid var(--basic-line-color); border-radius: 4px; padding: 0.938em; min-height: 11.5em; transition: padding 300ms; font-size: 1rem; } 
@@ -456,9 +468,20 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 }
 
 /*========== List Style ==========*/
-.list-style > li.circle { position: relative; padding: 0 0 0 10px; font-size: 0.750rem; font-weight:400; font-variation-settings: 'wght' 400; color: #888; word-break: keep-all; line-height: 1.5; } 
-.list-style > li.circle + li.circle { margin: 10px 0 0; } 
-.list-style > li.circle::before { content: ''; position: absolute; top: 6px; left: 0; width: 4px; height: 4px; background-color: #888; border-radius: 50%; } 
+.list-style > li.circle { position: relative; padding: 0 0 0 0.83em; font-size: 0.750rem; font-weight:400; font-variation-settings: 'wght' 400; color: #888; word-break: keep-all; line-height: 1.5; } 
+.list-style > li.circle + li.circle { margin: 0.83em 0 0; } 
+.list-style > li.circle::before { content: ''; position: absolute; top: 0.50em; left: 0; width: 0.33em; height: 0.33em; background-color: #888; border-radius: 50%; } 
+@media screen and (min-width: 421px){
+    .list-style > li.circle {font-size: clamp(12px, 3.2vw, 15px);} 
+}
+
+/*========== Toggle List ==========*/
+.toggle-list { border-top: 1px solid #707070; } 
+.toggle-list .toggle-item .toggle-title { display: flex; justify-content: space-between; align-items: center; padding: 1.14em; border-bottom: 1px solid var(--basic-line-color); color: #333; word-break: keep-all; cursor: pointer; --transform: rotate(0); } 
+.toggle-list .toggle-item .toggle-title::after { display: block; width: 1.71em; height: 1.71em; background-image: url("../images/common/icon-arrow-down.svg"); background-repeat: no-repeat; background-position: center; background-size: cover; content: ''; transform: var(--transform); transition: transform 0.3s; } 
+.toggle-list .toggle-item .toggle-title.on { --transform: rotate(180deg); } 
+.toggle-list .toggle-item .toggle-title span { flex: 1; padding-right: 2.5em; } 
+.toggle-list .toggle-item .toggle-content { display: none; width: 100%; padding: 1.14em 1.14em 1.71em; background-color: var(--sub-bg-color-f5); color: #666; font-weight: 400; font-variation-settings: "wght" 400; word-break: keep-all; } 
 
 /*========== Bottom Sheet & Handle Bar ==========*/
 .bottom-sheet { position: fixed; bottom: 0; left: 50%; z-index: 202; max-width: 750px; width: 100%; max-height: 90vh; background-color: #fff; border-radius: 20px 20px 0 0; box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-out, height 0.3s ease-out; transform: translate(-50%, 110%); } 
@@ -567,10 +590,17 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 .status-label.level.round .label-tit {display: inline-block;position: relative;padding: 0 0.57em 0 0; margin: 0 0.57em 0 0;}
 .status-label.level.round .label-tit::after {content: '';position: absolute; top: 50%; right: 0; transform: translate(0, -50%); background-color: #ddd;width: 1px; height: 9px;}
 
+/* 등급 뱃지 */
+.status-label.member span { min-width: 3.50em; padding: 0.60em; border-radius: 0.40em; font-size: 0.630rem; font-family: 'Rubik'; font-weight: 600; font-variation-settings: 'wght' 600; } 
+.status-label.member span.rookie {background-color: #eee; color: #666;}
+.status-label.member span.pro {background-color: #FFF3DD; color: #FF7600;}
+.status-label.member span.vip {background-color: var(--sub-bg-point-color); color: var(--main-point-color);}
+
 @media screen and (min-width: 421px){
     .toast-popup {width: calc(100% - 32px);}
     .status-label span { font-size: clamp(12px, 3.2vw, 15px); } 
     .status-label.level { font-size: clamp(14px, 3.733vw, 18px); } 
+    .status-label.member span {font-size: clamp(10px, 2.667vw, 13px);} 
 }
 
 /*========== Porfile info ==========*/
@@ -612,7 +642,7 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 .ring-graph-container { position: relative; width: 12.5em; aspect-ratio: 1 / 1; margin: 1.44em 0; font-size: 1rem; } 
 .ring-graph { width: 100%; height: 100%; } 
 .ring-graph .ring { transform-origin: 50%; } 
-.ring-graph .completed { animation: RingProgress 1s ease-in-out forwards; stroke-linecap: round; } 
+.ring-graph-container:not(.scroll) .ring-graph .completed { animation: RingProgress 1s ease-in-out forwards; stroke-linecap: round; } 
 .ring-graph circle { fill: none; } 
 .ring-graph .background { opacity: .16; } 
 .ring-graph .ring1 { transform: scale(1) rotate(-90deg); } 
@@ -625,9 +655,12 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 .ring-graph .ring4 .background, .ring4 .completed { stroke: var(--graph-color-blue); } 
 .ring-graph-container .ring-graph-score { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-52%); } 
 .ring-graph-container .ring-graph-score .semi-b-num { font-size: 1.69rem; } 
+.ring-graph-container.scroll .ring-graph .ring .completed { opacity: 0;}
+
 @keyframes RingProgress { 
     0% { stroke-dasharray: 0 100; } 
-} 
+}
+
 @media screen and (min-width: 421px){
     .ring-graph-container { width: 11.13em; font-size: clamp(16px, 4.267vw, 20px); } 
     .ring-graph-container .ring-graph-score .semi-b-num { font-size: clamp(27px, 6.429vw, 37px); } 
@@ -656,12 +689,14 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 /* Default Type */
 .process-container.default {overflow: hidden; height: 0.50em; border-radius: 0.25em;}
 .process-container.default .process-bar {position: relative; width: 100%; height: 100%;}
-.process-container.default .process-bar .background {position: absolute; top: 0; left: 0; width: 100%; height: 100%;background-color: #f5f5f5;}
-.process-container.default .process-bar .completed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--main-point-color); animation: progressBar 300ms ease forwards; -webkit-animation: progressBar 300ms ease forwards; }
-@keyframes progressBar { 
+.process-container.default .process-bar .background {position: absolute; top: 0; left: 0; width: 100%; height: 100%;background-color: #e5e5e5;}
+.process-container.default .process-bar .completed { position: absolute; top: 0; left: 0; width: 0%; height: 100%; background-color: var(--main-point-color); }
+.process-container.default.on .process-bar .completed {animation: progressDefaultBar 400ms 100ms ease forwards; -webkit-animation: progressDefaultBar 400ms 100ms ease forwards;}
+@keyframes progressDefaultBar { 
     0% { width: 0; } 
     100% {width: 100%;}
 }  
+
 /* Score Type */
 .process-container .process-bar .bar { width: 100%; height: 100%; transform-origin: left; font-size: inherit;}
 .process-container .process-bar .bar rect { fill: none; } 
@@ -742,6 +777,13 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
 .sing-select.sing-battle-game .sing-setting-cont .sing-setting-btm .sing-solo-part-btn { display: none; }
 .sing-select.sing-battle-game .sing-setting-cont .sing-setting-btm .sing-battle-game-btn { display: block; margin-bottom: 0; }
 
+/*========== Sing Battle Challenge Bottom sheet (2배 챌린지 부르기 팝업) ==========*/
+.sing-select .sing-setting-cont .sing-setting-btm .sing-battle-challenge-btn { display: none; }
+.sing-select.sing-battle-challenge .sing-setting-cont .sing-setting-btm .sing-challenge-btn:not(.sing-battle-challenge-btn) { display: none; }
+.sing-select.sing-battle-challenge .sing-setting-cont .sing-setting-btm .sing-solo-part-btn { display: none; }
+.sing-select.sing-battle-challenge .sing-setting-cont .sing-setting-btm .sing-battle-challenge-btn { display: block; margin-bottom: 0; }
+
+
 /*========== Sing Duet Join Bottom sheet (듀엣 참여 부르기 팝업) ==========*/
 .sing-duet-join.sing-select .sing-setting-cont .sing-setting-top { flex-direction: column; gap: 0.875em;}
 .sing-duet-join .sing-setting-cont .profile-area .profile-info { color: #666; font-weight: 500; font-variation-settings: 'wght' 500;}
@@ -789,3 +831,31 @@ input[type="checkbox"] + label { cursor: pointer; font-size: 0.875rem; font-weig
     .vid-indicator-wrap .vid-play-btn { font-size: clamp(16px, 4.267vw, 20px); } 
     .vid-indicator-wrap .full-vid-btn { font-size: clamp(16px, 4.267vw, 20px); } 
 }
+
+/* ------------------------------------------------------------------------ 
+DARK MODE
+------------------------------------------------------------------------ */
+/*========== Text ==========*/
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 { color: #fff;}
+/*========== Tab Menu ==========*/
+.dark .tab-menu { background-color: #222121;}
+.dark .tab-menu li.slider { background-color: #fff;}
+.dark .tab-menu li.tab-link.current a { color: #fff;}
+/*========== Bottom Sheet ==========*/
+.dark .bottom-sheet { background-color: #3B3A3C;}
+.dark .bottom-sheet-wrap.check .sheet-check-list li a { color: #888;}
+.dark .bottom-sheet-wrap.check .sheet-check-list li a.active { color: #fff;}
+.dark .bottom-sheet-wrap.check .sheet-check-list li a::after { background-image: url("../images/common/icon-check-white.svg");}
+/*========== Button ==========*/
+.dark .basic-btn.sel { background-color: #3B3A3C; color: #ddd;}
+.dark .basic-btn.sel::after { background-image: url("../images/common/icon-arrow-down-white.svg"); background-color: transparent;}
+/* bottom */
+.dark .btn-wrap.bottom { background-color: #222121;}
+/*========== Toggle List ==========*/
+.dark .toggle-list { border-top: 1px solid #888; } 
+.dark .toggle-list .toggle-item .toggle-title { border-bottom: 1px solid #333; color: #fff;} 
+.dark .toggle-list .toggle-item .toggle-title::after { background-image: url("../images/common/icon-arrow-down-white.svg");} 
+.dark .toggle-list .toggle-item .toggle-content { color: #eee;} 
+/*========== Custom Design - Checkbox ==========*/
+.dark .basic-check-box input[type="checkbox"] + label::before { background-color: #3B3A3C; border: 1px solid #3B3A3C;}
+.dark .basic-check-box input[type="checkbox"]:checked + label::before { background-color: var(--main-point-color); background-image: url("../images/common/icon-check-white.svg"); background-size: 100% 100%;}

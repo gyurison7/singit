@@ -51,6 +51,7 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="../asset/css/common.css">
+	<link rel="stylesheet" href="../asset/css/battle/battle.css">
 
 	<!-- JS | library -->
 	<script src="../asset/js/lazysizes.min.js"></script>
@@ -60,6 +61,7 @@
 	<!-- JS -->
 	<script src="../asset/js/basic.js"></script>
 	<script src="../asset/js/popup.js"></script>
+	<script src="../asset/js/sub.js"></script>
 
     <title>SingIt - 공통요소 페이지</title>
 	<style>
@@ -101,29 +103,14 @@ box-orient: vertical;
   right: 0;
   background: white;
 }
-/* Octagon Level Card */
-.octagon-flip-area { padding: 1.25em; font-size: 1rem; } 
-.octagon-flip { position: relative; width: 12.50em; height: 16.88em; aspect-ratio: 200 / 270; perspective: 1100px; font-size: inherit; } 
-.octagon-card { width: 100%; height: 100%; position: relative; transition: .4s; transform-style: preserve-3d; font-size: inherit; } 
-.octagon-card .front, .octagon-card .back { display: flex; flex-direction: column; align-items: center; position: absolute; width: 100%; height: 100%; padding: 1.56em 1em 1.25em 1em; backface-visibility: hidden; border-radius: 1em; box-shadow: 0 0.19em 1.25em rgba(252, 207, 207, 0.6); font-size: inherit; } 
-.octagon-card .front { background: linear-gradient(to bottom right, #FF5E4A, #F82A2E); } 
-.octagon-card .front .front-img { margin: 2.63em 0 0; font-size: inherit; } 
-.octagon-card .front img, .octagon-card .back img { background-color: transparent; } 
-.octagon-card .back { align-items: flex-start; background-color: #fff; transform: rotateY(180deg); } 
-.octagon-card .back .back-img { margin-top: auto; margin-left: auto; } 
-.octagon-flip .octagon-card.flipped { transform: rotateY(180deg); } 
-.card-tit { margin: 0.80em 0 0; font-weight: 700; font-variation-settings: 'wght' 700; color: #111; } 
-@media screen and (min-width: 421px){
-    .octagon-flip-area { font-size: clamp(16px, 4.267vw, 20px); } 
-}
 
 /* Status Level */
-.status-level span { display: inline-block; min-width: 78px; padding: 0.38em 0.92em; border-radius: 1em; font-size: 0.750rem; font-weight: 700; font-variation-settings: 'wght' 700; line-height: 1; text-align: center; text-transform: uppercase; } 
+/* .status-level span { display: inline-block; min-width: 78px; padding: 0.38em 0.92em; border-radius: 1em; font-size: 0.750rem; font-weight: 700; font-variation-settings: 'wght' 700; line-height: 1; text-align: center; text-transform: uppercase; } 
 .status-level span.white { border: 1px solid rgba(255, 255, 255, 0.4); color: #fff; } 
 .status-level span.red { border: 1px solid var(--main-point-color); color: var(--main-point-color); } 
 @media screen and (min-width: 421px){
     .status-level span { font-size: clamp(12px, 3.2vw, 15px); } 
-}
+} */
 
 	</style>
 </head>
@@ -1031,6 +1018,11 @@ box-orient: vertical;
 						<br>
 						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="openBottomSheet('#sing-duet-join-B')"><span>Bottom Sheet 열기</span></button>
 					</div>
+					<div style="width: 340px;">
+						<p style="font-variation-settings: 'wght' 700;">1-10. Bottom Sheet : Battle 부르기 팝업</p>
+						<br>
+						<button type="button" class="basic-btn round line" style="max-width: 180px; font-size: 15px;" onclick="openBottomSheet('#sing-select1')"><span>Bottom Sheet 열기</span></button>
+					</div>
 				</div>
 				<br><br><br>
 				<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 0 20px;">
@@ -1429,6 +1421,7 @@ box-orient: vertical;
 					* 듀엣 참여시, A파트 참여의 경우 .duet-join-A / B파트 참여의 경우 .duet-join-B
 
 					* #sing-select에 클래스 sing-battle-game이 붙는 경우 "왕좌의 게임 부르기" 팝업이 노출 됩니다.
+					* #sing-select에 클래스 sing-battle-challenge가 붙는 경우 "2배 챌린지 부르기" 팝업이 노출 됩니다.
 				======================-->
 				<div id="sing-select" class="bottom-sheet-wrap sing-select"> <!-- openBottomSheet('#sing-select')에 의해 호출 -->
 					<div class="bottom-sheet unable-stretch">
@@ -1482,6 +1475,144 @@ box-orient: vertical;
 												</div>
 												<div class="setting-radio-box disabled">
 													<input type="radio" id="setting-save-solo-sound" name="setting-save-solo" value="sound" tabindex="-1">
+													<label for="setting-save-solo-sound" tabindex="0">
+														<span class="content-txt3">음성</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+									</div>
+									<div class="sing-setting-btm">
+										<a href="#" class="sing-challenge-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">2배 챌린지</span>
+												<div class="txt-bubble caption-txt1">GOAL <em>80점</em></div>
+											</div>
+										</a>
+										<a href="#" class="sing-challenge-btn sing-battle-game-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">왕좌의 게임 부르기</span>
+											</div>
+										</a>
+										<a href="#" class="sing-challenge-btn sing-battle-challenge-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">2배 챌린지 부르기</span>
+											</div>
+										</a>
+										<a href="#" class="sing-solo-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">솔로 부르기</span>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div class="sing-setting-cont sing-duet-cont">
+									<div class="sing-setting-top">
+										<div class="sing-setting-key sing-setting-area">
+											<p class="caption-txt1">KEY</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-duet-w" name="setting-key-duet" value="w" tabindex="-1" checked>
+													<label for="setting-key-duet-w" tabindex="0">
+														<span class="content-txt3">여자</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-duet-m" name="setting-key-duet" value="m" tabindex="-1">
+													<label for="setting-key-duet-m" tabindex="0">
+														<span class="content-txt3">남자</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+										<div class="sing-setting-save sing-setting-area">
+											<p class="caption-txt1">저장 방법</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-duet-video" name="setting-save-duet" value="video" tabindex="-1" checked>
+													<label for="setting-save-duet-video" tabindex="0">
+														<span class="content-txt3">영상</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-duet-sound" name="setting-save-duet" value="sound" tabindex="-1">
+													<label for="setting-save-duet-sound" tabindex="0">
+														<span class="content-txt3">음성</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+									</div>
+									<div class="sing-setting-btm">
+										<a href="#" class="sing-duet-A-part-btn sing-duet-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">A 파트 부르기</span>
+											</div>
+										</a>
+										<a href="#" class="sing-duet-B-part-btn sing-duet-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">B 파트 부르기</span>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+
+				<div id="sing-select1" class="bottom-sheet-wrap sing-select setting-step solo sing-battle-game"> <!-- openBottomSheet('#sing-select')에 의해 호출 -->
+					<div class="bottom-sheet unable-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<div class="sheet-tit-box">
+								<div class="profile-info content-txt2">
+									<div class="flowing-wrap">
+										<p class="profile-tit flowing-inner">
+											<span class="flowing">Small girl Small girl Small girl (feat. 도경수(D.O.))</span>
+										</p>
+									</div>
+									<p class="artist-name content-txt3">이영지</p>
+								</div>
+							</div>
+							<div class="sheet-cont-inner">
+								<div class="sing-with-cont">
+									<a href="javascript:;" class="sing-solo-btn"><span>솔로 부르기</span></a>
+									<a href="javascript:;" class="sing-duet-btn"><span>듀엣 초대</span></a>
+								</div>
+								<div class="sing-setting-cont sing-solo-cont">
+									<div class="sing-setting-top">
+										<div class="sing-setting-key sing-setting-area">
+											<p class="caption-txt1">KEY</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-solo-w" name="setting-key-solo" value="w" tabindex="-1" checked>
+													<label for="setting-key-solo-w" tabindex="0">
+														<span class="content-txt3">여자</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-solo-m" name="setting-key-solo" value="m" tabindex="-1">
+													<label for="setting-key-solo-m" tabindex="0">
+														<span class="content-txt3">남자</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+										<div class="sing-setting-save sing-setting-area">
+											<p class="caption-txt1">저장 방법</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-solo-video" name="setting-save-solo" value="video" tabindex="-1" checked>
+													<label for="setting-save-solo-video" tabindex="0">
+														<span class="content-txt3">영상</span>
+													</label>
+												</div>
+												<div class="setting-radio-box disabled">
+													<input type="radio" id="setting-save-solo-sound" name="setting-save-solo" value="sound" tabindex="-1" disabled>
 													<label for="setting-save-solo-sound" tabindex="0">
 														<span class="content-txt3">음성</span>
 													</label>
@@ -1816,40 +1947,76 @@ box-orient: vertical;
 					</script>
 					<div style="width: 375px;">
 						<p style="font-variation-settings: 'wght' 700;">3. Progress Bar : Default</p>
-						<!-- <div class="process-container default">
-							<div class="process-bar">
-								<div class="background"></div>
-								<div class="completed"></div>
+						<div class="level-status content-txt2">
+							<div class="level-status-tit-wrap">
+								<p class="level-status-tit">내 레벨 업 진행 상태</p>
+								<div class="level-status-sub-tit-wrap">
+									<span class="level-status-sub-tit">현재 레벨 2 도전 중입니다.</span>
+									<span class="level-status-sub-txt point-txt"><em>2</em>/3 곡 성공</span>
+								</div>
 							</div>
-						</div> -->
-						<div class="process-container challenge">
-							<div class="process-bar">
-								<div class="background"></div>
-								<div id="challenge-bar" class="completed challenge"></div>
+							<div class="level-process content-txt2">
+								<!-- 레벨업 진행 상태에 따른 도전 곡 수 (process-container에 active 클래스 추가) -->
+								<div class="process-container default step1 active">
+									<div class="process-bar">
+										<div class="background"></div>
+										<div class="completed"></div>
+									</div>
+								</div>
+								<div class="process-container default step2 active">
+									<div class="process-bar">
+										<div class="background"></div>
+										<div class="completed"></div>
+									</div>
+								</div>
+								<div class="process-container default step3">
+									<div class="process-bar">
+										<div class="background"></div>
+										<div class="completed"></div>
+									</div>
+								</div>
 							</div>
 						</div>
 						<script>
-							$(document).ready(function() {
-								if ($(".process-container.challenge").length > 0) {
-									const $completedBar = $('.process-container.challenge .process-bar .completed');
-									const targetWidth = parseFloat($completedBar.data('width'));
-									$completedBar.css('width', '0%');
+							// $(document).ready(function() {
+							// 	if ($(".process-container.default").length > 0) {
+							// 		const $completedBar = $('.process-container.default .process-bar .completed');
+							// 		const targetWidth = parseFloat($completedBar.data('width'));
+							// 		$completedBar.css('width', '0%');
 
-									let currentWidth = 0;
-									const step = targetWidth / 100;
+							// 		let currentWidth = 0;
+							// 		const step = targetWidth / 100;
 
-									function animateProcessBar() {
-										if (currentWidth < targetWidth) {
-											currentWidth += step;
-											$completedBar.css('width', `${currentWidth}%`);
-											requestAnimationFrame(animateProcessBar);
-										} else {
-											$completedBar.css('width', `${targetWidth}%`);
-										}
-									}
-									animateProcessBar();
-								}
-							});
+							// 		function animateProcessBar() {
+							// 			if (currentWidth < targetWidth) {
+							// 				currentWidth += step;
+							// 				$completedBar.css('width', `${currentWidth}%`);
+							// 				requestAnimationFrame(animateProcessBar);
+							// 			} else {
+							// 				$completedBar.css('width', `${targetWidth}%`);
+							// 			}
+							// 		}
+							// 		animateProcessBar();
+							// 	}
+							// });
+							// $(document).ready(function() {
+							// 	if ($(".process-container.default").length > 0) {
+							// 		const $defaultBar = $('.process-container.default .process-bar');
+									
+							// 		const observer = new IntersectionObserver((entries) => {
+							// 			entries.forEach(entry => {
+							// 				if (entry.isIntersecting) {
+							// 					setTimeout(() => {
+							// 						$defaultBar.addClass('on');
+							// 						observer.unobserve(entry.target);
+							// 					}, 1100);
+							// 				}
+							// 			});
+							// 		}, { threshold: 1.0 });
+									
+							// 		observer.observe($defaultBar[0]);
+							// 	}
+							// });
 						</script>
 					</div>
 					<br>
@@ -1925,27 +2092,113 @@ box-orient: vertical;
 				<p style="padding-bottom: 10px; margin-bottom: 30px; border-bottom: 1px solid #333; font-size: 18px;font-variation-settings: 'wght' 700; color: #666;">Singit_guide&nbsp;&nbsp;|&nbsp;&nbsp;09. 옥타곤 레벨</p>
 				<div style="display: flex; flex-wrap: wrap; gap: 40px; padding: 0 20px;">
 					<div style="width: 375px;">
-						<p style="font-variation-settings: 'wght' 700;">1. 옥타곤레벨업 : CARD</p>
+						<p style="font-variation-settings: 'wght' 700;">1. 옥타곤레벨업 : CARD (스크롤)</p>
 						<div class="octagon-flip-area">
-							<div class="octagon-flip">  
-								<div class="octagon-card">
+							<div class="octagon-flip scroll-flip">  
+								<!--==================
+									* 레벨에 따른 클래스 추가 (octagon-card에만 해당 레벨 클래스 추가)
+									- LV.0 : lv0 
+									- LV.1 : lv1 
+									- LV.2 : lv2
+									- LV.3 : lv3 
+									- LV.4 : lv4 
+									- LV.5 : lv5 
+								======================-->
+								<div class="octagon-card lv0">
 									<!-- 앞면 -->
 									<div class="front">
 										<div class="status-level">
 											<span class="white">level up!</span>
 										</div>
 										<figure class="front-img">
-											<img class="fade-in lazyloaded" decoding="async" src="../asset/images/common/logo-v-white.svg" alt="alt값 필수">
+											<img class="fade-in lazyloaded" decoding="async" src="../asset/images/common/logo-v-white.svg" alt="SingIt 싱잇">
 										</figure>
 									</div>
 									<!-- 뒷면 --> 
 									<div class="back">
 										<div class="status-level">
-											<span class="red">level up!</span>
+											<!-- octagon-card 상위 클래스에 따른 css 노출 처리 -->
+											<span class="red lv0">LV.0</span>
+											<span class="red lv1">LV.1</span>
+											<span class="red lv2">LV.2</span>
+											<span class="red lv3">LV.3</span>
+											<span class="red lv4">LV.4</span>
+											<span class="red lv5">LV.5</span>
 										</div>
-										<h6 class="card-tit">지금 레벨 테스트 해보세요!</h6>
+
+										<!-- octagon-card 상위 클래스에 따른 css 노출 처리 -->
+										<h6 class="card-tit lv0">현재 레벨은 LV.0입니다.<br> 자신감을 갖고 <br> 레벨 1에 도전하세요!</h6>
+										<h6 class="card-tit lv1">자 이제, 목표를 갖고<br> 2단계로 갈 차례입니다.</h6>
+										<h6 class="card-tit lv2">한 단계만 넘으면 당신은<br> 상위 50% 이상의<br> 가수가 되요!</h6>
+										<h6 class="card-tit lv3">당신도 이제 전문가!<br> 한계를 뛰어 넘어 볼까요?</h6>
+										<h6 class="card-tit lv4">조금만 노력하면<br> 당신은 김나박이급 가수!</h6>
+										<h6 class="card-tit lv5">당신은 대한민국을<br> 대표하는 보컬의 신!!</h6>
+
 										<figure class="back-img">
-											<img class="fade-in lazyloaded" decoding="async" src="../asset/images/sub/battle/level-img-default.svg" alt="alt값 필수">
+											<!-- octagon-card 상위 클래스에 따른 css 노출 처리 -->
+											<embed class="content-txt2 fade-in lazyloaded lv0" type="image/svg+xml" src="../asset/images/sub/battle/level-img-default.svg">
+											<embed class="content-txt2 fade-in lazyloaded lv1" type="image/svg+xml" src="../asset/images/sub/battle/level1-img.svg">
+											<embed class="content-txt2 fade-in lazyloaded lv2" type="image/svg+xml" src="../asset/images/sub/battle/level2-img.svg">
+											<embed class="content-txt2 fade-in lazyloaded lv3" type="image/svg+xml" src="../asset/images/sub/battle/level3-img.svg">
+											<embed class="content-txt2 fade-in lazyloaded lv4" type="image/svg+xml" src="../asset/images/sub/battle/level4-img.svg">
+											<embed class="content-txt2 fade-in lazyloaded lv5" type="image/svg+xml" src="../asset/images/sub/battle/level5-img.svg">
+										</figure>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="width: 375px;">
+						<p style="font-variation-settings: 'wght' 700;">2. 옥타곤레벨업 : CARD (진입 시)</p>
+						<div class="octagon-flip-area">
+							<div class="octagon-flip dom-flip">  
+								<!--==================
+									* 레벨에 따른 클래스 추가 (octagon-card에만 해당 레벨 클래스 추가)
+									- LV.0 : lv0 
+									- LV.1 : lv1 
+									- LV.2 : lv2
+									- LV.3 : lv3 
+									- LV.4 : lv4 
+									- LV.5 : lv5 
+								======================-->
+								<div class="octagon-card lv5">
+									<!-- 앞면 -->
+									<div class="front">
+										<div class="status-level">
+											<span class="white">level up!</span>
+										</div>
+										<figure class="front-img">
+											<img class="fade-in lazyloaded" decoding="async" src="../asset/images/common/logo-v-white.svg" alt="SingIt 싱잇">
+										</figure>
+									</div>
+									<!-- 뒷면 --> 
+									<div class="back">
+										<div class="status-level">
+											<!-- octagon-card 상위 클래스에 따른 css 노출 처리 -->
+											<span class="red lv0">LV.0</span>
+											<span class="red lv1">LV.1</span>
+											<span class="red lv2">LV.2</span>
+											<span class="red lv3">LV.3</span>
+											<span class="red lv4">LV.4</span>
+											<span class="red lv5">LV.5</span>
+										</div>
+
+										<!-- octagon-card 상위 클래스에 따른 css 노출 처리 -->
+										<h6 class="card-tit lv0">현재 레벨은 LV.0 입니다.<br> 자신감을 갖고 <br> 레벨 1에 도전하세요!</h6>
+										<h6 class="card-tit lv1">자 이제, 목표를 갖고<br> 2단계로 갈 차례입니다.</h6>
+										<h6 class="card-tit lv2">한 단계만 넘으면 당신은<br> 상위 50% 이상의<br> 가수가 되요!</h6>
+										<h6 class="card-tit lv3">당신도 이제 전문가!<br> 한계를 뛰어 넘어 볼까요?</h6>
+										<h6 class="card-tit lv4">조금만 노력하면<br> 당신은 김나박이급 가수!</h6>
+										<h6 class="card-tit lv5">당신은 대한민국을<br> 대표하는 보컬의 신!!</h6>
+
+										<figure class="back-img">
+											<!-- octagon-card 상위 클래스에 따른 css 노출 처리 -->
+											<embed class="content-txt2 fade-in lazyloaded lv0" type="image/svg+xml" src="../asset/images/sub/battle/level-img-default.svg">
+											<embed class="content-txt2 fade-in lazyloaded lv1" type="image/svg+xml" src="../asset/images/sub/battle/level1-img.svg">
+											<embed class="content-txt2 fade-in lazyloaded lv2" type="image/svg+xml" src="../asset/images/sub/battle/level2-img.svg">
+											<embed class="content-txt2 fade-in lazyloaded lv3" type="image/svg+xml" src="../asset/images/sub/battle/level3-img.svg">
+											<embed class="content-txt2 fade-in lazyloaded lv4" type="image/svg+xml" src="../asset/images/sub/battle/level4-img.svg">
+											<embed class="content-txt2 fade-in lazyloaded lv5" type="image/svg+xml" src="../asset/images/sub/battle/level5-img.svg">
 										</figure>
 									</div>
 								</div>
@@ -1990,20 +2243,20 @@ box-orient: vertical;
 				</div>
 			</section>
 			<script>
-				document.addEventListener("DOMContentLoaded", function() {
-					const flipCard = document.querySelector('.octagon-flip .octagon-card');
+				// document.addEventListener("DOMContentLoaded", function() {
+				// 	const flipCard = document.querySelector('.octagon-flip .octagon-card');
 					
-					const observer = new IntersectionObserver((entries) => {
-						entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							flipCard.classList.add('flipped');
-							observer.unobserve(entry.target);
-						}
-						});
-					}, { threshold: 1.0 });
+				// 	const observer = new IntersectionObserver((entries) => {
+				// 		entries.forEach(entry => {
+				// 		if (entry.isIntersecting) {
+				// 			flipCard.classList.add('flipped');
+				// 			observer.unobserve(entry.target);
+				// 		}
+				// 		});
+				// 	}, { threshold: 1.0 });
 					
-					observer.observe(flipCard);
-				});
+				// 	observer.observe(flipCard);
+				// });
 			</script>
 			<br>
 			<section class="component-sec">
@@ -2329,8 +2582,11 @@ box-orient: vertical;
 						<div class="status-label">
 							<span class="free">무료회원</span>
 						</div>
-						<div class="status-label">
-							<span class="free">루키</span>
+						<!-- 멤버십 등급별 뱃지 -->
+						<div class="status-label member">
+							<span class="rookie">Rookie</span>
+							<span class="pro">Pro</span>
+							<span class="vip">VIP</span>
 						</div>
                         <div class="status-label level">LV.01</div>
                         <div class="status-label level round"><em class="label-tit">목표</em><em>LV.1</em></div>
