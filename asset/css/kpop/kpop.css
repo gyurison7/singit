@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Ajin Lee. (Weaverloft Corp.)
+ * 2. Production Date: 2024-10-14
+ * 3. Client: MEDIASCOPE Inc.
+ */
+
+/* ------------------------------------------------------------------------  
+ HOME kpop-sec
+------------------------------------------------------------------------ */
+.kpop-sec .section-content {overflow: hidden;}
+.kpop-sec .section-content + .section-content {margin: 1em 0 0;}
+.kpop-sec .section-content .kpop-cont-inner {overflow: hidden; position: relative; border-radius: 0.38em; font-size: 1rem;}
+.kpop-sec .section-content .kpop-cont-inner figure {position: relative; width: 100%; height: 100%; background-color: aqua;}
+.kpop-sec .section-content .kpop-cont-inner figure img {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+.kpop-sec .section-content .kpop-cont-inner .status-label { z-index: 2; position: absolute; top: 0.750em; left: 0.750em; font-size: inherit;}
+.kpop-contest .kpop-cont-inner {aspect-ratio: 343 / 160;}
+.kpop-progress .kpop-cont-inner {aspect-ratio: 343 / 120;}
+.kpop-vote .kpop-cont-inner {aspect-ratio: 343 / 120;}
+.kpop-done .kpop-cont-inner {aspect-ratio: 343 / 120;}
+.kpop-win .kpop-cont-inner {aspect-ratio: 343 / 120;}
+.kpop-sec .section-content .kpop-cont-inner .no-result {display: none;}
+.kpop-sec .section-content.done .kpop-cont-inner .no-result {display: flex; justify-content: center; align-items: center; position: absolute; z-index: 1; top: 0; left: 0; width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.65);}
+.kpop-sec .section-content .kpop-cont-inner .no-result p {padding: 0; font-size: 1rem;font-weight: 700; font-variation-settings: 'wght' 700; color: #fff; word-break: keep-all;}
+
+@media screen and (min-width: 421px) {
+    .kpop-sec .section-content .kpop-cont-inner, .kpop-sec .section-content .kpop-cont-inner .no-result p {font-size: clamp(16px, 4.267vw, 20px);} 
+}
+
+/* ------------------------------------------------------------------------  
+ KTROT 콘테스트 ktrot-contest-sec
+------------------------------------------------------------------------ */
+main.sub:has(.ktrot-contest-sec) {padding-bottom: 0;}
+
+/* ------------------------------------------------------------------------  
+ KTROT 콘테스트 팝업 ktrot-challenge-popup
+------------------------------------------------------------------------ */
+.ktrot-challenge-popup .header-sub-wrap {position: relative;}
+.ktrot-challenge-popup .header-sub {position: absolute; top: 0; left: 0; width: 100%; border-bottom: none;}
+.ktrot-challenge-popup .ktrot-challenge-tit {position: absolute; bottom: 0.83em; left: 0; width: 100%; font-weight: 700; font-variation-settings: 'wght' 700;color: #1A1A1A; text-align: center;}
+
+.ktrot-challenge-cont-wrap {padding: 2px 0 0; background: linear-gradient(to bottom, #3CD89B, #C7FF5C);font-size: 1rem;}
+.ktrot-challenge-inner {margin: 0 16px;font-size: inherit;}
+.ktrot-challenge-inner .btn-wrap {display: flex;justify-content: center;}
+.ktrot-challenge-inner .btn-wrap .basic-btn {width: auto; padding: 0 1.81em;}
+.ktrot-challenge-inner .btn-wrap .basic-btn span {position: relative; padding: 0.69em 1.50em 0.69em 0;}
+.ktrot-challenge-inner .btn-wrap .basic-btn span::after {content: '';position: absolute; top: 50%; right: 0; transform: translate(0, -50%); width: 1.25em;height: 1.25em;background-image: url("../../images/common/icon-arrow-down-white.svg");background-position: center; background-repeat: no-repeat;background-size: contain; transition: transform 300ms;}
+
+.ktrot-challenge-cont {padding: 1em; border-radius: 1em; background-color: #fff; font-size: 1rem;}
+.ktrot-challenge-cont.guide { margin: 1.88em 0 0; padding: 1.25em 2.50em;}
+.ktrot-challenge-cont.guide .list-style > li.circle {padding: 0 0 0 0.71em; font-size: 0.875rem;font-weight: 500;font-variation-settings: 'wght' 500;color: #333; line-height: 1.28;}
+.ktrot-challenge-cont.guide .list-style > li.circle::before {width: 0.29em; height: 0.29em; background-color: #333;}
+.ktrot-challenge-cont.announcement { margin: 1.25em 0 0; }
+
+.ktrot-challenge-cont.announcement .ktrot-cont-tit-wrap {display: flex; justify-content: space-between; align-items: center;}
+.ktrot-challenge-cont.announcement .ktrot-cont-tit-wrap .ktrot-cont-tit {font-size: 1.125rem; font-weight: 700; font-variation-settings: 'wght' 700;color: #1A1A1A;}
+.ktrot-challenge-cont.announcement .ktrot-cont-tit-wrap .sorting-txt {min-width: 6.57em;padding: 0.57em 1.14em;border-radius: 0.25em;border: 1px solid #ddd;background-color: #fff;font-weight: 700;font-variation-settings: 'wght' 700;color: #333;line-height: 1.66;}
+.ktrot-challenge-cont.announcement .ktrot-cont-tit-wrap .sorting-txt span {display: inline-block;padding: 0 0 0 1.57em;background-image: url('../../images/common/icon-fold.svg');background-repeat: no-repeat;background-position: left center;background-size: 1.29em auto;}
+
+.ktrot-challenge-inner.ktrot-rematch {margin: 3.75em 0 0;}
+.ktrot-challenge-cont-wrap .ktrot-challenge-inner.ktrot-rematch .ktrot-challenge-tit {position: static; bottom: initial;}
+.ktrot-challenge-inner.ktrot-rematch .ktrot-challenge-cont.guide { margin: 1.25em 0 0; }
+.ktrot-challenge-cont.tournament { margin: 2.50em 0 0; }
+
+@media screen and (min-width: 421px) {
+    .ktrot-challenge-cont-wrap, .ktrot-challenge-cont {font-size: clamp(16px, 4.267vw, 20px);} 
+    .ktrot-challenge-cont.guide .list-style > li.circle { font-size: clamp(14px, 3.733vw, 18px); }
+    .ktrot-challenge-cont.announcement .ktrot-cont-tit-wrap .ktrot-cont-tit { font-size: clamp(18px, 4.8vw, 23px); } 
+}

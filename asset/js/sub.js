@@ -47,7 +47,7 @@ $(function(){
             vidHt = secWd / 8 * 3;
         }
 
-        scrollTop = $(window).scrollTop();
+        scrollTop = window.pageYOffset;
         varHt = Math.max(minHt, vidHt - scrollTop);
 
         $(".play-vid-sec .play-vid-box").height(varHt);
@@ -124,9 +124,11 @@ $(function(){
 				$(".play-vid-wrap").css("width","");
 				$(".play-vid-sec").removeClass("full-ht-over");
 			}
-			$('body').removeClass('scroll-disable').off('scroll touchmove mousewheel');
-			document.documentElement.style.removeProperty('overscroll-behavior-y');
-			document.documentElement.style.removeProperty('scroll-behavior');
+            if($(".modal-play-vid-sec").length === 0) {
+                $('body').removeClass('scroll-disable').off('scroll touchmove mousewheel');
+                document.documentElement.style.removeProperty('overscroll-behavior-y');
+                document.documentElement.style.removeProperty('scroll-behavior');
+            }
 		}
 	});
 
@@ -611,6 +613,143 @@ $(function(){
 	}
 });
 
+/*========== Sing 곡 상세 - 등록 영상 ==========*/
+$(function(){
+    if ($(".song-detail-video").length > 0) {
+        var videoSwipers = {};
+
+        // 초기 실행 및 리사이즈 이벤트에 대한 처리
+        initializeVideoTabs();
+        $(window).on('resize', initializeVideoTabs);
+
+        // 탭 클릭 이벤트 처리
+        $('.tab-btn-link').on('click', function() {
+            var videoTabId = $(this).data('tab');
+            activateVideoTab(videoTabId);
+        });
+
+        function initializeVideoTabs() {
+            $('.tab-btn-cont').each(function() {
+                var videoTabId = $(this).attr('id');
+                if ($(this).hasClass('current')) {
+                    initVideoSwiper(videoTabId);
+                } else {
+                    destroyVideoSwiper(videoTabId);
+                }
+            });
+        }
+
+        function activateVideoTab(videoTabId) {
+            $('.tab-btn-link').removeClass('current');
+            $('.tab-btn-cont').removeClass('current');
+            
+            $('[data-tab="' + videoTabId + '"]').addClass('current');
+            $('#' + videoTabId).addClass('current');
+
+            initVideoSwiper(videoTabId);
+            
+            // 다른 탭의 Swiper 파괴
+            $('.tab-btn-cont').not('#' + videoTabId).each(function() {
+                destroyVideoSwiper($(this).attr('id'));
+            });
+        }
+
+        function initVideoSwiper(videoTabId) {
+            if (!videoSwipers[videoTabId] || videoSwipers[videoTabId].destroyed) {
+                var videoSwiperContainer = $('#' + videoTabId + ' .song-detail-video-slide');
+                if (videoSwiperContainer.length) {
+                    videoSwipers[videoTabId] = new Swiper(videoSwiperContainer[0], {
+                        keyboard: {
+                            enabled: true,
+                        },
+                        watchOverflow: true,
+                        allowSlideNext: true,
+                        slidesPerView: "auto",
+                        simulateTouch: true,
+                        grabCursor: true,
+                        spaceBetween: 8,
+                        a11y: {
+                            enabled: true,
+                            prevSlideMessage: '이전 슬라이드',
+                            nextSlideMessage: '다음 슬라이드',
+                            paginationBulletMessage: '{{index}}번째 슬라이드로 이동',
+                        },
+                    });
+
+                    // focus 시 slide 이동 추가
+                    videoSwiperContainer.find('.song-detail-video-list a').off('focus').on('focus', function(){
+                        var videoSwiperSlide = $(this).closest(".song-detail-video-list");
+                        if(!videoSwiperSlide.hasClass("swiper-slide-active")){
+                            var videoFocusIdx = videoSwiperSlide.index();
+                            videoSwipers[videoTabId].slideTo(videoFocusIdx, 0, false);
+                        }
+                    });
+                }
+            }
+        }
+
+        function destroyVideoSwiper(videoTabId) {
+            if (videoSwipers[videoTabId] && !videoSwipers[videoTabId].destroyed) {
+                videoSwipers[videoTabId].destroy(true, true);
+                delete videoSwipers[videoTabId];
+            }
+        }
+
+        // 초기 활성 탭에 대한 Swiper 초기화
+        initializeVideoTabs();
+    }
+});
+
+/*========== Sing 곡 상세 - 다른 곡 도전 ==========*/
+$(function(){
+	if ($(".song-detail-other").length > 0) {
+        let singDetailOtherSwiper = undefined;
+		
+		function singDetailOtherSlider(){
+			if (singDetailOtherSwiper != undefined){ 
+				singDetailOtherSwiper.destroy();
+				singDetailOtherSwiper = undefined;
+			}
+
+			singDetailOtherSwiper = new Swiper(".song-detail-other-slide", {
+                keyboard: {
+                    enabled: true,
+                },
+                watchOverflow: true,
+                allowSlideNext: true,
+                slidesPerView: "auto",
+                simulateTouch: true,
+                grabCursor: true,
+                spaceBetween: 8,
+                a11y: {
+                    enabled: true,
+                    prevSlideMessage: '이전 슬라이드',
+                    nextSlideMessage: '다음 슬라이드',
+                    paginationBulletMessage: '{{index}}번째 슬라이드로 이동',
+                },
+			});
+
+            // focus시 slide 이동 추가
+            $(".song-detail-other-slide .swiper-slide a").off('focus').on('focus', function(){
+                var swiperSlide = $(this).closest(".swiper-slide");
+                if(!$(swiperSlide).hasClass("swiper-slide-active")){
+                    var focusIdx = $(swiperSlide).index();
+                    singDetailOtherSwiper.slideTo(focusIdx,0,false);
+                }
+            });
+		} singDetailOtherSlider();
+
+        var resizeTimerUpdate = null;
+        $(window).resize(function(){
+            clearTimeout(resizeTimerUpdate);
+            resizeTimerUpdate = setTimeout(resizeNewUpdate, 300);
+            function resizeNewUpdate() {
+                singDetailOtherSlider();
+            }
+        });
+	}
+});
+
 /*========== Sing Recording 부르기 업로드 커버이미지 설정 ==========*/
 $(function(){
 	if($(".recording-cont-box").length <= 0) return;
@@ -630,7 +769,6 @@ $(function(){
         },
     });
 });
-
 
 let cropperContainer;
 let cropperImage;
@@ -1092,29 +1230,31 @@ $(function(){
 
 /*========== Battle 왕좌의 게임 section-header 고정 ==========*/
 $(function() {
-    function checkHeight() {
-        var sectionHeaderHeight = $(".section-header").innerHeight();
-        var sectionContentHeight =  $(".section-content").innerHeight();
-        var contAreaHeight =  $(".cont-area-wrap").innerHeight();
+    if($('.battle-game-list-sec:not(.ktrot-contest-list-sec)').length > 0) {
+        function checkHeight() {
+            var sectionHeaderHeight = $(".section-header").innerHeight();
+            var sectionContentHeight =  $(".section-content").innerHeight();
+            var contAreaHeight =  $(".cont-area-wrap").innerHeight();
 
-        // 헤더 고정 기준 높이 계산
-        var fixedHeader = sectionContentHeight > window.innerHeight * 0.835 || contAreaHeight > window.innerHeight * 0.881;
-        
-        if(fixedHeader) {
-            $(".section-header").addClass("fixed");
-            $(".battle-game-list-sec .section-content").css("margin-top", sectionHeaderHeight);
-            $(".battle-game-score-popup .cont-area-wrap").css("margin-top", sectionHeaderHeight);
-        } else {
-            $(".section-header").removeClass("fixed");
-            $(".battle-game-list-sec .section-content").css("margin-top", 0);
-            $(".battle-game-score-popup .cont-area-wrap").css("margin-top", 0);
+            // 헤더 고정 기준 높이 계산
+            var fixedHeader = sectionContentHeight > window.innerHeight * 0.835 || contAreaHeight > window.innerHeight * 0.881;
+            
+            if(fixedHeader) {
+                $(".section-header").addClass("fixed");
+                $(".battle-game-list-sec .section-content").css("margin-top", sectionHeaderHeight);
+                $(".battle-game-score-popup .cont-area-wrap").css("margin-top", sectionHeaderHeight);
+            } else {
+                $(".section-header").removeClass("fixed");
+                $(".battle-game-list-sec .section-content").css("margin-top", 0);
+                $(".battle-game-score-popup .cont-area-wrap").css("margin-top", 0);
+            }
         }
-    }
-    checkHeight();
-
-    $(window).resize(function() {
         checkHeight();
-    });
+
+        $(window).resize(function() {
+            checkHeight();
+        });
+    }
 });
 
 /*========== Battle 2배 챌린지 Progress Bar ==========*/
@@ -1192,39 +1332,6 @@ $(document).ready(function () {
             animateNextSegment();
         }
         animateCurrentScore();
-    }
-});
-
-/*========== Battle 옥타브 레벨 곡 Progress Bar ==========*/
-$(document).ready(function() {
-    if ($(".process-container.default").length > 0) {
-        const $defaultBars = $('.process-container.default');
-        let activatedBars = 0;
-
-        function checkBarPosition() {
-            const scrollTop = $(window).scrollTop();
-            const triggerPosition = scrollTop + 350;
-
-            $defaultBars.each(function() {
-                const $bar = $(this);
-                if (!$bar.hasClass('on')) {
-                    const barTop = $bar.offset().top;
-
-                    if (barTop <= triggerPosition) {
-                        if ($bar.hasClass('active')) {
-                            $bar.addClass('on');
-                            activatedBars++;
-                        }
-                    }
-                }
-            });
-
-            if (activatedBars === $defaultBars.length) {
-                $(window).off('scroll', checkBarPosition);
-            }
-        }
-        $(window).on('scroll', checkBarPosition);
-        checkBarPosition(); 
     }
 });
 
@@ -1461,4 +1568,84 @@ $(function(){
             }
         });
 	}
+});
+
+/* ------------------------------------------------------------------------  
+    SINGIT BOX
+------------------------------------------------------------------------ */
+/*========== 고장 신고 ==========*/
+$(function(){
+    if($(".breakdown-popup").length <= 0) return;
+    const checkboxes = document.querySelectorAll('.breakdown-popup .basic-check-box input[type="checkbox"]');
+    const reportButton = document.querySelector('.report-btn');
+
+    function updateButtonState() {
+        const isAnyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+        
+        if (isAnyChecked) {
+            reportButton.disabled = false;
+            reportButton.classList.remove('disabled');
+        } else {
+            reportButton.disabled = true;
+            reportButton.classList.add('disabled');
+        }
+    }
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateButtonState);
+    });
+
+    // 초기 상태 설정
+    updateButtonState();
+});
+
+/* ------------------------------------------------------------------------  
+    KPOP CONTEST
+------------------------------------------------------------------------ */
+/*========== KTROT 내영상 ==========*/
+$(function() {
+    var profileTarget = $('.ktrot-my-video-sec .profile-area.song .profile-wrap .profile-wrap-inner');
+
+    if($(".ktrot-my-video-sec").length > 0) {
+        $(".ktrot-my-video-sec .profile-area.song .profile-wrap .profile-wrap-inner").click(function(e) {
+            e.preventDefault();
+            var profileList = $(this).closest('.profile-area.song .profile-list');
+            var profileCont = $(this).closest('.profile-area.scroll-tab-cont');
+
+            profileTarget.removeClass('active');
+            $(this).addClass('active');
+            profileCont.find('.bg-none').addClass('active');
+            if(profileList.hasClass('apply') && $(".ktrot-preliminary-sec").length === 0 && $(".ktrot-rematch-sec").length === 0) {
+                $(this).removeClass('active');
+                profileCont.find('.bg-none').removeClass('active');
+            }
+        });
+    }
+    $(document).mouseup(function (e){
+        if($(".ktrot-my-video-sec").length > 0){
+            if($(".profile-area.scroll-tab-cont").has(e.target).length === 0 && $(".applyPop").hasClass("open") === false){
+                profileTarget.removeClass('active');
+                profileTarget.closest('.profile-area.scroll-tab-cont').find('.bg-none').removeClass('active');
+            }
+        }
+    });
+
+    $(".ktrot-my-video-sec .profile-area.song .profile-wrap .profile-wrap-inner .thumbnail-area").click(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        modalPopup('#videoPop');
+    });
+});
+
+/*========== KTROT 예선통과자 & 패자부활전 ==========*/
+$(function(){
+    $("#rematch-btn").click(function(e) {
+        e.preventDefault();
+        $("#ktrot-rematch")[0].scrollIntoView({ behavior: 'smooth' });
+    });
+    $("#preliminary-btn").click(function(e) {
+        e.preventDefault();
+        $("#ktrot-preliminary")[0].scrollIntoView({ behavior: 'smooth' });
+    });
 });

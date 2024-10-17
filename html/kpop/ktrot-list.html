@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/battle/battle-sub.css">
+	<link rel="stylesheet" href="../../asset/css/kpop/kpop-sub.css">
+
+	<!-- JS | library -->
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
+
+	<!-- JS -->
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
+	<script src="../../asset/js/sub.js"></script>
+
+    <title>SingIt</title>
+</head>
+<body>
+	<div class="wrap">
+		<!--==================
+            * 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+            - PLAY 페이지 : play 클래스
+            - SING 페이지 : sing 클래스
+            - BATTLE 페이지 : battle 클래스
+            - MY 페이지 : my 클래스
+            - KPOP CONTEST 페이지 : kpop 클래스 
+            - 서브 페이지 : sub 클래스 
+        ======================-->
+		<div id="container" class="kpop sub">
+			<!--========== MODAL POPUP ==========-->
+			<div class="modal-popup-group">
+			</div>
+
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<script>
+				$(function () {
+					$('#header').load("../include/header.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/header.js");
+					});
+				});
+			</script>
+			<main id="main" class="sub">
+				<h2 class="main-title hidden">K-TROT 콘테스트</h2>
+                <section class="ktrot-contest-list-sec">
+                    <div class="section-header battle-game">
+                        <div class="inner">
+                            <div class="section-title-wrap">
+                                <h3 class="section-title">
+                                    전문가 평가 + 유저 투표로 결정되는 <br>
+                                    K-TROT 스타의 길
+                                </h3>
+                                <p class="sub-title content-txt2">매달 우승하고, 연말 왕중왕전에도 도전하세요!<br> 예선 탈락자도 패자부활전에서 재도전 기회가 제공됩니다.</p>
+                            </div>
+                            <div class="section-step">
+                                <ul class="content-txt2">
+                                    <li>
+                                        <span class="caption-txt1 step-tit">step 1</span>
+                                        <p class="content-txt3 step-txt">검색,선곡</p>
+                                    </li>
+                                    <li>
+                                        <span class="caption-txt1 step-tit">step 2</span>
+                                        <p class="content-txt3 step-txt">노래부르기 & 저장</p>
+                                    </li>
+                                    <li>
+                                        <span class="caption-txt1 step-tit">step 3</span>
+                                        <p class="content-txt3 step-txt">참가영상 고르기</p>
+                                    </li>
+                                    <li>
+                                        <span class="caption-txt1 step-tit">step 4</span>
+                                        <p class="content-txt3 step-txt">지원하기</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="section-notice">
+                                <p class="caption-txt1">원하시는 곡을 검색하여 레코딩 후 도전이 가능합니다.</p>
+                                <p class="caption-txt1">콘테스트 지원은 1인당 1곡으로 지원이 가능하며, 예선 기간내에 여러 번 재지원이 가능합니다.</p>
+                                <p class="caption-txt1">마지막 접수된 영상으로 최종 제출되니 제일 자신있는 곡으로, 제일 잘 부른 영상으로 지원해보세요.</p>
+                                <p class="caption-txt1">K-트롯 콘테스트의 기획의도에 맞지않는 곡일경우 콘테스트 지원 시 불이익이 있을 수 있습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-content scroll-tab-wrap">
+                        <div class="sorting-tit-wrap ktrot-sorting scroll-tab">
+                            <div class="sing-search">
+                                <div class="inner">
+                                    <div class="search-box-area">
+                                        <div class="search-input-wrap">
+                                            <a href="javascript:;" class="search-btn" aria-label="검색하기" onkeypress="if( event.keyCode == 13 ){searchData();}"><span>검색하기</span></a>
+                                            <input type="text" class="search-input" placeholder="노래제목, 아티스트, 태그로 검색해보세요!" title="검색 키워드">
+                                            <button class="search-del-btn" type="button" onclick="" aria-label="검색어 지우기"><span>검색어 지우기</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ktrot-sorting-inner">
+                                <div class="inner">
+                                    <p class="sorting-tit content-txt3">전체 <span>30명</span></p>
+                                    <a class="sorting-txt content-txt3" href="#" title="내 영상 보기" ><span>내 영상</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+                        <div class="profile-area grade ktrot scroll-tab-cont">
+                            <div class="no-result">
+                                <p class="content-txt3">K-TROT 콘테스트 도전하기 노래를 보여드려요.<br> 아직 노래가 없어요.</p>
+                            </div>
+                            <div class="inner">
+                                <ul class="profile-list-wrap">
+                                    <li class="profile-list">
+                                        <div class="profile-wrap">
+                                            <a href="#" class="profile-wrap-inner" title="K-TROT 콘테스트 도전 노래 보기">
+                                                <figure class="profile-img skeleton">
+                                                    <img class="fade-in lazyload" src="../../asset/images/temp/ktrot-temp01.jpg" alt="어느 60대 노부부이야기 임영웅">
+                                                </figure>
+                                                <div class="profile-info">
+                                                    <p class="profile-tit content-txt2 skeleton">어느 60대 노부부이야기</p>
+                                                    <span class="profile-txt content-txt3 skeleton">임영웅</span>
+                                                </div>
+                                            </a>
+                                            <div class="profile-bottom content-txt2">
+                                                <div class="sing-grade-area">
+                                                    <div class="sing-grade-wrap skeleton">
+                                                        <span class="grade-tit content-txt3">레벨</span>
+                                                        <!--==================
+                                                            * 레벨 단계 : grade-status 한테 클래스 추가
+                                                            - 1레벨 : grade1
+                                                            - 2레벨 : grade2
+                                                            - 3레벨 : grade3
+                                                            - 4레벨 : grade4
+                                                            - 5레벨 : grade5
+                                                        ======================-->
+                                                        <ul class="grade-status content-txt2 grade5">
+                                                            <li class="grade"><span>1레벨</span></li>
+                                                            <li class="grade"><span>2레벨</span></li>
+                                                            <li class="grade"><span>3레벨</span></li>
+                                                            <li class="grade"><span>4레벨</span></li>
+                                                            <li class="grade"><span>5레벨</span></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="sing-grade-wrap skeleton">
+                                                        <span class="grade-tit content-txt3">템포</span>
+                                                        <!--==================
+                                                            * 템포 단계 : grade-status 한테 클래스 추가
+                                                            - 1템포 : grade1
+                                                            - 2템포 : grade2
+                                                            - 3템포 : grade3
+                                                            - 4템포 : grade4
+                                                            - 5템포 : grade5
+                                                        ======================-->
+                                                        <ul class="grade-status content-txt2 grade5">
+                                                            <li class="grade"><span>1템포</span></li>
+                                                            <li class="grade"><span>2템포</span></li>
+                                                            <li class="grade"><span>3템포</span></li>
+                                                            <li class="grade"><span>4템포</span></li>
+                                                            <li class="grade"><span>5템포</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="btn-wrap profile-btn-wrap">
+                                                    <button type="button" class="basic-btn small line pink sing" aria-label="부르기" ><span>부르기</span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="profile-list">
+                                        <div class="profile-wrap">
+                                            <a href="#" class="profile-wrap-inner" title="K-TROT 콘테스트 도전 노래 보기">
+                                                <figure class="profile-img skeleton">
+                                                    <img class="fade-in lazyload" src="../../asset/images/temp/ktrot-temp02.jpg" alt="그대가 웃으면 좋아 박지현">
+                                                </figure>
+                                                <div class="profile-info">
+                                                    <p class="profile-tit content-txt2 skeleton">그대가 웃으면 좋아</p>
+                                                    <span class="profile-txt content-txt3 skeleton">박지현</span>
+                                                </div>
+                                            </a>
+                                            <div class="profile-bottom content-txt2">
+                                                <div class="sing-grade-area">
+                                                    <div class="sing-grade-wrap skeleton">
+                                                        <span class="grade-tit content-txt3">레벨</span>
+                                                        <!--==================
+                                                            * 레벨 단계 : grade-status 한테 클래스 추가
+                                                            - 1레벨 : grade1
+                                                            - 2레벨 : grade2
+                                                            - 3레벨 : grade3
+                                                            - 4레벨 : grade4
+                                                            - 5레벨 : grade5
+                                                        ======================-->
+                                                        <ul class="grade-status content-txt2 grade2">
+                                                            <li class="grade"><span>1레벨</span></li>
+                                                            <li class="grade"><span>2레벨</span></li>
+                                                            <li class="grade"><span>3레벨</span></li>
+                                                            <li class="grade"><span>4레벨</span></li>
+                                                            <li class="grade"><span>5레벨</span></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="sing-grade-wrap skeleton">
+                                                        <span class="grade-tit content-txt3">템포</span>
+                                                        <!--==================
+                                                            * 템포 단계 : grade-status 한테 클래스 추가
+                                                            - 1템포 : grade1
+                                                            - 2템포 : grade2
+                                                            - 3템포 : grade3
+                                                            - 4템포 : grade4
+                                                            - 5템포 : grade5
+                                                        ======================-->
+                                                        <ul class="grade-status content-txt2 grade2">
+                                                            <li class="grade"><span>1템포</span></li>
+                                                            <li class="grade"><span>2템포</span></li>
+                                                            <li class="grade"><span>3템포</span></li>
+                                                            <li class="grade"><span>4템포</span></li>
+                                                            <li class="grade"><span>5템포</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="btn-wrap profile-btn-wrap">
+                                                    <button type="button" class="basic-btn small line pink sing" aria-label="부르기" ><span>부르기</span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="profile-list">
+                                        <div class="profile-wrap">
+                                            <a href="#" class="profile-wrap-inner" title="K-TROT 콘테스트 도전 노래 보기">
+                                                <figure class="profile-img skeleton">
+                                                    <img class="fade-in lazyload" src="../../asset/images/temp/ktrot-temp03.jpg" alt="니가 왜 거기서 나와 (Narr. 고은아) 영탁">
+                                                </figure>
+                                                <div class="profile-info">
+                                                    <p class="profile-tit content-txt2 skeleton">니가 왜 거기서 나와 (Narr. 고은아)</p>
+                                                    <span class="profile-txt content-txt3 skeleton">영탁</span>
+                                                </div>
+                                            </a>
+                                            <div class="profile-bottom content-txt2">
+                                                <div class="sing-grade-area">
+                                                    <div class="sing-grade-wrap skeleton">
+                                                        <span class="grade-tit content-txt3">레벨</span>
+                                                        <!--==================
+                                                            * 레벨 단계 : grade-status 한테 클래스 추가
+                                                            - 1레벨 : grade1
+                                                            - 2레벨 : grade2
+                                                            - 3레벨 : grade3
+                                                            - 4레벨 : grade4
+                                                            - 5레벨 : grade5
+                                                        ======================-->
+                                                        <ul class="grade-status content-txt2 grade3">
+                                                            <li class="grade"><span>1레벨</span></li>
+                                                            <li class="grade"><span>2레벨</span></li>
+                                                            <li class="grade"><span>3레벨</span></li>
+                                                            <li class="grade"><span>4레벨</span></li>
+                                                            <li class="grade"><span>5레벨</span></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="sing-grade-wrap skeleton">
+                                                        <span class="grade-tit content-txt3">템포</span>
+                                                        <!--==================
+                                                            * 템포 단계 : grade-status 한테 클래스 추가
+                                                            - 1템포 : grade1
+                                                            - 2템포 : grade2
+                                                            - 3템포 : grade3
+                                                            - 4템포 : grade4
+                                                            - 5템포 : grade5
+                                                        ======================-->
+                                                        <ul class="grade-status content-txt2 grade3">
+                                                            <li class="grade"><span>1템포</span></li>
+                                                            <li class="grade"><span>2템포</span></li>
+                                                            <li class="grade"><span>3템포</span></li>
+                                                            <li class="grade"><span>4템포</span></li>
+                                                            <li class="grade"><span>5템포</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="btn-wrap profile-btn-wrap">
+                                                    <button type="button" class="basic-btn small line pink sing" aria-label="부르기" ><span>부르기</span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="profile-list">
+                                        <div class="profile-wrap">
+                                            <a href="#" class="profile-wrap-inner" title="K-TROT 콘테스트 도전 노래 보기">
+                                                <figure class="profile-img skeleton">
+                                                    <img class="fade-in lazyload" src="../../asset/images/temp/ktrot-temp04.jpg" alt="안동역에서 진성">
+                                                </figure>
+                                                <div class="profile-info">
+                                                    <p class="profile-tit content-txt2 skeleton">안동역에서</p>
+                                                    <span class="profile-txt content-txt3 skeleton">진성</span>
+                                                </div>
+                                            </a>
+                                            <div class="profile-bottom content-txt2">
+                                                <div class="sing-grade-area">
+                                                    <div class="sing-grade-wrap skeleton">
+                                                        <span class="grade-tit content-txt3">레벨</span>
+                                                        <!--==================
+                                                            * 레벨 단계 : grade-status 한테 클래스 추가
+                                                            - 1레벨 : grade1
+                                                            - 2레벨 : grade2
+                                                            - 3레벨 : grade3
+                                                            - 4레벨 : grade4
+                                                            - 5레벨 : grade5
+                                                        ======================-->
+                                                        <ul class="grade-status content-txt2 grade3">
+                                                            <li class="grade"><span>1레벨</span></li>
+                                                            <li class="grade"><span>2레벨</span></li>
+                                                            <li class="grade"><span>3레벨</span></li>
+                                                            <li class="grade"><span>4레벨</span></li>
+                                                            <li class="grade"><span>5레벨</span></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="sing-grade-wrap skeleton">
+                                                        <span class="grade-tit content-txt3">템포</span>
+                                                        <!--==================
+                                                            * 템포 단계 : grade-status 한테 클래스 추가
+                                                            - 1템포 : grade1
+                                                            - 2템포 : grade2
+                                                            - 3템포 : grade3
+                                                            - 4템포 : grade4
+                                                            - 5템포 : grade5
+                                                        ======================-->
+                                                        <ul class="grade-status content-txt2 grade3">
+                                                            <li class="grade"><span>1템포</span></li>
+                                                            <li class="grade"><span>2템포</span></li>
+                                                            <li class="grade"><span>3템포</span></li>
+                                                            <li class="grade"><span>4템포</span></li>
+                                                            <li class="grade"><span>5템포</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="btn-wrap profile-btn-wrap">
+                                                    <button type="button" class="basic-btn small line pink sing" aria-label="부르기" ><span>부르기</span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="profile-list">
+                                        <div class="profile-wrap">
+                                            <a href="#" class="profile-wrap-inner" title="K-TROT 콘테스트 도전 노래 보기">
+                                                <figure class="profile-img skeleton">
+                                                    <img class="fade-in lazyload" src="../../asset/images/temp/ktrot-temp05.jpg" alt="산다는 건 (Cheer Up) 홍진경">
+                                                </figure>
+                                                <div class="profile-info">
+                                                    <p class="profile-tit content-txt2 skeleton">산다는 건 (Cheer Up)</p>
+                                                    <span class="profile-txt content-txt3 skeleton">홍진경</span>
+                                                </div>
+                                            </a>
+                                            <div class="profile-bottom content-txt2">
+                                                <div class="sing-grade-area">
+                                                    <div class="sing-grade-wrap skeleton">
+                                                        <span class="grade-tit content-txt3">레벨</span>
+                                                        <!--==================
+                                                            * 레벨 단계 : grade-status 한테 클래스 추가
+                                                            - 1레벨 : grade1
+                                                            - 2레벨 : grade2
+                                                            - 3레벨 : grade3
+                                                            - 4레벨 : grade4
+                                                            - 5레벨 : grade5
+                                                        ======================-->
+                                                        <ul class="grade-status content-txt2 grade3">
+                                                            <li class="grade"><span>1레벨</span></li>
+                                                            <li class="grade"><span>2레벨</span></li>
+                                                            <li class="grade"><span>3레벨</span></li>
+                                                            <li class="grade"><span>4레벨</span></li>
+                                                            <li class="grade"><span>5레벨</span></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="sing-grade-wrap skeleton">
+                                                        <span class="grade-tit content-txt3">템포</span>
+                                                        <!--==================
+                                                            * 템포 단계 : grade-status 한테 클래스 추가
+                                                            - 1템포 : grade1
+                                                            - 2템포 : grade2
+                                                            - 3템포 : grade3
+                                                            - 4템포 : grade4
+                                                            - 5템포 : grade5
+                                                        ======================-->
+                                                        <ul class="grade-status content-txt2 grade3">
+                                                            <li class="grade"><span>1템포</span></li>
+                                                            <li class="grade"><span>2템포</span></li>
+                                                            <li class="grade"><span>3템포</span></li>
+                                                            <li class="grade"><span>4템포</span></li>
+                                                            <li class="grade"><span>5템포</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="btn-wrap profile-btn-wrap">
+                                                    <button type="button" class="basic-btn small line pink sing" aria-label="부르기" ><span>부르기</span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="profile-list">
+                                        <div class="profile-wrap">
+                                            <a href="#" class="profile-wrap-inner" title="K-TROT 콘테스트 도전 노래 보기">
+                                                <figure class="profile-img skeleton">
+                                                    <img class="fade-in lazyload" src="../../asset/images/temp/ktrot-temp06.jpg" alt="남자는 말합니다 장민호">
+                                                </figure>
+                                                <div class="profile-info">
+                                                    <p class="profile-tit content-txt2 skeleton">남자는 말합니다</p>
+                                                    <span class="profile-txt content-txt3 skeleton">장민호</span>
+                                                </div>
+                                            </a>
+                                            <div class="profile-bottom content-txt2">
+                                                <div class="sing-grade-area">
+                                                    <div class="sing-grade-wrap skeleton">
+                                                        <span class="grade-tit content-txt3">레벨</span>
+                                                        <!--==================
+                                                            * 레벨 단계 : grade-status 한테 클래스 추가
+                                                            - 1레벨 : grade1
+                                                            - 2레벨 : grade2
+                                                            - 3레벨 : grade3
+                                                            - 4레벨 : grade4
+                                                            - 5레벨 : grade5
+                                                        ======================-->
+                                                        <ul class="grade-status content-txt2 grade3">
+                                                            <li class="grade"><span>1레벨</span></li>
+                                                            <li class="grade"><span>2레벨</span></li>
+                                                            <li class="grade"><span>3레벨</span></li>
+                                                            <li class="grade"><span>4레벨</span></li>
+                                                            <li class="grade"><span>5레벨</span></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="sing-grade-wrap skeleton">
+                                                        <span class="grade-tit content-txt3">템포</span>
+                                                        <!--==================
+                                                            * 템포 단계 : grade-status 한테 클래스 추가
+                                                            - 1템포 : grade1
+                                                            - 2템포 : grade2
+                                                            - 3템포 : grade3
+                                                            - 4템포 : grade4
+                                                            - 5템포 : grade5
+                                                        ======================-->
+                                                        <ul class="grade-status content-txt2 grade3">
+                                                            <li class="grade"><span>1템포</span></li>
+                                                            <li class="grade"><span>2템포</span></li>
+                                                            <li class="grade"><span>3템포</span></li>
+                                                            <li class="grade"><span>4템포</span></li>
+                                                            <li class="grade"><span>5템포</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="btn-wrap profile-btn-wrap">
+                                                    <button type="button" class="basic-btn small line pink sing" aria-label="부르기" ><span>부르기</span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+				
+			</main>
+
+			<!--========== FULL PAGE POPUP ==========-->
+            <div class="full-popup-group">
+			</div>
+
+            <!--========== TOAST POPUP ==========-->
+			<div class="toast-popup-group">
+			</div>
+			
+		</div>
+	</div>
+</body>
+</html>

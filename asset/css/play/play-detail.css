@@ -1,4 +1,5 @@
-@charset "utf-8";/* Info
+@charset "utf-8";
+/* Info
  ========================================================================== */
 /**
  * 1. Writer: Sunhyeong Kim. (Weaverloft Corp.)
@@ -9,10 +10,11 @@
 /* ------------------------------------------------------------------------ 
 PLAY SOLO
 ------------------------------------------------------------------------ */
+.play.detail .header-sub {margin-top: 0.75em; }
 .play.detail .header-sub ul li.header-back button { background-image: url('../../images/common/icon-gnb-prev-white.svg'); } 
 /*========== .play-vid-sec ==========*/
 /* .play-vid-box 공통 */
-.play-vid-sec .play-vid-box { position: fixed; top: 0; left: 50%; transform: translateX(-50%); display: flex; justify-content: center; background-color: #000; width: 100%; max-width: 750px; overflow: hidden; z-index: 51; } 
+.play-vid-sec .play-vid-box { position: fixed; top: 0; left: 50%; transform: translateX(-50%); display: flex; justify-content: center; background-color: #000; width: 100%; max-width: 750px; overflow: hidden; z-index: 51; will-change: height;} 
 .play-vid-sec .play-vid-wrap { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; display: flex; } 
 .play-vid-sec .play-vid-wrap.horizontal { width: auto; max-width: 100%; height: 100%; } 
 .play-vid-sec.play-duet-ex .play-vid-wrap.horizontal { width: 100% !important; } 
@@ -20,21 +22,7 @@ PLAY SOLO
 .play-vid-sec .play-vid-box:not(.show) .play-vid-wrap .play-dimmed-layer, .play-vid-sec.full .play-vid-wrap .play-dimmed-layer { opacity: 0; }
 .play-vid-sec .play-vid-wrap .play-vid { width: 100%; height: 100%;pointer-events: none; } 
 .play-vid-sec .play-vid-wrap .play-vid .play-cont { width: 100%; height: 100%; object-fit: cover; object-position: center; } 
-/* .vid-indicator-wrap 공통 */
-.play-vid-sec .vid-indicator-wrap .vid-play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); display: block; width: 3.625em; aspect-ratio: 1 / 1; font-size: 1rem; background-image: url("../../images/common/icon-vid-play-btn.svg"); background-position: center; background-repeat: no-repeat; background-size: contain; } 
-.play-vid-sec .play-vid-box .vid-indicator-wrap .pause-btn { display: none; background-image: url("../../images/common/icon-vid-pause-btn.svg"); } 
-.play-vid-sec .play-vid-box.play .vid-indicator-wrap .play-btn { display: none; } 
-.play-vid-sec .play-vid-box.play .vid-indicator-wrap .pause-btn { display: block; } 
-.play-vid-sec .vid-indicator-wrap .full-vid-btn { position: absolute; bottom: 0.75em; right: 1em; display: block; width: 1.5em; aspect-ratio: 1 / 1; font-size: 1rem; background-image: url("../../images/common/icon-fullpage.svg"); background-position: center; background-repeat: no-repeat; background-size: contain; } 
-.play-vid-sec .vid-indicator-wrap .vid-timeline-wrap { position: absolute; bottom: 1.16667em; left: 1em; color: rgba(255, 255, 255, 0.6); } 
-.play-vid-sec .vid-indicator-wrap .vid-timeline-wrap .current-time { color: rgba(255, 255, 255, 1); } 
-/* .progress-bar-wrap 공통 */
-.play-vid-sec .progress-bar-wrap { position: fixed; top: 0; left: 50%; width: 100%; max-width: 750px; line-height: 0; transform: translate(-50%, -100%); z-index: 53; } 
-.play-vid-sec .progress { width: 100%; height: 2px; background-color: #666; outline: none; -webkit-appearance: none; accent-color: var(--main-point-color); } 
-.play-vid-sec .progress-bar-wrap .progress::-webkit-slider-thumb { -webkit-appearance: none; height: 0; width: 0; border-radius: 50%; background: var(--main-point-color); cursor: pointer; transition: 300ms; -webkit-transition: 300ms; -moz-transition: 300ms; -ms-transition: 300ms; -o-transition: 300ms; } 
-.play-vid-sec .progress-bar-wrap .progress::-moz-range-thumb { height: 0; width: 0; border-radius: 50%; background: var(--main-point-color); cursor: pointer; transition: 300ms; -webkit-transition: 300ms; -moz-transition: 300ms; -ms-transition: 300ms; -o-transition: 300ms; } 
-.play-vid-sec .progress-bar-wrap.hover .progress::-webkit-slider-thumb { height: 10px; width: 10px; } 
-.play-vid-sec .progress-bar-wrap.hover .progress::-moz-range-thumb { height: 10px; width: 10px; } 
+
 /* full 스크린시 */
 .play-vid-sec.full .play-vid-box {height: 100% !important; z-index: 52; } 
 .play-vid-sec.full .play-vid-wrap {height: auto;max-height: 100%;max-width: 100%; } 
@@ -47,11 +35,6 @@ PLAY SOLO
 .play-vid-sec.full .vid-indicator-wrap .full-vid-btn { right: 16px; bottom: 45px; } 
 .play-vid-sec.full .progress-bar-wrap { top: auto !important; bottom: 24px; width: calc(100% - 32px); max-width: 718px; transition: opacity 400ms; } 
 .play-vid-sec.full .play-vid-box:not(.show) + .progress-bar-wrap { opacity: 0; pointer-events: none;}
-
-@media screen and (min-width: 421px){
- .play-vid-sec .vid-indicator-wrap .vid-play-btn { font-size: clamp(16px, 4.267vw, 20px); } 
- .play-vid-sec .vid-indicator-wrap .full-vid-btn { font-size: clamp(16px, 4.267vw, 20px); } 
- }
 
 /* .play-vid-cont 공통 */
 .play-vid-sec .play-vid-cont { position: relative; } 
@@ -75,8 +58,8 @@ PLAY SOLO
 .play-vid-sec .play-vid-cont .vid-menu-btn { position: absolute; top: 1.25em; right: 0; width: 2.5em; aspect-ratio: 1 / 1; font-size: 1rem; background-image: url('../../images/common/icon-menu-three-dot.svg'); background-position: center; background-repeat: no-repeat; background-size: 66.7% 66.7%; } 
 
 @media screen and (min-width: 421px){
- .play-vid-sec .play-vid-cont .vid-menu-btn { font-size: clamp(16px, 4.267vw, 20px); } 
- }
+    .play-vid-sec .play-vid-cont .vid-menu-btn { font-size: clamp(16px, 4.267vw, 20px); } 
+}
 
 /*========== .play-vid-comment-sec ==========*/
 /* .profile-area */
@@ -90,9 +73,9 @@ PLAY SOLO
 .play-vid-comment-sec .profile-area .profile-btn-wrap .basic-btn span { font-size: 0.750rem; line-height: 1; padding: 0.41667em 0; } 
 
 @media screen and (min-width: 421px){
- .play-vid-comment-sec { font-size: clamp(16px, 4.267vw, 20px); } 
- .play-vid-comment-sec .profile-area .profile-btn-wrap .basic-btn span { font-size: clamp(12px, 3.2vw, 15px); } 
- }
+    .play-vid-comment-sec { font-size: clamp(16px, 4.267vw, 20px); } 
+    .play-vid-comment-sec .profile-area .profile-btn-wrap .basic-btn span { font-size: clamp(12px, 3.2vw, 15px); } 
+}
 
 /* .comment-preview-box */
 .play-vid-comment-sec .comment-preview-box { margin-top: 1.25em; padding: 1em 1.25em 1.25em 1em; font-size: 1rem; border-radius: 0.5em; background-color: #F5F5F5; cursor: pointer; transition: 300ms; } 
@@ -105,13 +88,13 @@ PLAY SOLO
 .play-vid-comment-sec .comment-preview-box .no-comment-preview-wrap p { flex-grow: 1; padding: 0.5em 1.0833em; color: #333; font-weight: 400; font-variation-settings: 'wght' 400; border-radius: 1.25em; background-color: #ddd; } 
 
 @media screen and (min-width: 421px){
- .play-vid-comment-sec .comment-preview-box { font-size: clamp(16px, 4.267vw, 20px); } 
- .play-vid-comment-sec .comment-preview-box .comment-preview-wrap, .play-vid-comment-sec .comment-preview-box .no-comment-preview-wrap { font-size: clamp(16px, 4.267vw, 20px); } 
- }
+    .play-vid-comment-sec .comment-preview-box { font-size: clamp(16px, 4.267vw, 20px); } 
+    .play-vid-comment-sec .comment-preview-box .comment-preview-wrap, .play-vid-comment-sec .comment-preview-box .no-comment-preview-wrap { font-size: clamp(16px, 4.267vw, 20px); } 
+}
 
 @media (hover:hover){
- .play-vid-comment-sec .comment-preview-box:hover { background-color: #efefef; } 
- }
+    .play-vid-comment-sec .comment-preview-box:hover { background-color: #efefef; } 
+}
 
 
 /*========== .vid-bottom-sec(관련 영상, 추천 영상 공통) ==========*/
@@ -119,8 +102,8 @@ PLAY SOLO
 .vid-bottom-sec .section-title { margin-bottom: 0.75em; } 
 
 @media screen and (min-width: 421px){
- .vid-bottom-sec { font-size: clamp(16px, 4.267vw, 20px); } 
- }
+    .vid-bottom-sec { font-size: clamp(16px, 4.267vw, 20px); } 
+}
 
 /*========== .related-vid-sec (관련 영상) ==========*/
 .related-vid-sec .related-vid-list { cursor: pointer; } 
@@ -132,11 +115,8 @@ PLAY SOLO
 .related-vid-sec .related-vid-list .song-by-info .profile-name { overflow: hidden; flex-grow: 1; line-height: 1; white-space: nowrap; text-overflow: ellipsis; } 
 
 @media screen and (min-width: 421px){
- .vid-bottom-sec { font-size: clamp(16px, 4.267vw, 20px); } 
- }
-
-/*========== .play-bottom-btn-wrap ==========*/
-.play-bottom-btn-wrap .basic-btn span { display: inline-block; padding-left: 1.5em; line-height: 1.25; background-image: url("../../images/sub/play/icon-mic-btn.svg"); background-position: left center; background-repeat: no-repeat; background-size: 1.25em auto; } 
+    .vid-bottom-sec { font-size: clamp(16px, 4.267vw, 20px); } 
+}
 
 /* ------------------------------------------------------------------------ 
 PLAY DUET
@@ -159,8 +139,8 @@ PLAY DUET
 .play-duet-sec + .play-vid-comment-sec .comment-preview-box { margin-top: 0; } 
 
 @media screen and (min-width: 421px){
- .play-duet-sec .profile-area .profile-btn-wrap .basic-btn span { font-size: clamp(12px, 3.2vw, 15px); } 
- }
+    .play-duet-sec .profile-area .profile-btn-wrap .basic-btn span { font-size: clamp(12px, 3.2vw, 15px); } 
+}
 
 /*========== .duet-related-vid-sec ==========*/
 .duet-related-vid-sec .related-vid-list .thumbnail-area { aspect-ratio: 1 / 1; } 

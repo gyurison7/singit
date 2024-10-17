@@ -34,7 +34,7 @@ $(function () {
 /*========== Tab Menu ==========*/
 $(function(){
 	if ($(".tab-container").length > 0) {
-		$('ul.tab-menu li.tab-link a').click(function (e) {
+		$('.tab-menu:not(.non-func-tab) li.tab-link a').click(function (e) {
 			e.preventDefault();
 			var tab_id = $(this).parent('li').attr('data-tab');
 			$(this).parent('li').siblings('li').removeClass('current');
@@ -42,8 +42,8 @@ $(function(){
 			$("#" + tab_id).addClass('current').siblings().removeClass('current');
 		});
 		
-		$(".tab-menu:not(.tab-menu02) li.tab-link a").click(function () {
-			var ul = $(this).closest(".tab-menu:not(.tab-menu02)");
+		$(".tab-menu:not(.non-func-tab) li.tab-link a").click(function () {
+			var ul = $(this).closest(".tab-menu:not(.non-func-tab)");
 			var idx = $(this).parent().index() - 1;
 			var position = $(ul).find("li.tab-link:first").position();
 			var totalWidth = 0;
@@ -58,37 +58,37 @@ $(function(){
 			} else {
 				var posLeft = position.left;
 			}
-			$(".tab-menu:not(.tab-menu02) li.slider").animate({
+			$(".tab-menu:not(.non-func-tab) li.slider").animate({
 				"left": posLeft + idxWidth,
 			},200);
 		});
 		/* 첫 세팅 */
-		var actPosition = $(".tab-menu:not(.tab-menu02) .current").position();
-		$(".tab-menu:not(.tab-menu02) li.slider").css({
+		var actPosition = $(".tab-menu .current").position();
+		$(".tab-menu li.slider").css({
 			"left": actPosition.left,
 			"opacity": 1
 		});
 		var resizeTimer;
 		$(window).resize(function(){
 			clearTimeout(resizeTimer);
-			$(".tab-menu:not(.tab-menu02) li.slider").css("opacity", 0); // 리사이즈가 시작될 때 opacity를 0으로 설정
+			$(".tab-menu li.slider").css("opacity", 0); // 리사이즈가 시작될 때 opacity를 0으로 설정
 
 			resizeTimer = setTimeout(function(){
-				var actPosition = $(".tab-menu:not(.tab-menu02) li.tab-link:first").position();
-				var actIdx = $(".tab-menu:not(.tab-menu02) li.current").index() - 1;
+				var actPosition = $(".tab-menu li.tab-link:first").position();
+				var actIdx = $(".tab-menu li.current").index() - 1;
 				var actTotalWidth = 0;
-				for(var a = 0; a < $(".tab-menu:not(.tab-menu02) li.tab-link").length; a++){
+				for(var a = 0; a < $(".tab-menu li.tab-link").length; a++){
 					if(a == actIdx){
 						var actIdxWidth = actTotalWidth;
 					}
-					actTotalWidth += $(".tab-menu:not(.tab-menu02) li.tab-link").eq(a).width();
+					actTotalWidth += $(".tab-menu li.tab-link").eq(a).width();
 				}
 				if(actTotalWidth > $(window).width()){
 					var actPosLeft = 0;
 				} else {
 					var actPosLeft = actPosition.left;
 				}
-				$(".tab-menu:not(.tab-menu02) li.slider").css({
+				$(".tab-menu li.slider").css({
 					"left": actPosLeft + actIdxWidth,
 					"opacity": 1 // 리사이즈가 멈춘 후에 opacity를 1로 변경
 				});
@@ -479,9 +479,19 @@ $(function() {
 	$(".sheet-check-list li a").click(function() {
 		const selectedTxt = $(this).text();
 
-		$(".sheet-check-list li a").removeClass("active");
-		$(this).toggleClass("active");
-		$(".selected-txt").text(selectedTxt)
+		if($(".bottom-sheet-wrap.check").length >= 2){
+			// select sheet가 복수개일때
+			const sheetName = $(this).closest(".bottom-sheet-wrap.check").attr("data-sheet");
+			const thisSheet = $('.bottom-sheet-wrap.check[data-sheet="' + sheetName + '"]');
+			$(thisSheet).find(".sheet-check-list li a").removeClass("active");
+			$(this).toggleClass("active");
+			$('.select-btn[data-sheet="' + sheetName + '"] .selected-txt').text(selectedTxt);
+		} else {
+			// select sheet가 한개일때
+			$(".sheet-check-list li a").removeClass("active");
+			$(this).toggleClass("active");
+			$(".selected-txt").text(selectedTxt);
+		}
 	});
 });
 
@@ -640,12 +650,13 @@ $(function(){
 
 /*========== 싱코인 선물하기 팝업 ==========*/
 $(function(){
-	if($(".giftScPop").length <= 0) return;
+	if($(".gift-sc-cont").length <= 0) return;
 	const minusBtn = document.querySelector('.minus-gift-sc-btn');
 	const plusBtn = document.querySelector('.plus-gift-sc-btn');
 	const input = document.querySelector('.gift-sc-input');
-	const allCheckBox = document.querySelector('#gift-all-check-box');
+	let allCheckBox;
 	const currentScSpan = document.querySelector('.current-sc.num');
+	if($("#gift-all-check-box").length > 0) allCheckBox = document.querySelector('#gift-all-check-box');
 
 	// 현재 보유 코인 수
 	let currentSc = parseInt(currentScSpan.textContent.replace(/,/g, ''));
@@ -663,7 +674,9 @@ $(function(){
 	// 입력값 업데이트 함수
 	function updateInput(value) {
 		input.value = formatNumber(value);
-		checkAllGiftStatus(value);
+		if($("#gift-all-check-box").length > 0) {
+			checkAllGiftStatus(value);
+		}
 	}
 
 	// 모두 주기 체크박스 상태 확인 및 업데이트
@@ -709,11 +722,14 @@ $(function(){
 	input.addEventListener('blur', handleInputChange);
 
 	// '모두 주기' 체크박스 이벤트
-	allCheckBox.addEventListener('change', (e) => {
-		if (e.target.checked) {
-			updateInput(currentSc);
-		}
-	});
+	if($("#gift-all-check-box").length > 0) {
+		allCheckBox.addEventListener('change', (e) => {
+			if (e.target.checked) {
+				updateInput(currentSc);
+			}
+		});
+	}
+	
 });
 
 /*========== Song Type Tab + Flowing Text ==========*/
@@ -768,4 +784,76 @@ $(function(){
 		handleFlowingText();
 	});
 	handleFlowingText();
+});
+
+/*========== Ring Graph + 스크롤 ==========*/
+$(function(){
+	if($(".ring-graph-container.scroll").length <= 0) return;
+
+	// 스크롤 되는 대상에 대해 정의
+	let $modalContainer = $(window);
+	if($(".full-popup-group .modal.full").length > 0){
+		$modalContainer = $('.full-popup-group .full-modal-cont');
+	}
+
+	// (1) 첫 화면 이벤트
+	let modalScrollTop = 0;
+	$(".ring-graph-container.scroll").each(function(index, item) {
+		let ringTop = $(item).position().top;
+		if (modalScrollTop >= ringTop - ($modalContainer.height() / 2)) {
+			$(item).removeClass("scroll");
+		}
+	});
+
+	// (2) 스크롤 이벤트
+	$modalContainer.on('scroll', function() {
+		modalScrollTop = $(this).scrollTop();
+		$(".ring-graph-container.scroll", this).each(function(index, item) {
+			let ringTop = $(item).position().top;
+			if (modalScrollTop >= ringTop - ($modalContainer.height() / 2)) {
+				$(item).removeClass("scroll");
+			}
+		});
+	});
+});
+
+/*========== PIN Code ==========*/
+$(function(){
+	if($(".pin-code").length <= 0) return;
+	const pinContainers = document.querySelectorAll(".pin-code");
+
+	pinContainers.forEach(function(pinContainer){
+		pinContainer.addEventListener('keyup', function (event) {
+			var target = event.srcElement;
+			var maxLength = parseInt(target.attributes["maxlength"].value, 10);
+			var myLength = target.value.length;
+	
+			if (myLength >= maxLength) {
+				var next = target;
+				while (next = next.nextElementSibling) {
+					if (next == null) break;
+					if (next.tagName.toLowerCase() == "input") {
+						next.focus();
+						break;
+					}
+				}
+			}
+	
+			if (myLength === 0) {
+				var next = target;
+				while (next = next.previousElementSibling) {
+					if (next == null) break;
+					if (next.tagName.toLowerCase() == "input") {
+						next.focus();
+						break;
+					}
+				}
+			}
+		}, false);
+	
+		pinContainer.addEventListener('keydown', function (event) {
+			var target = event.srcElement;
+			target.value = "";
+		}, false);
+	});
 });

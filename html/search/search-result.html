@@ -1,0 +1,1462 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/search.css">
+
+	<!-- JS | library -->
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
+
+	<!-- JS -->
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
+
+    <title>SingIt</title>
+</head>
+<body>
+	<div id="wrap">
+		<!--==================
+		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+		- PLAY 페이지 : play 클래스
+		- SING 페이지 : sing 클래스
+		- BATTLE 페이지 : battle 클래스
+		- MY 페이지 : my 클래스
+		- 서브 페이지 : sub 클래스 
+		- 검색페이지 : search 클래스
+        ======================-->
+		<div id="container" class="search">
+
+			<!--========== MODAL POPUP ==========-->
+			<div class="modal-popup-group">
+				<!-- 노래 신청하기 팝업 (#requestPop) -->
+				<div id="requestPop" class="modal msg requestPop">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">노래 신청</h3>
+								</div>
+								<div class="modal-txt-wrap">
+									<div class="input-box-wrap content-txt2">
+										<div class="input-box line text label-box">
+											<!-- 2024/09/24 input-label에 클래스 on 제거 -->
+											<p class="input-label caption-txt1">아티스트</p>
+											<input class="label-input" type="text" placeholder="아티스트 이름을 입력해주세요.">
+											<!-- 2024/09/24 line-focus에 클래스 on 제거 -->
+											<span class="line-focus"></span>
+										</div>
+										<div class="error-wrap">
+											<p class="error">에러메세지는 이렇게 뜹니다.</p>
+										</div>
+									</div>
+									<div class="input-box-wrap content-txt2">
+										<div class="input-box line text label-box">
+											<!-- 2024/09/24 input-label에 클래스 on 제거 -->
+											<p class="input-label caption-txt1">노래제목</p>
+											<input class="label-input" type="text" placeholder="노래제목을 입력해주세요.">
+											<!-- 2024/09/24 line-focus에 클래스 on 제거 -->
+											<span class="line-focus"></span>
+										</div>
+										<div class="error-wrap">
+											<p class="error">에러메세지는 이렇게 뜹니다.</p>
+										</div>
+									</div>
+									<p class="modal-sub-tit">신청하신 곡은 담당자 확인 후<br>빠른 시일에 추가될 수 있도록 하겠습니다.</p>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								 <a href="javascript:;" onclick="modalPopupClose('#requestPop');" class="basic-btn gray" tabindex="1">취소</a>
+								<a href="javascript:;" onclick="modalPopupClose('#requestPop'); toastPopup('requestComplete')" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+			
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<script>
+				$(function () {
+					$('#header').load("../include/header.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/header.js");
+					});
+				});
+			</script>
+			<main id="main" class="sub">
+				<h2 class="main-title hidden">검색 결과</h2>
+				<section class="section search-sec search-result-sec">
+					<h3 class="section-title hidden">검색 결과</h3>
+					<div class="section-content search-result-cont">
+						<div class="tab-container scroll-tab-wrap">
+							<ul class="tab-menu scroll-tab">
+								<li class="slider"></li>
+								<li class="tab-link current" data-tab="tab-1"><a href="javascript:;"><span>전체</span></a></li>
+								<li class="tab-link" data-tab="tab-2"><a href="javascript:;"><span>노래</span></a></li>
+								<li class="tab-link" data-tab="tab-3"><a href="javascript:;"><span>레코딩</span></a></li>
+								<li class="tab-link" data-tab="tab-4"><a href="javascript:;"><span>유저</span></a></li>
+							</ul>
+							<div class="tab-content-wrap scroll-tab-cont">
+								<div id="tab-1" class="tab-content search-result-list current">
+									<article class="section-content search-sing-cont">
+										<div class="inner">
+											<h4 class="sub-cont-tit content-txt2"><a href="#none" title="노래 보기"><span>노래 <em class="point-txt">7</em></span></a></h4>
+											<!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+											<div class="profile-area content-txt2 grade">
+												<div class="no-result">
+													<p class="content-txt3">검색결과가 없습니다.</p>
+												</div>
+												<ul class="profile-list-wrap">
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/sing/sing-detail.html" class="profile-wrap-inner" title="최신 업데이트 보기">
+																<figure class="profile-img skeleton">
+																	<img class="fade-in lazyload" src="../../asset/images/temp/song-temp01.png" alt="Small girl (feat. 도경수 (D.O.)) 이영지">
+																</figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt2 skeleton">Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.))</p>
+																	<span class="profile-txt content-txt3 skeleton">이영지</span>
+																</div>
+															</a>
+															<div class="img-btn-wrap top">
+																<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+																<button type="button" class="img-btn bookmark" aria-label="북마크 저장"><i></i></button>
+															</div>
+															<div class="profile-bottom content-txt2">
+																<div class="sing-grade-area">
+																	<div class="sing-grade-wrap skeleton">
+																		<span class="grade-tit content-txt3">레벨</span>
+																		<!--==================
+																			* 레벨 단계 : grade-status 한테 클래스 추가
+																			- 1레벨 : grade1
+																			- 2레벨 : grade2
+																			- 3레벨 : grade3
+																			- 4레벨 : grade4
+																			- 5레벨 : grade5
+																		======================-->
+																		<ul class="grade-status content-txt2 grade1">
+																			<li class="grade"><span>1레벨</span></li>
+																			<li class="grade"><span>2레벨</span></li>
+																			<li class="grade"><span>3레벨</span></li>
+																			<li class="grade"><span>4레벨</span></li>
+																			<li class="grade"><span>5레벨</span></li>
+																		</ul>
+																	</div>
+																	<div class="sing-grade-wrap skeleton">
+																		<span class="grade-tit content-txt3">템포</span>
+																		<!--==================
+																			* 템포 단계 : grade-status 한테 클래스 추가
+																			- 1템포 : grade1
+																			- 2템포 : grade2
+																			- 3템포 : grade3
+																			- 4템포 : grade4
+																			- 5템포 : grade5
+																		======================-->
+																		<ul class="grade-status content-txt2 grade1">
+																			<li class="grade"><span>1템포</span></li>
+																			<li class="grade"><span>2템포</span></li>
+																			<li class="grade"><span>3템포</span></li>
+																			<li class="grade"><span>4템포</span></li>
+																			<li class="grade"><span>5템포</span></li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="btn-wrap profile-btn-wrap">
+																	<button type="button" class="basic-btn small line pink sing" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+																</div>
+															</div>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/sing/sing-detail.html" class="profile-wrap-inner" title="최신 업데이트 보기">
+																<figure class="profile-img skeleton">
+																	<img class="fade-in lazyload" src="../../asset/images/temp/song-temp02.png" alt="Supernova aespa">
+																</figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt2 skeleton">Supernova</p>
+																	<span class="profile-txt content-txt3 skeleton">aespa</span>
+																</div>
+															</a>
+															<div class="img-btn-wrap top">
+																<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+																<button type="button" class="img-btn bookmark" aria-label="북마크 저장"><i></i></button>
+															</div>
+															<div class="profile-bottom content-txt2">
+																<div class="sing-grade-area">
+																	<div class="sing-grade-wrap skeleton">
+																		<span class="grade-tit content-txt3">레벨</span>
+																		<!--==================
+																			* 레벨 단계 : grade-status 한테 클래스 추가
+																			- 1레벨 : grade1
+																			- 2레벨 : grade2
+																			- 3레벨 : grade3
+																			- 4레벨 : grade4
+																			- 5레벨 : grade5
+																		======================-->
+																		<ul class="grade-status content-txt2 grade3">
+																			<li class="grade"><span>1레벨</span></li>
+																			<li class="grade"><span>2레벨</span></li>
+																			<li class="grade"><span>3레벨</span></li>
+																			<li class="grade"><span>4레벨</span></li>
+																			<li class="grade"><span>5레벨</span></li>
+																		</ul>
+																	</div>
+																	<div class="sing-grade-wrap skeleton">
+																		<span class="grade-tit content-txt3">템포</span>
+																		<!--==================
+																			* 템포 단계 : grade-status 한테 클래스 추가
+																			- 1템포 : grade1
+																			- 2템포 : grade2
+																			- 3템포 : grade3
+																			- 4템포 : grade4
+																			- 5템포 : grade5
+																		======================-->
+																		<ul class="grade-status content-txt2 grade4">
+																			<li class="grade"><span>1템포</span></li>
+																			<li class="grade"><span>2템포</span></li>
+																			<li class="grade"><span>3템포</span></li>
+																			<li class="grade"><span>4템포</span></li>
+																			<li class="grade"><span>5템포</span></li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="btn-wrap profile-btn-wrap">
+																	<button type="button" class="basic-btn small line pink sing" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+																</div>
+															</div>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/sing/sing-detail.html" class="profile-wrap-inner" title="최신 업데이트 보기">
+																<figure class="profile-img skeleton">
+																	<img class="fade-in lazyload" src="../../asset/images/temp/song-temp03.png" alt="How Sweet NewJeans">
+																</figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt2 skeleton">How Sweet</p>
+																	<span class="profile-txt content-txt3 skeleton">NewJeans</span>
+																</div>
+															</a>
+															<div class="img-btn-wrap top">
+																<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+																<button type="button" class="img-btn bookmark on" aria-label="북마크 저장"><i></i></button>
+															</div>
+															<div class="profile-bottom content-txt2">
+																<div class="sing-grade-area">
+																	<div class="sing-grade-wrap skeleton">
+																		<span class="grade-tit content-txt3">레벨</span>
+																		<!--==================
+																			* 레벨 단계 : grade-status 한테 클래스 추가
+																			- 1레벨 : grade1
+																			- 2레벨 : grade2
+																			- 3레벨 : grade3
+																			- 4레벨 : grade4
+																			- 5레벨 : grade5
+																		======================-->
+																		<ul class="grade-status content-txt2 grade3">
+																			<li class="grade"><span>1레벨</span></li>
+																			<li class="grade"><span>2레벨</span></li>
+																			<li class="grade"><span>3레벨</span></li>
+																			<li class="grade"><span>4레벨</span></li>
+																			<li class="grade"><span>5레벨</span></li>
+																		</ul>
+																	</div>
+																	<div class="sing-grade-wrap skeleton">
+																		<span class="grade-tit content-txt3">템포</span>
+																		<!--==================
+																			* 템포 단계 : grade-status 한테 클래스 추가
+																			- 1템포 : grade1
+																			- 2템포 : grade2
+																			- 3템포 : grade3
+																			- 4템포 : grade4
+																			- 5템포 : grade5
+																		======================-->
+																		<ul class="grade-status content-txt2 grade3">
+																			<li class="grade"><span>1템포</span></li>
+																			<li class="grade"><span>2템포</span></li>
+																			<li class="grade"><span>3템포</span></li>
+																			<li class="grade"><span>4템포</span></li>
+																			<li class="grade"><span>5템포</span></li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="btn-wrap profile-btn-wrap">
+																	<button type="button" class="basic-btn small line pink sing" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+																</div>
+															</div>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="#none" class="profile-wrap-inner" title="최신 업데이트 보기">
+																<figure class="profile-img skeleton">
+																	<img class="fade-in lazyload" src="../../asset/images/temp/song-temp04.png" alt="한 페이지가 될 수 있게 DAY6 (데이식스)">
+																</figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt2 skeleton">한 페이지가 될 수 있게</p>
+																	<span class="profile-txt content-txt3 skeleton">DAY6 (데이식스)</span>
+																</div>
+															</a>
+															<div class="img-btn-wrap top">
+																<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+																<button type="button" class="img-btn bookmark" aria-label="북마크 저장"><i></i></button>
+															</div>
+															<div class="profile-bottom content-txt2">
+																<div class="sing-grade-area">
+																	<div class="sing-grade-wrap skeleton">
+																		<span class="grade-tit content-txt3">레벨</span>
+																		<!--==================
+																			* 레벨 단계 : grade-status 한테 클래스 추가
+																			- 1레벨 : grade1
+																			- 2레벨 : grade2
+																			- 3레벨 : grade3
+																			- 4레벨 : grade4
+																			- 5레벨 : grade5
+																		======================-->
+																		<ul class="grade-status content-txt2 grade5">
+																			<li class="grade"><span>1레벨</span></li>
+																			<li class="grade"><span>2레벨</span></li>
+																			<li class="grade"><span>3레벨</span></li>
+																			<li class="grade"><span>4레벨</span></li>
+																			<li class="grade"><span>5레벨</span></li>
+																		</ul>
+																	</div>
+																	<div class="sing-grade-wrap skeleton">
+																		<span class="grade-tit content-txt3">템포</span>
+																		<!--==================
+																			* 템포 단계 : grade-status 한테 클래스 추가
+																			- 1템포 : grade1
+																			- 2템포 : grade2
+																			- 3템포 : grade3
+																			- 4템포 : grade4
+																			- 5템포 : grade5
+																		======================-->
+																		<ul class="grade-status content-txt2 grade5">
+																			<li class="grade"><span>1템포</span></li>
+																			<li class="grade"><span>2템포</span></li>
+																			<li class="grade"><span>3템포</span></li>
+																			<li class="grade"><span>4템포</span></li>
+																			<li class="grade"><span>5템포</span></li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="btn-wrap profile-btn-wrap">
+																	<button type="button" class="basic-btn small line pink sing" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+																</div>
+															</div>
+														</div>
+													</li>
+												</ul>
+												<!-- 노래신청하기 버튼 -->
+												<div class="btn-wrap let-sing"><button type="button" onclick="modalPopup('#requestPop')" class="sing-request-btn content-txt3"><span>Let’s sing~! 원하는 노래를 신청보세요!</span></button></div>
+												<!-- // 노래신청하기 버튼 -->
+											</div>
+										</div>
+									</article>
+									<article class="section-content search-popular search-record-cont">
+										<div class="inner">
+											<h4 class="sub-cont-tit content-txt2"><a href="#none" title="레코딩 보기"><span>레코딩 <em class="point-txt">3</em></span></a></h4>
+											<!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+											<div class="profile-area content-txt2 song">
+												<div class="no-result">
+													<p class="content-txt3">검색결과가 없습니다.</p>
+												</div>
+												<ul class="profile-list-wrap">
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap-inner song-record-list" title="레코딩 보기">
+																<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+																<div class="thumbnail-area skeleton duet"> 
+																	<div class="thumbnail-wrap">
+																		<img class="fade-in lazyload duet-left" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																		<img class="fade-in lazyload duet-right" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																	</div>
+																	<div class="img-btn-wrap bottom">
+																		<div class="play"><span class="num">248</span></div>
+																		<div class="time">02:50</div>
+																	</div>
+																</div>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt2 skeleton">Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.))</p>
+																	<span class="profile-txt content-txt3 skeleton">이영지</span>
+																	<div class="song-by-info-wrap">
+																		<p class="recode-date skeleton">24.09.05</p>
+																		<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+																		<div class="song-by-info duet">
+																			<figure class="profile-img skeleton">
+																				<!-- 이미지 확장자 추천 jpg -->
+																				<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+																				<img class="fade-in lazyloaded duet02" src="../../asset/images/temp/profile-temp01.png" alt="프로필 이미지">
+																			</figure>
+																			<p class="profile-name skeleton">두아리파앙&달고달디단냥이</p>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap-inner song-record-list" title="레코딩 보기">
+																<!-- 앨범커버로 노출 될 경우 album 클래스 -->
+																<div class="thumbnail-area skeleton album"> 
+																	<div class="thumbnail-wrap">
+																		<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-cover-01.jpg" srcset="../../asset/images/temp/img-cover-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																		<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-cover-01.jpg" srcset="../../asset/images/temp/img-cover-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																	</div>
+																	<div class="img-btn-wrap bottom">
+																		<div class="play"><span class="num">248</span></div>
+																		<div class="time">02:50</div>
+																	</div>
+																</div>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt2 skeleton">Supernova</p>
+																	<span class="profile-txt content-txt3 skeleton">aespa</span>
+																	<div class="song-by-info-wrap">
+																		<p class="recode-date skeleton">24.09.05</p>
+																		<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+																		<div class="song-by-info">
+																			<figure class="profile-img skeleton">
+																				<!-- 이미지 확장자 추천 jpg -->
+																				<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+																			</figure>
+																			<p class="profile-name skeleton">두아리파</p>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap-inner song-record-list" title="레코딩 보기">
+																<div class="thumbnail-area skeleton"> 
+																	<div class="thumbnail-wrap">
+																		<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																		<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																	</div>
+																	<div class="img-btn-wrap bottom">
+																		<div class="play"><span class="num">248</span></div>
+																		<div class="time">02:50</div>
+																	</div>
+																</div>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt2 skeleton">How Sweet</p>
+																	<!-- 검색 키워드 key 클래스 추가 -->
+																	<span class="profile-txt content-txt3 skeleton key">NewJeans</span>
+																	<div class="song-by-info-wrap">
+																		<p class="recode-date skeleton">24.09.05</p>
+																		<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+																		<div class="song-by-info">
+																			<figure class="profile-img skeleton">
+																				<!-- 이미지 확장자 추천 jpg -->
+																				<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+																			</figure>
+																			<p class="profile-name skeleton">두아리파</p>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap-inner song-record-list" title="레코딩 보기">
+																<div class="thumbnail-area skeleton"> 
+																	<div class="thumbnail-wrap">
+																		<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																		<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																	</div>
+																	<div class="img-btn-wrap bottom">
+																		<div class="play"><span class="num">248</span></div>
+																		<div class="time">02:50</div>
+																	</div>
+																</div>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt2 skeleton">How Sweet</p>
+																	<!-- 검색 키워드 key 클래스 추가 -->
+																	<span class="profile-txt content-txt3 skeleton key">NewJeans</span>
+																	<div class="song-by-info-wrap">
+																		<p class="recode-date skeleton">24.09.05</p>
+																		<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+																		<div class="song-by-info">
+																			<figure class="profile-img skeleton">
+																				<!-- 이미지 확장자 추천 jpg -->
+																				<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+																			</figure>
+																			<p class="profile-name skeleton">두아리파</p>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</article>
+									<article class="section-content search-user-cont">
+										<div class="inner">
+											<h4 class="sub-cont-tit content-txt2"><a href="#none" title="유저 보기"><span>유저 <em class="point-txt">10</em></span></a></h4>
+											<!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+											<div class="profile-area content-txt2">
+												<div class="no-result">
+													<p class="content-txt3">검색결과가 없습니다.</p>
+												</div>
+												<ul class="profile-list-wrap">
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/userprofile.html" class="profile-wrap-inner" title="프로필 보기">
+																<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../../asset/images/common/profile-default-img.svg" alt="프로필 기본 이미지"></figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt3 skeleton">내가 만든쿠키 내가 만든쿠키 내가 만든쿠키 내가 만든쿠키 내가 만든쿠키 내가 만든쿠키</p>
+																</div>
+															</a>
+															<div class="btn-wrap profile-btn-wrap follow">
+																<button type="button" class="basic-btn small line pink on" aria-label="title" ><span>팔로우</span></button>
+															</div>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/userprofile.html" class="profile-wrap-inner" title="프로필 보기">
+																<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../../asset/images/temp/profile-temp05.png" alt="프로필 기본 이미지"></figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt3 skeleton"><em class="key">뉴진스</em>님</p>
+																</div>
+															</a>
+															<div class="btn-wrap profile-btn-wrap follow">
+																<button type="button" class="basic-btn small line pink " aria-label="title" ><span>팔로우</span></button>
+															</div>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/userprofile.html" class="profile-wrap-inner" title="프로필 보기">
+																<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../../asset/images/temp/profile-temp06.png" alt="프로필 기본 이미지"></figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt3 skeleton">김재중</p>
+																</div>
+															</a>
+															<div class="btn-wrap profile-btn-wrap follow">
+																<button type="button" class="basic-btn small line pink " aria-label="title" ><span>팔로우</span></button>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</article>
+								</div>
+								<div id="tab-2" class="tab-content search-song-list">
+									<div class="song-list-top">
+										<div class="recommend-keyword-wrap">
+											<div class="recommend-keyword-inner">
+												<p class="recommend-keyword-tit content-txt3">추천검색어</p>
+												<div class="recommend-keyword">
+													<ul class="keyword-list content-txt2">
+														<li><a href="javascript:;" class="keyword"><span class="skeleton">Supernova</span></a></li>
+														<li><a href="javascript:;" class="keyword"><span class="skeleton">스테이씨</span></a></li>
+														<li><a href="javascript:;" class="keyword"><span class="skeleton">Rest</span></a></li>
+														<li><a href="javascript:;" class="keyword"><span class="skeleton">아이유</span></a></li>
+														<li><a href="javascript:;" class="keyword"><span class="skeleton">Teddy bear</span></a></li>
+														<li><a href="javascript:;" class="keyword"><span class="skeleton">건물 사이에 피어난 장미</span></a></li>
+														<li><a href="javascript:;" class="keyword"><span class="skeleton">Supernatural</span></a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="recommend-keyword-wrap">
+											<div class="recommend-keyword-inner">
+												<p class="recommend-keyword-tit content-txt3">장르 필터</p>
+												<div class="recommend-keyword">
+													<ul class="filter-list content-txt2">
+														<li class="filter">
+															<div class="basic-check-box all">
+																<input class="checkbox-text" type="checkbox" id="genre-filter01" tabindex="-1" name="genre-filter">
+																<label for="genre-filter01" tabindex="0">전체</label>
+															</div>
+														</li>
+														<li class="filter">
+															<div class="basic-check-box">
+																<input class="checkbox-text" type="checkbox" id="genre-filter02" tabindex="-1" name="genre-filter" checked="">
+																<label for="genre-filter02" tabindex="0">팝</label>
+															</div>
+														</li>
+														<li class="filter">
+															<div class="basic-check-box">
+																<input class="checkbox-text" type="checkbox" id="genre-filter03" tabindex="-1" name="genre-filter">
+																<label for="genre-filter03" tabindex="0">발라드</label>
+															</div>
+														</li>
+														<li class="filter">
+															<div class="basic-check-box">
+																<input class="checkbox-text" type="checkbox" id="genre-filter04" tabindex="-1" name="genre-filter" checked="">
+																<label for="genre-filter04" tabindex="0">댄스</label>
+															</div>
+														</li>
+														<li class="filter">
+															<div class="basic-check-box">
+																<input class="checkbox-text" type="checkbox" id="genre-filter05" tabindex="-1" name="genre-filter">
+																<label for="genre-filter05" tabindex="0">R&B</label>
+															</div>
+														</li>
+														<li class="filter">
+															<div class="basic-check-box">
+																<input class="checkbox-text" type="checkbox" id="genre-filter06" tabindex="-1" name="genre-filter">
+																<label for="genre-filter06" tabindex="0">포크</label>
+															</div>
+														</li>
+														<li class="filter">
+															<div class="basic-check-box">
+																<input class="checkbox-text" type="checkbox" id="genre-filter07" tabindex="-1" name="genre-filter">
+																<label for="genre-filter07" tabindex="0">락</label>
+															</div>
+														</li>
+														<li class="filter">
+															<div class="basic-check-box">
+																<input class="checkbox-text" type="checkbox" id="genre-filter08" tabindex="-1" name="genre-filter">
+																<label for="genre-filter08" tabindex="0">힙합</label>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+									<article class="section-content song-list-cont">
+										<div class="inner">
+											<div class="sorting-tit-wrap">
+												<h4 class="sorting-tit content-txt3">전체 <span>30개</span></h4>
+												<ul class="sorting-list">
+													<li class="content-txt3">
+														<div class="btn-wrap">
+															<button type="button" class="basic-btn sel txt" aria-label="최신순" onclick="openBottomSheet('#sorting-popup')" title="최신순"><span class="selected-txt">최신순</span></button>
+														</div>
+													</li>
+												</ul>
+											</div>
+											<!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+											<div class="profile-area no-result content-txt2 grade">
+												<div class="no-result">
+													<p class="content-txt3">검색결과가 없습니다.</p>
+												</div>
+												<ul class="profile-list-wrap">
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="#none" class="profile-wrap-inner" title="최신 업데이트 보기">
+																<figure class="profile-img skeleton">
+																	<img class="fade-in lazyload" src="../../asset/images/temp/song-temp01.png" alt="Small girl (feat. 도경수 (D.O.)) 이영지">
+																</figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt2 skeleton">Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.))</p>
+																	<span class="profile-txt content-txt3 skeleton">이영지</span>
+																</div>
+															</a>
+															<div class="img-btn-wrap top">
+																<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+																<button type="button" class="img-btn bookmark" aria-label="북마크 저장"><i></i></button>
+															</div>
+															<div class="profile-bottom content-txt2">
+																<div class="sing-grade-area">
+																	<div class="sing-grade-wrap skeleton">
+																		<span class="grade-tit content-txt3">레벨</span>
+																		<!--==================
+																			* 레벨 단계 : grade-status 한테 클래스 추가
+																			- 1레벨 : grade1
+																			- 2레벨 : grade2
+																			- 3레벨 : grade3
+																			- 4레벨 : grade4
+																			- 5레벨 : grade5
+																		======================-->
+																		<ul class="grade-status content-txt2 grade1">
+																			<li class="grade"><span>1레벨</span></li>
+																			<li class="grade"><span>2레벨</span></li>
+																			<li class="grade"><span>3레벨</span></li>
+																			<li class="grade"><span>4레벨</span></li>
+																			<li class="grade"><span>5레벨</span></li>
+																		</ul>
+																	</div>
+																	<div class="sing-grade-wrap skeleton">
+																		<span class="grade-tit content-txt3">템포</span>
+																		<!--==================
+																			* 템포 단계 : grade-status 한테 클래스 추가
+																			- 1템포 : grade1
+																			- 2템포 : grade2
+																			- 3템포 : grade3
+																			- 4템포 : grade4
+																			- 5템포 : grade5
+																		======================-->
+																		<ul class="grade-status content-txt2 grade1">
+																			<li class="grade"><span>1템포</span></li>
+																			<li class="grade"><span>2템포</span></li>
+																			<li class="grade"><span>3템포</span></li>
+																			<li class="grade"><span>4템포</span></li>
+																			<li class="grade"><span>5템포</span></li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="btn-wrap profile-btn-wrap">
+																	<button type="button" class="basic-btn small line pink sing" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+																</div>
+															</div>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="#none" class="profile-wrap-inner" title="최신 업데이트 보기">
+																<figure class="profile-img skeleton">
+																	<img class="fade-in lazyload" src="../../asset/images/temp/song-temp02.png" alt="Supernova aespa">
+																</figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt2 skeleton">Supernova</p>
+																	<span class="profile-txt content-txt3 skeleton">aespa</span>
+																</div>
+															</a>
+															<div class="img-btn-wrap top">
+																<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+																<button type="button" class="img-btn bookmark" aria-label="북마크 저장"><i></i></button>
+															</div>
+															<div class="profile-bottom content-txt2">
+																<div class="sing-grade-area">
+																	<div class="sing-grade-wrap skeleton">
+																		<span class="grade-tit content-txt3">레벨</span>
+																		<!--==================
+																			* 레벨 단계 : grade-status 한테 클래스 추가
+																			- 1레벨 : grade1
+																			- 2레벨 : grade2
+																			- 3레벨 : grade3
+																			- 4레벨 : grade4
+																			- 5레벨 : grade5
+																		======================-->
+																		<ul class="grade-status content-txt2 grade3">
+																			<li class="grade"><span>1레벨</span></li>
+																			<li class="grade"><span>2레벨</span></li>
+																			<li class="grade"><span>3레벨</span></li>
+																			<li class="grade"><span>4레벨</span></li>
+																			<li class="grade"><span>5레벨</span></li>
+																		</ul>
+																	</div>
+																	<div class="sing-grade-wrap skeleton">
+																		<span class="grade-tit content-txt3">템포</span>
+																		<!--==================
+																			* 템포 단계 : grade-status 한테 클래스 추가
+																			- 1템포 : grade1
+																			- 2템포 : grade2
+																			- 3템포 : grade3
+																			- 4템포 : grade4
+																			- 5템포 : grade5
+																		======================-->
+																		<ul class="grade-status content-txt2 grade4">
+																			<li class="grade"><span>1템포</span></li>
+																			<li class="grade"><span>2템포</span></li>
+																			<li class="grade"><span>3템포</span></li>
+																			<li class="grade"><span>4템포</span></li>
+																			<li class="grade"><span>5템포</span></li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="btn-wrap profile-btn-wrap">
+																	<button type="button" class="basic-btn small line pink sing" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+																</div>
+															</div>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="#none" class="profile-wrap-inner" title="최신 업데이트 보기">
+																<figure class="profile-img skeleton">
+																	<img class="fade-in lazyload" src="../../asset/images/temp/song-temp03.png" alt="How Sweet NewJeans">
+																</figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt2 skeleton">How Sweet</p>
+																	<span class="profile-txt content-txt3 skeleton">NewJeans</span>
+																</div>
+															</a>
+															<div class="img-btn-wrap top">
+																<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+																<button type="button" class="img-btn bookmark on" aria-label="북마크 저장"><i></i></button>
+															</div>
+															<div class="profile-bottom content-txt2">
+																<div class="sing-grade-area">
+																	<div class="sing-grade-wrap skeleton">
+																		<span class="grade-tit content-txt3">레벨</span>
+																		<!--==================
+																			* 레벨 단계 : grade-status 한테 클래스 추가
+																			- 1레벨 : grade1
+																			- 2레벨 : grade2
+																			- 3레벨 : grade3
+																			- 4레벨 : grade4
+																			- 5레벨 : grade5
+																		======================-->
+																		<ul class="grade-status content-txt2 grade3">
+																			<li class="grade"><span>1레벨</span></li>
+																			<li class="grade"><span>2레벨</span></li>
+																			<li class="grade"><span>3레벨</span></li>
+																			<li class="grade"><span>4레벨</span></li>
+																			<li class="grade"><span>5레벨</span></li>
+																		</ul>
+																	</div>
+																	<div class="sing-grade-wrap skeleton">
+																		<span class="grade-tit content-txt3">템포</span>
+																		<!--==================
+																			* 템포 단계 : grade-status 한테 클래스 추가
+																			- 1템포 : grade1
+																			- 2템포 : grade2
+																			- 3템포 : grade3
+																			- 4템포 : grade4
+																			- 5템포 : grade5
+																		======================-->
+																		<ul class="grade-status content-txt2 grade3">
+																			<li class="grade"><span>1템포</span></li>
+																			<li class="grade"><span>2템포</span></li>
+																			<li class="grade"><span>3템포</span></li>
+																			<li class="grade"><span>4템포</span></li>
+																			<li class="grade"><span>5템포</span></li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="btn-wrap profile-btn-wrap">
+																	<button type="button" class="basic-btn small line pink sing" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+																</div>
+															</div>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="#none" class="profile-wrap-inner" title="최신 업데이트 보기">
+																<figure class="profile-img skeleton">
+																	<img class="fade-in lazyload" src="../../asset/images/temp/song-temp04.png" alt="한 페이지가 될 수 있게 DAY6 (데이식스)">
+																</figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt2 skeleton">한 페이지가 될 수 있게</p>
+																	<span class="profile-txt content-txt3 skeleton">DAY6 (데이식스)</span>
+																</div>
+															</a>
+															<div class="img-btn-wrap top">
+																<!-- 북마크일 경우 클래스 on / 북마크 해제일 경우 on 클래스 해제 -->
+																<button type="button" class="img-btn bookmark" aria-label="북마크 저장"><i></i></button>
+															</div>
+															<div class="profile-bottom content-txt2">
+																<div class="sing-grade-area">
+																	<div class="sing-grade-wrap skeleton">
+																		<span class="grade-tit content-txt3">레벨</span>
+																		<!--==================
+																			* 레벨 단계 : grade-status 한테 클래스 추가
+																			- 1레벨 : grade1
+																			- 2레벨 : grade2
+																			- 3레벨 : grade3
+																			- 4레벨 : grade4
+																			- 5레벨 : grade5
+																		======================-->
+																		<ul class="grade-status content-txt2 grade5">
+																			<li class="grade"><span>1레벨</span></li>
+																			<li class="grade"><span>2레벨</span></li>
+																			<li class="grade"><span>3레벨</span></li>
+																			<li class="grade"><span>4레벨</span></li>
+																			<li class="grade"><span>5레벨</span></li>
+																		</ul>
+																	</div>
+																	<div class="sing-grade-wrap skeleton">
+																		<span class="grade-tit content-txt3">템포</span>
+																		<!--==================
+																			* 템포 단계 : grade-status 한테 클래스 추가
+																			- 1템포 : grade1
+																			- 2템포 : grade2
+																			- 3템포 : grade3
+																			- 4템포 : grade4
+																			- 5템포 : grade5
+																		======================-->
+																		<ul class="grade-status content-txt2 grade5">
+																			<li class="grade"><span>1템포</span></li>
+																			<li class="grade"><span>2템포</span></li>
+																			<li class="grade"><span>3템포</span></li>
+																			<li class="grade"><span>4템포</span></li>
+																			<li class="grade"><span>5템포</span></li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="btn-wrap profile-btn-wrap">
+																	<button type="button" class="basic-btn small line pink sing" aria-label="부르기" onclick="openBottomSheet('#sing-select')"><span>부르기</span></button>
+																</div>
+															</div>
+														</div>
+													</li>
+												</ul>
+												<!-- 노래신청하기 버튼 -->
+												<div class="btn-wrap let-sing"><button type="button" onclick="modalPopup('#requestPop')" class="sing-request-btn content-txt3"><span>Let’s sing~! 원하는 노래를 신청보세요!</span></button></div>
+												<!-- // 노래신청하기 버튼 -->
+											</div>
+										</div>
+									</article>
+								</div>
+								<div id="tab-3" class="tab-content search-record-list">
+									<div class="record-list-top">
+										<div class="recommend-keyword-wrap">
+											<div class="recommend-keyword-inner">
+												<p class="recommend-keyword-tit content-txt3">추천검색어</p>
+												<div class="recommend-keyword">
+													<ul class="keyword-list content-txt2">
+														<li><a href="javascript:;" class="keyword"><span class="skeleton">Supernova</span></a></li>
+														<li><a href="javascript:;" class="keyword"><span class="skeleton">스테이씨</span></a></li>
+														<li><a href="javascript:;" class="keyword"><span class="skeleton">Rest</span></a></li>
+														<li><a href="javascript:;" class="keyword"><span class="skeleton">아이유</span></a></li>
+														<li><a href="javascript:;" class="keyword"><span class="skeleton">Teddy bear</span></a></li>
+														<li><a href="javascript:;" class="keyword"><span class="skeleton">건물 사이에 피어난 장미</span></a></li>
+														<li><a href="javascript:;" class="keyword"><span class="skeleton">Supernatural</span></a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="recommend-keyword-wrap">
+											<div class="recommend-keyword-inner">
+												<p class="recommend-keyword-tit content-txt3">장르 필터</p>
+												<div class="recommend-keyword">
+													<ul class="filter-list content-txt2">
+														<li class="filter">
+															<div class="basic-check-box all">
+																<input class="checkbox-text" type="checkbox" id="genre-filter01-01" tabindex="-1" name="genre-filter" checked="">
+																<label for="genre-filter01-01" tabindex="0">전체</label>
+															</div>
+														</li>
+														<li class="filter">
+															<div class="basic-check-box">
+																<input class="checkbox-text" type="checkbox" id="genre-filter01-02" tabindex="-1" name="genre-filter">
+																<label for="genre-filter01-02" tabindex="0">팝</label>
+															</div>
+														</li>
+														<li class="filter">
+															<div class="basic-check-box">
+																<input class="checkbox-text" type="checkbox" id="genre-filter03-03" tabindex="-1" name="genre-filter">
+																<label for="genre-filter03-03" tabindex="0">발라드</label>
+															</div>
+														</li>
+														<li class="filter">
+															<div class="basic-check-box">
+																<input class="checkbox-text" type="checkbox" id="genre-filter04-04" tabindex="-1" name="genre-filter">
+																<label for="genre-filter04-04" tabindex="0">댄스</label>
+															</div>
+														</li>
+														<li class="filter">
+															<div class="basic-check-box">
+																<input class="checkbox-text" type="checkbox" id="genre-filter05-05" tabindex="-1" name="genre-filter">
+																<label for="genre-filter05-05" tabindex="0">R&B</label>
+															</div>
+														</li>
+														<li class="filter">
+															<div class="basic-check-box">
+																<input class="checkbox-text" type="checkbox" id="genre-filter06-06" tabindex="-1" name="genre-filter">
+																<label for="genre-filter06-06" tabindex="0">포크</label>
+															</div>
+														</li>
+														<li class="filter">
+															<div class="basic-check-box">
+																<input class="checkbox-text" type="checkbox" id="genre-filter07-07" tabindex="-1" name="genre-filter">
+																<label for="genre-filter07-07" tabindex="0">락</label>
+															</div>
+														</li>
+														<li class="filter">
+															<div class="basic-check-box">
+																<input class="checkbox-text" type="checkbox" id="genre-filter08-08" tabindex="-1" name="genre-filter">
+																<label for="genre-filter08-08" tabindex="0">힙합</label>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+									<article class="section-content record-list-cont search-record-cont">
+										<div class="inner">
+											<div class="sorting-tit-wrap">
+												<h4 class="sorting-tit content-txt3">전체 <span>30개</span></h4>
+												<ul class="sorting-list">
+													<li class="content-txt3">
+														<div class="btn-wrap">
+															<button type="button" class="basic-btn sel txt" aria-label="최신순" onclick="openBottomSheet('#sorting-popup')" title="최신순"><span class="selected-txt">최신순</span></button>
+														</div>
+													</li>
+												</ul>
+											</div>
+
+											<!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+											<div class="profile-area content-txt2 song">
+												<div class="no-result">
+													<p class="content-txt3">검색결과가 없습니다.</p>
+												</div>
+												<ul class="profile-list-wrap">
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap-inner song-record-list" title="레코딩 보기">
+																<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+																<div class="thumbnail-area skeleton duet"> 
+																	<div class="thumbnail-wrap">
+																		<img class="fade-in lazyload duet-left" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																		<img class="fade-in lazyload duet-right" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																	</div>
+																	<div class="img-btn-wrap bottom">
+																		<div class="play"><span class="num">248</span></div>
+																		<div class="time">02:50</div>
+																	</div>
+																</div>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt2 skeleton">Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.)) Small girl (feat. 도경수 (D.O.))</p>
+																	<span class="profile-txt content-txt3 skeleton">이영지</span>
+																	<div class="song-by-info-wrap">
+																		<p class="recode-date skeleton">24.09.05</p>
+																		<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+																		<div class="song-by-info duet">
+																			<figure class="profile-img skeleton">
+																				<!-- 이미지 확장자 추천 jpg -->
+																				<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+																				<img class="fade-in lazyloaded duet02" src="../../asset/images/temp/profile-temp01.png" alt="프로필 이미지">
+																			</figure>
+																			<p class="profile-name skeleton">두아리파앙&달고달디단냥이</p>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap-inner song-record-list" title="레코딩 보기">
+																<!-- 앨범커버로 노출 될 경우 album 클래스 -->
+																<div class="thumbnail-area skeleton album"> 
+																	<div class="thumbnail-wrap">
+																		<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-cover-01.jpg" srcset="../../asset/images/temp/img-cover-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																		<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-cover-01.jpg" srcset="../../asset/images/temp/img-cover-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																	</div>
+																	<div class="img-btn-wrap bottom">
+																		<div class="play"><span class="num">248</span></div>
+																		<div class="time">02:50</div>
+																	</div>
+																</div>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt2 skeleton">Supernova</p>
+																	<span class="profile-txt content-txt3 skeleton">aespa</span>
+																	<div class="song-by-info-wrap">
+																		<p class="recode-date skeleton">24.09.05</p>
+																		<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+																		<div class="song-by-info">
+																			<figure class="profile-img skeleton">
+																				<!-- 이미지 확장자 추천 jpg -->
+																				<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+																			</figure>
+																			<p class="profile-name skeleton">두아리파</p>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap-inner song-record-list" title="레코딩 보기">
+																<div class="thumbnail-area skeleton"> 
+																	<div class="thumbnail-wrap">
+																		<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																		<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																	</div>
+																	<div class="img-btn-wrap bottom">
+																		<div class="play"><span class="num">248</span></div>
+																		<div class="time">02:50</div>
+																	</div>
+																</div>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt2 skeleton">How Sweet</p>
+																	<!-- 검색 키워드 key 클래스 추가 -->
+																	<span class="profile-txt content-txt3 skeleton key">NewJeans</span>
+																	<div class="song-by-info-wrap">
+																		<p class="recode-date skeleton">24.09.05</p>
+																		<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+																		<div class="song-by-info">
+																			<figure class="profile-img skeleton">
+																				<!-- 이미지 확장자 추천 jpg -->
+																				<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+																			</figure>
+																			<p class="profile-name skeleton">두아리파</p>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap-inner song-record-list" title="레코딩 보기">
+																<div class="thumbnail-area skeleton"> 
+																	<div class="thumbnail-wrap">
+																		<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																		<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+																	</div>
+																	<div class="img-btn-wrap bottom">
+																		<div class="play"><span class="num">248</span></div>
+																		<div class="time">02:50</div>
+																	</div>
+																</div>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt2 skeleton">How Sweet</p>
+																	<!-- 검색 키워드 key 클래스 추가 -->
+																	<span class="profile-txt content-txt3 skeleton key">NewJeans</span>
+																	<div class="song-by-info-wrap">
+																		<p class="recode-date skeleton">24.09.05</p>
+																		<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+																		<div class="song-by-info">
+																			<figure class="profile-img skeleton">
+																				<!-- 이미지 확장자 추천 jpg -->
+																				<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+																			</figure>
+																			<p class="profile-name skeleton">두아리파</p>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</article>
+								</div>
+								<div id="tab-4" class="tab-content search-user-list">
+									<article class="section-content user-list-cont">
+										<div class="inner">
+											<div class="sorting-tit-wrap">
+												<h4 class="sorting-tit content-txt3">전체 <span>7명</span></h4>
+											</div>
+											<!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+											<div class="profile-area content-txt2">
+												<div class="no-result">
+													<p class="content-txt3">검색결과가 없습니다.</p>
+												</div>
+												<ul class="profile-list-wrap">
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/userprofile.html" class="profile-wrap-inner" title="프로필 보기">
+																<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../../asset/images/common/profile-default-img.svg" alt="프로필 기본 이미지"></figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt3 skeleton">내가 만든쿠키 <em class="key">뉴진스</em>님</p>
+																</div>
+															</a>
+															<div class="btn-wrap profile-btn-wrap follow">
+																<button type="button" class="basic-btn small line pink on" aria-label="title" ><span>팔로우</span></button>
+															</div>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/userprofile.html" class="profile-wrap-inner" title="프로필 보기">
+																<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../../asset/images/temp/profile-temp05.png" alt="프로필 기본 이미지"></figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt3 skeleton"><em class="key">뉴진스</em>님</p>
+																</div>
+															</a>
+															<div class="btn-wrap profile-btn-wrap follow">
+																<button type="button" class="basic-btn small line pink " aria-label="title" ><span>팔로우</span></button>
+															</div>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/userprofile.html" class="profile-wrap-inner" title="프로필 보기">
+																<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../../asset/images/temp/profile-temp06.png" alt="프로필 기본 이미지"></figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt3 skeleton"><em class="key">뉴진스</em>하이브님</p>
+																</div>
+															</a>
+															<div class="btn-wrap profile-btn-wrap follow">
+																<button type="button" class="basic-btn small line pink " aria-label="title" ><span>팔로우</span></button>
+															</div>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/userprofile.html" class="profile-wrap-inner" title="프로필 보기">
+																<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../../asset/images/temp/profile-temp01.png" alt="프로필 기본 이미지"></figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt3 skeleton">볼빨간 <em class="key">뉴진스</em>님</p>
+																</div>
+															</a>
+															<div class="btn-wrap profile-btn-wrap follow">
+																<button type="button" class="basic-btn small line pink " aria-label="title" ><span>팔로우</span></button>
+															</div>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/userprofile.html" class="profile-wrap-inner" title="프로필 보기">
+																<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../../asset/images/temp/profile-temp02.png" alt="프로필 기본 이미지"></figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt3 skeleton">Pink <em class="key">뉴진스</em>님</p>
+																</div>
+															</a>
+															<div class="btn-wrap profile-btn-wrap follow">
+																<button type="button" class="basic-btn small line pink " aria-label="title" ><span>팔로우</span></button>
+															</div>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/userprofile.html" class="profile-wrap-inner" title="프로필 보기">
+																<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../../asset/images/temp/profile-temp03.png" alt="프로필 기본 이미지"></figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt3 skeleton">헤롱이 <em class="key">뉴진스</em>님</p>
+																</div>
+															</a>
+															<div class="btn-wrap profile-btn-wrap follow">
+																<button type="button" class="basic-btn small line pink " aria-label="title" ><span>팔로우</span></button>
+															</div>
+														</div>
+													</li>
+													<li class="profile-list">
+														<div class="profile-wrap">
+															<a href="http://codeloft.kr/mediascope_singit/html/play/userprofile.html" class="profile-wrap-inner" title="프로필 보기">
+																<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../../asset/images/temp/song-temp02.png" alt="프로필 기본 이미지"></figure>
+																<div class="profile-info">
+																	<p class="profile-tit content-txt3 skeleton"><em class="key">뉴진스</em>Punk 님</p>
+																</div>
+															</a>
+															<div class="btn-wrap profile-btn-wrap follow">
+																<button type="button" class="basic-btn small line pink " aria-label="title" ><span>팔로우</span></button>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</article>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			
+			<!--========== FULL PAGE POPUP ==========-->
+			<div class="full-popup-group">
+
+			</div>
+
+			<!--========== TOAST POPUP ==========-->
+			<div class="toast-popup-group">
+
+				<div class="toast-popup">
+					<p class="toast-popup-txt requestComplete">노래 신청이 완료되었습니다.</p> <!-- toastPopup('requestComplete')에 의해 호출 -->
+				</div>
+
+				<!-- Sortiong Popup -->
+				<div id="sorting-popup" class="bottom-sheet-wrap check sorting-popup">
+					<div class="bottom-sheet unable-stretch"> 
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<div class="sheet-cont-inner">
+								<ul class="sheet-check-list">
+									<li><a href="javascirpt:;" class="active">최신순</a></li>
+									<li><a href="javascirpt:;">좋아요순</a></li>
+									<li><a href="javascirpt:;">재생순</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+				<!-- // Sortiong Popup -->
+
+				<!-- 부르기 팝업 -->
+				<!--==================
+					* 부르기 팝업
+					- .sing-with-cont가 노출 됩니다. 
+					- .sing-with-cont의 버튼 선택에 따라 .sing-solo-cont 혹은 .sing-duet-cont이 노출 됩니다.
+					  (1) .sing-solo-btn 클릭시, #sing-select에 클래스 setting-step solo가 붙습니다.
+					  (2) .sing-duet-btn 클릭시, #sing-select에 클래스 setting-step duet이 붙습니다.
+					- .sheet-cont-prev-btn(뒤로가기 버튼) 클릭시, 이전 화면인 .sing-with-cont 노출로 돌아갑니다.
+
+					* 듀엣 참여시, A파트 참여의 경우 .duet-join-A / B파트 참여의 경우 .duet-join-B
+				======================-->
+				<div id="sing-select" class="bottom-sheet-wrap sing-select"> <!-- openBottomSheet('#sing-select')에 의해 호출 -->
+					<div class="bottom-sheet unable-stretch">
+						<div class="handle-area">
+							<div class="handle"></div>
+						</div>
+						<div class="sheet-content">
+							<div class="sheet-tit-box">
+								<button type="button" class="sheet-cont-prev-btn" aria-label="뒤로가기"></button>
+								<div class="profile-info content-txt2">
+									<div class="flowing-wrap">
+										<p class="profile-tit flowing-inner">
+											<span class="flowing">Small girl Small girl Small girl (feat. 도경수(D.O.))</span>
+										</p>
+									</div>
+									<p class="artist-name content-txt3">이영지</p>
+								</div>
+							</div>
+							<div class="sheet-cont-inner">
+								<div class="sing-with-cont">
+									<a href="javascript:;" class="sing-solo-btn"><span>솔로 부르기</span></a>
+									<a href="javascript:;" class="sing-duet-btn"><span>듀엣 초대</span></a>
+								</div>
+								<div class="sing-setting-cont sing-solo-cont">
+									<div class="sing-setting-top">
+										<div class="sing-setting-key sing-setting-area">
+											<p class="caption-txt1">KEY</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-solo-w" name="setting-key-solo" value="w" tabindex="-1" checked>
+													<label for="setting-key-solo-w" tabindex="0">
+														<span class="content-txt3">여자</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-solo-m" name="setting-key-solo" value="m" tabindex="-1">
+													<label for="setting-key-solo-m" tabindex="0">
+														<span class="content-txt3">남자</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+										<div class="sing-setting-save sing-setting-area">
+											<p class="caption-txt1">저장 방법</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-solo-video" name="setting-save-solo" value="video" tabindex="-1" checked>
+													<label for="setting-save-solo-video" tabindex="0">
+														<span class="content-txt3">영상</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-solo-sound" name="setting-save-solo" value="sound" tabindex="-1">
+													<label for="setting-save-solo-sound" tabindex="0">
+														<span class="content-txt3">음성</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+									</div>
+									<div class="sing-setting-btm">
+										<a href="#" class="sing-challenge-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">2배 챌린지</span>
+												<div class="txt-bubble caption-txt1">GOAL <em>80점</em></div>
+											</div>
+										</a>
+										<a href="#" class="sing-solo-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">솔로 부르기</span>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div class="sing-setting-cont sing-duet-cont">
+									<div class="sing-setting-top">
+										<div class="sing-setting-key sing-setting-area">
+											<p class="caption-txt1">KEY</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-duet-w" name="setting-key-duet" value="w" tabindex="-1" checked>
+													<label for="setting-key-duet-w" tabindex="0">
+														<span class="content-txt3">여자</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-key-duet-m" name="setting-key-duet" value="m" tabindex="-1">
+													<label for="setting-key-duet-m" tabindex="0">
+														<span class="content-txt3">남자</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+										<div class="sing-setting-save sing-setting-area">
+											<p class="caption-txt1">저장 방법</p>
+											<div class="sing-setting-sel-wrap">
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-duet-video" name="setting-save-duet" value="video" tabindex="-1" checked>
+													<label for="setting-save-duet-video" tabindex="0">
+														<span class="content-txt3">영상</span>
+													</label>
+												</div>
+												<div class="setting-radio-box">
+													<input type="radio" id="setting-save-duet-sound" name="setting-save-duet" value="sound" tabindex="-1">
+													<label for="setting-save-duet-sound" tabindex="0">
+														<span class="content-txt3">음성</span>
+													</label>
+												</div>
+											</div>	
+										</div>
+									</div>
+									<div class="sing-setting-btm">
+										<a href="#" class="sing-duet-A-part-btn sing-duet-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">A 파트 부르기</span>
+											</div>
+										</a>
+										<a href="#" class="sing-duet-B-part-btn sing-duet-part-btn sing-btm-btn basic-btn round line">
+											<div class="btn-txt content-txt3">
+												<span class="content-txt3">B 파트 부르기</span>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-sheet-dimmed"></div>
+				</div>
+				<!-- // 부르기 팝업 -->
+			</div>
+		</div>
+	</div>
+</body>
+</html>

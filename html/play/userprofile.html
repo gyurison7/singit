@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/play/userprofile.css">
+
+	<!-- JS | library -->
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
+
+	<!-- JS -->
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
+
+    <title>SingIt</title>
+</head>
+<body>
+	<div id="wrap">
+		<!--==================
+		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+		- PLAY 페이지 : play 클래스
+		- SING 페이지 : sing 클래스
+		- BATTLE 페이지 : battle 클래스
+		- MY 페이지 : my 클래스
+		- 서브 페이지 : sub 클래스 
+        ======================-->
+		<div id="container" class="play sub">
+			<!--========== MODAL POPUP ==========-->
+            <div class="modal-popup-group">
+				<!--==================
+				* 싱코인 선물하기 팝업 (#giftScPop)
+				- .gift-sc-btn 버튼으로 .gift-sc-input 값이 증감합니다.
+				- 사용자의 현재 보유한 코인 값이 .current-sc에 로드되어야합니다.
+				- 모두 주기(#gift-all-check-box) 체크시, 현재 보유중인 코인 숫자값이 .gift-sc-input 값으로 입력됩니다.
+				- 선물수령자가 루키등급이라 수령 불가능할 경우, 확인 버튼 클릭시 toastPopup('rookieGiftFail');을 대신 실행합니다.
+				======================-->
+				<div id="giftScPop" class="modal msg giftScPop">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">선물하기</h3>
+								</div>
+								<div class="modal-txt-wrap">
+									<div class="gift-sc-cont">
+										<div class="gift-sc-box">
+											<button type="button" class="gift-sc-btn minus-gift-sc-btn" aria-label="선물할 싱코인 감소" onclick=""></button>
+											<input class="gift-sc-input medium-num" type="text" value="0">
+											<button type="button" class="gift-sc-btn plus-gift-sc-btn" aria-label="선물할 싱코인 감소" onclick=""></button>
+										</div>
+										<div class="gift-sc-box-bottom">
+											<div class="current-sc-wrap">
+												<p class="content-txt3">보유 코인 <strong><span class="current-sc num">1200</span>개</strong></p>
+											</div>
+											<div class="basic-check-box">
+												<input type="checkbox" id="gift-all-check-box" tabindex="-1">
+												<label for="gift-all-check-box" tabindex="0">모두 주기</label>
+											</div>
+										</div>
+										<div class="gift-sc-policy-wrap">
+											<div class="gift-sc-policy">Rookie 등급은 선물수령이 불가합니다.</div>
+											<a href="http://codeloft.kr/mediascope_singit/html/mypage/member.html" class="basic-btn line small round pink member-grade-btn" title="회원등급 정책 보기"><span>회원등급 정책 살펴보기</span></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#giftScPop');" class="basic-btn gray" tabindex="1">취소</a>
+								<a href="javascript:;" onclick="modalPopupClose('#giftScPop'); toastPopup('giftComplete');" class="basic-btn red" tabindex="1">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+            </div>
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<script>
+				$(function () {
+					$('#header').load("../include/header.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/header.js");
+						// $.getScript("../../asset/js/basic.js");
+					});
+				});
+			</script>
+			<main id="main" class="sub">
+				<h2 class="main-title hidden">프로필</h2>
+				<section class="section user-profile-sec">
+					<h3 class="section-title hidden">유저 프로필</h3>
+					<div class="section-content inner">
+						<div class="profile-wrap">
+							<div class="profile-wrap-inner">
+								<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../../asset/images/common/profile-default-img.svg" alt="프로필 기본 이미지"></figure>
+								<div class="profile-info">
+									<div class="profile-tit-wrap content-txt1">
+										<p class="profile-tit">한 페이지가 될 수 있게 한 페이지가</p>
+										<!-- 멤버십 등급별 뱃지 -->
+										<div class="status-label member">
+											<span class="rookie">Rookie</span>
+											<!-- <span class="pro">Pro</span> -->
+											<!-- <span class="vip">VIP</span> -->
+										</div>
+									</div>
+									<div class="bottom-info-wrap">
+										<!-- 영상,팔로워,팔로잉 수 -->
+										<div class="info-video bottom-info bottom-profile-info">영상<span class="num">11</span></div>
+										<div class="info-follower bottom-info bottom-profile-info">팔로워<span class="num">1221</span></div>
+										<div class="info-following bottom-info bottom-profile-info">팔로잉<span class="num">1</span></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--==================
+							* 더보기 (.more-article)
+							- 텍스트 영역인 .more-article-txt이 2줄 초과가 될 경우, '더보기'가 노출 됩니다.
+							- 2줄 이하일 경우 notmore 클래스가 추가되며, '더보기'가 노출 되지 않습니다.
+							- 2줄 초과 상태인 텍스트 영역인 .more-article-txt 클릭시, overview 클래스가 토글됩니다.
+						======================-->
+						<div class="introduction more-article content-txt3 skeleton">
+							<div class="more-article-wrap">
+								<p class="more-article-txt">
+									안녕하세요 :) 노래하는 걸 좋아하는 달고달딘 밤냥이 입니다. 함께 소통하고 듀엣도 해보아요! 안녕하세요 :) 노래하는 걸 좋아하는 달고달딘 밤냥이 입니다. 함께 소통하고 듀엣도 해보아요!
+								</p>
+							</div>
+						</div>
+						<!--==================
+							* 팔로우/팔로잉 (.follow-btn-wrap)
+							- default는 팔로우 버튼(.follow-btn)만 노출된 상태입니다. 
+							- 팔로우 버튼(.follow-btn) 클릭시, .follow-btn-wrap에 클래스 following이 붙으며, 팔로잉 버튼(.following-btn)이 노출됩니다.
+							- 팔로잉 버튼(.following-btn) 클릭시 .follow-btn-wrap에 클래스 following이 제거되며, 다시 팔로우 버튼(.follow-btn)이 노출됩니다.
+						======================-->
+						<div class="btn-wrap follow-btn-wrap">
+							<button type="button" class="basic-btn red round follow-btn" aria-label="팔로우" onclick=""><span>팔로우</span></button>
+							<button type="button" class="basic-btn line round following-btn" aria-label="팔로잉" onclick=""><span>팔로잉</span></button>
+							<button type="button" class="basic-btn round line black-line gift-btn" aria-label="선물하기" onclick="modalPopup('#giftScPop')"><span>선물하기</span></button>
+						</div>
+					</div>
+				</section>
+				<section class="section user-post-sec">
+					<h3 class="section-title hidden">유저 게시물</h3>
+					<div class="section-content inner">
+						<div class="sorting-tit-wrap">
+							<ul class="sorting-list">
+								<li class="content-txt3 active"><a href="javascript:;" title="최신순">최신순</a></li>
+								<li class="content-txt3"><a href="javascript:;" title="참여순">참여순</a></li>
+							</ul>
+						</div>
+						<div class="user-post-area">
+							<!-- 컨텐츠 없을때 no-result가 표시됩니다. (css 처리) -->
+							<div class="no-result">
+								<p class="content-txt3">아직 업로드한 영상이 없어요.</p>
+							</div>
+							<div class="post-list-wrap">
+								<!-- thumbnail-area onclick으로 게시물 이동 -->
+								<div class="post-list thumbnail-area skeleton" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'"> 
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="업로드한 영상 썸네일">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="업로드한 영상 썸네일 배경">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">248</span></div>
+									</div>
+								</div>
+								<div class="post-list thumbnail-area skeleton duet" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-duet.html'"> 
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload duet-left" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="업로드한 영상 썸네일">
+										<img class="fade-in lazyload duet-right" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="업로드한 영상 썸네일 배경">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">248</span></div>
+									</div>
+								</div>
+								<div class="post-list thumbnail-area skeleton" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'"> 
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="업로드한 영상 썸네일">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="업로드한 영상 썸네일 배경">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">248</span></div>
+									</div>
+								</div>
+								<div class="post-list thumbnail-area skeleton" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'"> 
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-03.jpg" srcset="../../asset/images/temp/img-169-03.jpg 2x" alt="업로드한 영상 썸네일">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-03.jpg" srcset="../../asset/images/temp/img-169-03.jpg 2x" alt="업로드한 영상 썸네일 배경">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">1111</span></div>
+									</div>
+								</div>
+								<div class="post-list thumbnail-area skeleton" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'"> 
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-04.jpg" srcset="../../asset/images/temp/img-169-04.jpg 2x" alt="업로드한 영상 썸네일">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-04.jpg" srcset="../../asset/images/temp/img-169-04.jpg 2x" alt="업로드한 영상 썸네일 배경">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">24</span></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+
+			<!--========== BOTTOM SHEET ==========-->
+			<div class="toast-popup-group">
+				<!--==================
+					* 토스트 팝업
+					- toastPopup('클래스명')에 의해, 해당 되는 클래스명의 .toast-popup > p를 호출합니다.
+				======================-->
+				<div class="toast-popup">
+					<p class="toast-popup-txt giftComplete">선물전달이 완료되었습니다.</p>
+					<p class="toast-popup-txt rookieGiftFail">*Rookie 등급은 선물수령이 불가합니다.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

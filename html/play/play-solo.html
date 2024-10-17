@@ -82,13 +82,19 @@
 		<div id="container" class="play sub detail">
 			<!--========== MODAL POPUP ==========-->
             <div class="modal-popup-group">
-				<!-- 싱코인 선물하기 팝업 -->
+				<!--==================
+				* 싱코인 선물하기 팝업 (#giftScPop)
+				- .gift-sc-btn 버튼으로 .gift-sc-input 값이 증감합니다.
+				- 사용자의 현재 보유한 코인 값이 .current-sc에 로드되어야합니다.
+				- 모두 주기(#gift-all-check-box) 체크시, 현재 보유중인 코인 숫자값이 .gift-sc-input 값으로 입력됩니다.
+				- 선물수령자가 루키등급이라 수령 불가능할 경우, 확인 버튼 클릭시 toastPopup('rookieGiftFail');을 대신 실행합니다.
+				======================-->
 				<div id="giftScPop" class="modal msg giftScPop">
 					<div class="modal-wrap">
 						<section class="modal-content">
 							<div class="modal-cont-wrap">
 								<div class="modal-tit-wrap">
-									<h3 class="modal-tit">싱코인 선물하기</h3>
+									<h3 class="modal-tit">선물하기</h3>
 								</div>
 								<div class="modal-txt-wrap">
 									<div class="gift-sc-cont">
@@ -106,12 +112,16 @@
 												<label for="gift-all-check-box" tabindex="0">모두 주기</label>
 											</div>
 										</div>
+										<div class="gift-sc-policy-wrap">
+											<div class="gift-sc-policy">Rookie 등급은 선물수령이 불가합니다.</div>
+											<a href="http://codeloft.kr/mediascope_singit/html/mypage/member.html" class="basic-btn line small round pink member-grade-btn" title="회원등급 정책 보기"><span>회원등급 정책 살펴보기</span></a>
+										</div>
 									</div>
 								</div>
 							</div>
 							<div class="modal-btn-wrap">
 								<a href="javascript:;" onclick="modalPopupClose('#giftScPop');" class="basic-btn gray" tabindex="1">취소</a>
-								<a href="javascript:;" onclick="modalPopupClose('#giftScPop');" class="basic-btn red" tabindex="1">확인</a>
+								<a href="javascript:;" onclick="modalPopupClose('#giftScPop'); toastPopup('giftComplete');" class="basic-btn red" tabindex="1">확인</a>
 							</div>
 						</section>
 					</div>
@@ -130,7 +140,7 @@
 							</div>
 							<div class="modal-btn-wrap">
 								<a href="javascript:;" onclick="modalPopupClose('#delPop');" class="basic-btn gray" tabindex="1">취소</a>
-								<a href="javascript:;" onclick="modalPopupClose('#delPop');" class="basic-btn red" tabindex="1">확인</a>
+								<a href="javascript:;" onclick="modalPopupClose('#delPop'); closeBottomSheet(); toastPopup('delComplete');" class="basic-btn red" tabindex="1">확인</a>
 							</div>
 						</section>
 					</div>
@@ -170,7 +180,7 @@
 							</div>
 							<div class="modal-btn-wrap">
 								 <a href="javascript:;" onclick="modalPopupClose('#editPop');" class="basic-btn gray" tabindex="1">취소</a>
-								<a href="javascript:;" onclick="modalPopupClose('#editPop');" class="basic-btn red" tabindex="1">확인</a>
+								<a href="javascript:;" onclick="modalPopupClose('#editPop'); toastPopup('fixComplete');" class="basic-btn red" tabindex="1">확인</a>
 							</div>
 						</section>
 					</div>
@@ -183,11 +193,111 @@
 							<div class="sheet-content">
 								<div class="sheet-cont-inner">
 									<div class="btn-wrap sheet-btn-wrap multi">
-										<button type="button" class="basic-btn white-line fix w100" aria-label="수정하기" onclick="modalPopupClose('#commentMenuPop'); modalPopup('#editPop')"><span>수정하기</span></button>
+										<button type="button" class="basic-btn white-line fix w100" aria-label="수정하기" onclick="modalPopupClose('#commentMenuPop'); modalPopup('#commentEditPop')"><span>수정하기</span></button>
 										<button type="button" class="basic-btn white-line del w100" aria-label="삭제하기" onclick="modalPopupClose('#commentMenuPop'); modalPopup('#delPop')"><span>삭제하기</span></button>
 										<button type="button" class="basic-btn white-line warning red-txt w100" aria-label="신고하기" onclick="modalPopupClose('#commentMenuPop'); openBottomSheet('#warning')"><span>신고하기</span></button>
 									</div>
 								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+				<!--==================
+					* 다운로드 여부 확인 안내 팝업
+					- go-purchase-btn 버튼을 누르면, 구매(.my-purchase.html) 페이지로 이동해야합니다.
+					- #download-button 버튼을 누르면,
+					(1) #download-button의 href 내용을 다운로드 받습니다.
+					(2) .downloadProgressPop 팝업이 노출되며, 다운로드 진행여부에 따라 #download-bar가 채워지도록 구현하였습니다. 해당 스크립트는 popup.js 322줄부터 있으며, 추가적인 수정 가능합니다.
+				======================-->
+				<div id="downloadPop" class="modal msg downloadPop">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">다운로드</h3>
+									<div class="modal-close-btn">
+										<a href="javascript:;" onclick="modalPopupClose('#downloadPop')" title="팝업창 닫기" tabindex="0">팝업창 닫기</a>
+									</div>
+								</div>
+								<div class="modal-txt-wrap">
+									<h3 class="modal-tit">영상을 다운로드하시겠습니까?</h3>
+									<p class="modal-sub-tit">Rookie, Pro 회원 등급은 영상 다운로드 5번이 무료로 제공되며, <br>
+									VIP 이용권 구매 시 무제한 다운로드가 가능합니다.</p>
+									<a href="http://codeloft.kr/mediascope_singit/html/mypage/my-purchase.html" class="basic-btn round line go-purchase-btn" title="VIP 이용권 페이지로 이동하기" aria-label="VIP 이용권 페이지로 이동하기"><span>VIP 이용권 보러가기</span></a>
+									<div class="download-count-box">
+										<span>내 다운로드 횟수</span>
+										<div class="download-count-wrap">
+										<em class="current-download">1</em> / 5 회</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#downloadPop');" class="basic-btn gray" tabindex="1">취소</a>
+								<a href="http://codeloft.kr/mediascope_singit/asset/images/common/icon-singit-box-red.svg" download="" id="download-button" class="basic-btn red" tabindex="1">다운로드</a>
+							</div>
+						</section>
+						
+					</div>
+				</div>
+				<!-- 다운로드 진행바 팝업 -->
+				<div id="downloadProgressPop" class="modal msg downloadProgressPop">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">다운로드 중</h3>
+									<div class="modal-close-btn">
+										<a href="javascript:;" onclick="modalPopupClose('#downloadProgressPop')" title="팝업창 닫기" tabindex="0">팝업창 닫기</a>
+									</div>
+								</div>
+								<div class="modal-txt-wrap">
+									<div class="icon-wrap"></div>
+									<h3 class="modal-tit content-txt1">다운로드 중입니다.</h3>
+								</div>
+								<div class="process-container download">
+									<div class="process-bar">
+										<div class="background"></div>
+										<div id="download-bar" class="completed download"></div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+				<!-- 신고 사유 안내 팝업 -->
+				<div id="reportReasonPop" class="modal msg reportReasonPop">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">미성년자의 노출 또는 성행위</h3>
+								</div>
+								<div class="modal-txt-wrap">
+									<ul class="list-style">
+										<li class="circle">일반 의약품 무단 사용을 촉진하는 이모티콘 사용을 포함하여 미성년자의 알코올, 담배 또는 마약 도지 및 소비를 권장하거나 보여주거나 모방하거나 보여주는 콘텐츠</li>
+										<li class="circle">미성년자에게 알코올, 담배 또는 규제 물질의 구매, 판매 또는 거래 방법을 알려주는 콘텐츠</li>
+									</ul>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								 <a href="javascript:;" onclick="modalPopupClose('#reportReasonPop');" class="basic-btn gray" tabindex="1">취소</a>
+								<a href="javascript:;" onclick="modalPopupClose('#reportReasonPop'); closeBottomSheet(); toastPopup('reportComplete')" class="basic-btn red" tabindex="1">신고</a>
+							</div>
+						</section>
+					</div>
+				</div>
+				<!-- 댓글 수정하기 팝업 -->
+				<div id="commentEditPop" class="modal msg commentEditPop">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<!-- 댓글 입력 박스 -->
+                                <div class="input-txt-box">
+                                    <div class="input-txt-wrap">
+                                        <input class="comment-input" type="text" placeholder="수정할 댓글 내용을 입력해주세요.">
+                                        <button type="button" class="input-txt-send-btn" aria-label="댓글 수정" onclick="modalPopupClose('#commentEditPop'); toastPopup('fixComplete')"></button>
+                                    </div>
+                                </div>
 							</div>
 						</section>
 					</div>
@@ -243,7 +353,7 @@
 						</div>
 						<div class="play-vid-cont">
 							<div class="inner content-txt2">
-								<h4 class="play-vid-title content-txt1 skeleton">제목이 길땐 이렇게 들어갑니다.제목이 길땐 이렇게 들어갑니다.제목이 길땐 이렇게 들어갑니다.제목이 길땐 이렇게 들어갑니다.</h4>
+								<a href="http://codeloft.kr/mediascope_singit/html/sing/sing-detail.html" title="해당 곡 상세페이지로 이동하기" class="play-vid-title content-txt1 skeleton">제목이 길땐 이렇게 들어갑니다.제목이 길땐 이렇게 들어갑니다.제목이 길땐 이렇게 들어갑니다.제목이 길땐 이렇게 들어갑니다.</a>
 								<div class="play-vid-singer content-txt3 skeleton">이영지</div>
 								<div class="play-vid-desc more-article content-txt3 skeleton">
 									<div class="more-article-wrap">
@@ -280,14 +390,14 @@
 							<ul class="profile-list-wrap">
 								<li class="profile-list">
 									<div class="profile-wrap">
-										<a href="#none" class="profile-wrap-inner" title="프로필 보기">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/userprofile.html" class="profile-wrap-inner" title="프로필 보기">
 											<figure class="profile-img skeleton"><img class="fade-in lazyload" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지"></figure>
 											<div class="profile-info">
 												<p class="profile-tit content-txt3 skeleton">내가 만든쿠키 내가 만든쿠키 내가 만든쿠키 내가 만든쿠키 내가 만든쿠키 내가 만든쿠키</p>
 											</div>
 										</a>
 										<div class="btn-wrap profile-btn-wrap follow skeleton">
-											<button type="button" class="basic-btn small line pink on" aria-label="title" onclick="location.href='#none'"><span>팔로우</span></button>
+											<button type="button" class="basic-btn small line pink on" aria-label="팔로우 하기/끊기"><span>팔로우</span></button>
 										</div>
 									</div>
 								</li>
@@ -321,7 +431,7 @@
 						<div class="related-vid-wrap related-vid-swiper swiper song-list">
 							<div class="swiper-wrapper">
 								<div class="swiper-slide related-vid-list">
-									<a href="location.href='#none'" aria-label="관련 영상 이동">
+									<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" aria-label="관련 영상 이동">
 										<div class="thumbnail-area skeleton">
 											<div class="thumbnail-wrap">
 												<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/img-169-03.jpg" srcset="../../asset/images/temp/img-169-03.jpg 2x" alt="alt값 필수" title="선택적 제목">
@@ -345,7 +455,7 @@
 									</a>
 								</div>
 								<div class="swiper-slide related-vid-list">
-									<a href="location.href='#none'" aria-label="관련 영상 이동">
+									<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" aria-label="관련 영상 이동">
 										<div class="thumbnail-area skeleton">
 											<div class="thumbnail-wrap">
 												<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
@@ -369,7 +479,7 @@
 									</a>
 								</div>
 								<div class="swiper-slide related-vid-list">
-									<a href="location.href='#none'" aria-label="관련 영상 이동">
+									<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" aria-label="관련 영상 이동">
 										<div class="thumbnail-area skeleton">
 											<div class="thumbnail-wrap">
 												<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="alt값 필수" title="선택적 제목">
@@ -393,7 +503,7 @@
 									</a>
 								</div>
 								<div class="swiper-slide related-vid-list">
-									<a href="location.href='#none'" aria-label="관련 영상 이동">
+									<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" aria-label="관련 영상 이동">
 										<div class="thumbnail-area skeleton">
 											<div class="thumbnail-wrap">
 												<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="alt값 필수" title="선택적 제목">
@@ -417,7 +527,7 @@
 									</a>
 								</div>
 								<div class="swiper-slide related-vid-list">
-									<a href="location.href='#none'" aria-label="관련 영상 이동">
+									<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" aria-label="관련 영상 이동">
 										<div class="thumbnail-area skeleton">
 											<div class="thumbnail-wrap">
 												<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="alt값 필수" title="선택적 제목">
@@ -451,7 +561,7 @@
 							<ul class="profile-list-wrap">
 								<li class="profile-list">
 									<div class="profile-wrap">
-										<a href="#" class="profile-wrap-inner" aria-label="추천 영상 이동">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap-inner" aria-label="추천 영상 이동">
 											<div class="thumbnail-area skeleton duet">
 												<div class="thumbnail-wrap">
 													<img class="fade-in lazyload duet-left" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
@@ -480,7 +590,7 @@
 								</li>
 								<li class="profile-list">
 									<div class="profile-wrap">
-										<a href="#" class="profile-wrap-inner" aria-label="추천 영상 이동">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap-inner" aria-label="추천 영상 이동">
 											<div class="thumbnail-area skeleton"> 
 												<div class="thumbnail-wrap">
 													<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="Moonlight sunrise 트와이스">
@@ -508,7 +618,7 @@
 								</li>
 								<li class="profile-list">
 									<div class="profile-wrap">
-										<a href="#" class="profile-wrap-inner" aria-label="추천 영상 이동">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap-inner" aria-label="추천 영상 이동">
 											<div class="thumbnail-area skeleton duet"> 
 												<div class="thumbnail-wrap">
 													<img class="fade-in lazyload duet-left" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
@@ -537,7 +647,7 @@
 								</li>
 								<li class="profile-list">
 									<div class="profile-wrap">
-										<a href="#" class="profile-wrap-inner" aria-label="추천 영상 이동">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap-inner" aria-label="추천 영상 이동">
 											<div class="thumbnail-area skeleton"> 
 												<div class="thumbnail-wrap">
 													<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="Moonlight sunrise 트와이스">
@@ -590,7 +700,7 @@
 								<div class="btn-wrap sheet-btn-wrap multi">
 									<button type="button" class="basic-btn white-line fix w100" aria-label="수정하기" onclick="modalPopup('#editPop')"><span>수정하기</span></button>
 									<button type="button" class="basic-btn white-line del w100" aria-label="삭제하기" onclick="modalPopup('#delPop')"><span>삭제하기</span></button>
-									<button type="button" class="basic-btn white-line download w100" aria-label="다운로드" onclick=""><span>다운로드</span></button>
+									<button type="button" class="basic-btn white-line download w100" aria-label="다운로드" onclick="modalPopup('#downloadPop')"><span>다운로드</span></button>
 								</div>
 							</div>
 						</div>
@@ -607,19 +717,19 @@
 							<h4 class="sheet-tit">신고</h4>
 							<div class="sheet-cont-inner">
 								<ul class="sheet-list">
-									<li><a href="#none">미성년자 안전</a></li>
-									<li><a href="#none">위험한 행동 및 도전</a></li>
-									<li><a href="#none">자살, 자해 및 섭식 장애</a></li>
-									<li><a href="#none">성인 노출 및 성행위</a></li>
-									<li><a href="#none">괴롭힘 및 희롱</a></li>
-									<li><a href="#none">혐오적 행동</a></li>
-									<li><a href="#none">폭력적 극단주의</a></li>
-									<li><a href="#none">스팸 및 허위 참여</a></li>
-									<li><a href="#none">유해한 허위 정보</a></li>
-									<li><a href="#none">불법 행위 및 규제 품목</a></li>
-									<li><a href="#none">폭력적이고 노골적인 콘텐츠</a></li>
-									<li><a href="#none">지적 재산 침해</a></li>
-									<li><a href="#none">기타</a></li>
+									<li><a href="javascript:;" onclick="openBottomSheet('#warning-reason')">미성년자 안전</a></li>
+									<li><a href="javascript:;" onclick="openBottomSheet('#warning-reason')">위험한 행동 및 도전</a></li>
+									<li><a href="javascript:;" onclick="openBottomSheet('#warning-reason')">자살, 자해 및 섭식 장애</a></li>
+									<li><a href="javascript:;" onclick="openBottomSheet('#warning-reason')">성인 노출 및 성행위</a></li>
+									<li><a href="javascript:;" onclick="openBottomSheet('#warning-reason')">괴롭힘 및 희롱</a></li>
+									<li><a href="javascript:;" onclick="openBottomSheet('#warning-reason')">혐오적 행동</a></li>
+									<li><a href="javascript:;" onclick="openBottomSheet('#warning-reason')">폭력적 극단주의</a></li>
+									<li><a href="javascript:;" onclick="openBottomSheet('#warning-reason')">스팸 및 허위 참여</a></li>
+									<li><a href="javascript:;" onclick="openBottomSheet('#warning-reason')">유해한 허위 정보</a></li>
+									<li><a href="javascript:;" onclick="openBottomSheet('#warning-reason')">불법 행위 및 규제 품목</a></li>
+									<li><a href="javascript:;" onclick="openBottomSheet('#warning-reason')">폭력적이고 노골적인 콘텐츠</a></li>
+									<li><a href="javascript:;" onclick="openBottomSheet('#warning-reason')">지적 재산 침해</a></li>
+									<li><a href="javascript:;" onclick="openBottomSheet('#warning-reason')">기타</a></li>
 								</ul>
 							</div>
 						</div>
@@ -636,9 +746,9 @@
 							<h4 class="sheet-tit">구체적 사유</h4>
 							<div class="sheet-cont-inner">
 								<ul class="sheet-list">
-									<li><a href="#none">미성년자의 노출 또는 성행위</a></li>
-									<li><a href="#none">미성년자의 대한 학대 또는 범죄</a></li>
-									<li><a href="#none">미성년자의 위험한 행동</a></li>
+									<li><a href="javascript:;" onclick="modalPopup('#reportReasonPop')">미성년자의 노출 또는 성행위</a></li>
+									<li><a href="javascript:;" onclick="modalPopup('#reportReasonPop')">미성년자의 대한 학대 또는 범죄</a></li>
+									<li><a href="javascript:;" onclick="modalPopup('#reportReasonPop')">미성년자의 위험한 행동</a></li>
 								</ul>
 							</div>
 						</div>
@@ -731,7 +841,7 @@
 										</div>
 										<div class="comment-list comment-tree1">
 											<div class="profile-area">
-												<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/img-11-01.jpg" alt="유저 프로필 이미지">
+												<img class="fade-in lazyload" decoding="async" src="../../asset/images/temp/profile-temp02.png" alt="유저 프로필 이미지">
 											</div>
 											<div class="content-area">
 												<div class="comment-content-wrap">
@@ -965,6 +1075,19 @@
 						</div>
 					</div>
 					<div class="bottom-sheet-dimmed"></div>
+				</div>
+
+				<!--==================
+					* 토스트 팝업
+					- toastPopup('클래스명')에 의해, 해당 되는 클래스명의 .toast-popup > p를 호출합니다.
+				======================-->
+				<div class="toast-popup">
+					<p class="toast-popup-txt fixComplete">수정이 완료되었습니다.</p>
+					<p class="toast-popup-txt delComplete">삭제가 완료되었습니다.</p>
+					<p class="toast-popup-txt downComplete">다운로드가 완료되었습니다.</p>
+					<p class="toast-popup-txt reportComplete">신고처리가 완료되었습니다.</p>
+					<p class="toast-popup-txt giftComplete">선물전달이 완료되었습니다.</p>
+					<p class="toast-popup-txt rookieGiftFail">*Rookie 등급은 선물수령이 불가합니다.</p>
 				</div>
 			</div>
 		</div>

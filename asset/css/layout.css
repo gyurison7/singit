@@ -10,6 +10,7 @@
 /*========== Common ==========*/
 #container {max-width: 750px; margin: 0 auto; box-sizing: border-box; background-color: #fff;box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.04);}
 main {min-height: 100vh; min-height: 100dvh; padding: 4.8em 0 7.60em; font-size: 1rem;}
+.singitbox main, .kpop main {padding-top: 4.48em;}
 main.sub {padding-top: 2.81em;}
 main.sub:has(.search-sec) {padding-top: 3.75em;}
 .detail main { padding-top: 0;}
@@ -19,9 +20,49 @@ main.sub:has(.search-sec) {padding-top: 3.75em;}
     main {font-size: clamp(16px, 4.267vw, 20px);} 
 }
 
+/*========== Splash ==========*/
+.splash-page {display: flex;flex-direction: column;align-items: center;justify-content: center;gap: 16px;height: 100%;background: linear-gradient(to bottom right, #FF5E4A, #F82A2E);animation: splash 1s 2s forwards;}
+.splash-page .splash-logo {display: block;position: relative;width: 122px;height: 118px;text-indent: -9999px;}
+.splash-page .splash-logo .splash-logo-w {z-index: 1;position: absolute;top: 0;left: 0;width: 100%;height: 100%;-webkit-animation: splashLogoW 0.8s 1.5s forwards;animation: splashLogoW 0.8s 1.5s forwards;}
+@-webkit-keyframes splashLogoW {
+	0% {opacity: 1; visibility: visible;}
+	100% {opacity: 0; visibility: hidden;}
+}
+@keyframes splashLogoW {
+	0% {opacity: 1; visibility: visible;}
+	100% {opacity: 0; visibility: hidden;}
+}
+.splash-page .splash-logo .splash-logo-r {position: absolute;top: 0;left: 0;width: 100%;height: 100%;-webkit-animation: splashLogoR 0.8s 1.5s forwards;animation: splashLogoR 0.8s 1.5s forwards;}
+@-webkit-keyframes splashLogoR {
+	0% {opacity: 0; visibility: hidden;}
+	100% {opacity: 1; visibility: visible;}
+}
+@keyframes splashLogoR {
+	0% {opacity: 0; visibility: hidden;}
+	100% {opacity: 1; visibility: visible;}
+}
+.splash-page .splash-txt {height: 30px;font-weight: 500;font-size: 1.125rem;color: #fff;-webkit-animation: splashTxt 0.5s 1.5s forwards;animation: splashTxt 0.5s 1.5s forwards;}
+@-webkit-keyframes splashTxt {
+	0% {opacity: 1;}
+	100% {opacity: 0;scale: 1.2;}
+}
+@keyframes splashTxt {
+	0% {opacity: 1;}
+	100% {opacity: 0;scale: 1.2;}
+}
+@-webkit-keyframes splash {
+	0% {background: var(--main-point-color);}
+	100% {background: #fff;}
+}
+@keyframes splash {
+	0% {background: var(--main-point-color);}
+	100% {background: #fff;}
+}
+
 /*========== Header ==========*/
 #header { position: fixed;top: 0; left: 50%; transform: translate(-50%, 0); max-width: 750px; width: 100%; z-index: 101; background-color:#fff; transition: top 0.3s ease;} 
 #header .header-main {display: flex; justify-content: space-between; align-items: center; padding: 1.25em 0 1.50em; font-size: 1rem;}
+.singitbox #header .header-main, .kpop #header .header-main {padding-bottom: 1.250em;}
 #header .header-logo a {font-size: 1.38rem; color: #1A1A1A; text-transform: uppercase;}
 #header .header-right-area ul {display: flex; align-items: center; justify-content: flex-end; gap: 8px;}
 #header .header-right-area ul li {display: flex; justify-content: center; align-items: center;}
@@ -33,7 +74,7 @@ main.sub:has(.search-sec) {padding-top: 3.75em;}
 #header .header-right-area ul li.header-setting a {background-image: url('../images/common/icon-setting.svg');}
 #header .header-right-area .singcoin {display: inline-block; margin: 0 0 0 4px; font-weight: 700; font-variation-settings: 'wght' 700;color: var(--main-point-color);line-height: 1;}
 /* sub */
-.header-sub {display: none;height: 2.75em; font-size: 1rem; border-bottom: 1px solid var(--basic-line-color);}
+.header-sub {display: none;height: 2.8em; font-size: 1rem; border-bottom: 1px solid var(--basic-line-color);}
 .header-sub ul {position: relative; display: flex; justify-content: center; align-items: center; height: inherit; font-size: inherit;}
 .header-sub ul li {display: flex; justify-content: center; align-items: center;}
 .header-sub ul li.off {display: none;}
@@ -53,7 +94,7 @@ main.sub:has(.search-sec) {padding-top: 3.75em;}
 
 /* 영상 페이지(play detail) */
 .detail #header { background-color: transparent;}
-.detail .header-sub {margin-top: 0.75em; border-bottom: none; }
+.detail .header-sub { border-bottom: none; }
 .detail .header-sub ul li.header-sub-tit h2 { display: none;}
 
 /* 페이지 별 gnb 메뉴 */
@@ -61,6 +102,7 @@ main.sub:has(.search-sec) {padding-top: 3.75em;}
 .sing #header .header-right-area ul li.header-setting {display: none;}
 .battle #header .header-right-area ul li.header-setting {display: none;}
 .my #header .header-right-area ul li.header-coin, .my #header .header-right-area ul li.header-search {display: none;}
+.kpop #header .header-right-area ul li.header-search {display: none;}
 .sub #header .header-main, .search #header .header-main {display: none;}
 .sub #header .header-sub {display: block;}
 .sub #header .header-sub.search {display: none;}
@@ -74,21 +116,29 @@ main.sub:has(.search-sec) {padding-top: 3.75em;}
 @media screen and (max-width: 354px){
     .header-sub.search .search-input-wrap .search-input::placeholder {font-size: 13px;}
 }
+@media screen and (max-width: 340px){
+    .kpop #header .header-right-area ul {gap: 4px;}
+    .kpop #header .header-logo a {font-size: clamp(15px, 5.882vw, 20px);} 
+    .kpop #header .header-right-area ul li a {font-size: clamp(14px, 5.294vw, 18px);} 
+    .kpop #header .header-right-area ul li a .content-txt3 {font-size: clamp(12px, 4.118vw, 14px);} 
+}
 @media screen and (max-width: 330px){
     .header-sub.search .search-input-wrap .search-input::placeholder {font-size: 11px;}
 }
 
 /*========== Footer ==========*/
 #footer { position: fixed;bottom: 0; left: 50%; transform: translate(-50%, 0); max-width: 750px; width: 100%; padding-bottom: constant(safe-area-inset-bottom); padding-bottom: env(safe-area-inset-bottom); z-index: 100; background-color:#fff; border-top: 1px solid var(--basic-line-color); } 
-#footer .footer-inner {height: 3.44em; font-size: 1rem}
+#footer .footer-inner {height: 3.44em; margin: 0; font-size: 1rem}
 #footer .app-bar-wrap {display: flex;align-items: center; height: inherit; font-size: inherit;}
-#footer .app-bar-wrap li {display: flex; justify-content: center; align-items: center; width: calc(100% / 4); margin: -0.38em 0 0; }
-#footer .app-bar-wrap li a {display: flex; flex-direction: column; justify-content: center; align-items: center; width: 3.75em; height: 100%; font-size: 1rem;}
-#footer .app-bar-wrap li figure {width: 2.25em; font-size: inherit;}
-#footer .app-bar-wrap li .app-bar-img {display: block; aspect-ratio: 1 / 1;transition: all 300ms;}
+#footer .app-bar-wrap li {display: flex; justify-content: center; align-items: center; width: calc(100% / 5); margin: -0.38em 0 0; }
+#footer .app-bar-wrap li.kpop {min-width: 4.90em;}
+#footer .app-bar-wrap li a {display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: 100%; font-size: 1rem;}
+#footer .app-bar-wrap li figure {width: 100%; font-size: inherit; text-align: center;}
+#footer .app-bar-wrap li figure img {width: 2.25em;}
+#footer .app-bar-wrap li .app-bar-img {display: inline-block; aspect-ratio: 1 / 1;transition: all 300ms;}
 #footer .app-bar-wrap li .app-bar-img.active {display: none; opacity: 0; visibility: hidden;}
 #footer .app-bar-wrap li.active .app-bar-img:not(.active), #footer .app-bar-wrap li a:active .app-bar-img:not(.active) {display: none; opacity: 0; visibility: hidden;}
-#footer .app-bar-wrap li.active .app-bar-img.active, #footer .app-bar-wrap li a:active .app-bar-img.active {display: block; opacity: 1; visibility: visible;}
+#footer .app-bar-wrap li.active .app-bar-img.active, #footer .app-bar-wrap li a:active .app-bar-img.active {display: inline-block; opacity: 1; visibility: visible;}
 #footer .app-bar-wrap li .app-bar-tit {font-size: 0.750rem;text-align: center;color: #888;text-transform: uppercase;line-height: 1;transition: color 300ms;}
 #footer .app-bar-wrap li.active .app-bar-tit, #footer .app-bar-wrap li a:active .app-bar-tit {font-weight: 700; font-variation-settings: 'wght' 700;color: #333;}
 @media screen and (min-width: 421px){
@@ -98,7 +148,7 @@ main.sub:has(.search-sec) {padding-top: 3.75em;}
 }
 @media (hover:hover) {
     #footer .app-bar-wrap li:hover .app-bar-img:not(.active) {display: none;opacity: 0; visibility: hidden;}
-    #footer .app-bar-wrap li:hover .app-bar-img.active {display: block; opacity: 1; visibility: visible;}
+    #footer .app-bar-wrap li:hover .app-bar-img.active {display: inline-block; opacity: 1; visibility: visible;}
     #footer .app-bar-wrap li:hover .app-bar-tit {font-weight: 700; font-variation-settings: 'wght' 700;color: #333;}
 }
 
@@ -112,9 +162,14 @@ main.sub:has(.search-sec) {padding-top: 3.75em;}
 
 /*========== Floating Button ==========*/
 #singit-box {opacity: 1; visibility: visible;z-index: 100; position: fixed;right: 50%;bottom: calc(3.88em + constant(safe-area-inset-bottom));bottom: calc(3.88em + env(safe-area-inset-bottom));transform:translate(18.35em, 0);width: 3.50em;height: 3.38em;border-radius: 0.63em;background: linear-gradient( to bottom right,#FF5E4A,#F82A2E);box-shadow: 2px 2px 8px rgba(255, 43, 47, 0.35);}
-#singit-box a {width: 100%;height: 100%;background-image: url("../images/common/logo-v-white.svg");background-repeat: no-repeat;background-position: center center;background-size: 2.75em auto;font-size: inherit;}
+#singit-box a {width: 100%;height: 100%;background-image: url("../images/common/logo-singit-box-white.svg");background-repeat: no-repeat;background-position: center center;background-size: 2.75em auto;font-size: inherit;}
 @media screen and (max-width: 750px){
     #singit-box {right: 10px;transform:translate(0, 0);}
+}
+#share-btn {opacity: 1; visibility: visible;z-index: 100; position: fixed;right: 50%;bottom: calc(4.282em + constant(safe-area-inset-bottom));bottom: calc(4.282em + env(safe-area-inset-bottom));transform:translate(17.95em, 0);width: 2.63em;height: 2.63em;border-radius: 50%;background-color: #fff; border: 1px solid #ddd;}
+#share-btn a {width: 100%;height: 100%;background-image: url("../images/common/icon-share.svg");background-repeat: no-repeat;background-position: center center;background-size: 1.75em auto;font-size: inherit;}
+@media screen and (max-width: 750px){
+    #share-btn {right: 10px;transform:translate(0, 0);}
 }
 
 /*========== No result ==========*/
@@ -150,7 +205,7 @@ main.sub:has(.search-sec) {padding-top: 3.75em;}
 .profile-img.skeleton.cover::before {display: none;}
 .profile-img:not(.skeleton).cover::before {display: block; content: '';z-index: 11;position: absolute;top: auto; bottom: 0;left: 0;width: 100%;height: 63%;background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(49, 49, 49, 0.375) 50%, rgba(98, 98, 98, 0) 100%);}
 
-.profile-img img { border-radius: inherit;}
+.profile-img img {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%); height: 100%; border-radius: inherit;}
 .profile-info {display: flex;justify-content: center; flex-direction: column; width: calc(100% - 3.88em); font-size: 1rem;}
 .profile-tit { overflow: hidden; color: #111;word-break: keep-all;white-space: nowrap;text-overflow: ellipsis;}
 .profile-txt { overflow: hidden;color: #888;font-weight: 400; font-variation-settings: 'wght' 400;word-break: keep-all;white-space: nowrap;text-overflow: ellipsis;}
@@ -349,3 +404,22 @@ main.sub:has(.search-sec) {padding-top: 3.75em;}
     .sing-songlist .profile-area::-webkit-scrollbar-track {display: none;} 
 }
 
+/* ------------------------------------------------------------------------ 
+DARK MODE
+------------------------------------------------------------------------ */
+#container.dark { background-color: #222121;}
+/*========== Header ==========*/
+.dark #header { background-color: #222121;}
+.dark #header .header-logo a { color: #fff;}
+.dark .header-sub { border-bottom: 1px solid #2D2D2E;}
+.dark .header-sub ul li.header-sub-tit h2 { color: #fff;}
+.dark .header-sub ul li.header-close button {background-image: url('../images/common/icon-close-white.svg');}
+
+/*========== Footer ==========*/
+.dark #footer { background-color: #222121;}
+
+@media (hover:hover) {
+    .dark #footer .app-bar-wrap li:hover .app-bar-img:not(.active) {display: block;opacity: 1; visibility: visible;}
+    .dark #footer .app-bar-wrap li:hover .app-bar-img.active {display: none; opacity: 0; visibility: hidden;}
+    .dark #footer .app-bar-wrap li:hover .app-bar-tit {font-weight: 500; font-variation-settings: 'wght' 500;color: #888;}
+}

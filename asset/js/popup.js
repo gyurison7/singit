@@ -10,6 +10,7 @@
 let scrollPosition = 0;
 function scrollDisable(){ // body 스크롤 비활성화
 	if($(".play.detail").length > 0) return;
+	if($('body').hasClass('scroll-disable')) return;
 	scrollPosition = window.pageYOffset; // 현재 스크롤 위치를 저장
 	$('body').addClass('scroll-disable');
 	$('html, body').scrollTop(scrollPosition);
@@ -33,7 +34,8 @@ let beforeFocus; // 이전 포커스 저장
 function modalPopup(modal) {
 	const $modal = $(modal);
 	const $modalWrap = $modal.children(".modal-wrap");
-	const $tabbableElements = $modalWrap.find("a, button, input:not([type='hidden']), select, textarea, [href], [tabindex]:not([tabindex='-1'])");
+	if($(".modal-btn-wrap").length > 0) $(".modal-btn-wrap").children().removeAttr('tabindex'); // 오류 수정(하단 버튼 부분들이 focus 안되는 이슈)
+	const $tabbableElements = $modalWrap.find("a, button, input:not([type='hidden']), select, textarea, [href], [tabindex]:not([tabindex='-1']), [tabindex='1']");
 
 	scrollDisable();
 	$modal.addClass('open');
@@ -42,7 +44,9 @@ function modalPopup(modal) {
 
 	// 모달 내 첫 번째 포커스 가능 요소에 포커스
 	if ($tabbableElements.length) {
-		$tabbableElements.first().focus();
+		if(!$(modal).hasClass("requestPop")){
+			$tabbableElements.first().focus();	
+		}
 	} else {
 		$modalWrap.attr('tabindex', '-1').focus();
 	}
@@ -65,8 +69,8 @@ function modalPopup(modal) {
 	});
 }
 function modalPopupClose(modal) {
-	scrollAble();
 	$(modal).removeClass('open');	
+	if($(".bottom-sheet-wrap.open").length <= 0 && $(".modal.open").length <= 0) scrollAble();
 	$(beforeFocus).focus();
 }
 function modalPopAllClose(){
@@ -257,7 +261,7 @@ function toastPopup(toast){
 		}
 	}
 	// bottom sheet 있는 경우(옵션)
-	if($(".requestComplete.on").length > 0){
+	if($(".requestComplete.on").length > 0 || $(".applyComplete.on").length > 0){
 		toastPop.style.bottom = "45%";
 	}
 	
@@ -360,6 +364,7 @@ $(function(){
 							window.URL.revokeObjectURL(downloadUrl); 
 
 							console.log('Download complete');
+							toastPopup('downComplete');
 							return;
 						}
 
@@ -379,5 +384,15 @@ $(function(){
 			.catch(error => {
 				console.error('Download failed:', error);
 			});
+	});
+});
+
+/*========== VIP 이용권 혜택 팝업 (.vipBenefitPop ) ==========*/
+$(function(){
+	$(".vip-benefit-list").on("click",function(){
+		if(!$(this).hasClass("select")){
+			$(".vip-benefit-list").removeClass("select");
+			$(this).addClass("select");
+		}
 	});
 });

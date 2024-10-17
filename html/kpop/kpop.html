@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS | library -->
+	<link rel="stylesheet" href="../../asset/css/swiper.min.css">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/kpop/kpop.css">
+
+	<!-- JS | library -->
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
+	<script src="../../asset/js/swiper.min.js"></script>
+
+	<!-- JS -->
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
+
+    <title>SingIt</title>
+</head>
+<body>
+	<div id="wrap">
+		<!--==================
+		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+		- PLAY 페이지 : play 클래스
+		- SING 페이지 : sing 클래스
+		- BATTLE 페이지 : battle 클래스
+		- MY 페이지 : my 클래스
+		- KPOP CONTEST 페이지 : kpop 클래스 
+		- 서브 페이지 : sub 클래스 
+        ======================-->
+		<div id="container" class="kpop">
+			<!--========== MODAL POPUP ==========-->
+			<div class="modal-popup-group">
+
+			</div>
+			
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<script>
+				$(function () {
+					$('#header').load("../include/header.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/header.js");
+					});
+				});
+			</script>
+			<main id="main">
+				<h2 class="main-title hidden">KPOP CONTEST</h2>
+				<section class="section kpop-sec">
+					<h3 class="section-title hidden">KPOP CONTEST</h3>
+					<article class="section-content kpop-contest">
+						<h4 class="hidden"><span>KPOP CONTEST 진행중</span></h4>
+						<div class="inner kpop-cont-inner skeleton">
+							<!--==================
+								* 배너 이미지 작업시 유의사항 
+									- 이벤트 상태 .status-label 제외하고 작업 필요(이미지로 상태 뱃지 작업시 태그 삭제 필요)
+									- 비율 343 : 160 으로 작업 (사이즈 변경 필요시 kpop.css 비율 변경 필요)
+							======================-->
+							<div class="status-label round kpop">
+								<span class="red">진행중</span>
+							</div>
+							<figure>
+								<img class="fade-in lazyloaded" src="../../asset/images/sub/kpop/kpop-contest-banner01.jpg" alt="KPOP CONTEST 진행중">
+							</figure>
+						</div>
+					</article>
+					<article class="section-content kpop-progress">
+						<h4 class="hidden"><span>KPOP CONTEST 예선 합격&패자 부활</span></h4>
+						<div class="inner kpop-cont-inner skeleton">
+							<!--==================
+								* 배너 이미지 작업시 유의사항 
+									- 이벤트 상태 .status-label 제외하고 작업 필요(이미지로 상태 뱃지 작업시 태그 삭제 필요)
+									- 비율 343 : 120 으로 작업 (사이즈 변경 필요시 kpop.css 비율 변경 필요)
+							======================-->
+							<div class="status-label round kpop">
+								<span class="blue">예선 합격 & 패자 부활</span>
+							</div>
+							<figure>
+								<img class="fade-in lazyloaded" src="../../asset/images/sub/kpop/kpop-contest-banner02.jpg" alt="KPOP CONTEST 예선 합격 & 패자 부활">
+							</figure>
+						</div>
+					</article>
+					<article class="section-content kpop-vote">
+						<h4 class="hidden"><span>KPOP CONTEST 투표중</span></h4>
+						<div class="inner kpop-cont-inner skeleton">
+							<!--==================
+								* 배너 이미지 작업시 유의사항 
+									- 이벤트 상태 .status-label 제외하고 작업 필요(이미지로 상태 뱃지 작업시 태그 삭제 필요)
+									- 비율 343 : 120 으로 작업 (사이즈 변경 필요시 kpop.css 비율 변경 필요)
+							======================-->
+							<div class="status-label round kpop">
+								<span class="gray">투표중</span>
+							</div>
+							<figure>
+								<img class="fade-in lazyloaded" src="../../asset/images/sub/kpop/kpop-contest-banner03.jpg" alt="KPOP CONTEST 투표중">
+							</figure>
+						</div>
+					</article>
+					<article class="section-content kpop-win">
+						<h4 class="hidden"><span>KPOP CONTEST 우승자 발표</span></h4>
+						<div class="inner kpop-cont-inner skeleton">
+							<!--==================
+								* 배너 이미지 작업시 유의사항 
+									- 이벤트 상태 .status-label 제외하고 작업 필요(이미지로 상태 뱃지 작업시 태그 삭제 필요)
+									- 비율 343 : 120 으로 작업 (사이즈 변경 필요시 kpop.css 비율 변경 필요)
+							======================-->
+							<div class="status-label round kpop">
+								<span class="yellow">우승자 발표</span>
+							</div>
+							<figure>
+								<img class="fade-in lazyloaded" src="../../asset/images/sub/kpop/kpop-contest-banner03.jpg" alt="KPOP CONTEST 우승자 발표">
+							</figure>
+						</div>
+					</article>
+					<!-- 콘테스트 종료시 클래스 done 추가 -->
+					<article class="section-content kpop-done done">
+						<h4 class="hidden"><span>KPOP CONTEST 종료</span></h4>
+						<div class="inner kpop-cont-inner skeleton">
+							<div class="no-result">
+								<p>콘테스트가 종료되었습니다.</p>
+							</div>
+							<!--==================
+								* 배너 이미지 작업시 유의사항 
+									- 이벤트 상태 .status-label 제외하고 작업 필요(이미지로 상태 뱃지 작업시 태그 삭제 필요)
+									- 비율 343 : 120 으로 작업 (사이즈 변경 필요시 kpop.css 비율 변경 필요)
+							======================-->
+							<div class="status-label round kpop">
+								<span class="dark">종료</span>
+							</div>
+							<figure>
+								<img class="fade-in lazyloaded" src="../../asset/images/sub/kpop/kpop-contest-banner03.jpg" alt="KPOP CONTEST 종료">
+							</figure>
+						</div>
+					</article>
+				</section>
+
+				<!-- Floating Button -->
+				<aside id="singit-box" class="content-txt2">
+                    <a href="javascript:;" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
+                </aside>
+			</main>
+			
+			<!--========== APP BAR : FOOTER ==========-->
+			<footer id="footer"></footer>
+			<script>
+				$(function () {
+					$('#footer').load("../include/footer.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/footer.js");
+					});
+				});
+			</script>
+
+			<!--========== FULL PAGE POPUP ==========-->
+			<div class="full-popup-group">
+
+			</div>
+
+			<!--========== TOAST POPUP ==========-->
+			<div class="toast-popup-group">
+			</div>
+		</div>
+	</div>
+
+	<!-- JS : SING HOME 페이지에만 적용 -->
+	<script src="../../asset/js/sub.js"></script>
+</body>
+</html>

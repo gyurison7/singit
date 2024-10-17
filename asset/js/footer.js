@@ -10,7 +10,7 @@
 $(function(){
 	$(document).ready(function() {
 		var $container = $('#container');
-        var targetClasses = ['play', 'sing', 'battle', 'my'];
+        var targetClasses = ['play', 'sing', 'battle', 'my', 'kpop'];
         
         // 모든 li에서 'active' 클래스 제거
         $('#footer .app-bar-wrap li').removeClass('active');

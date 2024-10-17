@@ -869,13 +869,14 @@ box-orient: vertical;
 					- .gift-sc-btn 버튼으로 .gift-sc-input 값이 증감합니다.
 					- 사용자의 현재 보유한 코인 값이 .current-sc에 로드되어야합니다.
 					- 모두 주기(#gift-all-check-box) 체크시, 현재 보유중인 코인 숫자값이 .gift-sc-input 값으로 입력됩니다.
+					- 선물수령자가 루키등급이라 수령 불가능할 경우, 확인 버튼 클릭시 toastPopup('rookieGiftFail');을 대신 실행합니다.
 					======================-->
 					<div id="giftScPop" class="modal msg giftScPop">
 						<div class="modal-wrap">
 							<section class="modal-content">
 								<div class="modal-cont-wrap">
 									<div class="modal-tit-wrap">
-										<h3 class="modal-tit">싱코인 선물하기</h3>
+										<h3 class="modal-tit">선물하기</h3>
 									</div>
 									<div class="modal-txt-wrap">
 										<div class="gift-sc-cont">
@@ -893,12 +894,16 @@ box-orient: vertical;
 													<label for="gift-all-check-box" tabindex="0">모두 주기</label>
 												</div>
 											</div>
+											<div class="gift-sc-policy-wrap">
+												<div class="gift-sc-policy">Rookie 등급은 선물수령이 불가합니다.</div>
+												<a href="http://codeloft.kr/mediascope_singit/html/mypage/member.html" class="basic-btn line small round pink member-grade-btn" title="회원등급 정책 보기"><span>회원등급 정책 살펴보기</span></a>
+											</div>
 										</div>
 									</div>
 								</div>
 								<div class="modal-btn-wrap">
 									<a href="javascript:;" onclick="modalPopupClose('#giftScPop');" class="basic-btn gray" tabindex="1">취소</a>
-									<a href="javascript:;" onclick="modalPopupClose('#giftScPop');" class="basic-btn red" tabindex="1">확인</a>
+									<a href="javascript:;" onclick="modalPopupClose('#giftScPop'); toastPopup('giftComplete');" class="basic-btn red" tabindex="1">확인</a>
 								</div>
 							</section>
 						</div>
@@ -915,9 +920,9 @@ box-orient: vertical;
 									<div class="modal-txt-wrap">
 										<div class="input-box-wrap content-txt2">
 											<div class="input-box line text label-box">
-												<p class="input-label caption-txt1 on">아티스트</p>
-												<input class="label-input" type="text" placeholder="아티스트 이름을 입력해주세요.">
-												<span class="line-focus on"></span>
+												<p class="input-label caption-txt1">아티스트</p>
+												<input class="label-input" type="text" placeholder="아티스트" tabindex="-1" autofocus>
+												<span class="line-focus"></span>
 											</div>
 											<div class="error-wrap">
 												<p class="error">에러메세지는 이렇게 뜹니다.</p>
@@ -925,9 +930,9 @@ box-orient: vertical;
 										</div>
 										<div class="input-box-wrap content-txt2">
 											<div class="input-box line text label-box">
-												<p class="input-label caption-txt1 on">노래제목</p>
-												<input class="label-input" type="text" placeholder="노래제목을 입력해주세요.">
-												<span class="line-focus on"></span>
+												<p class="input-label caption-txt1">노래제목</p>
+												<input class="label-input" type="text" placeholder="노래제목">
+												<span class="line-focus"></span>
 											</div>
 											<div class="error-wrap">
 												<p class="error">에러메세지는 이렇게 뜹니다.</p>
@@ -2594,6 +2599,13 @@ box-orient: vertical;
 						<div class="status-label round">
 							<span class="red">솔로</span>
 							<span class="blue">듀엣</span>
+						</div>
+						<br>
+						<div class="status-label round kpop">
+							<span class="red">진행중</span>
+							<span class="blue">예선 합격 & 패자 부활</span>
+							<span class="gray">투표중</span>
+							<span class="dark">종료</span>
 						</div>
 					</div>
 					<div style="width: 375px;">

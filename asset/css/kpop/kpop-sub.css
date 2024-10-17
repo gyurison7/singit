@@ -1,0 +1,85 @@
+@charset "utf-8";
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Ajin Lee. (Weaverloft Corp.)
+ * 2. Production Date: 2024-10-14
+ * 3. Client: MEDIASCOPE Inc.
+ */
+
+/* ------------------------------------------------------------------------  
+ K-TROT 콘테스트 .ktrot-contest-list-sec
+------------------------------------------------------------------------ */
+.ktrot-contest-list-sec .section-header.battle-game {position: relative; width: auto; max-width: none; padding-bottom: 5px; margin-bottom: 0.63em; }
+.ktrot-contest-list-sec .section-header.battle-game::before {content: '';position: absolute; bottom: 0;left: 0; width: 100%;height: 5px;background-color: #F5F5F5;}
+.ktrot-contest-list-sec .section-header.battle-game .section-title-wrap {background-image: url('../../images/sub/kpop/ktrot-list-bg.jpg');color: #111;}
+.section-title-wrap + .section-step {margin: 1.250em 0 0;}
+.section-header.battle-game .section-notice { display: flex; flex-direction: column; gap: 0.63em; padding-block: 1.88em 1.50em; color: #888; }
+.section-header.battle-game .section-notice p { display: flex; padding-left: 0.83em; word-break: keep-all; font-weight: 400; font-variation-settings: "wght" 400; }
+.section-header.battle-game .section-notice p::before { display: block; width: 4px; height: 4px; margin: 0.565em 0.5em 0 -0.83em; border-radius: 50%; background-color: #888; content: ''; flex-shrink: 0; }
+.section-step ul {display: flex; justify-content: space-between; gap: 0.63em; position: relative;}
+.section-step ul::before {content: '';position: absolute; top: 50%;left: 50%;transform: translate(-50%, -50%);width: 94%;height: 0.13em;background-color: #FED4D5;}
+.section-step ul li { display: flex;flex-direction: column;align-items: center; position: relative; z-index: 1;width: calc(100% / 4); min-height: 5.25em; padding: 0.88em 0.31em 0.38em; background-color: #fff; border-radius: 0.63em; border: 1px solid #FED4D5; font-size: inherit; text-align: center; word-break: keep-all;}
+.section-step .step-tit {font-weight: 500; font-variation-settings: 'wght' 500;color: var(--main-point-color); line-height: 1; text-transform: uppercase;}
+.section-step .step-txt {margin: 0.43em 0 0; font-weight: 700; font-variation-settings: 'wght' 700;color: #111;line-height: 1.2;}
+.ktrot-contest-list-sec .ktrot-sorting { flex-direction: column;align-items: flex-start; padding: 1.25em 0 1.25em;}
+.ktrot-contest-list-sec .sing-search {width: 100%;}
+.ktrot-contest-list-sec .ktrot-sorting-inner { width: 100%; padding: 1.25em 0 0; font-size: 1rem;}
+.ktrot-contest-list-sec .ktrot-sorting-inner .inner {display: flex; justify-content: space-between; align-items: center; font-size: inherit;}
+.ktrot-contest-list-sec .ktrot-sorting-inner .sorting-txt {font-weight: 700; font-variation-settings: 'wght' 700;color: #333; line-height: 1;}
+.ktrot-contest-list-sec .ktrot-sorting-inner .sorting-txt span {display: inline-block; padding: 0 0 0 1.57em;background-image: url('../../images/common/icon-fold.svg'); background-repeat: no-repeat; background-position: left center; background-size: 1.29em auto; }
+.ktrot-contest-list-sec .profile-area.ktrot .profile-wrap .profile-wrap-inner {gap: 0.750em;}
+.ktrot-contest-list-sec .profile-area.ktrot .profile-img {width: 6em; min-width: auto; height: 6em;}
+.ktrot-contest-list-sec .profile-area.ktrot .profile-img::before {display: none;}
+.ktrot-contest-list-sec .profile-area.ktrot .profile-tit {display: block;white-space: nowrap;-webkit-box-orient: initial;-webkit-line-clamp: initial;}
+.ktrot-contest-list-sec .profile-area.ktrot .profile-info {width: calc(100% - 6.750em);}
+.ktrot-contest-list-sec .profile-area.ktrot .profile-bottom {width: calc(100% - 6.750em);}
+@media screen and (min-width: 625px) {
+    .section-step ul li {min-height: 4.25em;}
+}
+@media screen and (min-width: 421px) {
+    .ktrot-contest-list-sec .ktrot-sorting-inner {font-size: clamp(16px, 4.267vw, 20px);} 
+}
+
+/* ------------------------------------------------------------------------  
+ K-TROT 내 영상 .ktrot-my-video-sec
+------------------------------------------------------------------------ */
+.ktrot-my-video-sec .section-header.battle-game .section-notice {padding: 1.25em 0; margin-bottom: 0.750em; background-color: #F5F5F5;}
+.section-header-btn .basic-btn.sing.gray {font-weight: 500; font-variation-settings: "wght" 500; }
+.section-header-btn .basic-btn.sing.gray span {padding: 0.83em 0 0.83em 1.67em; background-size: 1.33em auto; font-size: 0.750rem;}
+.ktrot-my-video-sec.my-video-sec .sorting-tit-wrap {padding: 1.88em 0 1.25em;}
+.score-wrap {display: flex; align-items: center; gap: 6px; font-size: 1rem;}
+.score-wrap .rank-score-wrap {line-height: 1;}
+.score-wrap .rank-score-wrap .point-num {font-weight: 500; font-variation-settings: "wght" 500;color: #666;}
+.score-wrap .rank-score-wrap .point-num em {font-weight: 500; font-variation-settings: "wght" 500;color: #111;}
+.score-wrap .score-label span { display: inline-block; padding: 0em 0.5em; border-radius: 2px; background-color: var(--sub-bg-point-color);font-weight: 500; font-variation-settings: "wght" 500; color: var(--main-point-color); text-transform: uppercase;}
+.ktrot-my-video-sec .profile-area.grade .profile-bottom .score-wrap { display: flex; align-items: center; padding-block: 0.242em; }
+.ktrot-my-video-sec .profile-area.grade .profile-bottom .rank-score-wrap { padding-left: 0.5em; }
+.ktrot-my-video-sec .profile-area.song .profile-img {width: 7.13em; height: 7.13em;}
+.ktrot-my-video-sec .profile-area.song .profile-img .img-btn-wrap.bottom.left {bottom: 0.50em; padding: 0 0.50em;}
+.ktrot-my-video-sec .profile-area.song .profile-info {flex-direction: column;justify-content: flex-start;width: calc(100% - 8em);height: 7.13em;}
+.ktrot-my-video-sec .profile-area.song .profile-tit {display: -webkit-box;-webkit-box-orient: vertical; white-space: normal;-webkit-line-clamp: 2;text-overflow: ellipsis;width: calc(100% - 1.79em);font-weight: 500; font-variation-settings: "wght" 500;color: #333;line-height: 1.16;transition: color 300ms;}
+.ktrot-my-video-sec .profile-area.song .profile-txt {font-weight: 500; font-variation-settings: "wght" 500;}
+.ktrot-my-video-sec .score-btn-wrap {display: flex; justify-content: space-between; align-items: flex-end;margin-top: auto;}
+.ktrot-my-video-sec .score-btn-wrap .info-date {font-weight: 500; font-variation-settings: "wght" 500;color: #888;}
+.ktrot-my-video-sec .btn-wrap.bottom.bg-none {display: none;}
+.ktrot-my-video-sec .btn-wrap.bottom.bg-none.active {display: block;}
+.ktrot-my-video-sec .btn-wrap.fixed .basic-btn.dot.del {opacity: 0.3; pointer-events: none; cursor: default; background-color: transparent;}
+.ktrot-my-video-sec .profile-area.song .profile-list {transition: border-color 300ms, background-color 300ms;}
+.ktrot-my-video-sec .profile-area.song .profile-list:has(.profile-wrap-inner.active) {border: 2px solid var(--main-point-color); background-color: #FFF7F7;}
+.ktrot-my-video-sec .profile-area.song .profile-wrap .profile-wrap-inner.active + .btn-wrap.fixed .basic-btn.dot.del {opacity: 1; pointer-events: visible; cursor: pointer;}
+.ktrot-my-video-sec .profile-area.song .profile-wrap .profile-wrap-inner.active .profile-tit { font-weight: 700; font-variation-settings: "wght" 700;}
+
+.ktrot-my-video-sec .profile-area.song .profile-img::before {display: none;}
+.ktrot-my-video-sec .profile-area.song .profile-list.apply .profile-img .thumbnail-wrap::before {content: '';display: block;position: absolute;top: 0;left: 0;z-index: 15;width: 100%;height: 100%;background-image: url("../../images/sub/battle/icon-checked-round.svg");background-position-x: center;background-position-y: 1.6em;background-repeat: no-repeat;background-size: 2.25em auto;background-color: rgba(0, 0, 0, 0.4);}
+.ktrot-my-video-sec .profile-area.song .profile-list.apply .profile-img .thumbnail-wrap::after {content: '지원 완료';display: block;z-index: 15;position: absolute;bottom: 1.25em;left: 0;width: 100%;font-size: 1.125rem;font-weight: 700;font-variation-settings: 'wght' 700;text-align: center;color: #fff;font-family: inherit;}
+
+@media screen and (min-width: 421px) {
+    .section-header-btn .basic-btn.sing.gray span {font-size: clamp(12px, 3.2vw, 15px);} 
+    .score-wrap {font-size: clamp(16px, 4.267vw, 20px);}
+}
+
+/* ------------------------------------------------------------------------  
+ K-TROT 내 영상 상세 - 예선통과자 .ktrot-preliminary-sec
+------------------------------------------------------------------------ */
+:is(.ktrot-preliminary-sec, .ktrot-rematch-sec) .profile-area.song .profile-list.apply .profile-wrap .btn-wrap.fixed.disabled .basic-btn.dot.del { opacity: 0.3; }

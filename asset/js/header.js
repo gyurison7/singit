@@ -9,16 +9,18 @@
 /*========== Header 메인 로고 타이틀 명 삽입 ==========*/
 $(function(){
 	$(document).ready(function() {
-		var containerClass = $('#container').attr('class');
-		
-		if (containerClass === 'play') {
+		if ($('#container').hasClass('play')) {
 			$('.header-logo a').text('play');
-		} else if (containerClass === 'sing') {
+		} else if ($('#container').hasClass('sing')) {
 			$('.header-logo a').text('sing');
-		} else if (containerClass === 'battle') {
+		} else if ($('#container').hasClass('battle')) {
 			$('.header-logo a').text('battle');
-		} else if (containerClass === 'my') {
+		} else if ($('#container').hasClass('my')) {
 			$('.header-logo a').text('my');
+		} else if ($('#container').hasClass('singitbox')) {
+			$('.header-logo a').text('singit box');
+		} else if ($('#container').hasClass('kpop')) {
+			$('.header-logo a').text('KPOP Contest');
 		}
 	});
 });
@@ -71,13 +73,6 @@ $(function(){
 				}
 				updateOverflow();
 			});
-			// $searchInput.on('blur', function() {
-			// 	if ($($searchTxt).hasClass('on')) {
-			// 		$searchWrap.addClass('on');
-			// 	} else {
-			// 		$searchWrap.removeClass('on');
-			// 	}
-			// });
 	
 			$searchBtn.on('click', function() {
 				$searchWrap.removeClass('on');

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/play/play-main.css">
+
+	<!-- JS | library -->
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
+
+	<!-- JS -->
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
+
+    <title>SingIt</title>
+</head>
+<body>
+	<div id="wrap">
+		<!--==================
+		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+		- PLAY 페이지 : play 클래스
+		- SING 페이지 : sing 클래스
+		- BATTLE 페이지 : battle 클래스
+		- MY 페이지 : my 클래스
+		- 서브 페이지 : sub 클래스 
+        ======================-->
+		<div id="container" class="play">
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<script>
+				$(function () {
+					$('#header').load("../include/header.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/header.js");
+						// $.getScript("../../asset/js/basic.js");
+					});
+				});
+			</script>
+			<main id="main">
+				<section class="section play-main-sec">
+					<h3 class="section-title hidden">PLAY 메인페이지</h3>
+					<div class="section-content inner">
+						<div class="play-post-box">
+							<!--==================
+								* play 영상 (.thumbnail-area) 
+								- (1) 16:9로 노출 될 경우 vertical 클래스,
+								(2) 듀엣 영상은 duet 클래스,
+								(3) 음원 영상이라 앨범 커버 노출하는 경우 album 클래스가 추가되어야 합니다.
+								- 16:9 영상은 16:9 사이즈의 영상만,
+								1:1 영상은 1:1 사이즈의 영상, 음원 영상(앨범 커버), 듀엣 영상으로만 제한됩니다.
+								- 필요시 thumbnail-area onclick에 해당 영상 링크 연결하시면 됩니다.
+								※ 구도가 변경되지 않도록 .play-post-wrap을 한세트로 구성하여 추가 부탁드립니다.
+							======================-->
+							<div class="play-post-wrap">
+								<!-- 16:9로 노출 될 경우 vertical 클래스 -->
+								<div class="thumbnail-area skeleton vertical" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-04.jpg" srcset="../../asset/images/temp/img-169-04.jpg 2x" alt="PLAY 썸네일 이미지" title="PLAY 게시글 제목입력">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-04.jpg" srcset="../../asset/images/temp/img-169-04.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">111</span></div>
+									</div>
+								</div>
+								<!-- 음원 영상이라 앨범 커버 노출하는 경우, 클래스 album 추가 -->
+								<div class="thumbnail-area skeleton album" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-cover-01.jpg" srcset="../../asset/images/temp/img-cover-01.jpg 2x"  alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-cover-01.jpg" srcset="../../asset/images/temp/img-cover-01.jpg 2x"  alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">222</span></div>
+									</div>
+								</div>
+								<div class="thumbnail-area skeleton" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x"  alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x"  alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">333</span></div>
+									</div>
+								</div>
+								<div class="thumbnail-area skeleton" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">444</span></div>
+									</div>
+								</div>
+								<!-- 16:9로 노출 될 경우 vertical 클래스 -->
+								<div class="thumbnail-area skeleton vertical" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">555</span></div>
+									</div>
+								</div>
+								<div class="thumbnail-area skeleton" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">666</span></div>
+									</div>
+								</div>
+								<div class="thumbnail-area skeleton vertical" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">777</span></div>
+									</div>
+								</div>
+								<div class="thumbnail-area skeleton" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">888</span></div>
+									</div>
+								</div>
+								<!-- 듀엣 영상일경우 클래스 duet 추가 -->
+								<div class="thumbnail-area skeleton duet" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload duet-left" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+										<img class="fade-in lazyload duet-right" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">999</span></div>
+									</div>
+								</div>
+							</div>
+							<div class="play-post-wrap">
+								<!-- 16:9로 노출 될 경우 vertical 클래스 -->
+								<div class="thumbnail-area skeleton vertical" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-04.jpg" srcset="../../asset/images/temp/img-169-04.jpg 2x" alt="PLAY 썸네일 이미지" title="PLAY 게시글 제목입력">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-04.jpg" srcset="../../asset/images/temp/img-169-04.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">111</span></div>
+									</div>
+								</div>
+								<!-- 음원 영상이라 앨범 커버 노출하는 경우, 클래스 album 추가 -->
+								<div class="thumbnail-area skeleton album" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-cover-01.jpg" srcset="../../asset/images/temp/img-cover-01.jpg 2x"  alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-cover-01.jpg" srcset="../../asset/images/temp/img-cover-01.jpg 2x"  alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">222</span></div>
+									</div>
+								</div>
+								<div class="thumbnail-area skeleton" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x"  alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x"  alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">333</span></div>
+									</div>
+								</div>
+								<div class="thumbnail-area skeleton" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">444</span></div>
+									</div>
+								</div>
+								<!-- 16:9로 노출 될 경우 vertical 클래스 -->
+								<div class="thumbnail-area skeleton vertical" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">555</span></div>
+									</div>
+								</div>
+								<div class="thumbnail-area skeleton" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">666</span></div>
+									</div>
+								</div>
+								<div class="thumbnail-area skeleton vertical" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">777</span></div>
+									</div>
+								</div>
+								<div class="thumbnail-area skeleton" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+										<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">888</span></div>
+									</div>
+								</div>
+								<!-- 듀엣 영상일경우 클래스 duet 추가 -->
+								<div class="thumbnail-area skeleton duet" onclick="location.href='http://codeloft.kr/mediascope_singit/html/play/play-solo.html'">
+									<div class="thumbnail-wrap">
+										<img class="fade-in lazyload duet-left" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+										<img class="fade-in lazyload duet-right" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="PLAY 썸네일 이미지 배경" title="PLAY 게시글 제목 입력">
+									</div>
+									<div class="img-btn-wrap bottom">
+										<div class="play"><span class="num">999</span></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Floating Button -->
+                <aside id="singit-box" class="content-txt2">
+                    <a href="http://codeloft.kr/mediascope_singit/html/singitbox/singitbox.html" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
+                </aside>
+			</main>
+
+			<!--========== APP BAR : FOOTER ==========-->
+            <footer id="footer"></footer>
+            <script>
+                $(function () {
+                    $('#footer').load("../include/footer.html", function () {
+                        // 로드된 후에 실행될 코드
+                        $.getScript("../../asset/js/footer.js");
+                    });
+                });
+            </script>
+		</div>
+	</div>
+</body>
+</html>
