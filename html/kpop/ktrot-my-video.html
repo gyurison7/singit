@@ -104,7 +104,7 @@
                 </div>
 
                 <!-- 참가 신청서 팝업(applyPop) -->
-				<div id="applyPop" class="modal msg applyPop">
+				<div id="applyPop" class="modal alert applyPop">
 					<div class="modal-wrap">
 						<section class="modal-content">
 							<div class="modal-cont-wrap">
@@ -139,7 +139,7 @@
                                                                 <span class="point-num"><em class="rubik-txt num content-txt2">98.9</em> 점</span>
                                                             </div>
                                                         </div>
-                                                        <div class="info-date caption-txt1">2024.08.06</div>
+                                                        <div class="info-date caption-txt1 skeleton">2024.08.06</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -222,6 +222,10 @@
                 <div id="videoPop" class="modal videoPop">
                     <div class="modal-wrap">
                         <section class="modal-content play-vid-sec modal-play-vid-sec">
+                            <h3 class="hidden">내 영상 재생 팝업</h3>
+                            <div class="modal-close-btn">
+                                <a href="javascript:;" onclick="modalPopupClose('#videoPop')" title="팝업창 닫기">팝업창 닫기</a>
+                            </div>
                             <div class="play-vid-box show">
                                 <div class="play-vid-wrap">
                                     <!-- 컨텐츠가 들어가는 자리입니다. .play-vid 필수 -->
@@ -271,7 +275,7 @@
                         </div>
                         <div class="inner">
                             <div class="btn-wrap section-header-btn">
-                                <a class="basic-btn round gray sing" href="http://codeloft.kr/mediascope_singit/html/kpop/ktrot-list.html" title="다른 곡 부르기"><span>다른 곡 부르기</span></a>
+                                <a class="basic-btn round gray line sing" href="http://codeloft.kr/mediascope_singit/html/kpop/ktrot-list.html" title="다른 곡 부르기"><span>다른 곡 부르기</span></a>
                             </div>
                         </div>
                     </div>
@@ -293,7 +297,7 @@
                                     <li class="profile-list">
                                         <div class="profile-wrap">
                                             <a href="javascirpt:;" class="profile-wrap-inner" title="내 영상 보기">
-                                                <div class="thumbnail-area profile-img skeleton"> 
+                                                <div class="thumbnail-area profile-img skeleton" onclick="modalPopup('#videoPop');"> 
                                                     <!-- 이미지 확장자는 jpg 권장 -->
                                                     <div class="thumbnail-wrap">
                                                         <img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-ktrot-169-01.jpg" srcset="../../asset/images/temp/img-ktrot-169-01.jpg 2x" alt="목포행 완행열차 영상">
@@ -315,7 +319,7 @@
                                                                 <span class="point-num"><em class="rubik-txt num content-txt2">98.9</em> 점</span>
                                                             </div>
                                                         </div>
-                                                        <div class="info-date caption-txt1">2024.08.06</div>
+                                                        <div class="info-date caption-txt1 skeleton">2024.08.06</div>
                                                     </div>
                                                 </div>
                                             </a>
@@ -327,7 +331,7 @@
                                     <li class="profile-list">
                                         <div class="profile-wrap">
                                             <a href="javascirpt:;" class="profile-wrap-inner" title="내 영상 보기">
-                                                <div class="thumbnail-area profile-img skeleton"> 
+                                                <div class="thumbnail-area profile-img skeleton" onclick="modalPopup('#videoPop');"> 
                                                     <!-- 이미지 확장자는 jpg 권장 -->
                                                     <div class="thumbnail-wrap">
                                                         <img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-ktrot-169-02.jpg" srcset="../../asset/images/temp/img-ktrot-169-02.jpg 2x" alt="목포행 완행열차 영상">
@@ -349,7 +353,7 @@
                                                                 <span class="point-num"><em class="rubik-txt num content-txt2">98.9</em> 점</span>
                                                             </div>
                                                         </div>
-                                                        <div class="info-date caption-txt1">2024.08.06</div>
+                                                        <div class="info-date caption-txt1 skeleton">2024.08.06</div>
                                                     </div>
                                                 </div>
                                             </a>
@@ -362,7 +366,7 @@
                                     <li class="profile-list apply">
                                         <div class="profile-wrap">
                                             <a href="javascirpt:;" class="profile-wrap-inner" title="내 영상 보기">
-                                                <div class="thumbnail-area profile-img skeleton"> 
+                                                <div class="thumbnail-area profile-img skeleton" onclick="modalPopup('#videoPop');"> 
                                                     <!-- 이미지 확장자는 jpg 권장 -->
                                                     <div class="thumbnail-wrap">
                                                         <img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-ktrot-169-04.jpg" srcset="../../asset/images/temp/img-ktrot-169-04.jpg 2x" alt="목포행 완행열차 영상">
@@ -384,7 +388,7 @@
                                                                 <span class="point-num"><em class="rubik-txt num content-txt2">98.9</em> 점</span>
                                                             </div>
                                                         </div>
-                                                        <div class="info-date caption-txt1">2024.08.06</div>
+                                                        <div class="info-date caption-txt1 skeleton">2024.08.06</div>
                                                     </div>
                                                 </div>
                                             </a>
@@ -396,7 +400,7 @@
                                     <li class="profile-list">
                                         <div class="profile-wrap">
                                             <a href="javascirpt:;" class="profile-wrap-inner" title="내 영상 보기">
-                                                <div class="thumbnail-area profile-img skeleton"> 
+                                                <div class="thumbnail-area profile-img skeleton" onclick="modalPopup('#videoPop');"> 
                                                     <!-- 이미지 확장자는 jpg 권장 -->
                                                     <div class="thumbnail-wrap">
                                                         <img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-ktrot-169-03.jpg" srcset="../../asset/images/temp/img-ktrot-169-03.jpg 2x" alt="목포행 완행열차 영상">
@@ -418,7 +422,7 @@
                                                                 <span class="point-num"><em class="rubik-txt num content-txt2">98.9</em> 점</span>
                                                             </div>
                                                         </div>
-                                                        <div class="info-date caption-txt1">2024.08.06</div>
+                                                        <div class="info-date caption-txt1 skeleton">2024.08.06</div>
                                                     </div>
                                                 </div>
                                             </a>

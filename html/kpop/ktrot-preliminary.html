@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../asset/css/common.css">
+    <link rel="stylesheet" href="../../asset/css/play/play-detail.css">
+	<link rel="stylesheet" href="../../asset/css/kpop/kpop-sub.css">
+    <link rel="stylesheet" href="../../asset/css/kpop/kpop.css">
+
+	<!-- JS | library -->
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
+
+	<!-- JS -->
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
+	<script src="../../asset/js/sub.js"></script>
+
+    <title>SingIt</title>
+</head>
+<body>
+	<div id="wrap">
+		<!--==================
+		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+		- PLAY 페이지 : play 클래스
+		- SING 페이지 : sing 클래스
+		- BATTLE 페이지 : battle 클래스
+		- MY 페이지 : my 클래스
+		- KPOP CONTEST 페이지 : kpop 클래스 
+		- 서브 페이지 : sub 클래스 
+        ======================-->
+		<div id="container" class="kpop sub">
+			<!--========== MODAL POPUP ==========-->
+			<div class="modal-popup-group">
+                <!-- 영상 재생 팝업(videoPop) -->
+                <div id="videoPop" class="modal videoPop">
+                    <div class="modal-wrap">
+                        <section class="modal-content play-vid-sec modal-play-vid-sec">
+                            <h3 class="hidden">내 영상 재생 팝업</h3>
+                            <div class="modal-close-btn">
+                                <a href="javascript:;" onclick="modalPopupClose('#videoPop')" title="팝업창 닫기">팝업창 닫기</a>
+                            </div>
+                            <div class="play-vid-box show">
+                                <div class="play-vid-wrap">
+                                    <!-- 컨텐츠가 들어가는 자리입니다. .play-vid 필수 -->
+                                    <div class="play-vid">
+                                        <video class="play-cont vid-solo" playsinline autoplay>
+                                            <source src="../../asset/images/temp/vid-temp03.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="play-dimmed-layer"></div>
+                                </div>
+                                <div class="vid-indicator-wrap">
+                                    <button type="button" class="vid-play-btn play-btn" aria-label="재생하기" onclick=""></button>
+                                    <button type="button" class="vid-play-btn pause-btn" aria-label="정지하기" onclick=""></button>
+                                    <button type="button" class="full-vid-btn" aria-label="전체화면에서 보기" onclick=""></button>
+                                    <div class="vid-timeline-wrap caption-txt1">
+                                        <span class="current-time">00:00</span> / <span class="total-time">00:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="progress-bar-wrap">
+                                <input type="range" class="progress" min="0" max="100" value="0" step="0.1">
+                            </div>
+                        </section>
+                    </div>
+                </div>
+			</div>
+			
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<main id="main" class="sub">
+			</main>
+			
+			<!--========== FULL PAGE POPUP ==========-->
+			<div class="full-popup-group">
+                <!-- 풀페이지 팝업 열기 : 클래스 open 추가 / 닫기 : open 클래스 제거 -->
+				<div id="ktrot-preliminary-popup" class="modal full ktrot-challenge-popup open">
+					<div class="full-modal-wrap">
+						<!--==================
+							* 도전 성공여부에 따른 내 순위권 구분 (s-challenge-wrap 클래스에 해당 클래스 추가)
+							- [성공] : true 클래스 추가
+							- [실패] : false 클래스 추가
+							- 순위권 밖 : extra 클래스 추가
+						======================-->
+						<section class="full-modal-content ktrot-challenge-wrap">
+                            <h3 class="hidden">K-TROT 콘테스트 예선 통과자 및 패자부활전 발표</h3>
+							<div class="full-modal-cont">
+                                <div class="ktrot-head-inner">
+                                    <img class="ktrot-bg" src="../../asset/images/sub/kpop/kpop-bg-deco.png" alt="배경이미지">
+                                    <div id="ktrot-preliminary" class="header-sub-wrap">
+                                        <div class="ktrot-bg-area">
+                                            <div class="ktrot-head-banner">
+                                                <figure class="content-txt2">
+                                                    <img class="wesoop" src="../../asset/images/sub/kpop/logo-wesoop.svg" alt="위숲">
+                                                    <!-- KO -->
+                                                    <img class="ktrot-logo" src="../../asset/images/sub/kpop/kv-tit-ko.png" alt="K-TROT 콘테스트 Show us yours talent!">
+                                                    <!-- EN -->
+                                                    <!-- <img class="ktrot-logo" src="../../asset/images/sub/kpop/kv-tit-en.png" alt="K-TROT 콘테스트 Show us yours talent!"> -->
+                                                </figure>
+                                                <h4 class="ktrot-challenge-tit">예선 통과자 발표</h4>
+                                                <div class="btn-wrap ktrot">
+                                                    <a id="rematch-btn" class="basic-btn red round" href="javascript:;" title="K-트롯 패자부활전 보기"><span>K-트롯 패자부활전 보기</span></a>
+                                                </div>
+                                                <div class="header-sub">
+                                                    <ul>
+                                                        <li class="header-side header-close"><button type="button" aria-label="페이지 닫기" onclick="modalPopupClose('#ktrot-preliminary-popup');"><span class="hidden">페이지 닫기</span></button></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ktrot-challenge-cont-wrap">
+                                        <div class="ktrot-challenge-inner ktrot-preliminary">
+                                            <h4 class="ktrot-challenge-tit hidden">예선 통과자 발표</h4>
+                                            <article class="ktrot-challenge-cont guide">
+                                                <div class="ktrot-cont-tit-wrap">
+                                                    <h5 class="ktrot-cont-tit hidden">예선 통과자 발표 안내</h5>
+                                                    <div class="ktrot-cont-list-wrap">
+                                                        <ul class="list-style">
+                                                            <li class="circle">패자부활전 기간 동안 지원 곡을 다시 부른 후 1회 변경 가능합니다.</li>
+                                                            <li class="circle">예선 통과 (12명) + 패자부활전에서 선정(4명) > 16명이 본선에 진출합니다.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                            <article class="ktrot-challenge-cont announcement">
+                                                <div class="ktrot-cont-tit-wrap">
+                                                    <h5 class="ktrot-cont-tit">예선 통과자 발표</h5>
+                                                    <a class="sorting-txt content-txt3" href="http://codeloft.kr/mediascope_singit/html/kpop/ktrot-my-video.html" title="내 영상 보기" ><span>내 영상</span></a>
+                                                </div>
+                                                <!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+                                                <div class="profile-area song info">
+                                                    <div class="no-result">
+                                                        <p class="content-txt3">노래를 부른 후 영상을 보관합니다.<br> 아직 영상이 없어요.</p>
+                                                    </div>
+                                                    <ul class="profile-list-wrap">
+                                                        <li class="profile-list">
+                                                            <div class="profile-wrap">
+                                                                <div class="profile-wrap-inner">
+                                                                    <a href="javascript:;" onclick="modalPopup('#videoPop');" class="thumbnail-area profile-img skeleton" title="영상 보기"> 
+                                                                        <div class="thumbnail-wrap">
+                                                                            <img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-ktrot-169-01.jpg" srcset="../../asset/images/temp/img-ktrot-169-01.jpg 2x" alt="목포행 완행열차 영상">
+                                                                            <img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-ktrot-169-01.jpg" srcset="../../asset/images/temp/img-ktrot-169-01.jpg 2x" alt="목포행 완행열차 영상">
+                                                                        </div>
+                                                                        <div class="img-btn-wrap bottom left">
+                                                                            <div class="time">02:50</div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <a href="http://codeloft.kr/mediascope_singit/html/kpop/ktrot-my-video-preliminary.html" class="profile-info" title="내 영상 보기">
+                                                                        <p class="profile-tit content-txt2 skeleton">목포행 완행열차</p>
+                                                                        <span class="profile-txt content-txt2 skeleton">장윤정</span>
+                                                                        <div class="song-by-info-wrap">
+                                                                            <div class="info-date caption-txt1 skeleton">조회수 <span class="num">3000</span></div>
+                                                                            <div class="song-by-info">
+                                                                                <figure class="profile-img skeleton">
+                                                                                    <img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp-zzang.png" alt="두아리파 프로필 이미지">
+                                                                                </figure>
+                                                                                <p class="profile-name skeleton">두아리파</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="profile-list">
+                                                            <div class="profile-wrap">
+                                                                <div class="profile-wrap-inner">
+                                                                    <a href="javascript:;" onclick="modalPopup('#videoPop');" class="thumbnail-area profile-img skeleton" title="영상 보기"> 
+                                                                        <div class="thumbnail-wrap">
+                                                                            <img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-ktrot-169-02.jpg" srcset="../../asset/images/temp/img-ktrot-169-02.jpg 2x" alt="목포행 완행열차 영상">
+                                                                            <img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-ktrot-169-02.jpg" srcset="../../asset/images/temp/img-ktrot-169-02.jpg 2x" alt="목포행 완행열차 영상">
+                                                                        </div>
+                                                                        <div class="img-btn-wrap bottom left">
+                                                                            <div class="time">02:50</div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <a href="http://codeloft.kr/mediascope_singit/html/kpop/ktrot-my-video-preliminary.html" class="profile-info" title="내 영상 보기">
+                                                                        <p class="profile-tit content-txt2 skeleton">목포행 완행열차 목포행 완행열차 목포행 완행열차 목포행 완행열차</p>
+                                                                        <span class="profile-txt content-txt2 skeleton">장윤정</span>
+                                                                        <div class="song-by-info-wrap">
+                                                                            <div class="info-date caption-txt1 skeleton">조회수 <span class="num">300</span></div>
+                                                                            <div class="song-by-info">
+                                                                                <figure class="profile-img skeleton">
+                                                                                    <img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp-zzang.png" alt="두아리파 프로필 이미지">
+                                                                                </figure>
+                                                                                <p class="profile-name skeleton">두아리파</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="profile-list">
+                                                            <div class="profile-wrap">
+                                                                <div class="profile-wrap-inner">
+                                                                    <a href="javascript:;" onclick="modalPopup('#videoPop');" class="thumbnail-area profile-img skeleton" title="영상 보기"> 
+                                                                        <div class="thumbnail-wrap">
+                                                                            <img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-ktrot-169-03.jpg" srcset="../../asset/images/temp/img-ktrot-169-03.jpg 2x" alt="목포행 완행열차 영상">
+                                                                            <img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-ktrot-169-03.jpg" srcset="../../asset/images/temp/img-ktrot-169-03.jpg 2x" alt="목포행 완행열차 영상">
+                                                                        </div>
+                                                                        <div class="img-btn-wrap bottom left">
+                                                                            <div class="time">02:50</div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <a href="http://codeloft.kr/mediascope_singit/html/kpop/ktrot-my-video-preliminary.html" class="profile-info" title="내 영상 보기">
+                                                                        <p class="profile-tit content-txt2 skeleton">목포행</p>
+                                                                        <span class="profile-txt content-txt2 skeleton">장윤정</span>
+                                                                        <div class="song-by-info-wrap">
+                                                                            <div class="info-date caption-txt1 skeleton">조회수 <span class="num">300</span></div>
+                                                                            <div class="song-by-info">
+                                                                                <figure class="profile-img skeleton">
+                                                                                    <img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp-zzang.png" alt="두아리파 프로필 이미지">
+                                                                                </figure>
+                                                                                <p class="profile-name skeleton">두아리파</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="profile-list">
+                                                            <div class="profile-wrap">
+                                                                <div class="profile-wrap-inner">
+                                                                    <a href="javascript:;" onclick="modalPopup('#videoPop');" class="thumbnail-area profile-img skeleton" title="영상 보기"> 
+                                                                        <div class="thumbnail-wrap">
+                                                                            <img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-ktrot-169-04.jpg" srcset="../../asset/images/temp/img-ktrot-169-04.jpg 2x" alt="목포행 완행열차 영상">
+                                                                            <img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-ktrot-169-04.jpg" srcset="../../asset/images/temp/img-ktrot-169-04.jpg 2x" alt="목포행 완행열차 영상">
+                                                                        </div>
+                                                                        <div class="img-btn-wrap bottom left">
+                                                                            <div class="time">02:50</div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <a href="http://codeloft.kr/mediascope_singit/html/kpop/ktrot-my-video-preliminary.html" class="profile-info" title="내 영상 보기">
+                                                                        <p class="profile-tit content-txt2 skeleton">목포행</p>
+                                                                        <span class="profile-txt content-txt2 skeleton">장윤정</span>
+                                                                        <div class="song-by-info-wrap">
+                                                                            <div class="info-date caption-txt1 skeleton">조회수 <span class="num">300</span></div>
+                                                                            <div class="song-by-info">
+                                                                                <figure class="profile-img skeleton">
+                                                                                    <img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp-zzang.png" alt="두아리파 프로필 이미지">
+                                                                                </figure>
+                                                                                <p class="profile-name skeleton">두아리파</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="profile-list">
+                                                            <div class="profile-wrap">
+                                                                <div class="profile-wrap-inner">
+                                                                    <a href="javascript:;" onclick="modalPopup('#videoPop');" class="thumbnail-area profile-img skeleton" title="영상 보기"> 
+                                                                        <div class="thumbnail-wrap">
+                                                                            <img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-ktrot-169-01.jpg" srcset="../../asset/images/temp/img-ktrot-169-01.jpg 2x" alt="목포행 완행열차 영상">
+                                                                            <img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-ktrot-169-01.jpg" srcset="../../asset/images/temp/img-ktrot-169-01.jpg 2x" alt="목포행 완행열차 영상">
+                                                                        </div>
+                                                                        <div class="img-btn-wrap bottom left">
+                                                                            <div class="time">02:50</div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <a href="http://codeloft.kr/mediascope_singit/html/kpop/ktrot-my-video-preliminary.html" class="profile-info" title="내 영상 보기">
+                                                                        <p class="profile-tit content-txt2 skeleton">목포행</p>
+                                                                        <span class="profile-txt content-txt2 skeleton">장윤정</span>
+                                                                        <div class="song-by-info-wrap">
+                                                                            <div class="info-date caption-txt1 skeleton">조회수 <span class="num">300</span></div>
+                                                                            <div class="song-by-info">
+                                                                                <figure class="profile-img skeleton">
+                                                                                    <img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp-zzang.png" alt="두아리파 프로필 이미지">
+                                                                                </figure>
+                                                                                <p class="profile-name skeleton">두아리파</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </article>
+                                        </div>
+                                        <div id="ktrot-rematch" class="ktrot-challenge-inner ktrot-rematch">
+                                            <h3 class="ktrot-challenge-tit">K-트롯 패자부활전</h3>
+                                            <div class="btn-wrap ktrot">
+                                                <a id="preliminary-btn" class="basic-btn red round" href="javascript:;" title="예선 통과자 발표 보기"><span>예선 통과자 발표 보기</span></a>
+                                            </div>
+                                            <article class="ktrot-challenge-cont guide">
+                                                <div class="ktrot-cont-tit-wrap">
+                                                    <h5 class="ktrot-cont-tit">예선을 통과하지 못한 분께<br> 드리는 <em class="point-txt">또 한번의 기회</em></h5>
+                                                    <p class="ktrot-cont-txt content-txt2">K-트롯 스타가 될 수 있는 마지막 찬스를 드립니다.</p>
+                                                </div>
+                                                <div class="ktrot-cont-list-wrap">
+                                                    <div class="ktrot-cont-list">
+                                                        <div class="list-tit"><span>참가방법</span></div>
+                                                        <ul class="list-style">
+                                                            <li class="circle">지원한 곡을 다시 부르거나 그대로 다시 지원</li>
+                                                            <li class="circle">랜덤으로 설정된 팀에서 우승하면 예선 진출</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="ktrot-cont-list center">
+                                                        <div class="list-tit"><span>심사평가</span></div>
+                                                        <ul class="list-style">
+                                                            <li>가창평가 점수 50% + 전문가 심사위원 점수 50% -> 4명 선발</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="ktrot-cont-list center">
+                                                        <div class="list-tit"><span>참가기간</span></div>
+                                                        <ul class="list-style">
+                                                            <li>2024.10.16 ~ 2024.10.18 (3일간)</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="ktrot-cont-list">
+                                                        <div class="list-tit"><span>결과발표</span></div>
+                                                        <ul class="list-style">
+                                                            <li class="circle">패자부활전 종료 전 우승자는 예선통과자 목록에서 확인 가능</li>
+                                                            <li class="circle">패자부활전 종료 이후 우승자는 본선 목록에서 확인 가능</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                            <article class="ktrot-challenge-cont tournament">
+                                                <div class="ktrot-cont-tit-wrap">
+                                                    <h5 class="ktrot-cont-tit hidden">K-트롯 패자부활전 대진표 안내</h5>
+                                                    <div class="tournament-wrap">
+                                                        <div class="tournament-area">
+                                                            <div class="tournament-inner">
+                                                                <div class="tournament-info first">
+                                                                    <!-- 내 프로필일 경우 song-by-info-wrap에 클래스 mine 추가 -->
+                                                                    <div class="song-by-info-wrap left-top">
+                                                                        <div class="song-by-info">
+                                                                            <figure class="profile-img skeleton">
+                                                                                <img class="fade-in lazyloaded" src="../../asset/images/temp/battle-profile-temp03.png" alt="코노동노 프로필 이미지">
+                                                                            </figure>
+                                                                            <p class="profile-name skeleton">코노동노</p>
+                                                                        </div>
+                                                                        <div class="tournament-line"></div>
+                                                                        <div class="btn-wrap">
+                                                                            <a href="http://codeloft.kr/mediascope_singit/html/kpop/ktrot-my-video.html" class="basic-btn red" title="지원하기"><span>지원하기</span></a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- 내 프로필일 경우 song-by-info-wrap에 클래스 mine 추가 -->
+                                                                    <div class="song-by-info-wrap left-btm">
+                                                                        <div class="song-by-info">
+                                                                            <figure class="profile-img skeleton">
+                                                                                <img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp02.png" alt="두아리파두아리파 프로필 이미지">
+                                                                            </figure>
+                                                                            <p class="profile-name skeleton">두아리파두아리파</p>
+                                                                        </div>
+                                                                        <div class="tournament-line"></div>
+                                                                        <div class="btn-wrap">
+                                                                            <a href="http://codeloft.kr/mediascope_singit/html/kpop/ktrot-my-video.html" class="basic-btn red" title="지원하기"><span>지원하기</span></a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tournament-info middle">
+                                                                    <div class="song-by-info-wrap">
+                                                                        <div class="song-by-info">
+                                                                            <figure class="profile-img skeleton">
+                                                                                <img class="fade-in lazyloaded" src="../../asset/images/common/icon-question-mark-white.svg" alt="우승자">
+                                                                            </figure>
+                                                                        </div>
+                                                                        <div class="tournament-line"><span class="left"></span><span class="right"></span></div>
+                                                                        <div class="btn-wrap">
+                                                                            <a href="http://codeloft.kr/mediascope_singit/html/kpop/ktrot-my-video.html" class="basic-btn red" title="지원하기"><span>지원하기</span></a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tournament-info last">
+                                                                    <!-- 내 프로필일 경우 song-by-info-wrap에 클래스 mine 추가 -->
+                                                                    <div class="song-by-info-wrap right-top">
+                                                                        <div class="song-by-info">
+                                                                            <figure class="profile-img skeleton">
+                                                                                <img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp03.png" alt="달고달딘 밤냥이 프로필 이미지">
+                                                                            </figure>
+                                                                            <p class="profile-name skeleton">달고달딘 밤냥이</p>
+                                                                        </div>
+                                                                        <div class="tournament-line"></div>
+                                                                        <div class="btn-wrap">
+                                                                            <a href="http://codeloft.kr/mediascope_singit/html/kpop/ktrot-my-video.html" class="basic-btn red" title="지원하기"><span>지원하기</span></a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- 내 프로필일 경우 song-by-info-wrap에 클래스 mine 추가 -->
+                                                                    <div class="song-by-info-wrap right-btm mine">
+                                                                        <div class="song-by-info">
+                                                                            <figure class="profile-img skeleton">
+                                                                                <img class="fade-in lazyloaded" src="../../asset/images/temp/img-ktrot-169-01.jpg" alt="장윤정이짱이야 프로필 이미지">
+                                                                            </figure>
+                                                                            <p class="profile-name skeleton">장윤정이짱이야</p>
+                                                                        </div>
+                                                                        <div class="tournament-line"></div>
+                                                                        <div class="btn-wrap">
+                                                                            <a href="http://codeloft.kr/mediascope_singit/html/kpop/ktrot-my-video.html" class="basic-btn red" title="지원하기"><span>지원하기</span></a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tournament-area done">
+                                                            <div class="tournament-inner">
+                                                                <div class="tournament-info first">
+                                                                    <!-- 패자부활전 선발 시 song-by-info-wrap에 active 클래스 추가 -->
+                                                                    <div class="song-by-info-wrap left-top">
+                                                                        <div class="song-by-info">
+                                                                            <figure class="profile-img skeleton">
+                                                                                <img class="fade-in lazyloaded" src="../../asset/images/temp/battle-profile-temp03.png" alt="코노동노 프로필 이미지">
+                                                                            </figure>
+                                                                            <p class="profile-name skeleton">코노동노</p>
+                                                                        </div>
+                                                                        <div class="tournament-line"></div>
+                                                                    </div>
+                                                                    <!-- 패자부활전 선발 시 song-by-info-wrap에 active 클래스 추가 -->
+                                                                    <div class="song-by-info-wrap left-btm">
+                                                                        <div class="song-by-info">
+                                                                            <figure class="profile-img skeleton">
+                                                                                <img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp02.png" alt="두아리파두아리파 프로필 이미지">
+                                                                            </figure>
+                                                                            <p class="profile-name skeleton">두아리파두아리파</p>
+                                                                        </div>
+                                                                        <div class="tournament-line"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tournament-info middle">
+                                                                    <div class="song-by-info-wrap">
+                                                                        <div class="song-by-info">
+                                                                            <figure class="profile-img skeleton">
+                                                                                <img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp03.png" alt="달고달딘 밤냥이 프로필 이미지">
+                                                                            </figure>
+                                                                            <p class="profile-name skeleton">달고달딘 밤냥이</p>
+                                                                        </div>
+                                                                        <div class="tournament-line top"><span class="left"></span><span class="right"></span></div>
+                                                                        <div class="tournament-line btm"><span class="left"></span><span class="right"></span></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tournament-info last">
+                                                                    <!-- 패자부활전 선발 시 song-by-info-wrap에 active 클래스 추가 -->
+                                                                    <div class="song-by-info-wrap right-top active">
+                                                                        <div class="song-by-info">
+                                                                            <figure class="profile-img skeleton">
+                                                                                <img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp03.png" alt="달고달딘 밤냥이 프로필 이미지">
+                                                                            </figure>
+                                                                            <p class="profile-name skeleton">달고달딘 밤냥이</p>
+                                                                        </div>
+                                                                        <div class="tournament-line"></div>
+                                                                        <div class="btn-wrap">
+                                                                            <a href="http://codeloft.kr/mediascope_singit/html/kpop/ktrot-my-video.html" class="basic-btn red" title="지원하기"><span>지원하기</span></a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- 패자부활전 선발 시 song-by-info-wrap에 active 클래스 추가 -->
+                                                                    <div class="song-by-info-wrap right-btm">
+                                                                        <div class="song-by-info">
+                                                                            <figure class="profile-img skeleton">
+                                                                                <img class="fade-in lazyloaded" src="../../asset/images/temp/img-ktrot-169-01.jpg" alt="장윤정이짱이야 프로필 이미지">
+                                                                            </figure>
+                                                                            <p class="profile-name skeleton">장윤정이짱이야</p>
+                                                                        </div>
+                                                                        <div class="tournament-line"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </div>
+                                </div>
+							</div>
+						</section>
+                        <!-- Floating Button -->
+                        <aside id="share-btn" class="content-txt2">
+                            <a href="javascript:;" tabindex="0" title="공유하기"><span class="hidden">공유하기</span></a>		
+                        </aside>
+					</div>
+				</div>
+			</div>
+			<!--========== TOAST POPUP ==========-->
+			<div class="toast-popup-group">
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

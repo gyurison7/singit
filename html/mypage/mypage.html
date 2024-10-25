@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS | library -->
+	<link rel="stylesheet" href="../../asset/css/swiper.min.css">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/mypage/mypage.css">
+
+	<!-- JS | library -->
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
+	<script src="../../asset/js/swiper.min.js"></script>
+
+	<!-- JS -->
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
+
+    <title>SingIt</title>
+</head>
+<body>
+	<div id="wrap">
+		<!--==================
+		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+		- PLAY 페이지 : play 클래스
+		- SING 페이지 : sing 클래스
+		- BATTLE 페이지 : battle 클래스
+		- MY 페이지 : my 클래스
+		- 서브 페이지 : sub 클래스 
+        ======================-->
+		<div id="container" class="my">
+			<!--========== MODAL POPUP ==========-->
+			<div class="modal-popup-group">
+
+			</div>
+			
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<script>
+				$(function () {
+					$('#header').load("../include/header.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/header.js");
+					});
+				});
+			</script>
+			<main id="main">
+				<h2 class="main-title hidden">MY HOME</h2>
+				<section class="section mypage-sec">
+					<h3 class="section-title hidden">MY HOME</h3>
+					<article class="section-content myhome-profile">
+						<div class="inner">
+							<h4 class="hidden"><span>MY 프로필</span></h4>
+							<div class="profile-wrap">
+								<div class="profile-wrap-inner">
+									<div class="profile-reg-img-wrap">
+										<a href="http://codeloft.kr/mediascope_singit/html/mypage/my-profile.html" title="프로필 수정하기">
+											<figure><img class="fade-in lazyloaded" src="../../asset/images/common/profile-default-img.svg" alt="기본 이미지"></figure>
+										</a>	
+									</div>
+									<div class="profile-info">
+										<div class="profile-tit-wrap content-txt1">
+											<p class="profile-tit skeleton">싱싱카</p>
+											<!-- 등급별 뱃지 노출 -->
+											<a href="http://codeloft.kr/mediascope_singit/html/mypage/member.html" class="status-label member skeleton" title="등급안내 보기">
+												<!-- <span class="rookie">Rookie</span> -->
+												<span class="pro">Pro</span>
+												<!-- <span class="vip">VIP</span> -->
+											</a>
+										</div>
+										<div class="sns-wrap content-txt2">
+											<!-- sns별 아이콘 노출 -->
+											<a href="#none" class="sns">
+												<!-- <figure class="kakao"><img src="../../asset/images/sub/mypage/icon-kakao.svg" alt="카카오"></figure> -->
+												<figure class="google"><img src="../../asset/images/sub/mypage/icon-google.svg" alt="구글"></figure>
+												<!-- <figure class="facebook"><img src="../../asset/images/sub/mypage/icon-facebook.svg" alt="페이스북"></figure>
+												<figure class="apple"><img src="../../asset/images/sub/mypage/icon-apple.svg" alt="애플"></figure> -->
+											</a>
+											<a href="mailto:knowhow@knowhow.or.kr" class="profile-txt caption-txt1"><span class="skeleton">singsingcar@gmail.com</span></a>
+										</div>
+									</div>
+								</div>
+								<div class="bottom-info-wrap">
+									<!-- 영상,팔로워,팔로잉 수 -->
+									<a href="http://codeloft.kr/mediascope_singit/html/mypage/my-follow.html" class="info-video bottom-info bottom-profile-info skeleton" title="내 팔로잉 보기">팔로잉<span class="num">11</span></a>
+									<a href="http://codeloft.kr/mediascope_singit/html/mypage/my-follow.html" class="info-follower bottom-info bottom-profile-info skeleton" title="내 팔로워 보기">팔로워<span class="num">1221</span></a>
+									<a href="http://codeloft.kr/mediascope_singit/html/mypage/my-video.html" class="info-following bottom-info bottom-profile-info skeleton" title="좋아요 보기">좋아요<span class="num">1</span></a>
+								</div>
+							</div>
+						</div>
+					</article>
+					<article class="section-content myhome-wallet">
+						<h4 class="inner sub-cont-tit content-txt2"><span>내 지갑</span></h4>
+						<div class="inner content-txt2 myhome-wallet-cont">
+							<ul class="red-box-wrap">
+								<li class="red-box-list red-box-main">
+									<div class="red-box-top">
+										<div class="sc-amount">
+											<div class="sc-tit sc-icon"><span>내 싱코인</span></div>
+											<div class="sc-num skeleton"><h6 class="num point-txt medium-num">105,506</h6> 개</div>
+											<!-- 보유중인 싱코인 .sc-num > span.num 에 입력됩니다. -->
+										</div>
+									</div>
+									<div class="red-box-btm">
+										<ul class="sc-link-wrap caption-txt1">
+											<li class="sc-link-list purchase"><a href="http://codeloft.kr/mediascope_singit/html/mypage/my-purchase.html" title="이용권 구매하기"><span>이용권 구매</span></a></li>
+											<li class="sc-link-list charge"><a href="http://codeloft.kr/mediascope_singit/html/mypage/my-purchase.html" title="싱코인 충전하기"><span>싱코인 충전</span></a></li>
+											<li class="sc-link-list history"><a href="http://codeloft.kr/mediascope_singit/html/mypage/my-singcoin.html" title="이용 내역보기"><span>이용 내역</span></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="red-box-list">
+									<a href="http://codeloft.kr/mediascope_singit/html/mypage/my-coupon.html" title="쿠폰 보러가기">
+										<div class="sc-amount">
+											<div class="sc-tit sc-coupon"><span>쿠폰</span></div>
+											<div class="sc-num skeleton"><h6 class="num medium-num">3</h6> 개</div>
+										</div>
+									</a>
+								</li>
+								<!-- <li class="red-box-list">
+									<a href="#none" title="선물 내역보러가기">
+										<div class="sc-amount">
+											<div class="sc-tit sc-gift"><span>선물내역</span></div>
+											<div class="sc-num"><h6 class="num medium-num">50000</h6> 개</div>
+										</div>
+									</a>
+								</li> -->
+							</ul>
+						</div>
+					</article>
+
+					<article class="section-content tit my-slide myhome-video">
+						<h4 class="inner sub-cont-tit content-txt2"><a href="http://codeloft.kr/mediascope_singit/html/mypage/my-video.html" title="내 영상 보기"><span>내 영상</span></a></h4>
+						<!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+						<div class="inner myhome-video-cont">
+							<div class="no-result">
+								<p class="content-txt3">노래 부른 영상을 보관합니다.<br> 아직은 영상이 없어요.</p>
+							</div>
+							<div class="swiper profile-area song-list myhome-video-slide">
+								<ul class="swiper-wrapper profile-list-wrap">
+									<li class="swiper-slide profile-list">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap" title="내 영상 보러가기">
+											<div class="profile-wrap-inner conts">
+												<div class="thumbnail-area skeleton"> 
+													<div class="thumbnail-wrap">
+														<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+														<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+													</div>
+													<div class="img-btn-wrap bottom">
+														<div class="play"><span class="num">248</span></div>
+														<div class="time">02:50</div>
+													</div>
+												</div>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3 skeleton">Small girl Small girl Small girl (feat. 도경수(D.O.))</p>
+													<span class="profile-txt caption-txt1 skeleton">이영지</span>
+												</div>
+												<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+												<div class="song-by-info">
+													<figure class="profile-img skeleton">
+														<!-- 이미지 확장자 추천 jpg -->
+														<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+													</figure>
+													<p class="profile-name skeleton">두아리파앙</p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="swiper-slide profile-list">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap" title="내 영상 보러가기">
+											<div class="profile-wrap-inner conts">
+												<div class="thumbnail-area skeleton duet"> 
+													<div class="thumbnail-wrap">
+														<img class="fade-in duet-left lazyloaded" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="Small girl 이영지">
+														<img class="fade-in duet-right lazyloaded" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="Small girl 이영지">
+													</div>
+													<div class="img-btn-wrap bottom">
+														<div class="play"><span class="num">248</span></div>
+														<div class="time">02:50</div>
+													</div>
+												</div>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3 skeleton">Small girl Small girl Small girl (feat. 도경수(D.O.))</p>
+													<span class="profile-txt caption-txt1 skeleton">이영지</span>
+												</div>
+												<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+												<div class="song-by-info duet">
+													<figure class="profile-img skeleton">
+														<!-- 이미지 확장자 추천 jpg -->
+														<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+														<img class="fade-in lazyloaded duet02" src="../../asset/images/temp/profile-temp01.png" alt="프로필 이미지">
+													</figure>
+													<p class="profile-name skeleton">두아리파앙파앙파앙&amp;달고달디단냥이냥이냥이</p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="swiper-slide profile-list">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap" title="내 영상 보러가기">
+											<div class="profile-wrap-inner conts">
+												<div class="thumbnail-area skeleton album"> 
+													<div class="thumbnail-wrap">
+														<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-cover-01.jpg" srcset="../../asset/images/temp/img-cover-01.jpg 2x" alt="Moonlight sunrise 트와이스">
+														<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-cover-01.jpg" srcset="../../asset/images/temp/img-cover-01.jpg 2x" alt="Moonlight sunrise 트와이스">
+													</div>
+													<div class="img-btn-wrap bottom">
+														<div class="play"><span class="num">248</span></div>
+														<div class="time">02:50</div>
+													</div>
+												</div>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3 skeleton">Moonlight sunrise</p>
+													<span class="profile-txt caption-txt1 skeleton">트와이스</span>
+												</div>
+												<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+												<div class="song-by-info">
+													<figure class="profile-img skeleton">
+														<!-- 이미지 확장자 추천 jpg -->
+														<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+													</figure>
+													<p class="profile-name skeleton">두아리파</p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="swiper-slide profile-list">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap" title="내 영상 보러가기">
+											<div class="profile-wrap-inner conts">
+												<div class="thumbnail-area skeleton"> 
+													<div class="thumbnail-wrap">
+														<img class="fade-in middle lazyloaded" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+														<img class="fade-in background lazyloaded" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+													</div>
+													<div class="img-btn-wrap bottom">
+														<div class="play"><span class="num">248</span></div>
+														<div class="time">02:50</div>
+													</div>
+												</div>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3 skeleton">Small girl Small girl Small girl (feat. 도경수(D.O.))</p>
+													<span class="profile-txt caption-txt1 skeleton">이영지</span>
+												</div>
+												<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+												<div class="song-by-info">
+													<figure class="profile-img skeleton">
+														<!-- 이미지 확장자 추천 jpg -->
+														<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+													</figure>
+													<p class="profile-name skeleton">두아리파</p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="swiper-slide profile-list">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap" title="내 영상 보러가기">
+											<div class="profile-wrap-inner conts">
+												<div class="thumbnail-area skeleton duet"> 
+													<div class="thumbnail-wrap">
+														<img class="fade-in duet-left lazyloaded" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+														<img class="fade-in duet-right lazyloaded" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="alt값 필수" title="선택적 제목">
+													</div>
+													<div class="img-btn-wrap bottom">
+														<div class="play"><span class="num">248</span></div>
+														<div class="time">02:50</div>
+													</div>
+												</div>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3 skeleton">Small girl Small girl Small girl (feat. 도경수(D.O.))</p>
+													<span class="profile-txt caption-txt1 skeleton">이영지</span>
+												</div>
+												<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+												<div class="song-by-info duet">
+													<figure class="profile-img skeleton">
+														<!-- 이미지 확장자 추천 jpg -->
+														<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+														<img class="fade-in lazyloaded duet02" src="../../asset/images/temp/profile-temp01.png" alt="프로필 이미지">
+													</figure>
+													<p class="profile-name skeleton">두아리파앙파앙파앙&amp;달고달디단냥이냥이냥이</p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="swiper-slide profile-list">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap" title="내 영상 보러가기">
+											<div class="profile-wrap-inner conts">
+												<div class="thumbnail-area skeleton"> 
+													<div class="thumbnail-wrap">
+														<img class="fade-in middle lazyloaded" decoding="async" src="../../asset/images/temp/img-169-04.jpg" srcset="../../asset/images/temp/img-169-04.jpg 2x" alt="alt값 필수" title="선택적 제목">
+														<img class="fade-in background lazyloaded" decoding="async" src="../../asset/images/temp/img-169-04.jpg" srcset="../../asset/images/temp/img-169-04.jpg 2x" alt="alt값 필수" title="선택적 제목">
+													</div>
+													<div class="img-btn-wrap bottom">
+														<div class="play"><span class="num">248</span></div>
+														<div class="time">02:50</div>
+													</div>
+												</div>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3 skeleton">Moonlight sunrise Moonlight sunrise Moonlight sunrise Moonlight sunrise</p>
+													<span class="profile-txt caption-txt1 skeleton">트와이스 트와이스 트와이스 트와이스 트와이스 트와이스</span>
+												</div>
+												<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+												<div class="song-by-info">
+													<figure class="profile-img skeleton">
+														<!-- 이미지 확장자 추천 jpg -->
+														<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+													</figure>
+													<p class="profile-name skeleton">두아리파앙파앙파앙</p>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</article>
+
+					<article class="section-content tit sing-songlist myhome-songlist">
+						<h4 class="inner sub-cont-tit content-txt2"><a href="http://codeloft.kr/mediascope_singit/html/mypage/my-sing-list.html" title="최근 부른곡 보기"><span>최근 부른곡</span></a></h4>
+						<div class="sing-songlist-cont">
+							<!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+							<div class="profile-area">
+								<div class="no-result">
+									<p class="content-txt3">최근 부른 노래를 보여드려요.<br> 아직 부른 노래가 없어요.</p>
+								</div>
+								<ul class="profile-list-wrap">
+									<li class="profile-list skeleton">
+										<a href="http://codeloft.kr/mediascope_singit/html/sing/sing-detail.html" class="profile-wrap" title="최근 부른곡 보기">
+											<div class="profile-wrap-inner">
+												<figure class="profile-img"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp02.png" alt="Ditto 뉴진스"></figure>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3">Ditto</p>
+													<span class="profile-txt content-txt3">뉴진스</span>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="profile-list skeleton">
+										<a href="http://codeloft.kr/mediascope_singit/html/sing/sing-detail.html" class="profile-wrap" title="최근 부른곡 보기">
+											<div class="profile-wrap-inner">
+												<figure class="profile-img"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp03.png" alt="행복했던 날들이었다 DAY6(데이식스)"></figure>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3">행복했던 날들이었다</p>
+													<span class="profile-txt content-txt3">DAY6(데이식스)</span>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="profile-list skeleton">
+										<a href="http://codeloft.kr/mediascope_singit/html/sing/sing-detail.html" class="profile-wrap"  title="최근 부른곡 보기">
+											<div class="profile-wrap-inner">
+												<figure class="profile-img"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp04.png" alt="Sticky KISS OF LIFE"></figure>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3">Sticky</p>
+													<span class="profile-txt content-txt3">KISS OF LIFE</span>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="profile-list skeleton">
+										<a href="http://codeloft.kr/mediascope_singit/html/sing/sing-detail.html" class="profile-wrap" title="최근 부른곡 보기">
+											<div class="profile-wrap-inner">
+												<figure class="profile-img"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp05.png" alt="등대 하현상"></figure>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3">등대</p>
+													<span class="profile-txt content-txt3">하현상</span>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="profile-list skeleton">
+										<a href="http://codeloft.kr/mediascope_singit/html/sing/sing-detail.html" class="profile-wrap" title="최근 부른곡 보기">
+											<div class="profile-wrap-inner">
+												<figure class="profile-img"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp06.png" alt="Ditto 뉴진스"></figure>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3">Ditto</p>
+													<span class="profile-txt content-txt3">뉴진스</span>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="profile-list skeleton">
+										<a href="http://codeloft.kr/mediascope_singit/html/sing/sing-detail.html" class="profile-wrap" title="최근 부른곡 보기">
+											<div class="profile-wrap-inner">
+												<figure class="profile-img"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp04.png" alt="Sticky KISS OF LIFE"></figure>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3">Sticky</p>
+													<span class="profile-txt content-txt3">KISS OF LIFE</span>
+												</div>
+											</div>
+										</a>
+									</li>
+									<!-- 마지막 요소에 last 클래스 추가 -->
+									<li class="profile-list skeleton last">
+										<a href="http://codeloft.kr/mediascope_singit/html/sing/sing-detail.html" class="profile-wrap" title="최근 부른곡 보기">
+											<div class="profile-wrap-inner">
+												<figure class="profile-img"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp02.png" alt="Ditto 뉴진스"></figure>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3">Ditto</p>
+													<span class="profile-txt content-txt3">뉴진스</span>
+												</div>
+											</div>
+										</a>
+									</li>
+									<!-- 마지막 요소에 last 클래스 추가 -->
+									<li class="profile-list skeleton last">
+										<a href="http://codeloft.kr/mediascope_singit/html/sing/sing-detail.html" class="profile-wrap" title="최근 부른곡 보기">
+											<div class="profile-wrap-inner">
+												<figure class="profile-img"><img class="fade-in lazyloaded" src="../../asset/images/temp/song-temp07.png" alt="한 페이지가 될 수 있게 DAY6 (데이식스)"></figure>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3">한 페이지가 될 수 있게 한 페이지가 될 수 있게 한 페이지가 될 수 있게 한 페이지가 될 수 있게</p>
+													<span class="profile-txt content-txt3">DAY6 (데이식스) DAY6 (데이식스) DAY6 (데이식스) DAY6 (데이식스) DAY6 (데이식스)</span>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</article>
+
+					<article class="section-content tit my-slide myhome-bookmark">
+						<h4 class="inner sub-cont-tit content-txt2"><a href="http://codeloft.kr/mediascope_singit/html/mypage/my-bookmark.html" title="내 북마크 보기"><span>북마크</span></a></h4>
+						<!-- 컨텐츠 없을때 클래스 no-result 추가 -->
+						<div class="inner myhome-bookmark-cont">
+							<div class="no-result">
+								<p class="content-txt3">아직 북마크에 추가한 영상이 없어요.<br><span class="bookmark-icon"></span>를 눌러 북마크를 추가해보세요.</p>
+							</div>
+							<div class="swiper profile-area song-list myhome-bookmark-slide">
+								<ul class="swiper-wrapper profile-list-wrap">
+									<li class="swiper-slide profile-list">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap" title="북마크 레코딩 보러가기">
+											<div class="profile-wrap-inner conts">
+												<div class="thumbnail-area skeleton"> 
+													<div class="thumbnail-wrap">
+														<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+														<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+													</div>
+													<div class="img-btn-wrap bottom">
+														<div class="play"><span class="num">248</span></div>
+														<div class="time">02:50</div>
+													</div>
+												</div>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3 skeleton">Small girl Small girl Small girl (feat. 도경수(D.O.))</p>
+													<span class="profile-txt caption-txt1 skeleton">이영지</span>
+												</div>
+												<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+												<div class="song-by-info">
+													<figure class="profile-img skeleton">
+														<!-- 이미지 확장자 추천 jpg -->
+														<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+													</figure>
+													<p class="profile-name skeleton">두아리파앙</p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="swiper-slide profile-list">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap" title="북마크 레코딩 보러가기">
+											<div class="profile-wrap-inner conts">
+												<div class="thumbnail-area skeleton duet"> 
+													<div class="thumbnail-wrap">
+														<img class="fade-in duet-left lazyloaded" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="Small girl 이영지">
+														<img class="fade-in duet-right lazyloaded" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="Small girl 이영지">
+													</div>
+													<div class="img-btn-wrap bottom">
+														<div class="play"><span class="num">248</span></div>
+														<div class="time">02:50</div>
+													</div>
+												</div>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3 skeleton">Small girl Small girl Small girl (feat. 도경수(D.O.))</p>
+													<span class="profile-txt caption-txt1 skeleton">이영지</span>
+												</div>
+												<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+												<div class="song-by-info duet">
+													<figure class="profile-img skeleton">
+														<!-- 이미지 확장자 추천 jpg -->
+														<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+														<img class="fade-in lazyloaded duet02" src="../../asset/images/temp/profile-temp01.png" alt="프로필 이미지">
+													</figure>
+													<p class="profile-name skeleton">두아리파앙파앙파앙&amp;달고달디단냥이냥이냥이</p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="swiper-slide profile-list">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap" title="북마크 레코딩 보러가기">
+											<div class="profile-wrap-inner conts">
+												<div class="thumbnail-area skeleton album"> 
+													<div class="thumbnail-wrap">
+														<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-cover-01.jpg" srcset="../../asset/images/temp/img-cover-01.jpg 2x" alt="Moonlight sunrise 트와이스">
+														<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-cover-01.jpg" srcset="../../asset/images/temp/img-cover-01.jpg 2x" alt="Moonlight sunrise 트와이스">
+													</div>
+													<div class="img-btn-wrap bottom">
+														<div class="play"><span class="num">248</span></div>
+														<div class="time">02:50</div>
+													</div>
+												</div>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3 skeleton">Moonlight sunrise</p>
+													<span class="profile-txt caption-txt1 skeleton">트와이스</span>
+												</div>
+												<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+												<div class="song-by-info">
+													<figure class="profile-img skeleton">
+														<!-- 이미지 확장자 추천 jpg -->
+														<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+													</figure>
+													<p class="profile-name skeleton">두아리파</p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="swiper-slide profile-list">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap" title="북마크 레코딩 보러가기">
+											<div class="profile-wrap-inner conts">
+												<div class="thumbnail-area skeleton"> 
+													<div class="thumbnail-wrap">
+														<img class="fade-in middle lazyloaded" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+														<img class="fade-in background lazyloaded" decoding="async" src="../../asset/images/temp/img-11-01.jpg" srcset="../../asset/images/temp/img-11-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+													</div>
+													<div class="img-btn-wrap bottom">
+														<div class="play"><span class="num">248</span></div>
+														<div class="time">02:50</div>
+													</div>
+												</div>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3 skeleton">Small girl Small girl Small girl (feat. 도경수(D.O.))</p>
+													<span class="profile-txt caption-txt1 skeleton">이영지</span>
+												</div>
+												<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+												<div class="song-by-info">
+													<figure class="profile-img skeleton">
+														<!-- 이미지 확장자 추천 jpg -->
+														<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+													</figure>
+													<p class="profile-name skeleton">두아리파</p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="swiper-slide profile-list">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap" title="북마크 레코딩 보러가기">
+											<div class="profile-wrap-inner conts">
+												<div class="thumbnail-area skeleton duet"> 
+													<div class="thumbnail-wrap">
+														<img class="fade-in duet-left lazyloaded" decoding="async" src="../../asset/images/temp/img-169-01.jpg" srcset="../../asset/images/temp/img-169-01.jpg 2x" alt="alt값 필수" title="선택적 제목">
+														<img class="fade-in duet-right lazyloaded" decoding="async" src="../../asset/images/temp/img-169-02.jpg" srcset="../../asset/images/temp/img-169-02.jpg 2x" alt="alt값 필수" title="선택적 제목">
+													</div>
+													<div class="img-btn-wrap bottom">
+														<div class="play"><span class="num">248</span></div>
+														<div class="time">02:50</div>
+													</div>
+												</div>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3 skeleton">Small girl Small girl Small girl (feat. 도경수(D.O.))</p>
+													<span class="profile-txt caption-txt1 skeleton">이영지</span>
+												</div>
+												<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+												<div class="song-by-info duet">
+													<figure class="profile-img skeleton">
+														<!-- 이미지 확장자 추천 jpg -->
+														<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+														<img class="fade-in lazyloaded duet02" src="../../asset/images/temp/profile-temp01.png" alt="프로필 이미지">
+													</figure>
+													<p class="profile-name skeleton">두아리파앙파앙파앙&amp;달고달디단냥이냥이냥이</p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="swiper-slide profile-list">
+										<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap" title="북마크 레코딩 보러가기">
+											<div class="profile-wrap-inner conts">
+												<div class="thumbnail-area skeleton"> 
+													<div class="thumbnail-wrap">
+														<img class="fade-in middle lazyloaded" decoding="async" src="../../asset/images/temp/img-169-04.jpg" srcset="../../asset/images/temp/img-169-04.jpg 2x" alt="alt값 필수" title="선택적 제목">
+														<img class="fade-in background lazyloaded" decoding="async" src="../../asset/images/temp/img-169-04.jpg" srcset="../../asset/images/temp/img-169-04.jpg 2x" alt="alt값 필수" title="선택적 제목">
+													</div>
+													<div class="img-btn-wrap bottom">
+														<div class="play"><span class="num">248</span></div>
+														<div class="time">02:50</div>
+													</div>
+												</div>
+												<div class="profile-info">
+													<p class="profile-tit content-txt3 skeleton">Moonlight sunrise Moonlight sunrise Moonlight sunrise Moonlight sunrise</p>
+													<span class="profile-txt caption-txt1 skeleton">트와이스 트와이스 트와이스 트와이스 트와이스 트와이스</span>
+												</div>
+												<!-- 듀엣일 경우에만 클래스 duet 추가 -->
+												<div class="song-by-info">
+													<figure class="profile-img skeleton">
+														<!-- 이미지 확장자 추천 jpg -->
+														<img class="fade-in lazyloaded duet01" src="../../asset/images/temp/profile-temp-zzang.png" alt="프로필 이미지">
+													</figure>
+													<p class="profile-name skeleton">두아리파앙파앙파앙</p>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</article>
+				</section>
+
+				<!-- Floating Button -->
+				<aside id="singit-box" class="content-txt2">
+                    <a href="javascript:;" tabindex="0" title="SingIt Box 바로가기"><span class="hidden">SingIt Box 바로가기</span></a>		
+                </aside>
+			</main>
+			
+			<!--========== APP BAR : FOOTER ==========-->
+			<footer id="footer"></footer>
+			<script>
+				$(function () {
+					$('#footer').load("../include/footer.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/footer.js");
+					});
+				});
+			</script>
+
+			<!--========== FULL PAGE POPUP ==========-->
+			<div class="full-popup-group">
+
+			</div>
+
+			<!--========== TOAST POPUP ==========-->
+			<div class="toast-popup-group">
+
+			</div>
+		</div>
+	</div>
+
+	<!-- JS : MY HOME 페이지에만 적용 -->
+	<script src="../../asset/js/sub.js"></script>
+</body>
+</html>

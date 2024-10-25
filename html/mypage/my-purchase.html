@@ -77,6 +77,57 @@
 		- 서브 페이지 : sub 클래스 
         ======================-->
 		<div id="container" class="my sub">
+			<!--========== MODAL POPUP ==========-->
+            <div class="modal-popup-group">
+				<!-- VIP 이용권 혜택 팝업 -->
+				<div id="vipBenefitPop" class="modal msg vipBenefitPop">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">VIP 이용권 혜택</h3>
+									<div class="modal-close-btn">
+										<a href="javascript:;" onclick="modalPopupClose('#vipBenefitPop')" title="팝업창 닫기" tabindex="0">팝업창 닫기</a>
+									</div>
+								</div>
+								<div class="modal-txt-wrap">
+									<ul class="list-style">
+										<li class="circle">아래 두가지 혜택 중 1개를 선택해주세요.</li>
+										<li class="circle">선택한 혜택으로 매월 VIP혜택을 받을 수 있습니다.</li>
+										<li class="circle highlight">VIP 혜택으로 제공받은 SingitBOX 쿠폰 또는 싱코인은 <em>매달 1일에 지급되며 미사용 시 당월 말일에 소멸</em>됩니다.</li>
+									</ul>
+								</div>
+							</div>
+							<div class="modal-cont-wrap vip-benefit-sel-wrap">
+								<div class="vip-benefit-list benefit-singitbox content-txt2 select">
+									<div class="vip-benefit-tit">
+										<span></span>Singit BOX 쿠폰
+									</div>
+									<div class="vip-benefit-cont content-txt3">
+										<ul>
+											<li>SingitBOX 3곡 이용권 X 2</li>
+											<li>SingitBOX 5곡 이용권 X 1</li>
+										</ul>
+									</div>
+								</div>
+								<div class="vip-benefit-list benefit-singcoin content-txt2">
+									<div class="vip-benefit-tit">
+										<span></span>싱코인 200개 지급
+									</div>
+									<div class="vip-benefit-cont content-txt3">
+										<p>싱코인 200개</p>
+									</div>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								 <a href="javascript:;" onclick="modalPopupClose('#vipBenefitPop');" class="basic-btn gray" tabindex="1">취소</a>
+								<a href="javascript:;" onclick="" class="basic-btn red" tabindex="1">구매하기</a>
+							</div>
+						</section>
+					</div>
+				</div>
+            </div>
+
 			<!--========== HEADER ==========-->
 			<header id="header"></header>
 			<script>
@@ -102,19 +153,27 @@
 								<h3 class="section-title hidden">이용권 상품구매</h3>
 								<div class="inner">
 									<div class="section-content">
+										<div class="membership-noti-wrap">
+											<div class="status-label member">
+												<span class="rookie">Rookie</span>
+												<!-- <span class="pro">Pro</span> -->
+												<!-- <span class="vip">VIP</span> -->
+											</div>
+											<p class="membership-noti">현재 회원님은 <span>Rookie</span> 등급입니다.</p>
+										</div>
 										<div class="membership-product-wrap">
-											<a href="javascript:;" class="membership-product membership-product-monthly" role="button" title="1개월 무제한 이용 구매하기">
+											<a href="javascript:;" class="membership-product membership-product-monthly" role="button" title="1개월 무제한 이용 구매하기" onclick="modalPopup('#vipBenefitPop')">
 												<div class="membership-tag caption-txt1">인기 상품</div>
 												<div class="membership-txt content-txt3">
-													<div class="membership-title">VIP 이용권</div>
+													<div class="membership-title">VIP 월간</div>
 													<div class="membership-price caption-txt1"><span class="semi-b-num num">4400</span>원</div>
 												</div>
 												<div class="membership-desc caption-txt1">1개월 무제한 이용</div>
 											</a>
-											<a href="javascript:;" class="membership-product membership-product-yearly" role="button" title="1년간 무제한 이용 구매하기">
+											<a href="javascript:;" class="membership-product membership-product-yearly" role="button" title="1년간 무제한 이용 구매하기" onclick="modalPopup('#vipBenefitPop')">
 											<div class="membership-tag caption-txt1">추천 상품</div>
 											<div class="membership-txt content-txt3">
-												<div class="membership-title"><strong>VIP 플러스</strong> 이용권</div>
+												<div class="membership-title"><strong>VIP 연간</strong></div>
 												<div class="membership-price caption-txt1"><span class="semi-b-num num">44000</span>원</div>
 											</div>
 											<div class="membership-desc caption-txt1">1년간 무제한 이용</div>
@@ -125,28 +184,43 @@
 							</section>
 							<section class="section membership-benefit-sec">
 								<div class="inner">
-									<h3 class="section-title content-txt2">VIP 회원에게 드리는 혜택 (미확정)</h3>
+									<h3 class="section-title content-txt1"><em>VIP 회원</em>에게 드리는 혜택</h3>
 									<div class="section-content">
 										<div class="membership-benefit-wrap">
 											<div class="membership-benefit-list benefit-list-1">
 												<div class="benefit-icon"></div>
-												광고 NO
+												<div class="benefit-txt">
+													<div class="benefit-tit">노래 부르기 무제한</div>
+													<div class="benefit-desc">싱코인 차감없이 무제한 노래부르기 가능</div>
+												</div>
 											</div>
 											<div class="membership-benefit-list benefit-list-2">
 												<div class="benefit-icon"></div>
-												내 노래 다운로드
+												<div class="benefit-txt">
+													<div class="benefit-tit">듀엣 부르기</div>
+													<div class="benefit-desc">공개하지 않아도! 싱코인 차감없이!<br> 듀엣영상 만들기 무제한 제공</div>
+												</div>
 											</div>
 											<div class="membership-benefit-list benefit-list-3">
 												<div class="benefit-icon"></div>
-												고음질 반주
+												<div class="benefit-txt">
+													<div class="benefit-tit">자유로운 챌린지 도전</div>
+													<div class="benefit-desc">2배 챌린지 배팅으로 최대 600개까지<br> 싱코인을 얻을 수 있는 기회</div>
+												</div>
 											</div>
 											<div class="membership-benefit-list benefit-list-4">
 												<div class="benefit-icon"></div>
-												자유로운 1:1 메시지
+												<div class="benefit-txt">
+													<div class="benefit-tit">SingitBOX 쿠폰 제공/싱코인 지급</div>
+													<div class="benefit-desc">매달 지급되는 싱잇박스 쿠폰 3매 증정</div>
+												</div>
 											</div>
 											<div class="membership-benefit-list benefit-list-5">
 												<div class="benefit-icon"></div>
-												스티커 무제한
+												<div class="benefit-txt">
+													<div class="benefit-tit">내 영상 다운로드</div>
+													<div class="benefit-desc">연습영상도! 잘나온영상도!<br> 내 영상이라면 무제한 다운로드</div>
+												</div>
 											</div>
 										</div>
 									</div>

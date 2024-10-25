@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Ajin Lee. Sunhyeong Kim. (Weaverloft Corp.)
+ * 2. Production Date: 2024-07-30
+ * 3. Client: MEDIASCOPE Inc.
+ */
+
+/* GmarketSans Font */
+@font-face {
+    font-family: "GmarketSans";
+    font-weight: 500;
+    src: url('../../fonts/gmarket/GmarketSansMedium.otf') format('opentype'),
+        url('../../fonts/gmarket/GmarketSansTTFMedium.ttf') format('truetype'); 
+} 
+@font-face {
+    font-family: "GmarketSans";
+    font-weight: 700;
+    src: url('../../fonts/gmarket/GmarketSansBold.otf') format('opentype'),
+        url('../../fonts/gmarket/GmarketSansTTFBold.') format('truetype'); 
+} 
+.g-txt-m { font-family: "GmarketSans"; font-weight: 500;} 
+.g-txt-b { font-family: "GmarketSans"; font-weight: 700;} 

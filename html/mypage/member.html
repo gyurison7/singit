@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/mypage/my-membership.css">
+
+	<!-- JS | library -->
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
+
+	<!-- JS -->
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
+
+    <title>SingIt</title>
+</head>
+<body>
+	<div id="wrap">
+		<!--==================
+		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+		- PLAY 페이지 : play 클래스
+		- SING 페이지 : sing 클래스
+		- BATTLE 페이지 : battle 클래스
+		- MY 페이지 : my 클래스
+		- 서브 페이지 : sub 클래스 
+        ======================-->
+		<div id="container" class="my sub">
+			<!--========== MODAL POPUP ==========-->
+            <div class="modal-popup-group">
+				
+            </div>
+
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<script>
+				$(function () {
+					$('#header').load("../include/header.html", function () {
+						// 로드된 후에 실행될 코드
+						$.getScript("../../asset/js/header.js");
+						// $.getScript("../../asset/js/basic.js");
+					});
+				});
+			</script>
+
+			<!--========== FULL PAGE POPUP ==========-->
+            <div class="full-popup-group">
+				<!-- 멤버십 등급 안내 풀페이지 팝업 -->
+                <div id="member-popup" class="modal full member-popup open">
+                    <div class="full-modal-wrap">
+                        <section class="full-modal-content">
+                            <h3 class="section-title hidden">멤버십 등급 안내</h3>
+                            <div class="header-sub">
+                                <ul>
+                                    <li class="header-sub-tit"><h2 class="content-txt2">멤버십 등급 안내</h2></li>
+                                    <li class="header-side header-close"><button type="button" aria-label="페이지 닫기" onclick="modalPopupClose('#member-popup');"><span class="hidden">페이지 닫기</span></button></li>
+                                </ul>
+                            </div>
+                            <div class="full-modal-cont">
+                                <div class="inner">
+                                    <div class="member-policy-wrap">
+										<h4 class="content-txt2">멤버십 등급별 정책</h4>
+										<div class="desc-box">
+											<div class="desc-row">
+												<div class="grade-part">
+													<div class="status-label member">
+														<span class="rookie">Rookie</span>
+													</div>
+												</div>
+												<div class="policy-part">
+													<ul class="policy-list">
+														<li>회원가입</li>
+													</ul>
+												</div>
+											</div>
+											<div class="desc-row">
+												<div class="grade-part">
+													<div class="status-label member">
+														<span class="pro">Pro</span>
+													</div>
+												</div>
+												<div class="policy-part">
+													<ul class="policy-list">
+														<li>부르기 & 공개 업로드 3회 이상</li>
+														<li>챌린지 도전 5회 달성</li>
+														<li>선물하기 3회 이상</li>
+														<li>댓글 5회 작성</li>
+													</ul>
+												</div>
+											</div>
+											<div class="desc-row">
+												<div class="grade-part">
+													<div class="status-label member">
+														<span class="vip">VIP</span>
+													</div>
+												</div>
+												<div class="policy-part">
+													<ul class="policy-list">
+														<li>정기결제 구독</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="btn-wrap">
+											<a href="http://codeloft.kr/mediascope_singit/html/mypage/my-purchase.html" class="basic-btn red round" title="구매 페이지로 이동하기"><span>VIP 이용권 보러가기</span></a>
+										</div>
+										<ul class="member-note-list">
+											<li>멤버십은 Rookie / Pro / VIP 3단계로 구분됩니다.</li>
+											<li>가입 후 활동에 따라 승급 및 그에 따른 혜택이 제공됩니다.</li>
+											<li>등급 별 퀘스트를 모두 이행해야 해당 등급으로 승급됩니다.</li>
+											<li>유료 구독 시 Pro 등급의 Quest 미달시에도 Pro 등급이 부여됩니다.</li>
+										</ul>
+                                    </div>
+									<div class="member-benefit-wrap">
+										<h4 class="content-txt2">멤버십 등급별 혜택</h4>
+										<div class="tab-btn-container">
+											<ul class="tab-btn-menu">
+												<li class="tab-btn-link current" data-tab="tab-btn-1"><a href="javascript:;"><span class="rubik-txt">Rookie</span></a></li>
+												<li class="tab-btn-link" data-tab="tab-btn-2"><a href="javascript:;"><span class="rubik-txt">Pro</span></a></li>
+												<li class="tab-btn-link" data-tab="tab-btn-3"><a href="javascript:;"><span class="rubik-txt">VIP</span></a></li>
+											</ul>
+											<div class="tab-btn-cont-wrap">
+												<div id="tab-btn-1" class="tab-btn-cont current">
+													<div class="desc-box">
+														<div class="desc-row">
+															<div class="grade-tit">Rookie</div>
+														</div>
+														<div class="desc-row col">
+															<dl>
+																<dt>Sing (솔로)</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li><span class="icon-sc"></span>10개 차감 / 60초 이상 부를 경우 차감</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row col">
+															<dl>
+																<dt>Sing (듀엣)</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li class="divide">
+																			<div class="left">초대영상 :</div>
+																			<div class="right">무료</div>
+																		</li>
+																		<li class="divide">
+																			<div class="left">듀엣완성 :</div>
+																			<div class="right"><span class="icon-sc"></span>10개 차감 / 60초 이상 반복 결제<p>공개 업로드 시 무료</p></div>
+																		</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row">
+															<dl>
+																<dt>2배 챌린지</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li><span class="icon-sc"></span>20개 배팅</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row">
+															<dl>
+																<dt>다운로드</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li>최초 5회 무료</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row">
+															<dl>
+																<dt>선물 (수령)</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li>X</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row col">
+															<dl>
+																<dt>승급 (최초 1회 부여)</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li><span class="icon-sc"></span>200개 지급</li>
+																		<li>SingitBOX 2곡 이용권 X 1 / SingitBOX 3곡 이용권 X 1</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row">
+															<dl>
+																<dt>출석 인증</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li><span class="icon-sc"></span>10개 지급</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+													</div>
+												</div>
+												<div id="tab-btn-2" class="tab-btn-cont">
+													<div class="desc-box">
+														<div class="desc-row">
+															<div class="grade-tit">Pro</div>
+														</div>
+														<div class="desc-row col">
+															<dl>
+																<dt>Sing (솔로)</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li><span class="icon-sc"></span>10개 차감 / 60초 이상 부를 경우 차감</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row col">
+															<dl>
+																<dt>Sing (듀엣)</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li class="divide">
+																			<div class="left">초대영상 :</div>
+																			<div class="right">무료</div>
+																		</li>
+																		<li class="divide">
+																			<div class="left">듀엣완성 :</div>
+																			<div class="right"><span class="icon-sc"></span>10개 차감 / 60초 이상 반복 결제<p>공개 업로드 시 무료</p></div>
+																		</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row">
+															<dl>
+																<dt>2배 챌린지</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li><span class="icon-sc"></span>20~300개까지 배팅</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row">
+															<dl>
+																<dt>다운로드</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li>최초 5회 무료</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row">
+															<dl>
+																<dt>선물 (수령)</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li>O</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row col">
+															<dl>
+																<dt>승급 (최초 1회 부여)</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li><span class="icon-sc"></span>200개 지급</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row">
+															<dl>
+																<dt>출석 인증</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li><span class="icon-sc"></span>20개 지급</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+													</div>
+												</div>
+												<div id="tab-btn-3" class="tab-btn-cont">
+													<div class="desc-box">
+														<div class="desc-row">
+															<div class="grade-tit">VIP</div>
+														</div>
+														<div class="desc-row">
+															<dl>
+																<dt>Sing (솔로)</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li><span class="icon-unlimit"></span>무제한</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row">
+															<dl>
+																<dt>Sing (듀엣)</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li><span class="icon-unlimit"></span>무제한</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row">
+															<dl>
+																<dt>2배 챌린지</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li><span class="icon-sc"></span>20~300개까지 배팅</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row">
+															<dl>
+																<dt>다운로드</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li><span class="icon-unlimit"></span>무제한</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row">
+															<dl>
+																<dt>선물 (수령)</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li>O</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row col">
+															<dl>
+																<dt>승급 (최초 1회 부여)</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li><span class="icon-sc"></span>500개 지급</li>
+																		<li>SingitBOX 3곡 이용권 X 2 / SingitBOX 5곡 이용권 X 1</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row">
+															<dl>
+																<dt>출석 인증</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li><span class="icon-sc"></span>20개 지급</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+														<div class="desc-row col">
+															<dl>
+																<dt>혜택(매월)</dt>
+																<dd>
+																	<ul class="desc-list">
+																		<li><span class="icon-sc"></span>200개 지급 또는</li>
+																		<li>SingitBOX 3곡 이용권 X 2 / SingitBOX 5곡 이용권 X 1</li>
+																	</ul>
+																</dd>
+															</dl>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<ul class="member-note-list">
+											<li>멤버십 등급별로 부여되는 쿠폰 및 SC는<br> 해당월 1일 지급 및 말일 소멸됩니다.</li>
+											<li>VIP 등급 가입월의 경우 승급에 따른 최초 혜택 부여 및 월간 혜택(1개월차)은 중복으로 부여됩니다.</li>
+											<li>VIP 최초 가입 시 14,000원 상당의 싱잇박스 이용 쿠폰이 제공됩니다.</li>
+										</ul>
+									</div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+			</div>
+
+			<main id="main">
+                <section class="section">
+                    <h2 class="main-title hidden"></h2>
+                    <div class="inner">
+                        
+                    </div>
+                </section>
+            </main>
+
+			<!--========== TOAST POPUP ==========-->
+            <div class="toast-popup-group">
+                
+            </div>
+		</div>
+	</div>
+</body>
+</html>

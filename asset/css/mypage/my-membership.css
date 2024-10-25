@@ -37,9 +37,13 @@
 ------------------------------------------------------------------------ */
 .purchase-tab-container .tab-menu li.tab-link { width: calc(100% / 2); } 
 .purchase-tab-container .tab-menu li.slider { width: calc((100% - 32px) / 2); } 
-.purchase-tab-container .tab-content { background-color: #F5F5F5; } 
+.purchase-tab-container .tab-content { background-color: #F5F5F5; }
 /*========== .membership-product-sec ==========*/
-.membership-product-sec .membership-product-wrap { display: flex; gap: 0.9375em; padding: 2.375em 0 4em; font-size: 1rem; line-height: 1.37; } 
+.membership-product-sec .inner { padding-top: 1em;}
+.membership-product-sec .membership-noti-wrap { display: flex; justify-content:center; align-items: center; gap: 0.5em; padding: 0.875em 0; font-size: 1rem; background-color: #fff; border-radius: 0.5em; box-shadow: 0 2px 4px rgba(0,0,0,0.06);}
+.membership-product-sec .membership-noti-wrap .membership-noti { font-size: 0.875rem; color: #333; font-weight: 500; font-variation-settings: 'wght' 500;}
+.membership-product-sec .membership-noti-wrap .membership-noti span { font-family: 'Rubik'; font-weight: 700; font-variation-settings: 'wght' 700; }
+.membership-product-sec .membership-product-wrap { display: flex; gap: 0.9375em; padding: 1.875em 0 4em; font-size: 1rem; line-height: 1.37; } 
 .membership-product-sec .membership-product { position: relative; flex-grow: 1; width: calc((100% - 0.9375em) / 2); padding: 1.75em 0.875em 0.75em 0.875em; font-size: 1rem; background-color: #fff; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06); border-radius: 0.5em; transition: box-shadow 300ms; -webkit-transition: box-shadow 300ms; -moz-transition: box-shadow 300ms; -ms-transition: box-shadow 300ms; -o-transition: box-shadow 300ms; } 
 .membership-product-sec .membership-product .membership-tag { position: absolute; top: 0; left: 1.5em; padding: 0.333em 1em; color: var(--main-point-color); font-weight: 500; font-variation-settings: 'wght' 500; border: 1px solid var(--main-point-color); background-color: #fff; border-radius: 1.0833em; transform: translateY(-50%); } 
 .membership-product-sec .membership-product .membership-txt { padding: 0 0.286em; } 
@@ -54,7 +58,12 @@
 @media (hover: hover){
     .membership-product-sec .membership-product:hover { box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.06); } 
 }
+@media screen and (max-width: 319px){
+    .membership-product-sec .membership-noti-wrap { flex-direction: column; align-items: flex-start; padding: 0.875em;}
+}
 @media screen and (min-width: 421px){
+	.membership-product-sec .membership-noti-wrap { font-size: clamp(16px, 4.267vw, 20px); } 
+	.membership-product-sec .membership-noti-wrap .membership-noti { font-size: clamp(14px, 3.733vw, 18px); } 
     .membership-product-sec .membership-product-wrap { font-size: clamp(16px, 4.267vw, 20px); } 
     .membership-product-sec .membership-product { font-size: clamp(16px, 4.267vw, 20px); } 
     .membership-product-sec .membership-product .membership-price .num { font-size: clamp(20px, 5.333vw, 26px); } 
@@ -64,17 +73,28 @@
 /*========== .membership-benefit-sec ==========*/
 .membership-benefit-sec { position: relative; margin-bottom: 0.3125em; padding-bottom: 2em; font-size: 1rem; line-height: 1.37; background-color: #fff; } 
 .membership-benefit-sec::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2.25em; transform: translateY(-100%); -webkit-transform: translateY(-100%); -moz-transform: translateY(-100%); -ms-transform: translateY(-100%); -o-transform: translateY(-100%); background-color: #fff; box-shadow: 0px -14px 10px rgba(0, 0, 0, 0.02); border-top-left-radius: 1.25em; border-top-right-radius: 1.25em; } 
-.membership-benefit-sec .section-title { margin-bottom: 1.125em; } 
-.membership-benefit-sec .membership-benefit-wrap { display: flex; align-items: center; flex-wrap: wrap; gap: 0.714em; font-size: 0.875rem; line-height: 1.42; } 
-.membership-benefit-sec .membership-benefit-list { display: flex; align-items: center; width: calc((100% - 0.714em) / 2); color: #333; font-weight: 500; font-variation-settings: 'wght' 500; } 
-.membership-benefit-sec .membership-benefit-list .benefit-icon { width: 2.286em; aspect-ratio: 1 / 1; margin-right: 0.643em; background-color: #FFECED; border-radius: 0.571em; -webkit-border-radius: 0.571em; -moz-border-radius: 0.571em; -ms-border-radius: 0.571em; -o-border-radius: 0.571em; } 
+.membership-benefit-sec .section-title { margin-bottom: 1.11111em; } 
+.membership-benefit-sec .section-title em { color: var(--main-point-color);}
+.membership-benefit-sec .membership-benefit-wrap { display: flex; align-items: center; flex-wrap: wrap; gap: 1.5em; font-size: 1rem; } 
+.membership-benefit-sec .membership-benefit-list { display: flex; align-items: flex-start; width: 100%; } 
+.membership-benefit-sec .membership-benefit-list .benefit-icon { flex-shrink: 0; width: 3em; aspect-ratio: 1 / 1; margin-right: 0.8125em; background-color: #F5F5F5; background-position: center center; background-repeat: no-repeat; background-size: 2.625em 2.625em; border-radius: 0.75em; font-size: inherit; } 
+.membership-benefit-sec .membership-benefit-list.benefit-list-1 .benefit-icon { background-image: url("../../images/sub/mypage/icon-vip-benefit01.svg");}
+.membership-benefit-sec .membership-benefit-list.benefit-list-2 .benefit-icon { background-image: url("../../images/sub/mypage/icon-vip-benefit02.svg");}
+.membership-benefit-sec .membership-benefit-list.benefit-list-3 .benefit-icon { background-image: url("../../images/sub/mypage/icon-vip-benefit03.svg");}
+.membership-benefit-sec .membership-benefit-list.benefit-list-4 .benefit-icon { background-image: url("../../images/sub/mypage/icon-vip-benefit04.svg");}
+.membership-benefit-sec .membership-benefit-list.benefit-list-5 .benefit-icon { background-image: url("../../images/sub/mypage/icon-vip-benefit05.svg");}
+.membership-benefit-sec .membership-benefit-list .benefit-txt .benefit-tit { margin-bottom: 0.375em; font-size: 1rem; color: #333; font-weight: 700; font-variation-settings: 'wght' 700; line-height: 1.25; word-break:keep-all;}
+.membership-benefit-sec .membership-benefit-list .benefit-txt .benefit-desc { font-size: 0.875rem; color: #666; font-weight: 400; font-variation-settings: 'wght' 400; line-height: 1.42857; word-break:keep-all;}
+
 @media screen and (max-width: 319px){
     .membership-benefit-sec .membership-benefit-list { width: 100%; } 
 }
 
 @media screen and (min-width: 421px){
     .membership-benefit-sec { font-size: clamp(16px, 4.267vw, 20px); } 
-    .membership-benefit-sec .membership-benefit-wrap { font-size: clamp(14px, 3.733vw, 18px); } 
+    .membership-benefit-sec .membership-benefit-wrap { font-size: clamp(16px, 4.267vw, 20px); } 
+	.membership-benefit-sec .membership-benefit-list .benefit-txt .benefit-tit { font-size: clamp(16px, 4.267vw, 20px); } 
+	.membership-benefit-sec .membership-benefit-list .benefit-txt .benefit-desc { font-size: clamp(14px, 3.733vw, 18px); } 
 }
 
 /*========== .notice-sec (탭 공통) ==========*/
@@ -139,6 +159,7 @@ main:has(.coupon-register-sec) { background-color: #F5F5F5; }
 /*========== .coupon-register-sec ==========*/
 .coupon-register-sec { padding: 2em 0 2.25em; background-color: #fff; font-size: 1rem; line-height: 1.37; } 
 .coupon-register-sec .section-content > p { margin-bottom: 1.111em; color: #111; font-weight: 700; font-variation-settings: 'wght' 700; } 
+.coupon-register-sec .section-content .btn-wrap .basic-btn.black-line { color: #333; font-weight: 500; font-variation-settings: "wght" 500; }
 @media screen and (min-width: 421px){
     .coupon-register-sec { font-size: clamp(16px, 4.267vw, 20px); } 
 }

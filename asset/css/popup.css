@@ -63,6 +63,9 @@
 @media screen and (min-width: 421px) {
     .modal.full .full-modal-cont {font-size: clamp(16px, 4.267vw, 20px);} 
 }
+.modal.full .full-modal-content .full-modal-cont::-webkit-scrollbar { display: none;} 
+.modal.full .full-modal-content .full-modal-cont::-webkit-scrollbar-thumb {display: none;} 
+.modal.full .full-modal-content .full-modal-cont::-webkit-scrollbar-track {display: none;} 
 
 /*========== 싱코인 선물하기 팝업 (.giftScPop) ==========*/
 .gift-sc-cont { width: 10.955em; margin: 0 auto; font-size: 1.38rem;}
@@ -228,17 +231,17 @@
 .commentEditPop .input-txt-box { position: relative;}
 
 /*========== 참가 신청서 팝업 (.applyPop) ==========*/
-.applyPop.modal.msg .modal-cont-wrap { padding-top: 1.56em; }
-.applyPop.modal.msg .modal-tit-wrap { margin-bottom: 1em; }
+.applyPop.modal.alert .modal-cont-wrap { padding-top: 1.56em; }
+.applyPop.modal.alert:not(.applyCheckPop) .modal-tit-wrap { margin-bottom: 1em; }
 .applyPop .modal-tit { text-align: center; }
-.applyPop:not(.applyCheckPop) .modal-sub-tit { padding-bottom: 1.14em; }
-.applyPop .modal-txt-wrap { max-height: 63vh; overflow-y: auto; }
+.applyPop:not(.applyCheckPop) .modal-sub-tit { padding-bottom: 1.14em; text-align: left; }
+.applyPop.modal.alert:not(.applyCheckPop) .modal-txt-wrap { max-height: 74vh; overflow-y: auto; margin: 0; padding-top: 1.25em; border-top: 1px solid var(--basic-line-color); }
 .applyPop .apply-video-wrap { padding-bottom: 1.25em; }
 .applyPop .apply-video-wrap .profile-wrap { width: 100%; border: 1px solid var(--basic-line-color); border-radius: 6px; }
 .applyPop .apply-video-wrap .profile-wrap .profile-wrap-inner { width: 100%; padding: 0.75em; }
-.applyPop .apply-video-wrap .thumbnail-area { width: 5em; height: 5em; } 
+.applyPop .apply-video-wrap .thumbnail-area { width: 5em; height: 5em; cursor: default; } 
 .applyPop .apply-video-wrap .img-btn-wrap.bottom.left { bottom: 0.55em; padding-right: 0.55em; font-size: 0.69rem; }
-.applyPop .apply-video-wrap .profile-info { width: calc(100% - 5.75em); height: 5em; }
+.applyPop .apply-video-wrap .profile-info { width: calc(100% - 5.63em); height: 5em; }
 .applyPop .apply-video-wrap .profile-txt { padding-top: 0.29em; }
 .applyPop .apply-video-wrap .score-btn-wrap { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
 .applyPop .apply-video-wrap .rank-score-wrap { padding: 0.046em 0.549em;;  border-radius: 2px; background-color: var(--sub-bg-point-color);}
@@ -247,13 +250,24 @@
 .applyPop .apply-label::before { display: inline-block; width: 2px; height: 0.71em; margin-right: 0.57em; background-color: #333; content: ''; }
 .applyPop .apply-label + .input-box-wrap { margin-top: 0; padding-top: 0.75em; }
 .applyPop .input-box-wrap { margin-top: 1em; padding-top: 0.75em; }
-.applyPop.modal.msg .modal-txt-wrap .basic-check-box { margin-top: 1.25em;}
+.applyPop.modal.alert .modal-txt-wrap .basic-check-box { margin-top: 1.25em;}
 .applyPop .basic-check-box input[type="checkbox"] + label { padding-left: 1.57em; }
 .applyPop .basic-check-box input[type="checkbox"] + label::before { margin: 0 0.43em 0 -1.57em; }
 
 @media screen and (max-height: 863px){
-	.applyPop.modal.msg .modal-cont-wrap { padding-right: 0.94em; }
-	.applyPop.modal.msg .modal-txt-wrap { padding-right: 0.31em; }
+	.applyPop.modal.alert .modal-cont-wrap { padding-right: 0.94em; }
+	.applyPop.modal.alert:not(.applyCheckPop) .modal-txt-wrap { max-height: 62vh; padding-right: 0.31em; }
+}
+
+@media screen and (max-width: 421px) {
+	.applyPop .modal-wrap { width: calc(100% - 48px);}
+}
+
+@media screen and (max-width: 336px){
+	.applyPop .apply-video-wrap .thumbnail-area { width: 5.7em; height: 5.7em; } 
+	.applyPop .apply-video-wrap .profile-info { width: calc(100% - 6.33em); height: 5.7em; }
+	.applyPop .apply-video-wrap .score-btn-wrap { flex-direction: column; align-items: flex-start; row-gap: 0.19em; }
+	.applyPop .score-wrap .rank-score-wrap .point-num em { font-size: 0.875rem; }
 }
 
 /*========== 지원 영상 확인 팝업 (.applyCheckPop) ==========*/
@@ -261,7 +275,8 @@
 .applyCheckPop .apply-video-wrap { padding-bottom: 1.63em; }
 
 /*========== 영상 재생 팝업 (.videoPop) ==========*/
-.videoPop .modal-content.modal-play-vid-sec { min-height: 581px;  aspect-ratio: 9 / 16;}
+.videoPop .modal-content.modal-play-vid-sec { min-height: 581px;  aspect-ratio: 9 / 16; background-color: transparent;}
+.videoPop .modal-play-vid-sec:not(.full) .modal-close-btn { top: 3px; right: 3px; transform: none; z-index: 1; }
 .videoPop .modal-play-vid-sec:not(.full) .play-vid-box { position: static; transform: none; background-color: transparent; -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; }
 .videoPop .modal-play-vid-sec:not(.full) .progress-bar-wrap { position: absolute; top: auto !important; bottom: 1em; padding: 0 0.75em; }
 .videoPop .modal-play-vid-sec:not(.full) .vid-indicator-wrap .full-vid-btn { bottom: 2em; right: 1.75em; }
@@ -275,5 +290,3 @@ DARK MODE
 .dark .modal-sub-tit { color: #aaa;}
 /*========== Full Page modalPopup ==========*/
 .dark .modal.full .full-modal-content { background-color: #222121;}
-.dark .modal.full .full-modal-cont::-webkit-scrollbar-thumb { background-color: #333;}
-.dark .modal.full .full-modal-cont::-webkit-scrollbar-track { background-color: #222121;}

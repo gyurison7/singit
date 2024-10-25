@@ -23,7 +23,7 @@
 .login-sns .sns-btn-wrap button.facebook { border: #1E66FC; background-color: #1E66FC; color: #fff;} 
 .login-sns .sns-btn-wrap button.apple { border-color: #000; background-color: #000000; color: #fff;} 
 
-.login-sns .sns-btn-wrap button span {margin: 0 9px; background-repeat: no-repeat; background-position: left center; background-size: 1.50em auto; }
+.login-sns .sns-btn-wrap button span {display: block; margin: 0 9px; background-repeat: no-repeat; background-position: left center; background-size: 1.50em auto; }
 .login-sns .sns-btn-wrap button.kakao span { background-image: url('../images/common/icon-kakao.svg');} 
 .login-sns .sns-btn-wrap button.google span { background-image: url('../images/common/icon-google.svg');} 
 .login-sns .sns-btn-wrap button.facebook span { background-image: url('../images/common/icon-facebook.svg');} 

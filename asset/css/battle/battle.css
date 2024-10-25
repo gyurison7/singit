@@ -22,19 +22,46 @@
 
 /* Octagon Level Card */
 .octagon-flip-area { padding: 1.25em; font-size: 1rem; } 
-.octagon-flip { position: relative; width: 12.50em; height: 16.88em; aspect-ratio: 200 / 270; perspective: 1100px; font-size: inherit; } 
+.octagon-flip { position: relative; width: 13.13em; height: 17.50em; aspect-ratio: 210 / 280; perspective: 1100px; font-size: inherit; } 
 .octagon-card { width: 100%; height: 100%; position: relative; transition: .4s; transform-style: preserve-3d; font-size: inherit; } 
-.octagon-card .front, .octagon-card .back { display: flex; flex-direction: column; align-items: center; position: absolute; width: 100%; height: 100%; padding: 1.56em 1em 1.25em 1em; backface-visibility: hidden; border-radius: 1em; box-shadow: 0 0.19em 1.25em rgba(252, 207, 207, 0.6); font-size: inherit; } 
+.octagon-card .front, .octagon-card .back { display: flex; flex-direction: column; align-items: center; position: absolute; width: 100%; height: 100%; padding: 1.25em; backface-visibility: hidden; border-radius: 1em; box-shadow: 0 0.19em 1.25em rgba(252, 207, 207, 0.6); font-size: inherit; } 
 .octagon-card .front { background: linear-gradient(to bottom right, #FF5E4A, #F82A2E); } 
 .octagon-card .front .front-img { margin: 2.63em 0 0; font-size: inherit; } 
 .octagon-card .front img, .octagon-card .back img { background-color: transparent; } 
-.octagon-card .back { align-items: flex-start; background-color: #fff; transform: rotateY(180deg); } 
+.octagon-card .back { align-items: flex-start; padding: 1.25em 0.63em 1.25em 1.25em; background-color: #fff; transform: rotateY(180deg); } 
+.octagon-card .back .status-level span {min-width: 4.17em;}
 .octagon-card .back .back-img { margin-top: auto; margin-left: auto; } 
+.octagon-card .back .back-img embed {display: flex; align-items: center;justify-content: center; width: 6.5em; height: 6.5em; aspect-ratio: 1/1; background-color: transparent; filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.08)); }
 .octagon-flip .octagon-card.flipped { transform: rotateY(180deg); } 
-.card-tit { margin: 0.80em 0 0; font-weight: 700; font-variation-settings: 'wght' 700; color: #111; } 
+.card-tit { margin: 0.80em 0 0; font-size: 1.125rem; font-weight: 700; font-variation-settings: 'wght' 700; color: #111; } 
+.octagon-card .back .card-tit {margin-bottom: 0.40em;}
+/* 레벨 클래스에 따른 노출 처리 */
+.octagon-card .back .status-level span {display: none;}
+.octagon-card.lv0 .back .status-level .lv0 {display: inline-block;}
+.octagon-card.lv1 .back .status-level .lv1 {display: inline-block;}
+.octagon-card.lv2 .back .status-level .lv2 {display: inline-block;}
+.octagon-card.lv3 .back .status-level .lv3 {display: inline-block;}
+.octagon-card.lv4 .back .status-level .lv4 {display: inline-block;}
+.octagon-card.lv5 .back .status-level .lv5 {display: inline-block;}
+.octagon-card .back .card-tit {display: none;}
+.octagon-card.lv0 .back .card-tit.lv0 {display: block;}
+.octagon-card.lv1 .back .card-tit.lv1 {display: block;}
+.octagon-card.lv2 .back .card-tit.lv2 {display: block;}
+.octagon-card.lv3 .back .card-tit.lv3 {display: block;}
+.octagon-card.lv4 .back .card-tit.lv4 {display: block;}
+.octagon-card.lv5 .back .card-tit.lv5 {display: block;}
+.octagon-card .back .back-img embed {display: none;}
+.octagon-card.lv0 .back .back-img embed.lv0 {display: flex;}
+.octagon-card.lv1 .back .back-img embed.lv1 {display: flex;}
+.octagon-card.lv2 .back .back-img embed.lv2 {display: flex;}
+.octagon-card.lv3 .back .back-img embed.lv3 {display: flex;}
+.octagon-card.lv4 .back .back-img embed.lv4 {display: flex;}
+.octagon-card.lv5 .back .back-img embed.lv5 {display: flex;}
+
 @media screen and (min-width: 421px){
     .battle-sec .section-content { font-size: clamp(16px, 4.267vw, 20px); } 
     .octagon-flip-area { font-size: clamp(16px, 4.267vw, 20px); } 
+    .card-tit {font-size: clamp(18px, 4.8vw, 23px);} 
 }
 
 /* Status Level */
@@ -100,6 +127,7 @@
 .battle-challenge .battle-challenge-cont .battle-challenge-slide .profile-list-wrap { flex-direction: row; gap: initial; } 
 .battle-challenge .battle-challenge-cont .battle-challenge-slide .profile-list { width: 6.25em; } 
 .battle-challenge .battle-challenge-cont .battle-challenge-slide .profile-img { width: 100%; height: 100%; aspect-ratio: 1 / 1; } 
+.battle-challenge .battle-challenge-cont .battle-challenge-slide .profile-img::before {display: none;}
 .battle-challenge .battle-challenge-cont .battle-challenge-slide .profile-info { width: 100%; } 
 .battle-challenge .battle-challenge-cont .battle-challenge-slide .profile-tit { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; white-space: normal; -webkit-line-clamp: 2; text-overflow: ellipsis; } 
 
@@ -127,46 +155,52 @@
 }
 
 /* ------------------------------------------------------------------------ 
-2배 챌린지 상세 Popup
+옥타브 레벨 업
 ------------------------------------------------------------------------ */
-/*========== Process Bar : Challenge Type ==========*/
-.process-container.challenge { overflow: initial; position: relative; width: 100%; height: 1.25em; font-size: 1rem; } 
-.process-container.challenge .process-bar { position: relative; width: 100%; height: 100%; background-color: #f5f5f5; border-radius: 0.38em; font-size: inherit; } 
-.process-container.challenge .completed-area { position: absolute; width: 100%; height: 100%; font-size: inherit; } 
-.process-container.challenge .completed-area .completed { display: block; height: 100%; width: 0; font-size: inherit; } 
-.process-container.challenge .completed-area .completed.current-score { background-color: #FFB62C; border-radius: 0.38em 0 0 0.38em; transition: width ease-out 300ms;} 
-.process-container.challenge .completed-area .completed.next-goal { position: absolute; top: 0; left: 0; background-color: #FDE1AC; transition: width ease-out 50ms, border 300ms; } 
-.process-container.challenge .completed-area .completed.next-goal.on { border-right: 1px dashed #888;} 
-.process-container.challenge .process-bar .target-line { position: absolute; top: 50%; transform: translateY(-50%); z-index: 1; width: 2px; height: 1.63em; background-color: #FF7D2C;  } 
-.process-container.challenge .process-bar .target-line .target-tooltip { opacity: 0; visibility: hidden; position: relative; display: block; position: absolute; bottom: 2.86em; left: 50%; transform: translateX(-50%); min-width: 7.80em; background-color: #fff; padding: 0.50em 0.64em; border-radius: 0.64em; border: 1px solid #EEEEEE; border-radius: 5px; font-weight: 700; font-variation-settings: 'wght' 700; color: #FF7D2C; transition: opacity 300ms; transition-delay: 300ms; line-height: 1;} 
-.process-container.challenge .process-bar .target-line.on .target-tooltip { opacity: 1; visibility: visible; } 
-.process-container.challenge .process-bar .target-line .target-tooltip::before {content: "";position: absolute;top: 100%;left: 50%;z-index: 1;margin-top: -0.135em;margin-left: -0.43em;border-width: 0.50em;border-style: solid;border-color: #fff transparent transparent transparent;font-size: inherit;}
-.process-container.challenge .process-bar .target-line .target-tooltip::after {content: "";position: absolute;top: 100%;left: 50%;margin-left: -0.43em;border-width: 0.57em;border-style: solid;border-color: #eee transparent transparent transparent;font-size: inherit;}
-.process-container.challenge .process-bar .next-goal .next-goal-tooltip { opacity: 0; visibility: hidden; display: block; position: absolute; bottom: -2.71em; left: 100%; transform: translateX(-50%); min-width: 3.72em; padding: 1em 0 0; background-image: url('../../images/sub/battle/icon-tooltip-arrow-gray.svg'); background-position: top center; background-repeat: no-repeat; background-size: 0.72em auto; font-weight: 500; font-variation-settings: 'wght' 500; color: #888; transition: opacity 300ms; transition-delay: 300ms; line-height: 1; text-align: center; } 
-.process-container.challenge .process-bar .next-goal.on .next-goal-tooltip { opacity: 1; visibility: visible; } 
+.section-header.battle-game .section-notice { display: flex; flex-direction: column; gap: 0.63em; padding-block: 1.13em 1.25em; color: #888; }
+.section-header.battle-game .section-notice p { display: flex; padding-left: 0.83em; word-break: keep-all; font-weight: 400; font-variation-settings: "wght" 400; }
+.section-header.battle-game .section-notice p::before { display: block; width: 4px; height: 4px; margin: 0.5em 0.5em 0 -0.83em; border-radius: 50%; background-color: #888; content: ''; flex-shrink: 0; }
+
+/*========== List : battle-level-sec ==========*/
+.battle-level-sec .section-header.battle-game::after {display: none;}
+.battle-level-sec .battle-level-header {width: 100%;max-width: 750px; padding: 0;}
+.battle-level-sec .battle-level-header .battle-level-top {display: flex; flex-direction: column; align-items: center; padding: 1.88em 0 0.63em; background-color: var(--sub-bg-point-color); font-size: inherit;}
+.battle-level-sec .battle-level-header .battle-level-bottom {padding: 0.938em 0 1.25em;}
+.battle-game-list-sec.battle-level-sec .sorting-tit-wrap {position: static;padding: 0;}
+.battle-level-cont .scroll-tab.sorting {padding: 1.25em 0 0.63em;}
+.battle-level-cont .scroll-tab.sorting .sub-cont-tit {font-weight: 700; font-variation-settings: "wght" 700; word-break: keep-all; }
+.battle-level-cont .scroll-tab.sorting .sub-cont-tit .status-label.level { vertical-align: text-bottom;}
+.battle-level-sec .battle-game-item .thumbnail-area {width: 6.25em;height: 6.25em;}
+.battle-level-sec .profile-area.grade .profile-bottom .btn-wrap a {padding: 0;}
+
+.level-status {margin: 1.50em 0 0; padding: 1.25em; border-radius: 0.38em; border: 1px solid var(--sub-point-color);}
+.level-status .level-status-tit {margin: 0 0 0.31em; font-size: 1rem;font-weight: 700; font-variation-settings: "wght" 700; color: #111;}
+.level-status .level-status-sub-tit-wrap {display: flex; justify-content: space-between; align-items: center; gap: 10px;}
+.level-status .level-status-sub-tit {display: inline-block; font-size: 0.813rem;font-weight: 400; font-variation-settings: "wght" 400; color: #666;}
+.level-status .level-status-sub-txt {display: inline-block; min-width: 4.57em; font-size: 0.875rem;font-weight: 700; font-variation-settings: "wght" 700;}
+
+.level-process {display: flex; align-items: center; gap: 0.50em; margin: 1em 0 0; font-size: inherit;}
+.level-process .process-container {width: calc(100% / 3);}
+.level-process .process-container.default.step2 .process-bar .completed {animation-delay: 500ms;}
+.level-process .process-container.default.step3 .process-bar .completed {animation-delay: 900ms;}
+
 @media screen and (min-width: 421px){
-    .process-container.challenge { font-size: clamp(16px, 4.267vw, 20px); } 
+    .level-status .level-status-tit {font-size: clamp(16px, 4.267vw, 20px);} 
+    .level-status .level-status-sub-tit {font-size: clamp(13px, 3.824vw, 17px);} 
+    .level-status .level-status-sub-txt {font-size: clamp(14px, 3.733vw, 18px);} 
+}
+@media screen and (max-height: 549px){
+    .level-status .level-status-tit {font-size: clamp(16px, 4.267vw, 20px);} 
+    .level-status .level-status-sub-tit {font-size: clamp(13px, 3.824vw, 17px);} 
+    .level-status .level-status-sub-txt {font-size: clamp(14px, 3.733vw, 18px);} 
 }
 
-/*========== 도전 성공 ==========*/
-.s-challenge-cont .cont-area.graph.process {padding-bottom: 0;}
-.graph-area.process-challenge-area {display: block; padding: 2.14em 0 2.86em; font-size: 1rem;}
-.battle-challenge-popup .graph-area.process-challenge-area .graph-area-tit {padding: 0 0 1.11em; margin: 0; font-weight: 700; font-variation-settings: 'wght' 700; color: #111;}
-.process-challenge-area .process-challenge-bottom {margin: 4.14em 0 0; font-size: inherit;}
-.process-challenge-area .challenge-score-wrap { border: 1px solid var(--basic-line-color); border-radius: 0.63em; font-size: inherit;}
-.process-challenge-area .challenge-score-wrap .challenge-score-top { display: flex; padding: 1.25em 0; font-size: inherit;}
-.current-scored { display: flex; align-items: center; justify-content: center; width: calc(100% - 11.25em); font-size: inherit;}
-.current-scored .c-score {font-weight: 500; font-variation-settings: 'wght' 500; color: #888;}
-.current-scored .c-score strong {display: inline-block; margin-right: 4px; font-size: 2rem;}
-.goal-scored {min-width: 180px; margin-right: 1.25em; font-size: inherit;}
-.goal-scored li {display: flex; justify-content: space-between; align-items: center; font-weight: 400; font-variation-settings: 'wght' 400;}
-.goal-scored .c-score-tit {color: #666;}
-.goal-scored .c-score {color: #888;}
-.goal-scored .c-score strong {display: inline-block; margin-right: 2px;font-weight: 700; font-variation-settings: 'wght' 700;color: #333;}
-.process-challenge-area .challenge-score-wrap .challenge-score-bottom .graph-guide-wrap {padding: 0.938em 0; background-color: #fff;border-top: 1px solid var(--basic-line-color);border-radius: 0 0 0.63em 0.63em;}
-.process-challenge-area .challenge-score-wrap .challenge-score-bottom .graph-guide-wrap .graph-guide .guide-tit {padding: 0;}
-.process-challenge-area .challenge-score-wrap .challenge-score-bottom .graph-guide-wrap .graph-guide .guide-tit::before {display: none;}
-@media screen and (min-width: 421px){
-    .graph-area.process-challenge-area { font-size: clamp(16px, 4.267vw, 20px); } 
-    .current-scored .c-score strong { font-size: clamp(32px, 9.412vw, 36px); } 
-}
+/* 도전 성공 */
+.battle-level-cont .tab-btn-cont .no-result {display: none;}
+.battle-level-cont .tab-btn-cont.no-result .no-result {display: block;}
+.battle-level-cont .tab-btn-cont.no-result .battle-game-list {display: none;}
+.battle-game-list .profile-list .thumbnail-area {position: relative;}
+.battle-game-list .battle-game-item.challenge .profile-list .thumbnail-area .img-btn-wrap.bottom {display: none;}
+.battle-game-list .battle-game-item.challenge .profile-list .thumbnail-area .thumbnail-wrap::before { content: ''; display: block; position: absolute; top: 0; left: 0; z-index: 1; width: 100%; height: 100%; background-image: url('../../images/sub/battle/icon-checked-round.svg'); background-position-x: center; background-position-y: 1.125em; background-repeat: no-repeat; background-size: 2.25em auto; background-color: rgba(0, 0, 0, 0.4); } 
+.battle-game-list .battle-game-item.challenge .profile-list .thumbnail-area .thumbnail-wrap::after { content: '도전 성공'; display: block; z-index: 1; position: absolute; bottom: 1em; left: 0; width: 100%; font-size: 1.125rem; font-weight: 700; font-variation-settings: 'wght' 700; text-align: center; color: #fff; font-family: inherit } 
+.battle-game-list .battle-game-item.challenge .profile-list .score-btn-wrap .btn-wrap {display: none;}

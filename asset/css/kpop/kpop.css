@@ -10,6 +10,93 @@
 /* ------------------------------------------------------------------------  
  HOME kpop-sec
 ------------------------------------------------------------------------ */
+/*========== 로고 타이틀 공통 ==========*/
+.ktrot-head-inner {position: relative; background: linear-gradient(to bottom, #00cc9e, #C7FF5C);font-size: inherit;}
+.ktrot-head-inner.banner { background: linear-gradient(to bottom, #00cc9e, #3CD89B);}
+.ktrot-head-inner .ktrot-bg {position: absolute; top: 0; left: 0; mix-blend-mode: screen;}
+.ktrot-head-inner .header-sub-wrap {position: relative;}
+.ktrot-head-inner .header-sub-wrap .ktrot-head-banner {display: flex; flex-direction: column;align-items: center; width: 100%; padding: 1.250em 0 1.88em; font-size: 1rem;}
+.ktrot-head-inner .header-sub-wrap .ktrot-head-banner figure {display: flex; flex-direction: column;align-items: center; width: 100%;}
+.ktrot-head-inner .header-sub-wrap .ktrot-head-banner .wesoop {width: 4em; font-size: inherit;}
+.ktrot-head-inner .header-sub-wrap .ktrot-head-banner .ktrot-logo {width: 13.44em;}
+.ktrot-head-inner .header-sub-wrap .ktrot-challenge-main-tit {margin: 0.47em 0 0.74em;text-align: center;line-height: 1.14;word-break: keep-all;}
+.ktrot-head-inner .header-sub-wrap .ktrot-challenge-tit {margin: 0.42em 0 0.83em;font-weight: 700; font-variation-settings: 'wght' 700;color: #1A1A1A; text-align: center; word-break: keep-all;}
+.ktrot-head-inner .header-sub-wrap .ktrot-challenge-tit.g-txt-b {font-size: 1rem;}
+.ktrot-head-inner .header-sub-wrap .ktrot-challenge-tit.g-txt-m {font-size: 0.813rem;}
+.ktrot-head-inner .header-sub-wrap:has(.ktrot-challenge-txt) .ktrot-challenge-tit {margin-bottom: 0.50em;}
+.ktrot-head-inner .header-sub-wrap .ktrot-challenge-txt { font-weight: 500; font-variation-settings: 'wght' 500;color: #111; text-align: center;word-break: keep-all;}
+.bg {display: inline-block; margin-left: 2px;padding: 4px 5px 0; font-weight: inherit;font-family: inherit;line-height: 1;color: #222;}
+.bg.yellow {background-color: #ff730c;color: #fff;}
+.bg.green {padding: 3px 5px 0;background-color: #00e472;color: #272727;}
+.txt-white {color: #fff;}
+.txt-green {color: #00e472;}
+.txt-red {color: #ff123c;}
+.round-tit {position: absolute; left: 0; top: -15px; width: 100%; font-size: 0.875rem; text-align: center; line-height: 1;}
+.round-tit.red {font-size: 1rem;}
+.round-tit span {display: inline-block; padding: 0.58em 1.33em; border-radius: 2.08em;line-height: 1;}
+.round-tit.black span {background-color: #131e1a; font-family: inherit; font-weight: inherit; color: #fff;}
+.round-tit.white span {background-color: #fff; font-family: inherit; font-weight: inherit; color: #111;}
+.round-tit.red span {padding: 0.378em 1.36em; background-color: var(--main-point-color); font-weight: 700; font-variation-settings: 'wght' 700;color: #fff;}
+.guide-tit {margin: 0 0 1.33em; font-size: 0.938rem;text-align: center; color: #000; line-height: 1;}
+.guide-txt {font-size: 1rem; text-align: center;line-height: 1.45;word-break: keep-all;}
+.guide-txt span {display: block;word-break: keep-all;}
+.status-label.tit span {padding: 0.58em 1.39em 0.54em;min-width: 62px; font-size: 0.875rem;}
+.status-label.tit .orange {background-color: #ff730c; color: #fff;}
+.status-label.tit .green {background-color: #00e472; color: #272727;}
+.status-label.tit .red {background-color: var(--main-point-color); color: #fff;}
+.status-label.tit .black {background-color: #333; color: #fff;}
+.status-label.giveaway {display: flex; align-items: center;justify-content: center;width: 8vw;max-width: 45px;aspect-ratio: 1 / 1; background-position: center; background-repeat: no-repeat;background-size: 100% auto; font-size: 1rem; color: #fff;}
+.status-label.giveaway.red {background-image: url("../../images/sub/kpop/giveaway-rank-red.svg");}
+.status-label.giveaway.gray {background-image: url("../../images/sub/kpop/giveaway-rank-gray.svg");}
+.status-label.giveaway.gold {background-image: url("../../images/sub/kpop/giveaway-rank-gold.svg");}
+.status-label.giveaway.yellow {background-image: url("../../images/sub/kpop/giveaway-rank-yellow.svg");}
+.status-label.giveaway.light-gray {background-image: url("../../images/sub/kpop/giveaway-rank-light-gray.svg");}
+.status-label.giveaway.brown {background-image: url("../../images/sub/kpop/giveaway-rank-brown.svg");}
+.status-label.giveaway strong {display: inline-block; line-height: 1;}
+.status-label.giveaway.gray strong {text-indent: -2px;}
+.vote-cont-inner .list-style {display: flex; flex-direction: column; gap: 1em; font-size: inherit;}
+.vote-cont-inner .list-style > li.check {position: relative; padding: 0 0 0 2.13em;font-size: 1rem; word-break: keep-all;} 
+.vote-cont-inner .list-style > li.check::before {display: none;} 
+.vote-cont-inner .list-style > li.check::after {content: ''; position: absolute; top: 50%; left: 0; transform: translate(0, -50%);width: 1.33em; height: 1.33em; background-image: url("../../images/sub/kpop/icon-check-list-orange.svg"); background-position: center; background-repeat: no-repeat;background-size: 100% auto;} 
+.giveaway-list-wrap {display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 1rem;} 
+.giveaway-list-wrap .giveaway-list.bg {display: flex; justify-content: space-between; gap: 0.63em; width: 100%; margin: 2.5em 0 0; padding: 0; font-size: 1rem;}
+.giveaway-list-wrap .giveaway-list li {display: flex; flex-direction: column; align-items: center; position: relative; width: calc(100% / 3); font-size: 1rem;}
+.giveaway-list-wrap .giveaway-list .status-label.giveaway {position: absolute; top: 0; left: -6px; z-index: 1;}
+.giveaway-list-wrap .giveaway-list .status-label.tit span {padding: 0.54em 1.67em;}
+.giveaway-list-wrap .giveaway-list.bg .judge-img { position: relative; width: 19.2vw;max-width: 130px; aspect-ratio: 1 / 1; margin: 0 0 clamp(24px, 6.4vw, 44px); border-radius: 50%; font-size: 1rem; background-color: #272727;}
+.giveaway-list-wrap .giveaway-list.bg .judge-img img {position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%); width: 66%; background-color: transparent; }
+.giveaway-list-wrap .giveaway-list.bg .giveaway-list-txt {margin: 0.73em 0 0; font-size: 0.875rem; word-break: keep-all; line-height: 1.2;text-align: center;}
+.vote-container, .vote-finals-container {overflow: hidden;position: relative; width: calc(100% - 6.25em);height: 1.88em;background-color: #F5F5F5;border-radius: 0.38em;font-size: 1rem;}
+.vote-finals-bar-wrap {position: relative;padding: 0.31em 0;margin: 1em 0 0;}
+.vote-finals-container {overflow: initial; position: initial; height: 0.38em; border-radius: 0.25em;}
+.vote-bar, .vote-finals-bar {position: relative; width: 0;height: 100%;border-radius: 0.38em 0 0 0.38em;background-color: var(--graph-color-yellow);transition: width 0.5s ease-in-out;font-size: inherit;}
+.vote-finals-bar {position: initial;border-radius: 0.25em 0 0 0.25em;}
+.vote-percent, .vote-done-txt, .vote-finals-percent {position: absolute; top: 50%; left: 1em; transform: translate(0, -50%); transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;font-size: 0.750rem;font-weight: 700; font-variation-settings: 'wght' 700;color: #111;}
+.vote-percent-wrap {position: absolute;right: 0;top: 50%; transform: translate(0, -50%);}
+.vote-finals-percent { position: static;margin-left: 4px; }
+
+@media screen and (min-width: 421px) {
+    .ktrot-head-inner .header-sub-wrap .ktrot-head-banner {font-size: clamp(16px, 4.267vw, 20px);} 
+    .ktrot-head-inner .header-sub-wrap .ktrot-challenge-tit.g-txt-b {font-size: clamp(16px, 4.267vw, 20px);} 
+    .ktrot-head-inner .header-sub-wrap .ktrot-challenge-tit.g-txt-m {font-size: clamp(14px, 3.733vw, 17px);}
+    .giveaway-list-wrap {font-size: clamp(16px, 4.267vw, 20px);} 
+    .status-label.giveaway {font-size: clamp(16px, 4.267vw, 20px);} 
+    .giveaway-list-wrap .giveaway-list.bg, .giveaway-list-wrap .giveaway-list li, .giveaway-list-wrap .giveaway-list.bg .judge-img {font-size: clamp(16px, 4.267vw, 20px);} 
+    .round-tit {font-size: clamp(14px, 3.733vw, 18px);} 
+    .round-tit.red {font-size: clamp(16px, 4.267vw, 20px);} 
+    .guide-txt {font-size: clamp(16px, 4.267vw, 20px);} 
+    .vote-cont-inner .list-style > li.check {font-size: clamp(16px, 4.267vw, 20px);} 
+    .giveaway-list-wrap .giveaway-list.bg .giveaway-list-txt {font-size: clamp(14px, 3.733vw, 18px);} 
+    .vote-container, .vote-finals-container {font-size: clamp(16px, 4.267vw, 20px);}
+    .vote-percent, .vote-done-txt, .vote-finals-percent {font-size: clamp(12px, 3.2vw, 15px);} 
+    .guide-tit {font-size: clamp(15px, 4vw, 18px);} 
+    .status-label.tit span {font-size: clamp(14px, 3.733vw, 18px);} 
+}
+@media screen and (min-width: 490px) {
+    .giveaway-list-wrap .giveaway-list .status-label.giveaway {left: 0;}
+}
+
+/*========== HOME ==========*/
 .kpop-sec .section-content {overflow: hidden;}
 .kpop-sec .section-content + .section-content {margin: 1em 0 0;}
 .kpop-sec .section-content .kpop-cont-inner {overflow: hidden; position: relative; border-radius: 0.38em; font-size: 1rem;}
@@ -33,39 +120,683 @@
  KTROT 콘테스트 ktrot-contest-sec
 ------------------------------------------------------------------------ */
 main.sub:has(.ktrot-contest-sec) {padding-bottom: 0;}
+.ktrot-contest-sec .ktrot-head-inner {background: initial;}
+.ktrot-contest-sec .ktrot-head-inner .bg-inner {padding: 0 16px 2.63em; background: linear-gradient(to bottom, #00cc9e, #71f791);}
+.ktrot-contest-sec .ktrot-head-inner .header-sub-wrap .ktrot-challenge-tit {margin-bottom: 0;}
+.ktrot-contest-sec .ktrot-head-inner .header-sub-wrap .ktrot-head-banner {padding: 2.55em 0 3.13em;}
+.ktrot-contest-sec .ktrot-head-inner .header-sub-wrap .ktrot-head-banner .wesoop {width: 5em;}
+.ktrot-contest-sec .ktrot-head-inner .header-sub-wrap .ktrot-head-banner .ktrot-logo {width: 20.44em;}
+.ktrot-contest-sec .section-content {font-size: 1rem;}
+
+.ktrot-contest-sec .ktrot-challenge-cont {padding: 1.25em 0.938em 1.25em 1.25em;border-radius: 0.63em;}
+.ktrot-contest-sec .section-content.guide .ktrot-challenge-cont {background-color: rgba(255, 255, 255, 0.8);}
+.ktrot-contest-sec .section-content.guide .ktrot-challenge-cont.guide-cont {padding: 2.19em 1em 1.25em;}
+.ktrot-contest-sec .section-content.guide .ktrot-challenge-cont + .ktrot-challenge-cont {margin: 0.94em 0 0;}
+.ktrot-contest-sec .section-content.guide .ktrot-challenge-cont + .ktrot-challenge-cont.guide-cont {margin: 1.88em 0 0;}
+
+.ktrot-challenge-cont.judge .guide-tit {font-size: 1.125rem;}
+.ktrot-challenge-cont.judge .judge-list li {display: flex; justify-content: space-between; align-items: center; gap: 1em; font-size: inherit;}
+.ktrot-challenge-cont.judge .judge-list li + li {margin: 1.25em 0 0; padding: 1.25em 0 0; border-top: 1px solid #ddd;}
+.ktrot-challenge-cont.judge .judge-list li .judge-img {overflow: hidden; position: relative; align-self: flex-start; width: 18.667vw; max-width: 147px; min-width: 70px; aspect-ratio: 1 / 1; border-radius: 0.938em;font-size: inherit;}
+.ktrot-challenge-cont.judge .judge-list li .judge-img img {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);height: 100%; }
+.ktrot-challenge-cont.judge .judge-list li .judge-cont {width: calc(100% - 5.38em);}
+.ktrot-challenge-cont.judge .judge-list li .judge-info {display: flex;flex-direction: column; gap: 0.31em; font-size: 1rem;color: #666; }
+.ktrot-challenge-cont.judge .judge-list li .judge-info span {display: inline-block; font-size: inherit; word-break: keep-all;}
+.ktrot-challenge-cont.judge .judge-list li .judge-info span.judge-name {position: relative; margin: 0 0.62em 0 0; color: #000;line-height: 1;}
+.ktrot-challenge-cont.judge .judge-list li .judge-txt {margin: 0.64em 0 0; font-size: 0.875rem;color: #666;line-height: 1.54;}
+
+.ktrot-contest-sec .section-content.vote { padding: 2.63em 0 7.60em; background-color: #272727;}
+.ktrot-contest-sec .ktrot-head-inner .section-content.vote .ktrot-head-inner .header-sub-wrap .ktrot-challenge-main-tit {margin: 0.47em 0 0.54em;}
+.ktrot-contest-sec .ktrot-head-inner .section-content.vote .header-sub-wrap .ktrot-challenge-tit {margin: 0; font-size: 1rem; font-weight: 500; font-variation-settings: 'wght' 500;color: #fff;}
+.ktrot-contest-sec .ktrot-head-inner .section-content.vote .header-sub-wrap .ktrot-challenge-txt {font-size: 1rem; font-weight: 500; font-variation-settings: 'wght' 500;color: #fff;line-height: 1.32;}
+.ktrot-contest-sec .giveaway-list:not(.bg) {display: flex; justify-content: space-between; gap: 0.5em; width: 100%; max-width: 96%; margin: 1.56em 0 0;}
+.ktrot-contest-sec .giveaway-list:not(.bg) .giveaway-list-txt {margin: 1.08em 0 0; color: #fff;text-align: center; word-break: keep-all;}
+.ktrot-contest-sec .header-sub-wrap + .giveaway-list-wrap {margin: 1.88em 0 0;}
+.ktrot-contest-sec .vote-cont-inner .header-sub-wrap + .giveaway-list-wrap {margin: 0;}
+.ktrot-contest-sec .giveaway-list-wrap .giveaway-list:not(.bg) .judge-img {overflow: hidden; position: relative; width: 23.467vw; aspect-ratio: 1 / 1;max-width: 140px; border-radius: 38%; font-size: inherit; background-color: #ddd;}
+.ktrot-contest-sec .giveaway-list-wrap .giveaway-list:not(.bg) .judge-img img {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 100%; background-color: transparent;}
+.ktrot-contest-sec .vote-cont-inner {margin: 3.13em 0 0; padding: 1.88em 1.56em; border-radius: 0.63em; background-color: #fff;font-size: inherit;}
+.ktrot-contest-sec .vote-cont-inner .header-sub-wrap {display: flex; flex-direction: column; justify-content: center; align-items: center;}
+.ktrot-contest-sec .vote-cont-inner .list-style {margin: 0 0 0 0.63em;}
+.giveaway-list-wrap .giveaway-list.bg .coffe .judge-img img {width: 100%;}
+.ktrot-contest-sec .giveaway-list-wrap .giveaway-list .judge-img + .status-label.tit span {min-width: auto; padding: 0.45em 0.75em 0.2em; font-size: 0.750rem;}
+
+@media screen and (min-width: 421px) {
+    .ktrot-contest-sec .section-content {font-size: clamp(16px, 4.267vw, 20px);} 
+    .ktrot-challenge-cont.judge .guide-tit {font-size: clamp(18px, 4.8vw, 23px);} 
+    .ktrot-challenge-cont.judge .judge-list li .judge-info {font-size: clamp(16px, 4.267vw, 20px);} 
+    .ktrot-challenge-cont.judge .judge-list li .judge-txt {font-size: clamp(14px, 3.733vw, 18px);} 
+    .ktrot-contest-sec .ktrot-head-inner .section-content.vote .header-sub-wrap .ktrot-challenge-txt {font-size: clamp(16px, 4.267vw, 20px);} 
+    .ktrot-contest-sec .giveaway-list-wrap .giveaway-list .judge-img + .status-label.tit span {font-size: clamp(12px, 3.2vw, 15px);} 
+    .ktrot-contest-sec .ktrot-head-inner .section-content.vote .header-sub-wrap .ktrot-challenge-tit {font-size: clamp(16px, 4.267vw, 20px);} 
+}
+@media screen and (min-width: 729px) {
+    .ktrot-contest-sec .vote-cont-inner .list-style br {display: none;}
+    .ktrot-contest-sec .vote-cont-inner .list-style > li.check::after {top: 44%;}
+}
 
 /* ------------------------------------------------------------------------  
  KTROT 콘테스트 팝업 ktrot-challenge-popup
 ------------------------------------------------------------------------ */
-.ktrot-challenge-popup .header-sub-wrap {position: relative;}
-.ktrot-challenge-popup .header-sub {position: absolute; top: 0; left: 0; width: 100%; border-bottom: none;}
-.ktrot-challenge-popup .ktrot-challenge-tit {position: absolute; bottom: 0.83em; left: 0; width: 100%; font-weight: 700; font-variation-settings: 'wght' 700;color: #1A1A1A; text-align: center;}
+.ktrot-challenge-popup #share-btn {bottom: calc(1.250em + constant(safe-area-inset-bottom));bottom: calc(1.250em + env(safe-area-inset-bottom));}
+.modal.full.ktrot-challenge-popup .full-modal-cont {position: relative; height: 100vh; height: 100dvh; padding: 0; }
+.ktrot-challenge-popup .header-sub {position: absolute; top: 0; left: 0;width: 100%; border-bottom: none;}
+.ktrot-challenge-popup .btn-wrap.ktrot {display: flex;justify-content: center;}
+.ktrot-challenge-popup .btn-wrap.ktrot .basic-btn {width: auto; padding: 0 1.81em;}
+.ktrot-challenge-popup .btn-wrap.ktrot .basic-btn.round span {position: relative; padding: 0.69em 1.50em 0.69em 0;}
+.ktrot-challenge-popup .btn-wrap.ktrot .basic-btn.round span::after {content: '';position: absolute; top: 50%; right: 0; transform: translate(0, -50%); width: 1.25em;height: 1.25em;background-image: url("../../images/common/icon-arrow-down-white.svg");background-position: center; background-repeat: no-repeat;background-size: contain; transition: transform 300ms;}
 
-.ktrot-challenge-cont-wrap {padding: 2px 0 0; background: linear-gradient(to bottom, #3CD89B, #C7FF5C);font-size: 1rem;}
+.ktrot-challenge-cont-wrap {position: relative; z-index: 156; padding: 2px 0 7.60em; font-size: 1rem;}
 .ktrot-challenge-inner {margin: 0 16px;font-size: inherit;}
-.ktrot-challenge-inner .btn-wrap {display: flex;justify-content: center;}
-.ktrot-challenge-inner .btn-wrap .basic-btn {width: auto; padding: 0 1.81em;}
-.ktrot-challenge-inner .btn-wrap .basic-btn span {position: relative; padding: 0.69em 1.50em 0.69em 0;}
-.ktrot-challenge-inner .btn-wrap .basic-btn span::after {content: '';position: absolute; top: 50%; right: 0; transform: translate(0, -50%); width: 1.25em;height: 1.25em;background-image: url("../../images/common/icon-arrow-down-white.svg");background-position: center; background-repeat: no-repeat;background-size: contain; transition: transform 300ms;}
+.ktrot-challenge-inner.ktrot-rematch .btn-wrap.ktrot .basic-btn span::after {background-image: url("../../images/common/icon-arrow-up-white.svg");}
 
-.ktrot-challenge-cont {padding: 1em; border-radius: 1em; background-color: #fff; font-size: 1rem;}
-.ktrot-challenge-cont.guide { margin: 1.88em 0 0; padding: 1.25em 2.50em;}
-.ktrot-challenge-cont.guide .list-style > li.circle {padding: 0 0 0 0.71em; font-size: 0.875rem;font-weight: 500;font-variation-settings: 'wght' 500;color: #333; line-height: 1.28;}
-.ktrot-challenge-cont.guide .list-style > li.circle::before {width: 0.29em; height: 0.29em; background-color: #333;}
+.ktrot-challenge-cont {position: relative; padding: 1em; border-radius: 1em; background-color: #fff; font-size: 1rem;}
+.ktrot-challenge-inner.ktrot-preliminary .ktrot-challenge-cont.guide { padding: 1.25em 2.50em;}
+.ktrot-challenge-cont.guide .list-style > li { font-size: 0.875rem;font-weight: 500;font-variation-settings: 'wght' 500;color: #333; line-height: 1.28;}
+.ktrot-challenge-cont.guide .list-style > li.circle {padding: 0 0 0 0.71em; }
+.ktrot-challenge-cont.guide .list-style > li.circle::before {top: 0.40em;width: 0.29em; height: 0.29em; background-color: #333;}
 .ktrot-challenge-cont.announcement { margin: 1.25em 0 0; }
 
 .ktrot-challenge-cont.announcement .ktrot-cont-tit-wrap {display: flex; justify-content: space-between; align-items: center;}
 .ktrot-challenge-cont.announcement .ktrot-cont-tit-wrap .ktrot-cont-tit {font-size: 1.125rem; font-weight: 700; font-variation-settings: 'wght' 700;color: #1A1A1A;}
-.ktrot-challenge-cont.announcement .ktrot-cont-tit-wrap .sorting-txt {min-width: 6.57em;padding: 0.57em 1.14em;border-radius: 0.25em;border: 1px solid #ddd;background-color: #fff;font-weight: 700;font-variation-settings: 'wght' 700;color: #333;line-height: 1.66;}
+.ktrot-challenge-cont.announcement .ktrot-cont-tit-wrap .sorting-txt {min-width: 6.57em;padding: 0.315em 1.07em;border-radius: 0.25em;border: 1px solid #ddd;background-color: #fff;font-weight: 700;font-variation-settings: 'wght' 700;color: #333;line-height: 1.66;}
 .ktrot-challenge-cont.announcement .ktrot-cont-tit-wrap .sorting-txt span {display: inline-block;padding: 0 0 0 1.57em;background-image: url('../../images/common/icon-fold.svg');background-repeat: no-repeat;background-position: left center;background-size: 1.29em auto;}
+.ktrot-challenge-cont.announcement .profile-area.song {margin: 1em 0 0; padding: 1em 0 0; border-top: 1px solid #ddd; font-size: inherit;}
+.ktrot-challenge-cont.announcement .profile-area.song .profile-wrap .profile-wrap-inner {width: 100%;gap: 0.875em;}
+.ktrot-challenge-cont.announcement .profile-area.song .profile-list-wrap {gap: 1.250em;}
+.ktrot-challenge-cont.announcement .profile-area.song .profile-img {width: 6.50em; min-width: 6.50em; height: 6.50em;}
+.ktrot-challenge-cont.announcement .profile-area.song .profile-img::before {display: none;}
+.ktrot-challenge-cont.announcement .profile-area.song .profile-img .img-btn-wrap.bottom.left {bottom: 0.50em;padding: 0 0.50em;}
+.ktrot-challenge-cont.announcement .profile-area.song .profile-img::before {content: '';display: block; z-index: 15;position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 1.50em; height: 1.50em;background-image: url('../../images/sub/kpop/icon-play-white.svg');background-repeat: no-repeat;background-position: center;background-size: contain;}
+.ktrot-challenge-cont.announcement .profile-area.song .profile-info {flex-direction: column;justify-content: flex-start;width: calc(100% - 7.375em);height: 6.50em;}
+.ktrot-challenge-cont.announcement .profile-area.song .profile-tit {font-weight: 500;font-variation-settings: "wght" 500;color: #333;}
+.ktrot-challenge-cont.announcement .profile-area.song .profile-txt { margin: 0.2em 0 0; font-weight: 500;font-variation-settings: "wght" 500;}
+.ktrot-challenge-cont.announcement .song-by-info-wrap {display: flex;flex-direction: column;gap: 0.50em; position: relative; top: -1px; margin-top: auto; font-size: inherit; }
+.ktrot-challenge-cont.announcement .profile-area.song .song-by-info .profile-img {width: 1.125em;min-width: auto; height: 1.125em;border-radius: 50%;}
+.ktrot-challenge-cont.announcement .profile-area.song .song-by-info .profile-img::before {display: none;}
+.ktrot-challenge-cont.announcement .song-by-info-wrap .song-by-info .profile-name {overflow: hidden;width: calc(100% - 1.83em);white-space: nowrap;text-overflow: ellipsis;}
+.ktrot-challenge-cont.announcement .song-by-info-wrap .info-date {display: flex; align-items: center; font-weight: 400;font-variation-settings: "wght" 400;color: #888;}
+.ktrot-challenge-cont.announcement .song-by-info-wrap .info-date span {overflow: hidden;display: inline-block;margin-left: 2px; white-space: nowrap;text-overflow: ellipsis;}
 
-.ktrot-challenge-inner.ktrot-rematch {margin: 3.75em 0 0;}
-.ktrot-challenge-cont-wrap .ktrot-challenge-inner.ktrot-rematch .ktrot-challenge-tit {position: static; bottom: initial;}
-.ktrot-challenge-inner.ktrot-rematch .ktrot-challenge-cont.guide { margin: 1.25em 0 0; }
-.ktrot-challenge-cont.tournament { margin: 2.50em 0 0; }
+.ktrot-challenge-inner.ktrot-rematch {margin-top: 3.75em;}
+.ktrot-challenge-cont-wrap .ktrot-challenge-inner.ktrot-rematch .ktrot-challenge-tit {margin-bottom: 0.77em; text-align: center;}
+.ktrot-challenge-inner.ktrot-rematch .ktrot-challenge-cont.guide { margin: 1.25em 0 0; padding: 1.88em 1em;}
+.ktrot-challenge-inner.ktrot-rematch .ktrot-cont-tit-wrap .ktrot-cont-tit {text-align: center;word-break: keep-all;}
+.ktrot-challenge-inner.ktrot-rematch .ktrot-cont-tit-wrap .ktrot-cont-txt {margin: 1em 0 0; font-weight: 500;font-variation-settings: 'wght' 500; color: #666; text-align: center;word-break: keep-all;}
+.ktrot-challenge-inner.ktrot-rematch .ktrot-cont-list-wrap {display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 1.50em; margin: 1.250em 0 0; padding: 1.250em 0 0; border-top: 1px solid #ddd; font-size: inherit;}
+.ktrot-challenge-inner.ktrot-rematch .ktrot-cont-list {display: flex;align-items: flex-start;font-size: inherit;}
+.ktrot-challenge-inner.ktrot-rematch .ktrot-cont-list .list-tit {min-width: 5.30em; padding: 0.318em 0.86em; margin: 2px 0.86em 0 0; background-color: #6AEB95; border-radius: 1.14em; font-weight: 700;font-variation-settings: 'wght' 700;font-size: 0.875rem; color: #111;text-align: center;}
+.ktrot-challenge-inner.ktrot-rematch .ktrot-cont-list.center .list-style {align-self: center;}
+
+.ktrot-challenge-cont.tournament { margin: 2.50em 0 0; padding: 1.250em 0.63em 1.25em; background-color: rgba(255, 255, 255, 0.24); }
+.tournament-area { padding: 0 0 1.2em; font-size: 1rem;}
+.tournament-area + .tournament-area {border-top: 2px dashed #fff; padding: 1.25em 0 0;}
+.tournament-area .tournament-inner {display: flex;margin: 0 auto; max-width: 21.06em; padding: 0 0.63em;}
+.tournament-area .tournament-inner:has(.mine) {padding-bottom: 3.2em;}
+.tournament-area .tournament-info {width: 30%; font-size: inherit;}
+.tournament-info .song-by-info-wrap {font-size: inherit;}
+.tournament-info:not(.middle) .song-by-info-wrap {display: flex; flex-direction: column; position: relative; height: 7em; }
+.tournament-info.frist .song-by-info-wrap {align-items: flex-start;}
+.tournament-info.last .song-by-info-wrap {align-items: flex-end;}
+.tournament-info .song-by-info-wrap .song-by-info {position: relative;z-index: 2; flex-direction: column;width: 80%; font-size: 0.875rem;font-weight: 500;font-variation-settings: 'wght' 500;color: #333;}
+.tournament-info .song-by-info-wrap.left-btm {justify-content: flex-end; height: 8.535em;}
+.tournament-info .song-by-info-wrap.right-btm {justify-content: flex-end; height: 8.535em;}
+.tournament-info:not(.middle) .song-by-info-wrap .song-by-info .profile-img {width: 4.25em; height: 4.25em; min-width: auto;}
+.tournament-info .song-by-info-wrap .song-by-info .profile-img::before {display: none;}
+.tournament-info:not(.middle) .song-by-info-wrap .song-by-info .profile-name {overflow: hidden; width: 100%; white-space: nowrap;text-overflow: ellipsis;text-align: center;}
+.tournament-info .song-by-info-wrap .btn-wrap {display: none;position: absolute;}
+.tournament-info .song-by-info-wrap.mine .btn-wrap {display: block;}
+.tournament-info .song-by-info-wrap .btn-wrap .basic-btn {min-width: auto; margin-top: 0.36em; padding: 0.50em 1em; border-radius: 0.36em; font-size: 0.875rem;}
+.tournament-info .song-by-info-wrap .btn-wrap .basic-btn span {padding: 0;}
+.tournament-info .song-by-info-wrap.left-top .btn-wrap {left: 0.25em;top: 84%;} 
+.tournament-info .song-by-info-wrap.left-btm .btn-wrap {left: 0.25em;top: 100%;} 
+.tournament-info .song-by-info-wrap.right-top .btn-wrap {right: 0.25em;top: 84%;} 
+.tournament-info .song-by-info-wrap.right-btm .btn-wrap {right: 0.25em;top: 100%;} 
+.tournament-line {font-size: clamp(16px, 4.267vw, 24px);}
+.tournament-info:not(.middle) .song-by-info-wrap .tournament-line {position: absolute; width: 50%;height: 5.06em; } 
+.tournament-info .song-by-info-wrap.left-top .tournament-line {bottom: 0; right: 0; border-top: 6px solid #fff;border-right: 6px solid #fff;border-top-right-radius: 0.19em;}
+.tournament-info .song-by-info-wrap.left-btm .tournament-line {top: 0;right: 0;border-bottom: 6px solid #fff;border-right: 6px solid #fff;border-bottom-right-radius: 0.19em;}
+.tournament-info .song-by-info-wrap.right-top .tournament-line {bottom: 0; left: 0; border-top: 6px solid #fff;border-left: 6px solid #fff;border-top-left-radius: 0.19em;}
+.tournament-info .song-by-info-wrap.right-btm .tournament-line {top: 0;left: 0;border-bottom: 6px solid #fff;border-left: 6px solid #fff;border-bottom-left-radius: 0.19em;}
+
+.tournament-area .tournament-info.middle {display: flex; justify-content: center; align-items: center;width: 40%;}
+.tournament-info.middle .song-by-info-wrap {display: flex; justify-content: center; align-items: center;position: relative; top: -0.896em; width: 100%; font-size: inherit;}
+.tournament-info.middle .song-by-info-wrap .tournament-line {display: flex; position: absolute; bottom: 0; width: 100%; height: 50%; font-size: inherit;}
+.tournament-info.middle .song-by-info-wrap .tournament-line span {display: inline-block;width: 50%; border-top: 6px solid #fff; font-size: inherit;}
+.tournament-info.middle .song-by-info-wrap .song-by-info {width: 100%; margin: 0;}
+.tournament-info.middle .song-by-info-wrap .song-by-info .profile-img {width: clamp(68px, 22.4vw, 105px); min-width: auto; height: clamp(68px, 22.4vw, 105px); background-color: #444; box-shadow: 0.19em 0.19em 1.250em rgba(0, 0, 0, 0.2);}
+.tournament-info.middle .song-by-info-wrap .song-by-info .profile-img img {background-color: inherit;}
+
+.tournament-area.done {position: relative;}
+.tournament-area.done::before {content: '';display: block;position: absolute;top: 1.25em;left: 50%;transform: translate(-50%, 0); z-index: 15; width: 100%;height: calc(100% - 1.25em); border-radius: 1em; background-image: url("../../images/sub/battle/icon-checked-round.svg");background-position-x: center;background-position-y: 40%;background-repeat: no-repeat;background-size: 2.25em auto;background-color: rgba(0, 0, 0, 0.6);}
+.tournament-area.done::after {content: '완료';display: block;z-index: 15;position: absolute;top: 56%; left: 0;width: 100%; font-size: 1.125rem;font-weight: 700;font-variation-settings: 'wght' 700;line-height: 1; text-align: center;color: #fff;font-family: inherit;}
+.tournament-area.done .tournament-inner {padding: 1em 0.63em;}
+.tournament-area.done .tournament-info:not(.middle) .song-by-info-wrap {height: 6.5em;}
+.tournament-area.done .tournament-info .song-by-info-wrap.left-btm {height: 7.65em;}
+.tournament-area.done .tournament-info .song-by-info-wrap.right-btm {height: 7.65em;}
+.tournament-area.done .tournament-info:not(.middle) .song-by-info-wrap .tournament-line {height: 4.56em;}
+.tournament-area.done .tournament-info.middle .song-by-info-wrap {top: -0.63em;}
+.tournament-area.done .tournament-info.middle .song-by-info-wrap .song-by-info {z-index: 12;margin: 1.50em 0 0;}
+.tournament-area.done .tournament-info.middle .song-by-info-wrap .song-by-info .profile-img {background-color: var(--basic-line-color);}
+.tournament-area.done .tournament-info.middle .song-by-info-wrap .tournament-line {z-index: 10;width: calc(100% + 12px);}
+.tournament-area.done .tournament-info.middle .song-by-info-wrap .tournament-line.top {top: -1px; bottom: auto; height: calc(50% + 7px);}
+.tournament-area.done .tournament-info.middle .song-by-info-wrap .tournament-line.top span {border-top: none; border-bottom: 6px solid #fff;}
+
+/* active */
+.tournament-area.done .tournament-info .song-by-info-wrap.active .tournament-line {border-color: var(--main-point-color);}
+.tournament-area.done:has(.left-top.active) .tournament-info.middle .tournament-line.top {z-index: 11;}
+.tournament-area.done:has(.left-top.active) .tournament-info.middle .tournament-line.top .left {border-color: var(--main-point-color); border-bottom-left-radius: 0.19em;}
+.tournament-area.done:has(.left-top.active) .tournament-info.middle .tournament-line.btm span {border-color: #fff;}
+.tournament-area.done:has(.left-btm.active) .tournament-info.middle .tournament-line.btm {z-index: 11;}
+.tournament-area.done:has(.left-btm.active) .tournament-info.middle .tournament-line.btm .left {border-color: var(--main-point-color); border-top-left-radius: 0.19em;}
+.tournament-area.done:has(.left-btm.active) .tournament-info.middle .tournament-line.top span {border-color: #fff;}
+
+.tournament-area.done:has(.right-top.active) .tournament-info.middle .tournament-line.top {z-index: 11;}
+.tournament-area.done:has(.right-top.active) .tournament-info.middle .tournament-line.top .right {border-color: var(--main-point-color); border-bottom-right-radius: 0.19em;}
+.tournament-area.done:has(.right-top.active) .tournament-info.middle .tournament-line.btm span {border-color: #fff;}
+.tournament-area.done:has(.right-btm.active) .tournament-info.middle .tournament-line.btm {z-index: 11;}
+.tournament-area.done:has(.right-btm.active) .tournament-info.middle .tournament-line.btm .right {border-color: var(--main-point-color); border-top-right-radius: 0.19em;}
+.tournament-area.done:has(.right-btm.active) .tournament-info.middle .tournament-line.top span {border-color: #fff;}
 
 @media screen and (min-width: 421px) {
     .ktrot-challenge-cont-wrap, .ktrot-challenge-cont {font-size: clamp(16px, 4.267vw, 20px);} 
-    .ktrot-challenge-cont.guide .list-style > li.circle { font-size: clamp(14px, 3.733vw, 18px); }
+    .ktrot-challenge-cont.guide .list-style > li { font-size: clamp(14px, 3.733vw, 18px); }
     .ktrot-challenge-cont.announcement .ktrot-cont-tit-wrap .ktrot-cont-tit { font-size: clamp(18px, 4.8vw, 23px); } 
+    .ktrot-challenge-inner.ktrot-rematch .ktrot-cont-list .list-tit{ font-size: clamp(14px, 3.733vw, 18px); }
+    .tournament-area {font-size: clamp(16px, 4.267vw, 20px);} 
+    .tournament-line {font-size: clamp(16px, 4.267vw, 20px);} 
+    .tournament-info .song-by-info-wrap .song-by-info, .tournament-info .song-by-info-wrap .btn-wrap .basic-btn { font-size: clamp(14px, 3.733vw, 18px); }
+}
+@media screen and (max-width: 340px) {
+    .tournament-info .song-by-info-wrap.left-top .btn-wrap, .tournament-info .song-by-info-wrap.left-btm .btn-wrap {left: 0;} 
+    .tournament-info .song-by-info-wrap.right-top .btn-wrap, .tournament-info .song-by-info-wrap.right-btm .btn-wrap {right: 0;} 
+}
+
+/* ------------------------------------------------------------------------  
+ KTROT 콘테스트 본선 상세 ktrot-finals
+------------------------------------------------------------------------ */
+/* 상세정보 */
+.ktrot-finals .ktrot-head-inner.banner {overflow: hidden;max-width: 750px; width: 100%;}
+.ktrot-finals .ktrot-head-inner.banner.fixed {position: fixed;top: 0;}
+.ktrot-finals .ktrot-finals-head > .inner {padding: 1.88em 0 1.125em;}
+.ktrot-finals .ktrot-head-inner .header-sub-wrap .ktrot-head-banner {padding: 1.25em;}
+.ktrot-finals .ktrot-head-inner .header-sub-wrap .ktrot-challenge-main-tit {margin: 0.47em 0 0.64em;}
+.ktrot-finals .ktrot-head-inner .header-sub-wrap .ktrot-challenge-tit {margin-bottom: 0;}
+.ktrot-finals .ktrot-head-inner .header-sub-wrap .ktrot-challenge-txt {font-size: 0.938rem;}
+.ktrot-finals .ktrot-finals-head .header-sub-wrap .round-tit {position: static; font-size: 0.69rem; line-height: 1;}
+.ktrot-finals .ktrot-finals-cont {background-color: #fff;}
+.ktrot-finals .ktrot-finals-cont .ktrot-head-inner.ktrot-finals-head {background: linear-gradient(to bottom, #00cc9e, #71f791);}
+.ktrot-finals .ktrot-finals-cont .tab-menu {position: sticky;top: 0;z-index: 53;}
+.ktrot-finals .ktrot-finals-cont .tab-menu li.tab-link {width: calc(100% / 2);}
+.ktrot-finals .ktrot-finals-cont .tab-menu li.slider {width: calc((100% - 32px) / 2)}
+.ktrot-finals .ktrot-finals-cont .tab-content-wrap .tab-content {margin: 20px 0 7.60em;}
+.ktrot-finals .ktrot-finals-head .ktrot-challenge-cont + .ktrot-challenge-cont {margin: 0.938em 0 0;}
+.ktrot-finals .ktrot-finals-head .ktrot-challenge-cont.vote-cont {margin: 1.56em 0 0;}
+.ktrot-finals .ktrot-finals-head .vote-info {color: #666; line-height: 1;}
+.ktrot-finals .ktrot-finals-head .vote-info span {display: inline-block; color: #000; font-size: inherit;}
+.ktrot-finals .ktrot-finals-head .vote-info span.vote-info-tit {position: relative; margin: 0 0.71em 0 0; padding: 0 0.71em 0 0; color: #111;}
+.ktrot-finals .ktrot-finals-head .vote-info span.vote-info-tit::after {content: '';position: absolute;top: 0;right: 0;width: 1px;height: 0.77em;background-color: #909090;}
+.ktrot-finals .ktrot-finals-head .ktrot-challenge-cont {border-radius: 0.63em;background-color: rgba(255, 255, 255, 0.8);}
+.ktrot-finals .ktrot-finals-head .ktrot-challenge-cont.vote-cont {display: flex; flex-direction: column; gap: 0.938em; padding: 1.25em 1.56em; }
+.ktrot-finals .ktrot-finals-head .ktrot-challenge-cont.giveaway-cont {padding: 1.56em 0.56em;}
+.ktrot-finals .ktrot-challenge-cont.giveaway-cont .vote-cont-inner .list-style {padding: 0 1em;}
+.ktrot-finals .ktrot-challenge-cont.giveaway-cont .vote-cont-inner .list-style > li.check {padding: 0 0 0 1.92em;font-size: 0.813rem;}
+.ktrot-finals .ktrot-challenge-cont.giveaway-cont .vote-cont-inner .list-style > li.check::after {top: 0;transform: translate(0, 0);width: 1.15em;height: 1.15em; }
+.ktrot-finals .giveaway-list-wrap .giveaway-list.bg {gap: 0.1em; margin: 1.250em 0 0;}
+.ktrot-finals .giveaway-list-wrap .giveaway-list .judge-img + .status-label.tit span {min-width: auto; padding: 0.45em 0.75em 0.2em; font-size: 0.63rem;}
+.ktrot-finals .ktrot-challenge-cont.giveaway-cont .giveaway-list-wrap .giveaway-list.bg .giveaway-list-txt {font-size: 0.63rem;}
+
+@media screen and (min-width: 375px) {
+    .ktrot-finals .giveaway-list-wrap .giveaway-list.bg {padding: 0 0.7em;}
+}
+@media screen and (min-width: 421px) {
+    .ktrot-finals .ktrot-head-inner .header-sub-wrap .ktrot-challenge-txt {font-size: clamp(15px, 4vw, 18px);} 
+    .ktrot-finals .ktrot-challenge-cont.giveaway-cont .vote-cont-inner .list-style > li.check {font-size: clamp(13px, 3.467vw, 16px);} 
+    .ktrot-finals .giveaway-list-wrap .giveaway-list .judge-img + .status-label.tit span {font-size: clamp(10px, 2.667vw, 13px);} 
+    .ktrot-finals .ktrot-finals-head .header-sub-wrap .round-tit {font-size: clamp(11px, 2.933vw, 14px);} 
+    .ktrot-finals .ktrot-challenge-cont.giveaway-cont .giveaway-list-wrap .giveaway-list.bg .giveaway-list-txt {font-size: clamp(10px, 2.667vw, 13px);}
+}
+
+
+/* 우승후보 */
+.ktrot-finals-sec .tooltip-info {margin: 0 0 1.88em;}
+.ktrot-finals-sec .profile-area.song .profile-wrap .profile-wrap-inner {padding-bottom: 0.63em;}
+.ktrot-finals-sec .profile-area.song .profile-list {position: relative;border-radius: 10px;}
+.ktrot-finals-sec .profile-area.song .profile-list .profile-wrap {flex-direction: column;align-items: flex-start; gap: 0;}
+.ktrot-finals-sec .profile-area.song .profile-img {width: 5.5em; height: 5.5em;}
+.ktrot-finals-sec .profile-area.song .profile-info {width: calc(100% - 6.25em); height: 5.5em;}
+.ktrot-finals-sec .profile-area.song .profile-tit {display: block;width: 100%; -webkit-line-clamp: initial; white-space: nowrap;margin: 0.13em 0 0;}
+.ktrot-finals-sec .song-by-info-wrap {display: flex;flex-direction: column;gap: 0.50em;position: relative;top: -1px;margin-top: auto;font-size: inherit;}
+.ktrot-finals-sec .profile-area.song .song-by-info .profile-img {
+    width: 1.125em;
+    min-width: auto;
+    height: 1.125em;
+    border-radius: 50%;
+}
+.ktrot-finals-sec .profile-area.song .song-by-info .profile-img::before {
+    display: none;
+}
+.ktrot-finals-sec .song-by-info-wrap .song-by-info .profile-name {
+    overflow: hidden;
+    width: calc(100% - 1.83em);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 0.875rem;
+}
+.ktrot-finals-sec .profile-vote-wrap {
+    width: 100%;
+    padding: 0 0.750em 0.875em;
+    font-size: 1rem;
+}
+.ktrot-finals-sec .profile-vote-wrap .bottom-info-wrap {
+    justify-content: flex-start;
+    border: none;
+    padding: 0;
+}
+.ktrot-finals-sec .profile-vote-wrap .bottom-info-wrap .views-wrap {
+    padding-left: 0;
+    background: none;
+    font-size: 0.750rem;
+    font-weight: 400;
+    font-variation-settings: 'wght' 400;
+    color: #888;
+}
+.ktrot-finals-sec .profile-vote-wrap .bottom-info-wrap .bottom-info:not(:first-child) {
+    margin-left: 8px;
+    padding-left: 12px;
+}
+.ktrot-finals-sec .profile-vote-wrap .bottom-info-wrap .bottom-info:not(:first-child)::before {
+    width: 4px;
+}
+.ktrot-finals-sec .vote-area {
+    display: flex;
+    align-items: center;
+    gap: 0.63em;
+    margin: 1.25em 0 0;
+    font-size: 1rem;
+}
+.ktrot-finals-sec .profile-area.song .profile-list.done .vote-area .vote-bar {width: 100%;}
+.ktrot-finals-sec .profile-area.song .profile-list .vote-done-txt {display: none;}
+.ktrot-finals-sec .profile-area.song .profile-list.done .vote-done-txt {display: block;}
+.ktrot-finals-sec .vote-area .basic-btn {min-width: auto; width: 6.43em; font-weight: 500;font-variation-settings: 'wght' 500;font-size: 0.875rem;}
+.ktrot-finals-sec .vote-area .basic-btn span {padding: 0.50em 0;}
+.ktrot-finals-sec .profile-area.song .profile-list.done .vote-area .basic-btn {background-color: #EEEEEE;border-color: #EEEEEE;color: #888;cursor: none;pointer-events: none; }
+.ktrot-finals-sec .rank-badge {position: absolute; top: -1px; left: 0.50em; z-index: 51; width: 1.50em; height: 1.75em; font-size: 1rem;}
+.ktrot-finals-sec .rank-badge figcaption {position: absolute; top: 0; left: 48%; transform: translate(-50%, 0);font-weight: 700;font-variation-settings: 'wght' 700; color: #fff;line-height: 1.5em; font-size: 1rem;}
+.ktrot-finals-sec .bottom-info-wrap.comment {padding: 1em 0.750em;}
+.ktrot-finals-sec .bottom-info-wrap.comment .sheet-content {align-items: flex-start; width: 100%; padding: 0;}
+.ktrot-finals-sec .bottom-info-wrap.comment .sheet-content .sheet-cont-inner {width: 100%;}
+.ktrot-finals-sec .bottom-info-wrap.comment .sheet-content .sheet-tit {padding: 0 0 0.71em; font-size: 0.875rem;font-weight: 700;font-variation-settings: 'wght' 700; color: #333;line-height: 1;}
+.ktrot-finals-sec .bottom-info-wrap.comment .comment-list {display: flex; gap: 0.50em; font-size: 1rem}
+.ktrot-finals-sec .bottom-info-wrap.comment .profile-area {overflow: hidden; width: 1.88em; height: 1.88em; font-size: inherit; border-radius: 50%;}
+.ktrot-finals-sec .bottom-info-wrap.comment .content-area { display: flex;align-items: center;width: calc(100% - 2.38em); font-size: inherit;}
+.ktrot-finals-sec .bottom-info-wrap.comment .comment-txt {overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 400;font-variation-settings: 'wght' 400;color: #666;}
+.ktrot-finals-sec .bottom-info-wrap.comment .no-comment-case {display: none;justify-content: center;align-items: center;flex-grow: 1;width: 100%;}
+.ktrot-finals-sec .bottom-info-wrap.comment .no-comment-case p {font-size: 0.875rem;line-height: 1.42;color: #888;font-weight: 500;font-variation-settings: 'wght' 500;word-break: keep-all;}
+.ktrot-finals-sec .bottom-info-wrap.comment .sheet-cont-inner.no-comment .comment-wrap {display: none;}
+.ktrot-finals-sec .bottom-info-wrap.comment .sheet-cont-inner.no-comment .no-comment-case {display: flex;}
+/*========== Tooltip ==========*/
+.tooltip-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25em 1em;
+    border-radius: 0.63em;
+    background-color: #F8F8F8;
+}
+.tooltip-txt-wrap {
+    display: flex;
+    align-items: center;
+}
+.tooltip-txt-wrap .tooltip-txt {line-height: 1;}
+.tooltip-txt-wrap .tooltip-txt span {
+    display: inline-block;
+}
+.tooltip-txt-wrap .tooltip-txt .left {
+    margin: 0 0.63em 0 0;
+    font-weight: 400;font-variation-settings: 'wght' 400;
+    color: #666;
+    line-height: 1;
+}
+.tooltip-txt-wrap .tooltip-txt .right {
+    font-weight: 700;font-variation-settings: 'wght' 700;
+    color: #333;
+    line-height: 1;
+}
+.tooltip-txt-wrap .tooltip-txt + .tooltip-txt {
+    position: relative;
+    margin: 0 0 0 0.750em;
+    padding: 0 0 0 0.750em;
+}
+.tooltip-txt-wrap .tooltip-txt + .tooltip-txt::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    width: 1px;
+    height: 1em;
+    background-color: #ddd;
+}
+.tooltip {
+    position: relative;
+    width: 1.50em;
+    height: 1.50em;
+    font-size: 1rem;
+}
+.toolbtn {
+    width: 100%;
+    height: 100%;
+    font-size: inherit;
+}
+.tooltip-cont {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    z-index: 20;
+    top: 2.18em;
+    width: 14.88em;
+    padding: 0.875em;
+    border-radius: 0.63em;
+    border: 1px solid #ddd;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+    transform: translateX(0) scale(0.9);
+    transition: all 300ms;
+    font-size: inherit;
+}
+.tooltip-cont::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    z-index: 9; 
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 9px 14px 9px;
+    border-color: transparent transparent #ccc transparent; 
+}
+.tooltip-cont::after {
+    content: '';
+    position: absolute;
+    top: -13px;
+    z-index: 10;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 9px 14px 9px;
+    border-color: transparent transparent #fff transparent;
+}
+.tooltip-box.right .tooltip-cont {
+    right: -16px;
+}
+.tooltip-box.right .tooltip-cont::before, .tooltip-box.right .tooltip-cont::after {
+    right: 50%;
+    transform: translate(6.25em, 0);
+}
+.tooltip-cont.on {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    transition: all 300ms;
+}
+.tooltip-cont > p {margin: 0 0 0.4em; font-weight: 700;font-variation-settings: 'wght' 700; color: #333;}
+.tooltip-cont .list-style li {padding: 0 0 0 0.50em; font-weight: 400;font-variation-settings: 'wght' 400; color: #666;}
+.tooltip-cont .list-style > li.circle + li.circle {
+    margin: 0;
+}
+.tooltip-cont .list-style > li.circle::before {
+    top: 0.67em;
+    width: 2px; height: 2px;
+}
+@media screen and (max-width: 335px) {
+    .tooltip-txt-wrap {flex-direction: column;align-items: flex-start; gap: 10px;}
+    .tooltip-txt-wrap .tooltip-txt + .tooltip-txt {padding: 0; margin: 0;}
+    .tooltip-txt-wrap .tooltip-txt + .tooltip-txt::after {display: none;}
+}
+@media screen and (min-width: 421px) {
+    .tooltip {font-size: clamp(16px, 4.267vw, 20px);} 
+}
+@media screen and (min-width: 421px) {
+    .ktrot-finals-sec .profile-vote-wrap {font-size: clamp(16px, 4.267vw, 20px);} 
+    .ktrot-finals-sec .profile-vote-wrap .bottom-info-wrap .views-wrap {font-size: clamp(12px, 3.2vw, 15px);} 
+    .ktrot-finals-sec .vote-area {font-size: clamp(16px, 4.267vw, 20px);} 
+    .ktrot-finals-sec .vote-area .basic-btn {font-size: clamp(14px, 3.733vw, 18px);} 
+    .ktrot-finals-sec .rank-badge {font-size: clamp(16px, 4.267vw, 20px);} 
+    .ktrot-finals-sec .bottom-info-wrap.comment .comment-list {font-size: clamp(16px, 4.267vw, 20px);} 
+    .ktrot-finals-sec .rank-badge figcaption {font-size: clamp(16px, 4.267vw, 20px);} 
+    .ktrot-finals-sec .bottom-info-wrap.comment .sheet-content .sheet-tit {font-size: clamp(14px, 3.733vw, 18px);}
+    .ktrot-finals-sec .song-by-info-wrap .song-by-info .profile-name {font-size: clamp(14px, 3.733vw, 18px);}
+}
+
+/* ------------------------------------------------------------------------  
+ KTROT 콘테스트 우승자 발표 ktrot-finals
+------------------------------------------------------------------------ */
+/* 우승자 발표 */
+#ktrot-winner-popup:has(.ktrot-cont-list-wrap.full) #share-btn {z-index: 140;}
+#ktrot-winner-popup .ktrot-challenge-cont-wrap {padding-bottom: 3.13em;}
+.ktrot-winner .ktrot-challenge-cont {padding: 1.56em 0 1.25em;}
+.ktrot-winner .ktrot-cont-tit {margin: 0 16px; text-align: center;}
+.ktrot-winner .ktrot-cont-list-wrap {
+    overflow: hidden;
+    position: relative;
+    transform: translate(0, 0);
+    aspect-ratio: 1 / 1;
+    margin: 1.25em 16px 0;
+    border-radius: 0.63em;
+}
+.ktrot-winner .ktrot-cont-list-wrap.full {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    height: 100vh;
+    aspect-ratio: initial;
+    margin: 0;
+    border-radius: 0;
+    z-index: 165;
+}
+.ktrot-winner .ktrot-cont-list-wrap .play-vid-box {
+    position: static;
+    transform: translate(0, 0);
+    height: 100% !important;
+}
+.ktrot-winner .ktrot-cont-list-wrap .play-vid-wrap {
+    position: static;
+    transform: translate(0, 0);
+    width: auto;
+}
+.ktrot-winner .ktrot-cont-list-wrap .progress-bar-wrap {
+    position: absolute;
+    top: auto !important;
+    bottom: 0.63em;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 48;
+}
+.ktrot-winner .ktrot-cont-list-wrap .progress-bar-wrap .progress {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+}
+.ktrot-winner .play-vid-sec.full .progress-bar-wrap {
+    top: auto !important;
+    bottom: 24px;
+    width: calc(100% - 32px);
+    max-width: 718px;
+    transition: opacity 400ms;
+}
+.ktrot-winner .play-vid-box.show + .progress-bar-wrap .progress {
+    height: 2px;
+}
+.ktrot-winner .ktrot-cont-list-wrap.full .progress-bar-wrap .progress {
+    width: 100%;
+    margin-left: 0;
+    height: 4px;
+}
+.ktrot-winner .vid-indicator-wrap .full-vid-btn {
+    bottom: 1.25em;
+    right: 1.56em;
+}
+.ktrot-winner .vid-timeline-wrap {
+    bottom: 1.83em;
+    left: 1.67em;
+}
+.ktrot-winner .ktrot-winner-vid-sec .play-vid-cont {
+    margin-top: 0 !important;
+}
+.ktrot-winner-vid-sec .play-vid-cont > .content-txt2 {
+    margin: 0.750em 16px 0;
+}
+.ktrot-winner-vid-sec .play-vid-cont .play-vid-title {margin: 0 0 0.750em;}
+.ktrot-winner-vid-sec .play-vid-cont .profile-list .profile-wrap {justify-content: flex-start;gap: 0.63em;align-items: flex-start;}
+.ktrot-winner-vid-sec .play-vid-cont .profile-wrap-inner {
+    align-items: flex-start;
+    gap: 0.63em;
+    width: auto;
+    max-width: calc(100% - 4.13em);
+}
+.ktrot-winner-vid-sec .play-vid-cont .profile-area .profile-img {
+    width: 1.50em;
+    min-width: auto;
+    height: 1.50em;
+}
+.ktrot-winner-vid-sec .play-vid-cont .profile-area .profile-info {
+    align-self: center;
+    width: auto;
+    max-width: calc(100% - 2em);
+}
+.ktrot-winner-vid-sec .play-vid-cont .profile-area .profile-tit {
+    overflow: initial;
+    white-space: initial;
+    text-overflow: initial;
+    word-break: initial;
+    color: #333;
+}
+.ktrot-winner-vid-sec .play-vid-cont .profile-area .profile-btn-wrap.follow {
+    min-width: auto;
+    width: 3.63em;
+    margin: 0;
+}
+.ktrot-winner-vid-sec .play-vid-cont .profile-area .profile-btn-wrap.follow .basic-btn {
+    font-size: 0.750rem;
+    min-width: 58px;
+}
+.ktrot-winner-vid-sec .play-vid-cont .profile-area .profile-btn-wrap.follow .basic-btn span{
+    padding: 0.42em 0;
+}
+
+.ktrot-winner-vid-sec .play-vid-cont .play-vid-bottom {margin: 1.33em 0 0;}
+.ktrot-winner-comment-sec .bottom-info-wrap.comment {padding: 1.33em 16px 0; margin: 1em 0 0; border-top: 1px solid var(--basic-line-color);}
+.ktrot-winner-vid-sec .bottom-info-wrap.comment .comment-txt {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+}
+.ktrot-winner-like { margin: 1em 0 0 3.17em;cursor: default; pointer-events: none;}
+.ktrot-winner-etc-wrap {display: flex; gap: 1em; margin: 1.88em 0 0; padding: 0 1em 1.25em; border-radius: 1em; background-color: #fff;}
+.ktrot-winner-etc-wrap .round-tit {font-size: 1rem;}
+.ktrot-winner-etc-wrap .round-tit span {padding: 0.378em 1.25em; min-width: 64px;}
+.ktrot-winner-etc-wrap .ktrot-challenge-cont {width: calc(100% / 2 - 0.50em); border-radius: 0;padding-bottom: 0;}
+.ktrot-winner-etc-wrap .ktrot-winner-etc > .profile-wrap > .profile-wrap-inner {flex-direction: column;align-items: flex-start;gap: 0.75em; width: 100%;}
+.ktrot-winner-etc-wrap .thumbnail-area {width: 100%; height: 39.467vw; max-height: 329px; aspect-ratio: 1 / 1; background-color: #000;}
+.ktrot-winner-etc-wrap .profile-img::before ,.ktrot-winner-etc-wrap .thumbnail-area::after {display: none;}
+.ktrot-winner-etc-wrap .thumbnail-area::before {
+    content: '';
+    display: block;
+    z-index: 15;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1.88em;
+    height: 1.88em;
+    border-radius: 50%;
+    background-image: url('../../images/sub/kpop/icon-play-white.svg');
+    background-color: rgba(0, 0, 0, 0.3);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.875em auto;
+}
+.ktrot-winner-etc-wrap .ktrot-winner-vid-sec {
+    width: 100%;
+}
+.ktrot-winner-etc-wrap .ktrot-winner-vid-sec .play-vid-cont > .content-txt2 {
+    margin: 0;
+}
+.ktrot-winner-etc-wrap .ktrot-winner-vid-sec .play-vid-cont .profile-wrap-inner {
+    width: 100%;
+    max-width: none;
+}
+.ktrot-winner-etc-wrap .ktrot-winner-vid-sec .play-vid-cont .profile-area .profile-tit {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+}
+.ktrot-winner-etc-wrap .vote-finals-bar-wrap {
+    padding: 0 0 1.38em;
+    margin: 0.875em 0 0;
+}
+.ktrot-winner-etc-wrap .vote-finals-bar-wrap .vote-finals-container {
+    width: 100%;
+    height: 0.25em;
+}
+.ktrot-winner-etc-wrap .vote-finals-bar-wrap .vote-percent-wrap {
+    right: auto;
+    left: 0;
+    top: auto;
+    bottom: 0;
+    transform: translate(0, 0);
+}
+@media screen and (min-width: 421px) {
+    .ktrot-winner-etc-wrap .round-tit {font-size: clamp(16px, 4.267vw, 20px);} 
+    .ktrot-winner-vid-sec .play-vid-cont .profile-area .profile-btn-wrap.follow .basic-btn {font-size: clamp(12px, 3.2vw, 15px);} 
+}
+
+/* 투표 당첨자 발표 */
+.ktrot-winner-vote .section-content.vote {padding: 3.75em 0 7.60em; background-color: #fff;}
+.ktrot-winner-vote .header-sub-wrap {text-align: center;}
+.ktrot-winner-vote .ktrot-challenge-txt {margin: 0.86em 0 0;}
+.ktrot-winner-vote .giveaway-list:not(.bg) {gap: 0; max-width: 100%; margin: 0;}
+.ktrot-winner-vote .winner-giveaway-list .giveaway-list:not(.bg) .judge-img {
+    width: 5.19em; height: 5.19em; border-radius: 1.25em; border: 1px solid #EEEEEE;
+}
+.ktrot-winner-vote .winner-giveaway-list .giveaway-list .status-label.giveaway {justify-content: center;top: -8px;left: 7px;}
+.ktrot-winner-vote .winner-giveaway-list .status-label.giveaway strong {text-indent: 0;}
+.ktrot-winner-vote .winner-giveaway-list .giveaway-list:not(.bg) .giveaway-list-txt {color: #111;}
+.winning-wrap {margin: 2.50em 0 0;}
+.winning-wrap .header-sub-wrap .basic-btn.pink {margin: 0.875em 0 0; width: auto;}
+.winning-wrap .header-sub-wrap .basic-btn.pink span {padding: 0.64em 0; font-size: 0.875rem;}
+.winning-list {margin: 1.88em 0 0; font-size: inherit;}
+.winning-list .red-box-wrap {display: flex; flex-direction: column; gap: 1.25em;}
+.winning-list .red-box-wrap .red-box-list {padding: 1.25em;background-color: #FFF7F7; border: 1px solid #FED4D5; border-radius: 0.63em;font-size: inherit;}
+.winning-list .red-box-wrap .red-box-list .red-box-top {display: flex; align-items: center; gap: 0.63em; padding: 0 0 0.63em;}
+.winning-list .red-box-wrap .red-box-list .red-box-top span {font-weight: 700;font-variation-settings: 'wght' 700;font-size: inherit;}
+.winning-list .red-box-wrap .red-box-list .red-box-top span:not(.point-txt) {color: #333;}
+.winning-list .red-box-wrap .red-box-list .red-box-btm {display: flex; gap: 0.63em; padding: 1em 0 0; border-top: 1px solid #FED4D5;}
+.winning-list .red-box-wrap .red-box-list .red-box-btm.one {flex-direction: column;}
+.winning-list .red-box-wrap .red-box-list .red-box-btm.two {justify-content: space-between;flex-wrap: wrap;}
+.winning-list .red-box-wrap .red-box-list .red-box-btm .profile-wrap-inner {align-items: self-start;gap: 0.38em; width: 100%;}
+.winning-list .red-box-wrap .red-box-list .red-box-btm.two .profile-wrap-inner {width: calc(100% / 2 - 0.63em);}
+.winning-list .red-box-wrap .red-box-list .red-box-btm .profile-img {width: 1.25em; height: 1.25em; min-width: auto;}
+.winning-list .red-box-wrap .red-box-list .red-box-btm .profile-info {width: calc(100% - 1.63em); }
+.winning-list .red-box-wrap .red-box-list .red-box-btm .profile-tit {color: #666;}
+.winning-list .red-box-wrap .red-box-list .red-box-btm.one .profile-tit {overflow: initial;white-space: initial;text-overflow: initial;word-break: initial;}
+
+@media screen and (min-width: 421px) {
+    .ktrot-winner-etc-wrap .round-tit {font-size: clamp(16px, 4.267vw, 20px);} 
+    .winning-wrap .header-sub-wrap .basic-btn.pink span {font-size: clamp(14px, 3.733vw, 16px);} 
+}
+@media screen and (min-width: 470px) {
+    .ktrot-contest-sec .giveaway-list {max-width: 510px;}
+    .ktrot-contest-sec .giveaway-list:not(.bg) {max-width: 540px;}
+    .ktrot-finals .giveaway-list-wrap .giveaway-list.bg {max-width: 540px}
 }

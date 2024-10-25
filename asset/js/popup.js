@@ -9,7 +9,6 @@
 /*========== 스크롤 활성화/비활성화 기능 ==========*/
 let scrollPosition = 0;
 function scrollDisable(){ // body 스크롤 비활성화
-	if($(".play.detail").length > 0) return;
 	if($('body').hasClass('scroll-disable')) return;
 	scrollPosition = window.pageYOffset; // 현재 스크롤 위치를 저장
 	$('body').addClass('scroll-disable');
@@ -21,7 +20,6 @@ function scrollDisable(){ // body 스크롤 비활성화
 	document.documentElement.style.scrollBehavior = 'auto';
 }
 function scrollAble(){ // body 스크롤 활성화
-	if($(".play.detail").length > 0) return;
 	$('body').removeClass('scroll-disable').off('scroll touchmove mousewheel');
 	$('html, body').scrollTop(scrollPosition);
 	document.documentElement.style.removeProperty('overscroll-behavior-y');
@@ -87,6 +85,17 @@ $(document).mouseup(function (e){
 			}
 		} else {
 			modalPopAllClose();
+		}
+	}
+
+	// 예선통과자 및 패자부활전 발표 페이지 예외처리
+	var videoPop = $("#videoPop");
+	var preliminaryPop = $("#ktrot-preliminary-popup");
+	
+	if(videoPop.length > 0 && preliminaryPop.length > 0 && videoPop.hasClass("open") && preliminaryPop.hasClass("open")) {
+		if(videoPop.has(e.target).length === 0) {
+			scrollAble();
+			videoPop.removeClass('open');
 		}
 	}
 });

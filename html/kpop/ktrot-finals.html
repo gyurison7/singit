@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- meta -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="robots" content="noindex, nofollow">
+
+    <meta name="title" content="SingIt(싱잇)">
+	<meta name="keywords" content="SingIt(싱잇), 최강 스마트 노래방">
+	<meta name="description" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta name="author" content="미디어스코프(주)">
+
+    <meta property="og:title" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:locale" content="ko_KR">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SingIt(싱잇) 최강 스마트 노래방">
+	<meta property="og:description" content="SingIt(싱잇) 최강 스마트 노래방">
+    <!-- OG IMAGE : 필요시 사용하며, 경로 변경 필요 -->
+	<meta property="og:image" content="http://codeloft.kr/mediascope_singit/asset/images/common/singit-og-img.jpg">
+	<meta property="og:url" content="http://codeloft.kr/mediascope_singit/">
+	<meta property="og:image:alt" content="http://codeloft.kr/mediascope_singit/asset/images/common/logo-red.svg">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- FAVICON : 필요시 사용하며, 경로 변경 필요 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://codeloft.kr/mediascope_singit/asset/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="http://codeloft.kr/mediascope_singit/asset/images/favicon/manifest.json">
+
+	<!-- FONTS -->
+	<link rel="preload" href="../../asset/fonts/pretendard/PretendardVariable.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../../asset/fonts/rubik/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../asset/css/common.css">
+	<link rel="stylesheet" href="../../asset/css/kpop/kpop-common.css">
+	<link rel="stylesheet" href="../../asset/css//mypage/mypage.css">
+    <link rel="stylesheet" href="../../asset/css/play/play-detail.css">
+    <link rel="stylesheet" href="../../asset/css/kpop/kpop-sub.css">
+	<link rel="stylesheet" href="../../asset/css/kpop/kpop.css">
+
+	<!-- JS | library -->
+	<script src="../../asset/js/lazysizes.min.js"></script>
+	<script src="../../asset/js/prefixfree.min.js"></script>
+	<script src="../../asset/js/jquery-3.7.1.min.js"></script>
+
+	<!-- JS -->
+	<script src="../../asset/js/basic.js"></script>
+	<script src="../../asset/js/popup.js"></script>
+	<script src="../../asset/js/sub.js"></script>
+
+    <title>SingIt</title>
+</head>
+<body>
+	<div id="wrap">
+		<!--==================
+		* 페이지별 HEADER 구성이 다름에 따라 페이지별 클래스 추가 필요 (최상단 태그 id="container") 
+		- PLAY 페이지 : play 클래스
+		- SING 페이지 : sing 클래스
+		- BATTLE 페이지 : battle 클래스
+		- MY 페이지 : my 클래스
+		- KPOP CONTEST 페이지 : kpop 클래스 
+		- 서브 페이지 : sub 클래스 
+        ======================-->
+		<div id="container" class="kpop sub">
+			<!--========== MODAL POPUP ==========-->
+			<div class="modal-popup-group">
+				<div id="ktroVote" class="modal alert ktroVote">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit"><span class="bold-txt">아이유짱</span> 님께 투표가 완료되었습니다.<br>
+										남은 투표수는 <span class="point-txt">1</span> 번 입니다.</h3>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#ktroVote');" class="basic-btn red">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div id="ktroVoteDone" class="modal alert ktroVoteDone">
+					<div class="modal-wrap">
+						<section class="modal-content">
+							<div class="modal-cont-wrap">
+								<div class="modal-tit-wrap">
+									<h3 class="modal-tit">1일 투표횟수를 모두 초과하였습니다.<br>
+										내일 다시 투표해주세요.</h3>
+								</div>
+							</div>
+							<div class="modal-btn-wrap">
+								<a href="javascript:;" onclick="modalPopupClose('#ktroVoteDone');" class="basic-btn red">확인</a>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+			
+			<!--========== HEADER ==========-->
+			<header id="header"></header>
+			<main id="main" class="sub">
+			</main>
+			
+			<!--========== FULL PAGE POPUP ==========-->
+			<div class="full-popup-group">
+                <!-- 풀페이지 팝업 열기 : 클래스 open 추가 / 닫기 : open 클래스 제거 -->
+				<div id="ktrot-finals-popup" class="modal full ktrot-challenge-popup open">
+					<div class="full-modal-wrap">
+						<!--==================
+							* 도전 성공여부에 따른 내 순위권 구분 (s-challenge-wrap 클래스에 해당 클래스 추가)
+							- [성공] : true 클래스 추가
+							- [실패] : false 클래스 추가
+							- 순위권 밖 : extra 클래스 추가
+						======================-->
+						<section class="full-modal-content ktrot-challenge-wrap ktrot-finals">
+							<div class="full-modal-cont">
+								<h3 class="hidden">우승자 발표</h3>
+								<div class="ktrot-head-inner banner">
+									<img class="ktrot-bg" src="../../asset/images/sub/kpop/kpop-bg-deco.png" alt="배경이미지">
+									<div class="header-sub-wrap">
+										<div class="ktrot-bg-area">
+											<div class="ktrot-head-banner">
+												<figure class="content-txt2">
+													<img class="wesoop" src="../../asset/images/sub/kpop/logo-wesoop.svg" alt="위숲">
+													<!-- KO -->
+													<img class="ktrot-logo" src="../../asset/images/sub/kpop/kv-tit-ko.png" alt="K-TROT 콘테스트 Show us yours talent!">
+													<!-- EN -->
+													<!-- <img class="ktrot-logo" src="../../asset/images/sub/kpop/kv-tit-en.png" alt="K-TROT 콘테스트 Show us yours talent!"> -->
+												</figure>
+												<h4 class="ktrot-challenge-tit">K-트롯 콘테스트 본선</h4>
+												<div class="header-sub">
+													<ul>
+														<li class="header-side header-close"><button type="button" aria-label="페이지 닫기" onclick="modalPopupClose('#ktrot-finals-popup');"><span class="hidden">페이지 닫기</span></button></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-container ktrot-finals-cont">
+									<ul class="tab-menu">
+										<li class="slider"></li>
+										<li class="tab-link current" data-tab="tab-1"><a href="javascript:;"><span>상세정보</span></a></li>
+										<li class="tab-link" data-tab="tab-2"><a href="javascript:;"><span>우승후보</span></a></li>
+									</ul>
+									<div class="tab-content-wrap">
+										<div id="tab-1" class="tab-content current">
+											<div class="inner">
+												<div class="ktrot-head-inner ktrot-finals-head skeleton">
+													<img class="ktrot-bg" src="../../asset/images/sub/kpop/kpop-bg-deco.png" alt="배경이미지">
+													<div class="inner">
+														<div class="header-sub-wrap">
+															<h4 class="round-tit white g-txt-m"><span>K-트롯 Contest</span></h4>
+															<h1 class="ktrot-challenge-main-tit g-txt-b">당신의 투표가<br> <em class="txt-red g-txt-b">K-트롯 스타</em>를<br> 결정합니다!</h1>
+															<p class="ktrot-challenge-txt g-txt-m">K-트롯 Contest 본선진출자들의<br> 노래를 들어보고 투표해 주세요.</p>
+														</div>
+														<div class="section-content vote">
+															<article class="ktrot-challenge-cont vote-cont">
+																<h6 class="vote-info content-txt3"><span class="vote-info-tit g-txt-b">투표기간</span><span class="vote-info-txt g-txt-m">2024.10.20 ~ 2024.10.30</span></h6>
+																<h6 class="vote-info content-txt3"><span class="vote-info-tit g-txt-b">결과발표</span><span class="vote-info-txt g-txt-m">2024.10.31</span></h6>
+															</article>
+															<article class="ktrot-challenge-cont giveaway-cont">
+																<h5 class="hidden">K-트롯 Contest 투표 안내</h5>
+																<div class="vote-cont-inner">
+																	<div class="giveaway-list-wrap">
+																		<ul class="list-style">
+																			<li class="check g-txt-m">투표한 유저에게는 <strong class="g-txt-b">이벤트 참여 응모권</strong>이 부여되며, 우승자에게 투표한 유저는 추첨을 통해 <strong class="g-txt-b">경품을 증정합니다. </strong></li>
+																			<li class="check g-txt-m">매일매일 투표 시 응모권이 누적되며 <strong class="g-txt-b">응모권이 많을 수록 당첨확률 Up! Up!</strong></li>
+																		</ul>
+																		<ul class="giveaway-list bg">
+																			<!-- 상품 이미지와 매칭된 클래스 : 아이폰, 보조 배터리, 스타벅스 쿠폰 이외 상품일 경우 li 삽입된 클래스 삭제 필요 -->
+																			<li class="iphone">
+																				<div class="status-label giveaway red"><strong class="g-txt-b caption-txt2">1등</strong></div>
+																				<figure class="judge-img"><img class="fade-in lazyloaded" src="../../asset/images/sub/kpop/giveaway-iphone.png" alt="아이폰 16"></figure>
+																				<div class="status-label round tit">
+																					<span class="black g-txt-m">1명</span>
+																				</div>
+																				<p class="giveaway-list-txt g-txt-m">아이폰 16</p>
+																			</li>
+																			<!-- 상품 이미지와 매칭된 클래스 : 아이폰, 보조 배터리, 스타벅스 쿠폰 이외 상품일 경우 li 삽입된 클래스 삭제 필요 -->
+																			<li class="battery">
+																				<div class="status-label giveaway gray"><strong class="g-txt-b caption-txt2">2등</strong></div>
+																				<figure class="judge-img"><img class="fade-in lazyloaded" src="../../asset/images/sub/kpop/giveaway-battery.png" alt="보조 배터리"></figure>
+																				<div class="status-label round tit">
+																					<span class="black g-txt-m">2명</span>
+																				</div>
+																				<p class="giveaway-list-txt g-txt-m">보조 배터리</p>
+																			</li>
+																			<!-- 상품 이미지와 매칭된 클래스 : 아이폰, 보조 배터리, 스타벅스 쿠폰 이외 상품일 경우 li 삽입된 클래스 삭제 필요 -->
+																			<li class="coffe">
+																				<div class="status-label giveaway gold"><strong class="g-txt-b caption-txt2">3등</strong></div>
+																				<figure class="judge-img"><img class="fade-in lazyloaded" src="../../asset/images/sub/kpop/giveaway-coffee.png" alt="스타벅스 커피 + 케익"></figure>
+																				<div class="status-label round tit">
+																					<span class="black g-txt-m">10명</span>
+																				</div>
+																				<p class="giveaway-list-txt g-txt-m">스타벅스 커피 + 케익</p>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+															</article>
+														</div>
+													</div>
+												</div>
+												
+											</div>
+										</div>
+										<div id="tab-2" class="tab-content my-video-sec ktrot-my-video-sec ktrot-finals-sec">
+											<div class="inner">
+												<div class="tooltip-info content-txt2">
+													<div class="tooltip-txt-wrap">
+														<div class="tooltip-txt content-txt2"><span class="left">1일 투표횟수</span><span class="right">2/3회</span></div>
+														<div class="tooltip-txt content-txt2"><span class="left">내 응모권</span><span class="right">3개</span></div>
+													</div>
+													<div class="tooltip-box right">
+														<div class="tooltip">
+															<a href="javascirpt:;" class="toolbtn" title="응모권 가이드 보기"><img src="../../asset/images/sub/kpop/icon-tooltip.svg" alt="물음표 아이콘"></a> 
+															<div class="tooltip-cont">
+																<p class="content-txt3">응모권 가이드</p>
+																<ul class="list-style">
+																	<li class="circle">1일 투표횟수(3회)를 모두 채우면 응모권 1회가 부여됩니다. 매일매일 빠짐없이 투표를 할 경우 응모권은 누적됩니다.</li>
+																	<li class="circle">1일 투표횟수(3회)를 모두 채우면 응모권 1회가 부여됩니다. 매일매일 빠짐없이 투표를 할 경우 응모권은 누적됩니다.</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- 컨텐츠 없을 시 profile-area에 no-result 클래스 추가 -->
+												<div class="profile-area song info">
+													<div class="no-result">
+														<p class="content-txt3">우승후보에 투표 해보세요.<br> 아직 우승후보가 없어요.</p>
+													</div>
+													<ul class="profile-list-wrap">
+														<!-- 투표 완료시 done 클래스 추가 && 1일 투표횟수 초과시 vote-done 클래스 추가 -->
+														<li class="profile-list">
+															<figure class="rank-badge"><img src="../../asset/images/sub/kpop/icon-rank-winner.svg" alt="1등"></figure>
+															<div class="profile-wrap">
+																<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" title="영상 보기" class="profile-wrap-inner">
+																	<div class="thumbnail-area profile-img skeleton"> 
+																		<!-- 이미지 확장자는 jpg 권장 -->
+																		<div class="thumbnail-wrap">
+																			<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-ktrot-169-01.jpg" srcset="../../asset/images/temp/img-ktrot-169-01.jpg 2x" alt="목포행 완행열차 영상">
+																			<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-ktrot-169-01.jpg" srcset="../../asset/images/temp/img-ktrot-169-01.jpg 2x" alt="목포행 완행열차 영상">
+																		</div>
+																		<div class="img-btn-wrap bottom left">
+																			<div class="time">02:50</div>
+																		</div>
+																	</div>
+																	<div class="profile-info">
+																		<p class="profile-tit content-txt1 skeleton">목포행 완행열차</p>
+																		<span class="profile-txt content-txt2 skeleton">장윤정</span>
+																		<div class="song-by-info-wrap">
+                                                                            <div class="song-by-info">
+                                                                                <figure class="profile-img skeleton">
+                                                                                    <img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp-zzang.png" alt="두아리파 프로필 이미지">
+                                                                                </figure>
+                                                                                <p class="profile-name skeleton">두아리파</p>
+                                                                            </div>
+                                                                        </div>
+																	</div>
+																</a>
+																<div class="profile-vote-wrap">
+																	<div class="bottom-info-wrap">
+																		<div class="info-views bottom-info skeleton"><div class="views-wrap">조회수 <span class="num">300</span></div></div>
+																		<div class="info-views bottom-info info-like skeleton"><div class="views-wrap">좋아요 <span class="num">999</span></div></div>
+																	</div>
+																	<div class="vote-area">
+																		<div class="vote-container skeleton">
+																			<div class="vote-bar" data-width="42.7%"><span class="vote-percent"></span></div>
+																			<span class="vote-done-txt">실제 랭킹은 25일에 공개됩니다.</span>
+																		</div>
+																		<button class="basic-btn line vote-btn" title="button"><span>투표하기</span></button>
+																	</div>
+																</div>
+															</div>
+															<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" title="영상 보기" class="bottom-info-wrap comment">
+																<div class="sheet-content content-txt1">
+																	<h4 class="sheet-tit">댓글 <span class="comment-num skeleton">9999+</span></h4> 
+																	<!-- 댓글이 없는 경우 sheet-cont-inner에 no-comment 클래스 추가 -->
+																	<div class="sheet-cont-inner">
+																		<div class="comment-box">
+																			<div class="comment-wrap">
+																				<div class="comment-list comment-tree1">
+																					<div class="profile-area skeleton">
+																						<img class="fade-in lazyloaded" decoding="async" src="../../asset/images/temp/profile-temp01.png" alt="유저 프로필 이미지">
+																					</div>
+																					<div class="content-area">
+																						<p class="comment-txt content-txt3 skeleton">덕분에 노래 잘 감상하고 갑니다 :) 혹시 신청곡도 받으시나요?! ㅎㅎ</p>
+																					</div>
+																				</div>
+																			</div>
+																			<!-- 댓글이 없는 경우 -->
+																			<div class="no-comment-case">
+																				<p>첫 번째로 이 영상에 댓글을 남겨보세요.</p>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</li>
+														<!-- 투표 완료시 done 클래스 추가 && 1일 투표횟수 초과시 vote-done 클래스 추가 -->
+														<li class="profile-list done">
+															<figure class="rank-badge"><img src="../../asset/images/sub/kpop/icon-rank-gray.svg" alt="2등"></figure>
+															<div class="profile-wrap">
+																<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap-inner" title="영상 보기">
+																	<div class="thumbnail-area profile-img skeleton"> 
+																		<!-- 이미지 확장자는 jpg 권장 -->
+																		<div class="thumbnail-wrap">
+																			<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-ktrot-169-01.jpg" srcset="../../asset/images/temp/img-ktrot-169-01.jpg 2x" alt="목포행 완행열차 영상">
+																			<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-ktrot-169-01.jpg" srcset="../../asset/images/temp/img-ktrot-169-01.jpg 2x" alt="목포행 완행열차 영상">
+																		</div>
+																		<div class="img-btn-wrap bottom left">
+																			<div class="time">02:50</div>
+																		</div>
+																	</div>
+																	<div class="profile-info">
+																		<p class="profile-tit content-txt1 skeleton">목포행 완행열차</p>
+																		<span class="profile-txt content-txt2 skeleton">장윤정</span>
+																		<div class="song-by-info-wrap">
+                                                                            <div class="song-by-info">
+                                                                                <figure class="profile-img skeleton">
+                                                                                    <img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp-zzang.png" alt="두아리파 프로필 이미지">
+                                                                                </figure>
+                                                                                <p class="profile-name skeleton">두아리파</p>
+                                                                            </div>
+                                                                        </div>
+																	</div>
+																</a>
+																<div class="profile-vote-wrap">
+																	<div class="bottom-info-wrap">
+																		<div class="info-views bottom-info skeleton"><div class="views-wrap">조회수 <span class="num">300</span></div></div>
+																		<div class="info-views bottom-info info-like skeleton"><div class="views-wrap">좋아요 <span class="num">999</span></div></div>
+																	</div>
+																	<div class="vote-area">
+																		<div class="vote-container skeleton">
+																			<div class="vote-bar" data-width="">
+																				<span class="vote-percent"></span>
+																			</div>
+																			<span class="vote-done-txt">실제 랭킹은 25일에 공개됩니다.</span>
+																		</div>
+																		<button class="basic-btn line vote-btn" title="button" onclick="modalPopup('#exPop03');"><span>투표완료</span></button>
+																	</div>
+																</div>
+															</div>
+															<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" title="영상 보기" class="bottom-info-wrap comment">
+																<div class="sheet-content content-txt1">
+																	<h4 class="sheet-tit">댓글 <span class="comment-num skeleton">9999+</span></h4> 
+																	<!-- 댓글이 없는 경우 sheet-cont-inner에 no-comment 클래스 추가 -->
+																	<div class="sheet-cont-inner">
+																		<div class="comment-box">
+																			<div class="comment-wrap">
+																				<div class="comment-list comment-tree1">
+																					<div class="profile-area skeleton">
+																						<img class="fade-in lazyloaded" decoding="async" src="../../asset/images/temp/profile-temp01.png" alt="유저 프로필 이미지">
+																					</div>
+																					<div class="content-area">
+																						<p class="comment-txt content-txt3 skeleton">덕분에 노래 잘 감상하고 갑니다 :) 혹시 신청곡도 받으시나요?! ㅎㅎ</p>
+																					</div>
+																				</div>
+																			</div>
+																			<!-- 댓글이 없는 경우 -->
+																			<div class="no-comment-case">
+																				<p>첫 번째로 이 영상에 댓글을 남겨보세요.</p>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</li>
+														<!-- 투표 완료시 done 클래스 추가 && 1일 투표횟수 초과시 vote-done 클래스 추가 -->
+														<li class="profile-list vote-done">
+															<figure class="rank-badge"><img src="../../asset/images/sub/kpop/icon-rank-gold.svg" alt="3등"></figure>
+															<div class="profile-wrap">
+																<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" class="profile-wrap-inner" title="영상 보기">
+																	<div class="thumbnail-area profile-img skeleton"> 
+																		<!-- 이미지 확장자는 jpg 권장 -->
+																		<div class="thumbnail-wrap">
+																			<img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-ktrot-169-01.jpg" srcset="../../asset/images/temp/img-ktrot-169-01.jpg 2x" alt="목포행 완행열차 영상">
+																			<img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-ktrot-169-01.jpg" srcset="../../asset/images/temp/img-ktrot-169-01.jpg 2x" alt="목포행 완행열차 영상">
+																		</div>
+																		<div class="img-btn-wrap bottom left">
+																			<div class="time">02:50</div>
+																		</div>
+																	</div>
+																	<div class="profile-info">
+																		<p class="profile-tit content-txt1 skeleton">목포행 완행열차</p>
+																		<span class="profile-txt content-txt2 skeleton">장윤정</span>
+																		<div class="song-by-info-wrap">
+                                                                            <div class="song-by-info">
+                                                                                <figure class="profile-img skeleton">
+                                                                                    <img class="fade-in lazyloaded" src="../../asset/images/temp/profile-temp-zzang.png" alt="두아리파 프로필 이미지">
+                                                                                </figure>
+                                                                                <p class="profile-name skeleton">두아리파</p>
+                                                                            </div>
+                                                                        </div>
+																	</div>
+																</a>
+																<div class="profile-vote-wrap">
+																	<div class="bottom-info-wrap">
+																		<div class="info-views bottom-info skeleton"><div class="views-wrap">조회수 <span class="num">300</span></div></div>
+																		<div class="info-views bottom-info info-like skeleton"><div class="views-wrap">좋아요 <span class="num">999</span></div></div>
+																	</div>
+																	<div class="vote-area">
+																		<div class="vote-container skeleton">
+																			<div class="vote-bar" data-width="38.8%"><span class="vote-percent"></span></div>
+																			<span class="vote-done-txt">실제 랭킹은 25일에 공개됩니다.</span>
+																		</div>
+																		<button class="basic-btn line vote-btn" title="button" onclick="modalPopup('#ktroVoteDone');"><span>투표하기</span></button>
+																	</div>
+																</div>
+															</div>
+															<a href="http://codeloft.kr/mediascope_singit/html/play/play-solo.html" title="영상 보기" class="bottom-info-wrap comment">
+																<div class="sheet-content content-txt1">
+																	<h4 class="sheet-tit">댓글 <span class="comment-num skeleton">9999+</span></h4> 
+																	<!-- 댓글이 없는 경우 sheet-cont-inner에 no-comment 클래스 추가 -->
+																	<div class="sheet-cont-inner">
+																		<div class="comment-box">
+																			<div class="comment-wrap">
+																				<div class="comment-list comment-tree1">
+																					<div class="profile-area skeleton">
+																						<img class="fade-in lazyloaded" decoding="async" src="../../asset/images/temp/profile-temp01.png" alt="유저 프로필 이미지">
+																					</div>
+																					<div class="content-area">
+																						<p class="comment-txt content-txt3 skeleton">덕분에 노래 잘 감상하고 갑니다 :) 혹시 신청곡도 받으시나요?! ㅎㅎ</p>
+																					</div>
+																				</div>
+																			</div>
+																			<!-- 댓글이 없는 경우 -->
+																			<div class="no-comment-case">
+																				<p>첫 번째로 이 영상에 댓글을 남겨보세요.</p>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+                        <!-- Floating Button -->
+                        <aside id="share-btn" class="content-txt2">
+                            <a href="javascript:;" tabindex="0" title="공유하기"><span class="hidden">공유하기</span></a>		
+                        </aside>
+					</div>
+				</div>
+			</div>
+
+			<!--========== TOAST POPUP ==========-->
+			<div class="toast-popup-group">
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

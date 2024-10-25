@@ -103,59 +103,14 @@
                     </div>
                 </div>
 
-                <!-- 지원영상 확인 팝업(applyCheckPop) -->
-				<div id="applyCheckPop" class="modal alert applyPop applyCheckPop">
-					<div class="modal-wrap">
-						<section class="modal-content">
-							<div class="modal-cont-wrap">
-                                <div class="apply-video-wrap">
-                                    <p class="apply-label content-txt3">지원영상 확인</p>
-                                    <div class="profile-wrap">
-                                        <div class="profile-wrap-inner" title="내 영상 보기">
-                                            <div class="thumbnail-area profile-img skeleton"> 
-                                                <!-- 이미지 확장자는 jpg 권장 -->
-                                                <div class="thumbnail-wrap">
-                                                    <img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-ktrot-169-01.jpg" srcset="../../asset/images/temp/img-ktrot-169-01.jpg 2x" alt="목포행 완행열차 영상">
-                                                    <img class="fade-in lazyload background" decoding="async" src="../../asset/images/temp/img-ktrot-169-01.jpg" srcset="../../asset/images/temp/img-ktrot-169-01.jpg 2x" alt="목포행 완행열차 영상">
-                                                </div>
-                                                <div class="img-btn-wrap bottom left">
-                                                    <div class="time">02:50</div>
-                                                </div>
-                                            </div>
-                                            <div class="profile-info">
-                                                <p class="profile-tit content-txt2 skeleton">목포행 완행열차</p>
-                                                <span class="profile-txt content-txt3 skeleton">장윤정</span>
-                                                <div class="score-btn-wrap">
-                                                    <div class="score-wrap">
-                                                        <div class="rank-score-wrap caption-txt1 skeleton">
-                                                            <span class="point-num"><em class="rubik-txt num content-txt2">98.9</em> 점</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="info-date caption-txt1">2024.08.06</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-tit-wrap">
-                                    <h3 class="modal-tit">위 영상으로 제출하시겠습니까?</h3>
-                                </div>
-                                <div class="modal-txt-wrap">
-                                    <p class="modal-sub-tit">제출 시 지원영상 변경이 더 이상 불가합니다.</p>
-                                </div>
-							</div>
-							<div class="modal-btn-wrap">
-								<a href="javascript:;" onclick="modalPopupClose('#applyCheckPop');" class="basic-btn gray" tabindex="1">취소</a>
-								<a href="javascript:;" onclick="modalPopupClose('#applyCheckPop'); toastPopup('applyComplete'); startRedirectTimer();" class="basic-btn red" tabindex="1">제출</a>
-							</div>
-						</section>
-					</div>
-				</div>
-
                 <!-- 영상 재생 팝업(videoPop) -->
                 <div id="videoPop" class="modal videoPop">
                     <div class="modal-wrap">
                         <section class="modal-content play-vid-sec modal-play-vid-sec">
+                            <h3 class="hidden">내 영상 재생 팝업</h3>
+                            <div class="modal-close-btn">
+                                <a href="javascript:;" onclick="modalPopupClose('#videoPop')" title="팝업창 닫기">팝업창 닫기</a>
+                            </div>
                             <div class="play-vid-box show">
                                 <div class="play-vid-wrap">
                                     <!-- 컨텐츠가 들어가는 자리입니다. .play-vid 필수 -->
@@ -205,7 +160,7 @@
                         </div>
                         <div class="inner">
                             <div class="btn-wrap section-header-btn">
-                                <a class="basic-btn round gray sing" href="javascript:;" title="다시 부르기"><span>다시 부르기</span></a>
+                                <a class="basic-btn round gray line sing" href="javascript:;" title="다시 부르기"><span>다시 부르기</span></a>
                             </div>
                         </div>
                     </div>
@@ -228,7 +183,7 @@
                                     <li class="profile-list apply">
                                         <div class="profile-wrap">
                                             <a href="javascirpt:;" class="profile-wrap-inner" title="내 영상 보기">
-                                                <div class="thumbnail-area profile-img skeleton"> 
+                                                <div class="thumbnail-area profile-img skeleton" onclick="modalPopup('#videoPop');"> 
                                                     <!-- 이미지 확장자는 jpg 권장 -->
                                                     <div class="thumbnail-wrap">
                                                         <img class="fade-in lazyload middle" decoding="async" src="../../asset/images/temp/img-ktrot-169-04.jpg" srcset="../../asset/images/temp/img-ktrot-169-04.jpg 2x" alt="목포행 완행열차 영상">
@@ -250,7 +205,7 @@
                                                                 <span class="point-num"><em class="rubik-txt num content-txt2">98.9</em> 점</span>
                                                             </div>
                                                         </div>
-                                                        <div class="info-date caption-txt1">2024.08.06</div>
+                                                        <div class="info-date caption-txt1 skeleton">2024.08.06</div>
                                                     </div>
                                                 </div>
                                             </a>
@@ -263,7 +218,7 @@
                             </div>
                             <div class="btn-wrap bottom bg-none">
                                 <div class="inner">
-                                    <button type="button" class="basic-btn red round" aria-label="지원하기" onclick="modalPopup('#applyCheckPop')">
+                                    <button type="button" class="basic-btn red round" aria-label="지원하기" onclick="location.href=''">
                                         <span>지원하기</span>
                                     </button>
                                 </div>
@@ -282,21 +237,8 @@
 			<div class="toast-popup-group">
                 <div class="toast-popup">
 					<p class="toast-popup-txt requestComplete">삭제가 완료되었습니다.</p>
-                    <p class="toast-popup-txt applyComplete">접수가 완료되었습니다.</p>
 				</div>
 			</div>
-
-            <!--
-                * 필요시 사용하며, startRedirectTimer() 에 의해 호출됩니다.
-                * toastPopup('applyComplete') 이 사라진 뒤 예선통과자 및 패자부활전 발표 페이지로 이동합니다.
-            -->
-            <script>
-                function startRedirectTimer() {
-                    setTimeout(function() {
-                            window.location.href = "http://codeloft.kr/mediascope_singit/html/kpop/ktrot-preliminary.html";
-                        }, 1500);
-                    }
-            </script>
 			
 		</div>
 	</div>

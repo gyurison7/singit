@@ -1604,10 +1604,10 @@ $(function(){
 ------------------------------------------------------------------------ */
 /*========== KTROT 내영상 ==========*/
 $(function() {
-    var profileTarget = $('.ktrot-my-video-sec .profile-area.song .profile-wrap .profile-wrap-inner');
+    var profileTarget = $('.ktrot-my-video-sec:not(.ktrot-finals-sec) .profile-area.song .profile-wrap .profile-wrap-inner');
 
     if($(".ktrot-my-video-sec").length > 0) {
-        $(".ktrot-my-video-sec .profile-area.song .profile-wrap .profile-wrap-inner").click(function(e) {
+        $(".ktrot-my-video-sec:not(.ktrot-finals-sec) .profile-area.song .profile-wrap .profile-wrap-inner").click(function(e) {
             e.preventDefault();
             var profileList = $(this).closest('.profile-area.song .profile-list');
             var profileCont = $(this).closest('.profile-area.scroll-tab-cont');
@@ -1615,7 +1615,7 @@ $(function() {
             profileTarget.removeClass('active');
             $(this).addClass('active');
             profileCont.find('.bg-none').addClass('active');
-            if(profileList.hasClass('apply') && $(".ktrot-preliminary-sec").length === 0 && $(".ktrot-rematch-sec").length === 0) {
+            if(profileList.hasClass('apply') && $(".ktrot-rematch-sec").length === 0) {
                 $(this).removeClass('active');
                 profileCont.find('.bg-none').removeClass('active');
             }
@@ -1630,11 +1630,9 @@ $(function() {
         }
     });
 
-    $(".ktrot-my-video-sec .profile-area.song .profile-wrap .profile-wrap-inner .thumbnail-area").click(function(e) {
+    $(".ktrot-my-video-sec:not(.ktrot-finals-sec) .profile-area.song .profile-wrap .profile-wrap-inner .thumbnail-area").click(function(e) {
         e.preventDefault();
         e.stopPropagation();
-
-        modalPopup('#videoPop');
     });
 });
 
@@ -1647,5 +1645,123 @@ $(function(){
     $("#preliminary-btn").click(function(e) {
         e.preventDefault();
         $("#ktrot-preliminary")[0].scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+/*========== KTROT 본선 상세 ==========*/
+document.addEventListener('DOMContentLoaded', function() {
+    const voteAreas = document.querySelectorAll('.vote-area');
+    let isInitialLoad = true; 
+
+    voteAreas.forEach(voteArea => {
+        const voteBar = voteArea.querySelector('.vote-bar');
+        const width = voteBar.getAttribute('data-width');
+        const percentSpan = voteBar.querySelector('.vote-percent');
+        const doneText = voteArea.querySelector('.vote-done-txt');
+
+        voteBar.style.width = '0%';
+        percentSpan.textContent = '0%';
+
+        setTimeout(() => {
+            voteBar.style.transition = 'width 1s ease-in-out';
+            voteBar.style.width = width;
+            percentSpan.textContent = width;
+        }, 100);
+
+        voteBar.addEventListener('transitionend', function(e) {
+            if (e.propertyName === 'width' && voteBar.style.width === width) {
+                const profileList = voteBar.closest('.profile-list');
+                if (profileList && profileList.classList.contains('done')) {
+                    if (doneText) {
+                        doneText.style.display = 'block';
+                        doneText.offsetHeight;
+                        doneText.style.opacity = '1';
+                    }
+                }
+                if (percentSpan) {
+                    percentSpan.style.display = 'block';
+                    percentSpan.offsetHeight;
+                    percentSpan.style.opacity = '1';
+                }
+                if (!isInitialLoad && !profileList.classList.contains('vote-done')) {
+                    modalPopup('#ktroVote');
+                }
+            }
+        });
+
+        const voteButton = voteArea.querySelector('.vote-btn');
+        voteButton.addEventListener('click', function() {
+            const profileList = voteBar.closest('.profile-list');
+            if (profileList && !profileList.classList.contains('vote-done')) {
+                isInitialLoad = false;  
+                
+                if (doneText) {
+                    doneText.style.display = 'none';
+                    doneText.style.opacity = '0';
+                }
+                if (percentSpan) {
+                    percentSpan.style.display = 'none';
+                    percentSpan.style.opacity = '0';
+                }
+
+                voteBar.style.transition = 'none';
+                voteBar.style.width = '0%';
+                percentSpan.textContent = '0%';
+
+                voteBar.offsetHeight;
+
+                voteBar.style.transition = 'width 1s ease-in-out';
+                voteBar.style.width = width;
+                percentSpan.textContent = width;
+            }
+        });
+    });
+});
+$(function () {
+    if ($(".tooltip").length > 0) {
+        $(".tooltip .toolbtn").click(function () {
+            $(this).next('.tooltip-cont').toggleClass('on');
+        });
+        $(document).mouseup(function (e) {
+            if ($(".tooltip-cont, .tooltip.on").has(e.target).length === 0) {
+                $(".tooltip").removeClass('on');
+                $(".tooltip-cont").removeClass('on');
+            }
+        });
+    }
+});
+$(function() {
+    if($('.ktrot-finals').length > 0) {
+        function kpopScroll() {
+            var kpopHeaderHeight = $(".ktrot-head-inner").innerHeight();
+            var kpopContentHeight =  $(".ktrot-finals-cont").innerHeight();
+            var kpopFixedHeader = kpopContentHeight > window.innerHeight * 0.835;
+            
+            if(kpopFixedHeader) {
+                $(".ktrot-head-inner").addClass("fixed");
+                $(".ktrot-finals .ktrot-finals-cont").css("margin-top", kpopHeaderHeight);
+                $(".battle-game-score-popup .cont-area-wrap").css("margin-top", kpopHeaderHeight);
+            } else {
+                $(".ktrot-head-inner").removeClass("fixed");
+                $(".ktrot-finals .ktrot-finals-cont").css("margin-top", 0);
+                $(".battle-game-score-popup .cont-area-wrap").css("margin-top", 0);
+            }
+        }
+        kpopScroll();
+
+        $(window).resize(function() {
+            kpopScroll();
+        });
+    }
+});
+
+/*========== KTROT 우승자 발표 ==========*/
+document.addEventListener('DOMContentLoaded', function() {
+    const voteBars = document.querySelectorAll('.vote-finals-bar');
+    voteBars.forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        bar.style.width = width;
+        const percentSpan = bar.querySelector('.vote-finals-percent');
+        percentSpan.textContent = width;
     });
 });

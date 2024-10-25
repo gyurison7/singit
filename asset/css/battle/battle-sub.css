@@ -13,16 +13,16 @@
 .section-header.battle-game { width: calc(100% - 32px); max-width: 718px; padding-top: 1em; }
 .section-header.battle-game.fixed { position: fixed; top: 2.75em; }
 .section-header.battle-game .section-title-wrap { width: 100%;  padding: 1.75em 1.69em 1.63em;; border-radius: 6px; background-image: url("../../images/sub/battle/battle-game-bg.png"); background-repeat: no-repeat; background-position: center; background-size: cover; color: #fff; }
-.section-header.battle-game .section-title-wrap .section-title { font-size: 1.25rem; line-height: 1.40; }
-.section-header.battle-game .section-title-wrap .sub-title { padding-top: 0.88em; }
+.section-header.battle-game .section-title-wrap .section-title { font-size: 1.25rem; line-height: 1.40; word-break: keep-all;}
+.section-header.battle-game .section-title-wrap .sub-title { padding-top: 0.88em; font-weight: 500; font-variation-settings: "wght" 500; word-break: keep-all;}
 .section-header.battle-game .section-notice { display: flex; flex-direction: column; gap: 0.63em; padding-block: 1.13em 1.25em; color: #888; }
 .section-header.battle-game .section-notice p { display: flex; padding-left: 0.83em; word-break: keep-all; font-weight: 400; font-variation-settings: "wght" 400; }
-.section-header.battle-game .section-notice p::before { display: block; width: 4px; height: 4px; margin: 0.5em 0.5em 0 -0.83em; border-radius: 50%; background-color: #888; content: ''; flex-shrink: 0; }
+.section-header.battle-game .section-notice p::before { display: block; width: 4px; height: 4px; margin: 0.565em 0.5em 0 -0.83em; border-radius: 50%; background-color: #888; content: ''; flex-shrink: 0; }
 .battle-game-list-sec .section-header.battle-game::after { display: block; position: absolute; left: 50%; width: 100%; max-width: 750px; height: 0.31em; background-color: var(--sub-bg-color-f5); content: ''; transform: translateX(-50%); }
 .battle-game-list-sec .section-header.battle-game.fixed::after { width: calc(100% + 32px); }
 
-.battle-game-list-sec .section-content { position: relative; top: 0.31em; z-index: 1; padding: 0 16px; background-color: #fff; }
-.battle-game-list-sec .sorting-tit-wrap { position: sticky; top: 2.75em; z-index: 13; padding: 1.5em 0; background-color: #fff; }
+.battle-game-list-sec .section-content { position: relative; top: 0.31em; z-index: 1; padding: 0 16px; background-color: #fff; font-size: 1rem; }
+.battle-game-list-sec .sorting-tit-wrap { position: sticky; top: 2.75em; z-index: 51; padding: 1.5em 0; background-color: #fff; }
 .battle-game-list-sec .battle-game-item:first-child { padding-top: 0; }
 .battle-game-list-sec .battle-game-item { padding-block: 1.25em 0.94em; border-bottom: 1px solid var(--basic-line-color); }
 .battle-game-list-sec .battle-game-item .thumbnail-area { width: 6.13em; height: 8.19em; }
@@ -39,7 +39,8 @@
 .battle-game-list-sec .profile-area.grade .profile-bottom { display: flex; flex-direction: column; align-items: flex-start; width: calc(100% - 7.13em); bottom: 0; }
 .battle-game-list-sec .profile-area.grade .profile-bottom .song-by-info a { display: flex; align-items: center; gap: 0.33em; width: 100%; color: #888; }
 .battle-game-list-sec .profile-area.grade .profile-bottom .score-btn-wrap { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-.battle-game-list-sec .profile-area.grade .profile-bottom .score-label span { display: block; padding: 0em 0.5em; border-radius: 2px; background-color: var(--sub-bg-point-color); color: var(--main-point-color);}
+.score-wrap {font-size: 1rem;}
+.score-wrap .score-label span { display: block; padding: 0em 0.5em; border-radius: 2px; background-color: var(--sub-bg-point-color); color: var(--main-point-color);}
 .battle-game-list-sec .profile-area.grade .profile-bottom .score-wrap { display: flex; align-items: center; padding-block: 0.242em; }
 .battle-game-list-sec .profile-area.grade .profile-bottom .rank-score-wrap { padding-left: 0.5em; }
 .battle-game-list-sec .profile-area.grade .profile-bottom .btn-wrap { display: flex; position: absolute; bottom: 0; right: 0; }
@@ -58,9 +59,14 @@
     .battle-game-list-sec:not(.battle-challenge-sec) .battle-game-item:not(.album) .thumbnail-area .thumbnail-wrap::before { width: 1.8em; height: 1.8em; }
     .battle-game-list-sec .profile-area.grade .profile-info, .battle-game-list-sec .profile-area.grade .profile-bottom { width: calc(100% - 6.31em); }
     .battle-game-list-sec .profile-area.grade .profile-bottom .score-wrap { padding-block: 0.333em; }
-    .battle-game-list-sec .profile-area.grade .profile-bottom .score-label span { font-size: 0.63rem; }
+    .score-wrap .score-label span { font-size: 0.63rem; }
     .battle-game-list-sec .profile-area.grade .profile-bottom .point-num em { font-size: 1rem; }
     .battle-game-list-sec .profile-area.grade .profile-bottom .btn-wrap a { min-width: 75px; }
+}
+@media screen and (min-width: 421px){
+    .battle-game-list-sec .section-content {font-size: clamp(16px, 4.267vw, 20px);}
+    .score-wrap {font-size: clamp(16px, 4.267vw, 20px);}
+    .section-header.battle-game .section-title-wrap .section-title {font-size: clamp(20px, 5.333vw, 26px);}
 }
 
 /* ------------------------------------------------------------------------ 
@@ -68,14 +74,16 @@
 ------------------------------------------------------------------------ */
 .battle-game-score-popup .section-header.battle-game .section-notice { padding-bottom: 1.88em; }
 .battle-game-score-popup .cont-area-wrap { position: relative; z-index: 1; overflow: visible; background-color: #fff;}
-.battle-game-score-popup .profile-info.top { align-items: center; position: sticky; top: 0; z-index: 2; width: 100%; padding-block: 1em 0.88em; border-radius: 1.25em 1.25em 0 0; border-bottom: 1px solid var(--basic-line-color); background-color: #fff; }
+.battle-game-score-popup .profile-info.top { align-items: center; position: sticky; top: 0; z-index: 2; width: 100%; padding: 1em 1em 0.88em; border-radius: 1.25em 1.25em 0 0; border-bottom: 1px solid var(--basic-line-color); background-color: #fff; }
+.battle-game-score-popup .profile-info.top .profile-tit { width: 100%; text-overflow: initial; white-space: inherit; overflow: initial; text-align: center; }
+.battle-game-score-popup .profile-info.top .profile-txt { width: 100%; text-align: center; }
 .battle-game-score-popup .cont-area.graph { padding-block: 0 1.38em; }
 .battle-game-score-popup .rank-area {display: flex; justify-content: center; align-items: center;  padding-top: 3.19em; }
 .battle-game-score-popup .cont-area.rank .rank-top-area.no-rank .rank-list-wrap p { padding-block: 2.15em; text-align: center; }
 .battle-game-score-popup .battle-game-rank-list { display: flex; justify-content: space-between; align-items: center; gap: 1.53em; font-size: 1rem; }
 .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item { display: flex; flex-direction: column; align-items: center; width: 5.25em; font-size: inherit; }
 .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item.first { width: 7.5em; }
-.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .profile-img-wrap { position: relative; }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .profile-img-wrap { position: relative; width: 100%;}
 .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .profile-img { width: 100%; height: auto; aspect-ratio: 1 / 1; }
 .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item.first .icon-wrap { position: absolute; top: -1.75em; left: 50%; width: 2.63em; height: 2.17em; z-index: 1; background-image: url("../../images/sub/battle/icon-first.svg"); background-repeat: no-repeat; background-position: center; background-size: cover; transform: translateX(-50%); }
 .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .rank-wrap { position: absolute; bottom: 0; left: 0; }
@@ -83,10 +91,13 @@
 .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item.first .rank-wrap span { width: 1.78em; height: 1.78em; background-color: #FCCA36; }
 .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item.second .rank-wrap span { background-color: #B2B2B2; }
 .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item.third .rank-wrap span { background-color: #C07136; }
-.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .profile-title { padding-top: 1em; }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .profile-title { width: 100%; padding-top: 1em; overflow: hidden; word-break: keep-all; white-space: nowrap; text-overflow: ellipsis; text-align: center; }
 .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .score-wrap { display: flex; justify-content: center; align-items: center; padding-top: 0.83em; }
 .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .score-wrap span { padding: 0.16em 1.5em; border-radius: 1.42em; background-color: var(--sub-bg-point-color); color: #666; white-space: nowrap; }
 .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .score-wrap span em { color: #111; }
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item.none .profile-img-wrap {margin-top: -40%;}
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item.none .score-wrap span {background-color: transparent;text-indent: -9999px;}
+.battle-game-score-popup .battle-game-rank-list .battle-game-rank-item.none .score-wrap em {text-indent: -9999px;}
 .battle-game-score-popup .cont-area.rank { position: relative; }
 .battle-game-score-popup .cont-area.rank::before { display: block; position: absolute; top: -0.31em; left: 50%; width: 100%; max-width: 750px; height: 0.31em; background-color: var(--sub-bg-color-f5); content: ''; transform: translateX(-50%); }
 
@@ -103,6 +114,7 @@
     .battle-game-score-popup .battle-game-rank-list { gap: 0.750em; }
     .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item { width: 4.65em; }
     .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item.first { width: 6.80em; }
+    .battle-game-score-popup .battle-game-rank-list .battle-game-rank-item .score-wrap { font-size: 0.875rem; }
 }
 @media screen and (min-width: 421px){
     .battle-game-score-popup .battle-game-rank-list {font-size: clamp(16px, 4.267vw, 20px);} 
@@ -118,6 +130,7 @@
 .battle-challenge-sec .section-content .thumbnail-area { width: 6.25em; height: 6.25em; }
 .battle-challenge-sec .section-content .profile-area.grade .profile-info { width: calc(100% - 7.25em); }
 .battle-challenge-sec .section-content .profile-area.grade .profile-bottom { width: calc(100% - 7.25em); bottom: -2px; }
+.battle-challenge-sec .battle-game-item .thumbnail-area:not(.duet) .thumbnail-wrap img {height: 100%;}
 .battle-challenge-sec .section-content .battle-game-item.no-challenge .score-label span { background-color: #ddd; color: #111; }
 @media screen and (max-width: 350px){
     .battle-challenge-sec .section-content .thumbnail-area { width: 5.75em; height: 5.75em; }
@@ -151,7 +164,7 @@
 .process-container.challenge .completed-area .completed.next-goal { position: absolute; top: 0; left: 0; background-color: #FDE1AC; transition: width ease-out 50ms, border 300ms; } 
 .process-container.challenge .completed-area .completed.next-goal.on { border-right: 1px dashed #888;} 
 .process-container.challenge .process-bar .target-line { position: absolute; top: 50%; transform: translateY(-50%); z-index: 1; width: 2px; height: 1.63em; background-color: #FF7D2C;  } 
-.process-container.challenge .process-bar .target-line .target-tooltip { opacity: 0; visibility: hidden; position: relative; display: block; position: absolute; bottom: 2.86em; left: 50%; transform: translateX(-50%); min-width: 7.80em; background-color: #fff; padding: 0.50em 0.64em; border-radius: 0.64em; border: 1px solid #EEEEEE; border-radius: 5px; font-weight: 700; font-variation-settings: 'wght' 700; color: #FF7D2C; transition: opacity 300ms; transition-delay: 300ms; line-height: 1;} 
+.process-container.challenge .process-bar .target-line .target-tooltip { opacity: 0; visibility: hidden; position: relative; display: block; position: absolute; bottom: 2.86em; left: 50%; transform: translateX(-50%); min-width: 7.80em; background-color: #fff; padding: 0.50em 0.64em; border-radius: 0.64em; border: 1px solid #EEEEEE; border-radius: 5px; font-weight: 700; font-variation-settings: 'wght' 700; color: #FF7D2C; text-align: center; transition: opacity 300ms; transition-delay: 300ms; line-height: 1;} 
 .process-container.challenge .process-bar .target-line.on .target-tooltip { opacity: 1; visibility: visible; } 
 .process-container.challenge.false .process-bar .target-line .target-tooltip {color: #666;}
 .process-container.challenge .process-bar .target-line .target-tooltip::before {content: "";position: absolute;top: 100%;left: 50%;z-index: 1;margin-top: -1px;margin-left: -0.568em;border-width: 0.57em;border-style: solid;border-color: #fff transparent transparent transparent;font-size: inherit;}
@@ -188,4 +201,62 @@
 @media screen and (min-width: 421px){
     .graph-area.process-challenge-area { font-size: clamp(16px, 4.267vw, 20px); } 
     .current-scored .c-score strong { font-size: clamp(32px, 9.412vw, 36px); } 
+}
+
+/* ------------------------------------------------------------------------ 
+ 옥타브 레벨업 도전 시작
+------------------------------------------------------------------------ */
+.b-level-cont .score-wrap { display: flex; justify-content: center; align-items: center; gap: 0.38em; margin: 0 0 0.31em; } 
+
+/* 레벨 카드 */
+.octagon-card-area { display: flex; justify-content: center; padding: 1.50em 0 0; font-size: 1rem; } 
+.octagon-level-card { display: flex; flex-direction: column; align-items: center; width: 15.63em; height: 21.25em; aspect-ratio: 250 / 340; padding: 1em 1em 1.50em; border-radius: 1em; box-shadow: 0 0.19em 1.25em rgba(0, 0, 0, 0.08); background-color: #FFF7F7; border: 1px solid #FFC9CC; font-size: inherit; } 
+.octagon-level-card .octagon-level-img { display: flex; align-items: center; justify-content: center; padding: 1.25em 0 0.875em; } 
+.octagon-level-card .octagon-level-img embed { width: 8.13em; height: 8.13em; aspect-ratio: 1 / 1; background-color: transparent; filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.08)); } 
+
+/* 레벨 클래스에 따른 노출 처리 */
+.octagon-level-card .octagon-card-top { width: 100%; padding: 0.88em 0 1em; border-bottom: 1px solid #FFC9CC; font-size: inherit; text-align: center; } 
+.octagon-level-card .octagon-card-top .status-label .label-tit-wrap { display: none; } 
+.octagon-level-card.lv1 .octagon-card-top .status-label .label-tit-wrap.lv1 { display: block; } 
+.octagon-level-card.lv2 .octagon-card-top .status-label .label-tit-wrap.lv2 { display: block; } 
+.octagon-level-card.lv3 .octagon-card-top .status-label .label-tit-wrap.lv3 { display: block; } 
+.octagon-level-card.lv4 .octagon-card-top .status-label .label-tit-wrap.lv4 { display: block; } 
+.octagon-level-card.lv5 .octagon-card-top .status-label .label-tit-wrap.lv5 { display: block; } 
+.octagon-level-card .octagon-card-top .level-tit { display: none; margin: 0.63em 0 0; font-weight: 700; font-variation-settings: 'wght' 700; color: #111; line-height: 1; } 
+.octagon-level-card.lv1 .octagon-card-top .level-tit.lv1 { display: block; } 
+.octagon-level-card.lv2 .octagon-card-top .level-tit.lv2 { display: block; } 
+.octagon-level-card.lv3 .octagon-card-top .level-tit.lv3 { display: block; } 
+.octagon-level-card.lv4 .octagon-card-top .level-tit.lv4 { display: block; } 
+.octagon-level-card.lv5 .octagon-card-top .level-tit.lv5 { display: block; } 
+.octagon-level-card .octagon-card-bottom .card-tit { display: none; color: #111; text-align: center; word-break: keep-all; } 
+.octagon-level-card.lv1 .octagon-card-bottom .card-tit.lv1 { display: block; } 
+.octagon-level-card.lv2 .octagon-card-bottom .card-tit.lv2 { display: block; } 
+.octagon-level-card.lv3 .octagon-card-bottom .card-tit.lv3 { display: block; } 
+.octagon-level-card.lv4 .octagon-card-bottom .card-tit.lv4 { display: block; } 
+.octagon-level-card.lv5 .octagon-card-bottom .card-tit.lv5 { display: block; } 
+
+@media screen and (min-width: 421px){
+    .octagon-card-area { font-size: clamp(16px, 4.267vw, 20px); } 
+}
+
+/* ------------------------------------------------------------------------ 
+ 옥타브 레벨업 도전 성공
+------------------------------------------------------------------------ */
+.modal.battle-challenge-popup .s-challenge-wrap.battle-true .full-modal-cont:has(.b-level-success) {background-color: #fff;}
+.modal.battle-challenge-popup .s-challenge-wrap.battle-true .s-challenge-cont.b-level-success {margin-bottom: 0;padding-bottom: 4em;background-color: #fff;}
+.s-challenge-cont.b-level-success .graph-area.process-challenge-area {padding: 1.88em 0 0;}
+.s-challenge-cont.b-level-success .process-challenge-area .challenge-score-wrap .challenge-score-top {padding-bottom: 0.875em;}
+.s-challenge-cont.b-level-success .process-challenge-area .challenge-score-wrap .challenge-score-top .current-scored {flex-direction: column;gap: 0.25em; max-width: none; width: calc(100% / 2);}
+.s-challenge-cont.b-level-success .process-challenge-area .challenge-score-wrap .challenge-score-top .current-scored .c-score strong {font-size: 1.63rem;}
+.s-challenge-cont.b-level-success .process-challenge-area .process-challenge-bottom {margin: 2.19em 0 0;}
+.s-challenge-cont.b-level-success .level-status {margin: 1.25em 0 3.60em; border: none; background-color: #FFF7F7;}
+.s-challenge-cont.b-level-success .level-status .process-container.default .process-bar .background {background-color: #FED4D5;}
+.battle-challenge-popup .b-challenge-wrap.battle-true .btn-wrap.couple {display: block; padding: 10px 0;}
+.battle-challenge-popup .b-challenge-wrap.battle-true .btn-wrap.couple .inner {width: initial;}
+
+.current-scored .c-score-tit {font-weight: 400; font-variation-settings: 'wght' 400;color: #666;}
+.current-scored.target .c-score strong {color: #111;}
+
+@media screen and (min-width: 421px){
+    .process-challenge-area .challenge-score-wrap .challenge-score-top .current-scored .c-score strong { font-size: clamp(26px, 6.933vw, 30px); } 
 }

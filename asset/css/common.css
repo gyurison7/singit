@@ -207,6 +207,7 @@ Common
 .basic-btn.pink { border: 1px solid var(--sub-point-color); background-color: #fff; color: var(--main-point-color); } 
 .basic-btn.pink.on { border: 1px solid var(--sub-point-color); background-color: var(--sub-point-color); color: var(--main-point-color); } 
 .basic-btn.gray { border: 1px solid #ddd; background-color: #fff; color: #666; } 
+.basic-btn.gray:not(.line) {background-color: #EEEEEE; border-color: #EEEEEE; color: #000;}
 
 .basic-btn.sing span {padding: 0.54em 0 0.54em 1.14em; background-image: url("../images/common/icon-mic-red.svg"); background-repeat: no-repeat; background-position: left center; background-size: 1.14em auto;}
 .basic-btn.sing.red span {padding: 0.938em 0 0.938em 1.50em; background-image: url("../images/common/icon-mic-white.svg");background-size: 1.25em auto;}
